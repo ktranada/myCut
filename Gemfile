@@ -16,6 +16,7 @@ gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'newrelic_rpm'
+# Will constantly send requests to site so it doesn't go to sleep.
 
 
 group :development do

@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
+//= require composite_view
+//= require jquery.serializejson
 //= require my_cut
 //= require_tree ../templates
 //= require_tree ./models
