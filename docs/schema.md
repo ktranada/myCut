@@ -14,8 +14,10 @@ column name   | data type | details
 --------------|-----------|-----------------------
 id            | integer   | not null, primary key
 file_name     | string    | not null
-imageable     | references| polymorphic: true, index: true 
+imageable_id  | integer   | 
+imageable_type| string    |
 
+add_index imageabel_id
 Can belong to a review, can belong to a barber.
 
 ## Reviews
@@ -42,6 +44,8 @@ state       | string    | not null
 zip         | integer   | not null
 phone       | integer   | not null
 rating      | float     | 
+lat         | float     | not null
+long        | float     | not null
 
 ## tags
 column name | data type | details
@@ -63,4 +67,4 @@ id              | integer   | not null, primary key
 email           | string    | not null, unique
 password_digest | string    | not null
 session_token   | string    | not null, unique
-
+photo_url       | string    | not null
