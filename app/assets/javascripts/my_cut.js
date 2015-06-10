@@ -4,7 +4,7 @@ window.MyCut = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    
   }
 };
 

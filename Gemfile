@@ -14,6 +14,9 @@ gem 'backbone-on-rails'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'acts-as-taggable-on', '~> 3.4'
+gem 'figaro'
+gem 'paperclip'
 gem 'newrelic_rpm'
 # Will constantly send requests to site so it doesn't go to sleep.
 

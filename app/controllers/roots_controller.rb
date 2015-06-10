@@ -1,4 +1,3 @@
 class RootsController < ApplicationController
-  def root
-  end
+  def root; end
 end

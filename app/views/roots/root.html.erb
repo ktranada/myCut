@@ -1,5 +1,61 @@
-myCut will be coming shortly!
+<div id="navbar">
+</div>
+
+
 
 <div id="main">
+  <div class="row">
+    <div class="col-md-2">
+      <form class="root-sign-in" action="/session" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <div class="form-group">
+          <label for="email-input"><h1>Sign in</h1></label>
+          <input type="email"
+                 class="form-control"
+                 id="email-input"
+                 placeholder="Enter email"
+                 name="user[email]">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password"
+                 class="form-control"
+                 name="user[password]"
+                 id="exampleInputPassword1"
+                 placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+
+    <div class="col-md-2 col-md-offset-2">
+
+    </div>
+    <div class="col-md-2 col-md-offset-2">
+      <form class="root-sign-up" action="/users" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <div class="form-group">
+          <label for="email-input"><h1>Sign up</h1></label>
+          <input type="email"
+                 class="form-control"
+                 id="email-input"
+                 placeholder="Enter email"
+                 name="user[email]">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password"
+                 name="user[password]"
+                 class="form-control"
+                 id="exampleInputPassword1"
+                 placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+
+    </div>
+
+  </div>
+
 
 </div>
