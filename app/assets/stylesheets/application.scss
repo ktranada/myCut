@@ -2,6 +2,9 @@
 @import "bootstrap";
 @import "font-awesome";
 
-.form-control {
-  width: 75%;
+.server-form {
+  width: 250px;
+  .form-control {
+    width: 75%;
+  }
 }

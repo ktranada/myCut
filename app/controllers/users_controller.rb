@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_current_user!, only: [:destroy]
-
-  def new
-    render "roots/root"
-  end
+  def new; end
 
   def create
     @user = User.new(user_params)
