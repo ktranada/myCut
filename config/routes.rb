@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :barbers, except: [:edit, :new]
     resources :reviews, except: [:edit, :new]
     resources :pictures, except: [:edit, :new]
+    resources :tags, only: [:index, :show]
   end
 
 end
