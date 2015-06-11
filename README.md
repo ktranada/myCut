@@ -2,10 +2,10 @@
 
 [Heroku link][heroku]
 
-[heroku]: http://flux-capacitr.herokuapp.com
+[heroku]: http://mycut.herokuapp.com/
 
 ## Minimum Viable Product
-MyCut is a clone of Yelp built on Rails and Backbone. Users can:
+myCut is a clone of Yelp built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
