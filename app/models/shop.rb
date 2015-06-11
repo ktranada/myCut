@@ -23,7 +23,7 @@
 
 class Shop < ActiveRecord::Base
   acts_as_taggable_on :tags, :locations
-  validates :name, :address, :city, :state, :zip, :phone, :rating, presence: true
+  validates :name, :address, :city, :state,  :zip, :phone, :rating, presence: true
   validates_inclusion_of :rating, {in: 0..5 }
 
   has_many :store_pictures, as: :imageable, dependent: :destroy
@@ -42,7 +42,9 @@ class Shop < ActiveRecord::Base
 
   has_attached_file :store_picture,
       :styles => { :med => "300x300>", :thumb => "100x100>" },
-      :default_url => "/images/:style/missing.png"
+      :default_url => "/images/:style/missing.png",
+      :storage => :s3,
+      :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
 
   validates_attachment_content_type :store_picture,
       :content_type => /\Aimage\/.*\Z/,
@@ -60,12 +62,19 @@ class Shop < ActiveRecord::Base
   def average_rating
     reviews = self.reviews
     # ActiveRecord calculation sum on column ratings
-    return reviews.empty? ? nil : (reviews.sum(:rating) / reviews.length.to_f)
+    reviews.empty? ? nil : (reviews.sum(:rating) / reviews.length.to_f)
   end
 
   def number_reviews
-    return self.reviews.count
+    self.reviews.count
   end
 
+  def s3_credentials
+    bucket_loc = Rails.env.production? ? ENV'S3_BUCKET_NAME'] : ENV['DEV_S3_BUCKET_NAME']
+
+   { bucket: bucket_loc,
+    access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'] }
+  end
 
 end
