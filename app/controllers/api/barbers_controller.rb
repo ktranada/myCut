@@ -1,4 +1,4 @@
-class BoardsController < ApplicationController
+class Api::BarbersController < ApplicationController
   def create
   end
 

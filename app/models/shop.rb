@@ -32,32 +32,21 @@ class Shop < ActiveRecord::Base
 
   belongs_to :moderator, class_name: "User", foreign_key: :moderator_id
 
-  validates_inclusion_of :zip, { in: 10000..99999 }
-  validates_inclusion_of :phone, { in: 1000000000..9999999999 }
+  validates_inclusion_of :zip, :in => 10000..99999
+  validates_inclusion_of :phone, :in =>  1000000000..9999999999
 
   # Will tell geocoder which method returns geocodable address
   geocoded_by :full_street_address   # can also be an IP address
-  after_validation :geocode          # auto-fetch coordinates
+  after_validation :geocode, if: :address_changed?        # auto-fetch coordinates
 
 
   has_attached_file :store_picture,
       :styles => { :med => "300x300>", :thumb => "100x100>" },
-      :default_url => "/images/:style/missing.png",
-      :storage => :s3,
-      :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
+      :default_url => "/images/:style/missing.png"
 
   validates_attachment_content_type :store_picture,
       :content_type => /\Aimage\/.*\Z/,
       size: { in: 0..3.megabytes }
-
-  def full_street_address
-    return "#{this.address}, #{this.city}, #{this.state}, #{this.zip}"
-  end
-
-  def parse_phone_number
-    number = self.phone
-    return "(#{number[0..2]}) - #{number[3..5]} - #{number[6..9]})"
-  end
 
   def average_rating
     reviews = self.reviews
@@ -69,12 +58,15 @@ class Shop < ActiveRecord::Base
     self.reviews.count
   end
 
-  def s3_credentials
-    bucket_loc = Rails.env.production? ? ENV'S3_BUCKET_NAME'] : ENV['DEV_S3_BUCKET_NAME']
 
-   { bucket: bucket_loc,
-    access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'] }
+  def full_street_address
+    return "#{self.address}, #{self.city}, #{self.state}, #{self.zip}"
   end
+
+  def parse_phone_number
+    number = self.phone.to_s
+    return "#{number[0..2]}) - #{number[3..5]} - #{number[6..9]}"
+  end
+
 
 end

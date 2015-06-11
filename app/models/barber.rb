@@ -23,20 +23,10 @@ class Barber < ActiveRecord::Base
   has_attached_file :personal_picture,
       :styles => { :med => "300x300>", :thumb => "100x100>" },
       :default_url => "/images/:style/missing.png"
-      :storage => :s3,
-      :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
+
 
   validates_attachment_content_type :personal_picture,
       :content_type => /\Aimage\/.*\Z/,
       size: { in: 0..3.megabytes }
-
-  def s3_credentials
-    bucket_loc = Rails.env.production? ? ENV'S3_BUCKET_NAME'] : ENV['DEV_S3_BUCKET_NAME']
-
-   { bucket: bucket_loc,
-    access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'] }
-  end
-
 
 end

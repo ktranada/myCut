@@ -1,6 +1,8 @@
 <h1>Sign up</h1>
 
-<form class="server-form" action="/users" method="post">
+<%= render "shared/errors", user: @user %>
+
+<form class="server-form" enctype="multipart/form-data" action="/users" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div class="form-group">
     <label for="email-input">Email<label>
@@ -11,12 +13,20 @@
            name="user[email]">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
+    <label for="email-password">Password</label>
     <input type="password"
            class="form-control"
            name="user[password]"
-           id="exampleInputPassword1"
+           id="email-password"
            placeholder="Password">
+  </div>
+
+  <div class="form-group">
+    <label for="user-avatar">Upload a profile picture</label>
+    <input type="file"
+           class="form-control"
+           id="user-avatar"
+           name="user[avatar]">
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>

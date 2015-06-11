@@ -1,4 +1,4 @@
-class ShopsController < ApplicationController
+class Api::ShopsController < ApplicationController
   def index
     @shops = Shop.all
     render json: @shops

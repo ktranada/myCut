@@ -24,7 +24,7 @@ gem 'figaro'
 
 gem "paperclip", "~> 4.2"
 
-gem 'aws-sdk', '~> 1.6'
+gem 'aws-sdk', '< 2.0'
 # Amazon's S3 service
 
 

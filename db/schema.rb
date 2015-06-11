@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610223432) do
+ActiveRecord::Schema.define(version: 20150611185845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,16 +58,16 @@ ActiveRecord::Schema.define(version: 20150610223432) do
   add_index "reviews", ["shop_id"], name: "index_reviews_on_shop_id", using: :btree
 
   create_table "shops", force: :cascade do |t|
-    t.integer  "moderator_id",                             null: false
-    t.string   "name",                                     null: false
-    t.string   "address",                                  null: false
-    t.string   "city",                                     null: false
-    t.string   "state",                                    null: false
-    t.integer  "zip",                                      null: false
-    t.integer  "phone",                                    null: false
-    t.float    "latitude",                                 null: false
-    t.float    "longitude",                                null: false
-    t.float    "rating",                     default: 0.0, null: false
+    t.integer  "moderator_id",                                       null: false
+    t.string   "name",                                               null: false
+    t.string   "address",                                            null: false
+    t.string   "city",                                               null: false
+    t.string   "state",                                              null: false
+    t.integer  "zip",                                                null: false
+    t.integer  "phone",                      limit: 8,               null: false
+    t.float    "latitude",                                           null: false
+    t.float    "longitude",                                          null: false
+    t.float    "rating",                               default: 0.0, null: false
     t.string   "store_picture_file_name"
     t.string   "store_picture_content_type"
     t.integer  "store_picture_file_size"
@@ -99,12 +99,15 @@ ActiveRecord::Schema.define(version: 20150610223432) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",           null: false
-    t.string   "password_digest", null: false
-    t.string   "session_token",   null: false
-    t.string   "photo_url"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "email",               null: false
+    t.string   "password_digest",     null: false
+    t.string   "session_token",       null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -2,13 +2,16 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  email           :string           not null
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  photo_url       :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                  :integer          not null, primary key
+#  email               :string           not null
+#  password_digest     :string           not null
+#  session_token       :string           not null
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  avatar_file_name    :string
+#  avatar_content_type :string
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
 #
 
 require 'test_helper'

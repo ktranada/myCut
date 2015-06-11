@@ -1,4 +1,4 @@
-class PicturesController < ApplicationController
+class Api::PicturesController < ApplicationController
   def create
   end
 
