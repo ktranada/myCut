@@ -8,9 +8,10 @@ class CreateShops < ActiveRecord::Migration
       t.string :state, null: false
       t.integer :zip, null: false
       t.integer :phone, null: false
-      t.float :lat, null: false
-      t.float :lon, null: false
-      t.float :rating, default: 0
+      t.float :latitude, null: false
+      t.float :longitude, null: false
+      t.float :rating, default: 0, null: false
+      t.attachment :store_picture
 
       t.timestamps
     end

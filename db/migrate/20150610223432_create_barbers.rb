@@ -4,7 +4,7 @@ class CreateBarbers < ActiveRecord::Migration
       t.integer :shop_id, null: false
       t.string :name, null: false
       t.float :rating, default: 5 ,null: false
-      t.attachment :picture
+      t.attachment :personal_picture
 
       t.timestamps
     end

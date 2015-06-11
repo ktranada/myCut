@@ -1,7 +1,22 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  email           :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  photo_url       :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class User < ActiveRecord::Base
   attr_reader :password
 
   after_initialize :ensure_session_token!
+  has_many(:reviews, class_name: "Review", foreign_key: :author_id, dependent: :destroy)
+  has_many(:shops, class_name: "Shop", foreign_key: :moderator_id, dependent: :destroy)
 
   validates :email, :session_token, presence: true
   validates :email, uniqueness: true
