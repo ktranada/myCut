@@ -12,7 +12,7 @@
 #
 
 class Review < ActiveRecord::Base
-  validates :name, :body, :rating, presence: true
+  validates :body, :rating, :shop, :user, presence: true
   validates_inclusion_of :rating, {in: 0..5 }
   # TODO validate :user_id uniquess : { scope: :shop_id}
   # so user can comment once for each shop, but can edit comments
