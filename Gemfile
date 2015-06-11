@@ -15,10 +15,19 @@ gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'acts-as-taggable-on', '~> 3.4'
+
+gem 'geocoder'
+
 gem 'figaro'
+# Will allow app to access secret information, private keyes, in production.
+# IE heroku. It will parse a Git ignored YAML
+
 gem "paperclip", "~> 4.2"
+
 gem 'aws-sdk', '~> 1.6'
 # Amazon's S3 service
+
+
 
 gem 'newrelic_rpm'
 # Will constantly send requests to site so it doesn't go to sleep.
