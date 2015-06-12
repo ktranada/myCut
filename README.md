@@ -13,11 +13,11 @@ myCut is a clone of Yelp built on Rails and Backbone. Users can:
   - [x] Create sessions (log in)
 - [ ] Create Store
 - [ ] Read/Write shop reviews
-- [ ] Queries
-  - [ ] Find
-    - [ ] Tags
-    - [ ] Shop name
-    - [ ] Location
+- [x] Queries
+  - [x] Find
+    - [x] Tags
+    - [x] Shop name
+    - [x] Location
 - [ ] View
   - [ ] Geolocation using Google Maps API
   - [ ] Barbershops/salons
