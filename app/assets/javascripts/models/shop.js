@@ -8,8 +8,8 @@ MyCut.Models.Shop = Backbone.Model.extend({
   },
 
   barbers: function() {
-    this._barbers ||
-      this._reviews = new MyCut.Collections.Barbers([], { shop: this });
+    this._barbers = this._reviews ||
+       new MyCut.Collections.Barbers([], { shop: this });
     return this._barbers
   },
 
