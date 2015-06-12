@@ -11,35 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150611230345) do
+ActiveRecord::Schema.define(version: 20150612003942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "barbers", force: :cascade do |t|
-    t.integer  "shop_id",                                     null: false
-    t.string   "name",                                        null: false
-    t.float    "rating",                        default: 5.0, null: false
-    t.string   "personal_picture_file_name"
-    t.string   "personal_picture_content_type"
-    t.integer  "personal_picture_file_size"
-    t.datetime "personal_picture_updated_at"
+    t.integer  "shop_id",                  null: false
+    t.string   "name",                     null: false
+    t.float    "rating",     default: 5.0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_url"
   end
 
   add_index "barbers", ["shop_id"], name: "index_barbers_on_shop_id", using: :btree
 
   create_table "pictures", force: :cascade do |t|
     t.string   "picture_comment"
-    t.integer  "imageable_id",       null: false
-    t.string   "imageable_type",     null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.integer  "imageable_id",    null: false
+    t.string   "imageable_type",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_url",       null: false
   end
 
   add_index "pictures", ["imageable_id", "imageable_type"], name: "index_pictures_on_imageable_id_and_imageable_type", using: :btree
@@ -75,6 +69,7 @@ ActiveRecord::Schema.define(version: 20150611230345) do
     t.datetime "store_picture_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_url"
   end
 
   add_index "shops", ["moderator_id"], name: "index_shops_on_moderator_id", using: :btree
@@ -100,15 +95,12 @@ ActiveRecord::Schema.define(version: 20150611230345) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",               null: false
-    t.string   "password_digest",     null: false
-    t.string   "session_token",       null: false
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
+    t.string   "email",           null: false
+    t.string   "password_digest", null: false
+    t.string   "session_token",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "photo_url"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

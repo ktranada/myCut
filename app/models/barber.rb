@@ -20,14 +20,14 @@ class Barber < ActiveRecord::Base
   has_many :portfolio_pictures, as: :imageable, dependent: :destroy
 
   belongs_to :shop
-  has_attached_file :personal_picture,
-      :styles => { :med => "300x300>", :thumb => "100x100>" },
-      :default_url => "/images/:style/missing.png"
-
-
-  validates_attachment_content_type :personal_picture,
-      :content_type => /\Aimage\/.*\Z/,
-      size: { in: 0..3.megabytes }
+  # has_attached_file :personal_picture,
+  #     :styles => { :med => "300x300>", :thumb => "100x100>" },
+  #     :default_url => "/images/:style/missing.png"
+  #
+  #
+  # validates_attachment_content_type :personal_picture,
+  #     :content_type => /\Aimage\/.*\Z/,
+  #     size: { in: 0..3.megabytes }
 
 
 end
