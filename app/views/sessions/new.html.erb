@@ -1,4 +1,7 @@
 <h1> Sign in</h1>
+
+<%= render 'shared/errors' %>
+
 <form class="server-form" action="/session" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div class="form-group">

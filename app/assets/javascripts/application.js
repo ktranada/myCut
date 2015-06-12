@@ -16,6 +16,7 @@
 //= require backbone
 //= require composite_view
 //= require jquery.serializejson
+//= require bootstrap-sprockets
 //= require my_cut
 //= require_tree ../templates
 //= require_tree ./models

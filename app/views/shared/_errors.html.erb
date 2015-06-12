@@ -1,9 +1,9 @@
-<div class="alert alert-error">
-  <ul>
-    <% if flash[:notice] %>
-      <% flash[:notice].each do |msg| %>
+
+<% if flash[:errors] %>
+  <div class="alert alert-link" role="alert">
+    <ul>
+      <% flash[:errors].each do |msg| %>
         <li><%= msg %><li>
-      <% end %>
-    <% end %>
-  </ul>
-</div>
+    </ul>
+  </div>
+<% end %>
