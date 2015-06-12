@@ -77,6 +77,7 @@ collections, but they will fetch from the new `search` routes.
 [Details][phase-five]
 
 ### Bonus Features (TBD)
+- [ ] Enable user creation of tags
 - [ ] Place safeguards against non-privileged users from accessing the API.
 - [ ] Allow moderator to upload photo to a portfolio
 - [ ] Many-to-many association between barber + shop
