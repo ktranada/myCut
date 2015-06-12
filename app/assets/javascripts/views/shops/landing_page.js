@@ -1,11 +1,13 @@
 MyCut.Views.LandingPage = Backbone.View.extend({
 
+  template: JST['shops/index'],
+  
   initialize: function(){
-    this.listenTo(this.model, "sync", this.render)
-    this.listenTo(this.shops(), "add", this.addShopSubview)
+    this.listenTo(this.collection, "sync", this.render)
+    this.listenTo(this.collection, "add", this.addShopSubview)
     // this.listenTo(this.barbers(), "add", this.addBarberSubview)
 
-    this.shops().each(this.addShopSubview.bind(this));
+    this.collection.each(this.addShopSubview.bind(this));
     // this.barbers().each(this.addBarberSubview.bind(this));
   },
 

@@ -11,7 +11,7 @@ MyCut.Routers.Router = Backbone.Router.extend({
   feedLandingPage: function() {
     MyCut.shops.fetch();
     var landingPage = new MyCut.Views.LandingPage({
-      shops: MyCut.shops
+      collection: MyCut.shops
     })
     this._swapView(landingPage);
   },
