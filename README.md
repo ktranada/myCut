@@ -9,8 +9,8 @@ myCut is a clone of Yelp built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [ ] Create accounts
-  - [ ] Create sessions (log in)
+- [x] Create accounts
+  - [x] Create sessions (log in)
 - [ ] Create Store
 - [ ] Read/Write shop reviews
 - [ ] Queries
@@ -77,6 +77,7 @@ collections, but they will fetch from the new `search` routes.
 [Details][phase-five]
 
 ### Bonus Features (TBD)
+- [ ] Place safeguards against non-privileged users from accessing the API.
 - [ ] Allow moderator to upload photo to a portfolio
 - [ ] Many-to-many association between barber + shop
 - [ ] Display shop by average rating 
