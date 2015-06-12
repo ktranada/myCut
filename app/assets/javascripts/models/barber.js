@@ -3,7 +3,7 @@ MyCut.Models.Barber = Backbone.Model.extend({
 
   portfolio_pictures: function() {
     this._portfolio_pictures = this._portfolio_pictures ||
-      new MyCut.Collections.Pictures([], barber: this)
+      new MyCut.Collections.Pictures([], { barber: this } )
     return this._portfolio_pictures
   },
 

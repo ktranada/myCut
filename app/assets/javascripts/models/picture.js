@@ -1,3 +1,3 @@
-MyCut.Models.Picture = Backbone.Models.extend({
+MyCut.Models.Picture = Backbone.Model.extend({
   urlRoot: '/api/pictures'
 });

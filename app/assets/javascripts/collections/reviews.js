@@ -1,7 +1,7 @@
-MyCut.Collections.Reviews = Backbone.Collection.extend({
+window.MyCut.Collections.Reviews = Backbone.Collection.extend({
   url: '/api/reviews',
 
-  getOrFetch: function(id)
+  getOrFetch: function(id) {
     var reviews = this;
     var review = reviews.get('id');
     if (review){

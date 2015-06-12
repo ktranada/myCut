@@ -1,4 +1,4 @@
-MyCut.Models.Shop = Backbone.Model.extend({
+window.MyCut.Models.Shop = Backbone.Model.extend({
   urlRoot: '/api/shops',
 
   reviews: function() {
