@@ -1,5 +1,9 @@
 module Api
   class TagsController < ApiController
+    def create
+
+    end
+
     def index
       @tags = ActsAsTaggableOn::Tag.all
       render json: @tags
