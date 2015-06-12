@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150612003942) do
+ActiveRecord::Schema.define(version: 20150612065152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,20 +53,16 @@ ActiveRecord::Schema.define(version: 20150612003942) do
   add_index "reviews", ["shop_id"], name: "index_reviews_on_shop_id", using: :btree
 
   create_table "shops", force: :cascade do |t|
-    t.integer  "moderator_id",                                       null: false
-    t.string   "name",                                               null: false
-    t.string   "address",                                            null: false
-    t.string   "city",                                               null: false
-    t.string   "state",                                              null: false
-    t.integer  "zip",                                                null: false
-    t.integer  "phone",                      limit: 8,               null: false
-    t.float    "latitude",                                           null: false
-    t.float    "longitude",                                          null: false
-    t.float    "rating",                               default: 0.0, null: false
-    t.string   "store_picture_file_name"
-    t.string   "store_picture_content_type"
-    t.integer  "store_picture_file_size"
-    t.datetime "store_picture_updated_at"
+    t.integer  "moderator_id",                         null: false
+    t.string   "name",                                 null: false
+    t.string   "address",                              null: false
+    t.string   "city",                                 null: false
+    t.string   "state",                                null: false
+    t.integer  "zip",                                  null: false
+    t.integer  "phone",        limit: 8,               null: false
+    t.float    "latitude",                             null: false
+    t.float    "longitude",                            null: false
+    t.float    "rating",                 default: 0.0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "photo_url"

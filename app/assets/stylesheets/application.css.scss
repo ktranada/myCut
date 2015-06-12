@@ -8,3 +8,18 @@
     width: 75%;
   }
 }
+
+
+.blended {
+  background-image: url(face.jpg);
+  background-color: red;
+  background-blend-mode: multiply;
+}
+
+.navbar-brand {
+  height: 50px;
+
+}
+.body {
+  padding-top: 80px;
+}
