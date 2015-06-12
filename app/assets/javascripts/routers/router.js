@@ -20,10 +20,9 @@ MyCut.Routers.Router = Backbone.Router.extend({
     this._currentView && this._currentView.remove();
     this._currentView = newView;
     // Insert the view's `$el` before initializing the map object
-    // b/c of how GMaps resizes 
+    // b/c of how GMaps resizes
+    debugger
     this.$main.html(newView.$el);
-    newView.render();
-
   }
 
 

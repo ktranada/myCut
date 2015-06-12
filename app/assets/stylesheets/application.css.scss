@@ -21,7 +21,14 @@ body {
  margin-top:8%;
 }
 
-//
+/* Will ensure that the map will show since a div with no content
+   will, by default, collapse to 0 */
+html, body, #map-canvas {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .server-form {
   width: 250px;
   .form-control {
@@ -39,7 +46,4 @@ body {
 .navbar-brand {
   height: 50px;
 
-}
-.body {
-  padding-top: 80px;
 }

@@ -1,7 +1,7 @@
 MyCut.Views.LandingPage = Backbone.View.extend({
 
   template: JST['shops/index'],
-  
+
   initialize: function(){
     this.listenTo(this.collection, "sync", this.render)
     this.listenTo(this.collection, "add", this.addShopSubview)
@@ -9,11 +9,14 @@ MyCut.Views.LandingPage = Backbone.View.extend({
 
     this.collection.each(this.addShopSubview.bind(this));
     // this.barbers().each(this.addBarberSubview.bind(this));
+
+    var googleMapView = new MyCut.Views.MapItem();
+    this.addSubview("#map-canvas", googleMapView);
   },
 
   addShopSubview: function(shop) {
     var shopSubview = new MyCut.Views.ShopItem({ model: shop })
-    this.addSubview("", shopSubview);
+    this.addSubview(".shop-items", shopSubview);
   },
 
 
