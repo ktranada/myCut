@@ -27,6 +27,29 @@ myCut is a clone of Yelp built on Rails and Backbone. Users can:
   - [ ] Star rating of shop
   - [ ] Star rating of barber
 
+## Technologies
+### Rails 
+  * Basic CRUD
+  * Complex forms
+  * User authentication + validating sessions
+  * Bootstrap
+  * Routing
+  * Pagination
+  * APIs
+    * Google Maps JavaScript API
+    * File upload via filepicker.io (iniitially paperclip)
+  * Gems
+  * SOON: Sendgrid + delayed_job
+
+### JavaScript/Backbone
+
+  * jQuery
+  * AJAX
+  * Backbone
+  * Building my own API for consumption by Backbone.
+  
+---- 
+
 
 ## Design Docs
 * [View Wireframes][views]
