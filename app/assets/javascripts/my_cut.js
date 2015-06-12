@@ -9,7 +9,7 @@ window.MyCut = {
     var router = new MyCut.Routers.Router({
       $main: $("#main")
     });
-    var navBar = new MyCut.View.NavBar({
+    var navBar = new MyCut.Views.NavBar({
       router: router
     });
 
