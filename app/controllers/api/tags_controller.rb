@@ -7,7 +7,6 @@ class Api::TagsController < ApplicationController
   def show
     @tag = ActsAsTaggableOn::Tag.find(params[:id])
     @shops = Shop.tagged_with(@tag.name)
-
     render json: @shops
   end
 

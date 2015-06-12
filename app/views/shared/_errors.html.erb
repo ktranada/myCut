@@ -1,7 +1,7 @@
 <div class="alert alert-error">
   <ul>
-    <% if user %>
-      <% user.errors.full_messages.each do |msg| %>
+    <% if flash[:notice] %>
+      <% flash[:notice].each do |msg| %>
         <li><%= msg %><li>
       <% end %>
     <% end %>

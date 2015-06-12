@@ -29,4 +29,5 @@ class Barber < ActiveRecord::Base
       :content_type => /\Aimage\/.*\Z/,
       size: { in: 0..3.megabytes }
 
+
 end

@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   namespace :api, defaults: { format: :json } do
-    resources :shops, except: [:edit, :new]
+    resources :shops, except: [:edit, :new] do
+      resources :reviews, only: [:create, :update,:destroy]
+    end
     resources :barbers, except: [:edit, :new]
-    resources :reviews, except: [:edit, :new]
     resources :pictures, except: [:edit, :new]
     resources :tags, only: [:index, :show]
   end

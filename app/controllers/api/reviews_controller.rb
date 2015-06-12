@@ -20,13 +20,13 @@ class Api::ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
-    @review.destrroy
+    @review.destroy
     render json: {}
   end
 
   private
   def review_params
-    params.require(:review).permit(:body, :rating)
+    params.require(:review).permit(:body, :rating, :)
   end
 
 end
