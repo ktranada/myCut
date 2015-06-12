@@ -1,4 +1,5 @@
 MyCut.Collections.Pictures = Backbone.Collection.extend({
+  model: MyCut.Models.Picture,
   url: '/api/pictures',
 
   getOrFetch: function(id){

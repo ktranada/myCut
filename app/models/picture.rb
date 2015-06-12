@@ -12,7 +12,7 @@
 #
 
 class Picture < ActiveRecord::Base
-  validates :imageable, :photo_url, presence: true
+  validates :photo_url, presence: true
   belongs_to :imageable, polymorphic: true
 
 end

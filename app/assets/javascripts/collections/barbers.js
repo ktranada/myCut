@@ -1,4 +1,5 @@
 MyCut.Collections.Barbers = Backbone.Collection.extend({
+  model: MyCut.Models.Barber,
   url: '/api/barbers',
 
   getOrFetch: function (id) {

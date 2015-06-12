@@ -1,20 +1,21 @@
 MyCut.Collections.Tags = Backbone.Collection.extend({
-  url: '/api/pictures',
+  model: MyCut.Models.Tag,
+  url: '/api/tags',
 
   getOrFetch: function(id){
-    var pictures = this;
-    var picture = pictures.get('id');
-    if (picture){
-      picture.fetch();
+    var tags = this;
+    var tag = tags.get('id');
+    if (tag){
+      tag.fetch();
     } else {
-      picture = new MyCut.Models.Picture( { id: id } );
-      picture.fetch({
+      tag = new MyCut.Models.Tag( { id: id } );
+      tag.fetch({
         success: function() {
-          pictures.add(picture);
+          tags.add(tag);
         }
       });
     }
-    return picture;
+    return tag;
   }
 
 });

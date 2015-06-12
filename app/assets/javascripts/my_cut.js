@@ -12,8 +12,7 @@ window.MyCut = {
     var navBar = new MyCut.Views.NavBar({
       router: router
     });
-
+    Backbone.history.start()
     $("#navbar").html(navBar.render().$el);
-
   }
 };

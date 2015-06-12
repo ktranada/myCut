@@ -1,4 +1,4 @@
-json.(@shop, :name, :address, :city, :state, :zip)
+json.extract! @shop, :name, :address, :city, :state, :zip
 json.average_rating @shop.average_rating
 json.num_reviews @shop.number_reviews
 json.phone @shop.parse_phone_number

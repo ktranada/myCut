@@ -1,4 +1,5 @@
 MyCut.Collections.Shops = Backbone.Collection.extend({
+  model: MyCut.Models.Shop,
   url: '/api/shops',
 
   getOrFetch: function(id){
@@ -7,7 +8,7 @@ MyCut.Collections.Shops = Backbone.Collection.extend({
     if (shop){
       shop.fetch();
     } else {
-      shop = new MyCut.Models.Picture( { id: id } );
+      shop = new MyCut.Models.Shop( { id: id } );
       shop.fetch({
         success: function() {
           shops.add(shop);
