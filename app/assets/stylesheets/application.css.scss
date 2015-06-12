@@ -2,6 +2,26 @@
 @import "bootstrap";
 @import "font-awesome";
 
+/* Necessary for nav bar*/
+body {
+ padding-top:50px;
+}
+
+#masthead {
+ min-height:250px;
+}
+
+#masthead h1 {
+ font-size: 30px;
+ line-height: 1;
+ padding-top:20px;
+}
+
+#masthead .well {
+ margin-top:8%;
+}
+
+//
 .server-form {
   width: 250px;
   .form-control {
