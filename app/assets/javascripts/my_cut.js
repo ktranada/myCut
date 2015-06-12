@@ -4,7 +4,8 @@ window.MyCut = {
   Views: {},
   Routers: {},
   initialize: function() {
-    
+    var MyCut.shops = new MyCut.Collections.Shops();
+
   }
 };
 
