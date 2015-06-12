@@ -6,9 +6,9 @@
 #  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
-#  photo_url       :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  photo_url       :string
 #
 
 class User < ActiveRecord::Base
@@ -22,6 +22,16 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   validates :password_digest, presence: { message: "Password can't be blank"}
   validates :password, length: { minimum: 6, allow_nil: true }
+
+  # has_attached_file :avatar,
+  #   :styles => { :med => "300x300>", :thumb => "100x100>" },
+  #   :default_url => "/images/:style/missing.png"
+  #
+  #
+  # validates_attachment_content_type :avatar,
+  #     :content_type => /\Aimage\/.*\Z/,
+  #     size: { in: 0..3.megabytes }
+
 
   def self.find_by_credentials(user_params)
     user = User.find_by_email(user_params[:email])
@@ -48,5 +58,6 @@ class User < ActiveRecord::Base
   def ensure_session_token!
     self.session_token ||= SecureRandom::urlsafe_base64(16)
   end
+
 
 end

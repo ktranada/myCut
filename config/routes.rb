@@ -3,4 +3,13 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
 
+  namespace :api, defaults: { format: :json } do
+    resources :shops, except: [:edit, :new] do
+      resources :reviews, only: [:create, :update,:destroy]
+    end
+    resources :barbers, except: [:edit, :new]
+    resources :pictures, except: [:edit, :new]
+    resources :tags, only: [:index, :show]
+  end
+
 end

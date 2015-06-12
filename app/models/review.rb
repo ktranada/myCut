@@ -2,17 +2,18 @@
 #
 # Table name: reviews
 #
-#  id         :integer          not null, primary key
-#  body       :text             not null
-#  author_id  :integer          not null
-#  shop_id    :integer          not null
-#  rating     :float            default(0.0), not null
-#  created_at :datetime
-#  updated_at :datetime
+#  id            :integer          not null, primary key
+#  body          :text             not null
+#  author_id     :integer          not null
+#  shop_id       :integer          not null
+#  rating        :float            default(0.0), not null
+#  created_at    :datetime
+#  updated_at    :datetime
+#  barber_rating :float            default(0.0)
 #
 
 class Review < ActiveRecord::Base
-  validates :name, :body, :rating, presence: true
+  validates :body, :rating, :shop, :user, presence: true
   validates_inclusion_of :rating, {in: 0..5 }
   # TODO validate :user_id uniquess : { scope: :shop_id}
   # so user can comment once for each shop, but can edit comments

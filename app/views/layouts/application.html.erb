@@ -2,13 +2,13 @@
 <html>
 <head>
   <title>MyCut</title>
-
+  <script type="text/javascript" src="//api.filepicker.io/v2/filepicker.js"></script>
+  <script>filepicker.setKey('<%= ENV['FILEPICKER_API_KEY'] %>')</script>
   <% if Rails.env.production? %>
     <% api_key = Figaro.env.google_maps_js_key %>
   <% else %>
     <% api_key = '' %>
   <% end %>
-
   <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=<% api_key %>">
   </script>

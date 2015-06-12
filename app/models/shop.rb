@@ -19,11 +19,12 @@
 #  store_picture_updated_at   :datetime
 #  created_at                 :datetime
 #  updated_at                 :datetime
+#  photo_url                  :string
 #
 
 class Shop < ActiveRecord::Base
   acts_as_taggable_on :tags, :locations
-  validates :name, :address, :city, :state, :zip, :phone, :rating, presence: true
+  validates :name, :address, :city, :state,  :zip, :phone, :rating, presence: true
   validates_inclusion_of :rating, {in: 0..5 }
 
   has_many :store_pictures, as: :imageable, dependent: :destroy
@@ -32,39 +33,32 @@ class Shop < ActiveRecord::Base
 
   belongs_to :moderator, class_name: "User", foreign_key: :moderator_id
 
-  validates_inclusion_of :zip, { in: 10000..99999 }
-  validates_inclusion_of :phone, { in: 1000000000..9999999999 }
+  validates_inclusion_of :zip, :in => 10000..99999
+  validates_inclusion_of :phone, :in =>  1000000000..9999999999
 
   # Will tell geocoder which method returns geocodable address
   geocoded_by :full_street_address   # can also be an IP address
-  after_validation :geocode          # auto-fetch coordinates
+  after_validation :geocode, if: :address_changed?        # auto-fetch coordinates
 
-
-  has_attached_file :store_picture,
-      :styles => { :med => "300x300>", :thumb => "100x100>" },
-      :default_url => "/images/:style/missing.png"
-
-  validates_attachment_content_type :store_picture,
-      :content_type => /\Aimage\/.*\Z/,
-      size: { in: 0..3.megabytes }
-
-  def full_street_address
-    return "#{this.address}, #{this.city}, #{this.state}, #{this.zip}"
-  end
-
-  def parse_phone_number
-    number = self.phone
-    return "(#{number[0..2]}) - #{number[3..5]} - #{number[6..9]})"
-  end
 
   def average_rating
     reviews = self.reviews
     # ActiveRecord calculation sum on column ratings
-    return reviews.empty? ? nil : (reviews.sum(:rating) / reviews.length.to_f)
+    reviews.empty? ? nil : (reviews.sum(:rating) / reviews.length.to_f)
   end
 
   def number_reviews
-    return self.reviews.count
+    self.reviews.count
+  end
+
+
+  def full_street_address
+    return "#{self.address}, #{self.city}, #{self.state}, #{self.zip}"
+  end
+
+  def parse_phone_number
+    number = self.phone.to_s
+    return "(#{number[0..2]})-#{number[3..5]}-#{number[6..9]}"
   end
 
 

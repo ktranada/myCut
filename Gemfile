@@ -24,9 +24,11 @@ gem 'figaro'
 
 gem "paperclip", "~> 4.2"
 
-gem 'aws-sdk', '~> 1.6'
+gem 'aws-sdk', '< 2.0'
 # Amazon's S3 service
 
+gem 'filepicker-rails'
+# handles s3 work and is applicable for backbone views
 
 
 gem 'newrelic_rpm'
