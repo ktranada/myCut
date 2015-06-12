@@ -2,20 +2,17 @@
 #
 # Table name: pictures
 #
-#  id                 :integer          not null, primary key
-#  picture_comment    :string
-#  imageable_id       :integer          not null
-#  imageable_type     :string           not null
-#  image_file_name    :string
-#  image_content_type :string
-#  image_file_size    :integer
-#  image_updated_at   :datetime
-#  created_at         :datetime
-#  updated_at         :datetime
+#  id              :integer          not null, primary key
+#  picture_comment :string
+#  imageable_id    :integer          not null
+#  imageable_type  :string           not null
+#  created_at      :datetime
+#  updated_at      :datetime
+#  photo_url       :string           not null
 #
 
 class Picture < ActiveRecord::Base
-  validates :imageable_id, :imageable_type, :photo_url, presence: true
+  validates :imageable, :photo_url, presence: true
   belongs_to :imageable, polymorphic: true
 
   # has_attached_file :image,

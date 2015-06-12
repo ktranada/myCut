@@ -2,22 +2,19 @@
 #
 # Table name: barbers
 #
-#  id                            :integer          not null, primary key
-#  shop_id                       :integer          not null
-#  name                          :string           not null
-#  rating                        :float            default(5.0), not null
-#  personal_picture_file_name    :string
-#  personal_picture_content_type :string
-#  personal_picture_file_size    :integer
-#  personal_picture_updated_at   :datetime
-#  created_at                    :datetime
-#  updated_at                    :datetime
+#  id         :integer          not null, primary key
+#  shop_id    :integer          not null
+#  name       :string           not null
+#  rating     :float            default(5.0), not null
+#  created_at :datetime
+#  updated_at :datetime
+#  photo_url  :string
 #
 
 class Barber < ActiveRecord::Base
   validates :name, :rating, presence: true
   validates_inclusion_of :rating, {in: 0..5 }
-  has_many :portfolio_pictures, as: :imageable, dependent: :destroy
+  has_many :pictures, as: :imageable, dependent: :destroy
 
   belongs_to :shop
   # has_attached_file :personal_picture,

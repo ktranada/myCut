@@ -19,6 +19,7 @@
 #  store_picture_updated_at   :datetime
 #  created_at                 :datetime
 #  updated_at                 :datetime
+#  photo_url                  :string
 #
 
 class Shop < ActiveRecord::Base
@@ -57,7 +58,7 @@ class Shop < ActiveRecord::Base
 
   def parse_phone_number
     number = self.phone.to_s
-    return "#{number[0..2]}) - #{number[3..5]} - #{number[6..9]}"
+    return "(#{number[0..2]})-#{number[3..5]}-#{number[6..9]}"
   end
 
 
