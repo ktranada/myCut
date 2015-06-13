@@ -3,8 +3,22 @@
 @import "font-awesome";
 
 /* Necessary for nav bar*/
+nav.navbar {
+  background-color: black;
+  img {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: auto;
+    width: 50px;
+  }
 
 
+}
+
+
+
+
+/* */
 #masthead {
  min-height:250px;
 }
