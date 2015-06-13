@@ -3,8 +3,7 @@
 <head>
   <title>MyCut</title>
   <link href"https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.6/jquery.fullPage.css">
-  <script type="text/javascript" src="//api.filepicker.io/v2/filepicker.js"></script>
-  <script>filepicker.setKey('<%= ENV['FILEPICKER_API_KEY'] %>')</script>
+  <link href='http://fonts.googleapis.com/css?family=Simonetta:400,400italic' rel='stylesheet' type='text/css'>
   <% if Rails.env.production? %>
     <% api_key = Figaro.env.google_maps_js_key %>
   <% else %>
@@ -18,11 +17,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav id='nav' class="navbar-fixed-top">
-    <%= render partial: "layouts/header" %>
-  </nav>
+  <% if signed_in? %>
+    <div id="wrap">
+      <nav id='nav' class="navbar-fixed-top">
+        <%= render partial: "layouts/header" %>
+      </nav>
+    </div>
+  <% end %>
 
 <%= yield %>
+
+<% if signed_in? %>
+  <%= render 'layouts/footer' %>
+<% end %>
 
 </body>
 </html>

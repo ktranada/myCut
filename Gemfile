@@ -43,3 +43,8 @@ group :development do
   gem 'pry-rails'
   gem 'spring'
 end
+
+group :staging, :production do
+  gem 'rails_12factor'
+  # enables serving assets in production and setting your logger to standard out
+end
