@@ -17,6 +17,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav id='nav' class="navbar-fixed-top">
+    <%= render partial: "layouts/header" %>
+  </nav>
 
 <%= yield %>
 

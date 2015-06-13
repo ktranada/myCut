@@ -1,4 +1,4 @@
-MyCut.Views.MapItem = Backbone.Views.extend({
+MyCut.Views.MapItem = Backbone.View.extend({
   initMap: function(){
     var mapOptions = {
       center: { lat: 37.7833, lng: 122.2591 },
