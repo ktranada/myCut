@@ -3,7 +3,6 @@
 <head>
   <title>MyCut</title>
   <link href"https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.6/jquery.fullPage.css">
-  <link href='http://fonts.googleapis.com/css?family=Simonetta:400,400italic' rel='stylesheet' type='text/css'>
   <% if Rails.env.production? %>
     <% api_key = Figaro.env.google_maps_js_key %>
   <% else %>
@@ -17,16 +16,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if signed_in? %>
-    <div id="wrap">
+  <div id="wrap">
+    <% if signed_in? %>
       <nav id='nav' class="navbar-fixed-top">
-        <%= render partial: "layouts/header" %>
+        <%= render "layouts/header" %>
       </nav>
-    </div>
   <% end %>
+  <%= yield %>
 
-<%= yield %>
-
+</div>
 <% if signed_in? %>
   <%= render 'layouts/footer' %>
 <% end %>

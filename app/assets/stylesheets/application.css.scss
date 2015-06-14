@@ -14,6 +14,9 @@
 nav.navbar {
   background-color: black;
   color: white;
+  font-style: italic;
+  font-size: 1.2em;
+
   form {
     text-align: center;
   }
@@ -68,6 +71,7 @@ html, body, #map-canvas {
   margin: 0;
   padding: 0;
   font-family: 'Bodoni72';
+  font-weight: 500;
 }
 
 .server-form {

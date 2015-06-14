@@ -10,6 +10,7 @@ MyCut.Routers.Router = Backbone.Router.extend({
 
   feedLandingPage: function() {
     MyCut.shops.fetch();
+    debugger
     var landingPage = new MyCut.Views.LandingPage({
       collection: MyCut.shops
     })
@@ -21,8 +22,7 @@ MyCut.Routers.Router = Backbone.Router.extend({
     this._currentView = newView;
     // Insert the view's `$el` before initializing the map object
     // b/c of how GMaps resizes
-    debugger
-    this.$main.html(newView.$el);
+    this.$main.html(newView.render().$el);
   }
 
 
