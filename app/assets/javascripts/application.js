@@ -15,6 +15,7 @@
 //= require underscore
 //= require backbone
 //= require composite_view
+//= require jquery.raty
 //= require jquery.backstretch
 //= require jquery.serializejson
 //= require bootstrap-sprockets

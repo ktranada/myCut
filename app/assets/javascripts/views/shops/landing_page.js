@@ -24,7 +24,7 @@ MyCut.Views.LandingPage = Backbone.CompositeView.extend({
     var renderedLandingPage = this.template();
     this.$el.html(renderedLandingPage);
     this.attachSubviews();
-    this.$("#map-canvas").html(this.indexMap.$el);
+    // this.$("#map-canvas").html(this.indexMap.$el);
     return this;
   }
 

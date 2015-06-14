@@ -15,7 +15,7 @@ gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'acts-as-taggable-on', '~> 3.4'
-
+gem 'ratyrate'
 gem 'geocoder'
 
 gem 'figaro'

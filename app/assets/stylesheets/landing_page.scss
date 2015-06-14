@@ -1,14 +1,14 @@
 body {
-  background-image: url("http://i.ytimg.com/vi/TjN9_-ZV68o/maxresdefault.jpg");
-  background-size:cover;
   div.shop-items-index {
-    background-color: #ebb3bd;
-    opacity: 0.5;
+
+    background-color: #798C9F;
+    opacity: 0.8;
   }
 }
 
 hr {
     display: block;
+    width: 175%;
     height: 1px;
     border: 0;
     border-top: 1px solid #ccc;
@@ -19,6 +19,6 @@ hr {
 div.shop-feature {
   float: right;
   &button:hover {
-    background-color: #AEC6CF;
+    background-color: #8C5233;
   }
 }

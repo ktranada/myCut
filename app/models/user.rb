@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   has_many(:reviews, class_name: "Review", foreign_key: :author_id, dependent: :destroy)
   has_many(:shops, class_name: "Shop", foreign_key: :moderator_id, dependent: :destroy)
 
-  validates :email, :session_token, presence: true
+  validates :email, :username, :session_token, presence: true
   validates :email, uniqueness: true
   validates :password_digest, presence: { message: "Password can't be blank"}
   validates :password, length: { minimum: 6, allow_nil: true }

@@ -3,9 +3,6 @@ MyCut.Views.NavBar = Backbone.View.extend({
   className: "navbar navbar-default navbar-fixed-top",
   template: JST['navbar/nav'],
 
-  events: {
-  },
-
   render: function() {
     var renderedNav = this.template();
     this.$el.html(renderedNav);

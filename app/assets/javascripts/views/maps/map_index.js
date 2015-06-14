@@ -6,4 +6,6 @@ MyCut.Views.IndexMap = Backbone.View.extend({
     };
     this._map = new window.google.maps.Map(this.el, mapOptions);
   }
+
+  // render: function()
 });
