@@ -1,10 +1,9 @@
 MyCut.Views.LandingPage = Backbone.CompositeView.extend({
   template: JST['shops/index'],
-
   initialize: function() {
     // This will replace the entire .shop-items-index with
     // an empty div
-    // this.listenTo(this.collection, "sync", this.render)
+    this.listenTo(this.collection, "sync", this.render)
     this.listenTo(this.collection, "add", this.addShopSubviews)
     // this.listenTo(this.barbers(), "add", this.addBarberSubview)
 
@@ -24,6 +23,7 @@ MyCut.Views.LandingPage = Backbone.CompositeView.extend({
   render: function() {
     var renderedLandingPage = this.template();
     this.$el.html(renderedLandingPage);
+    this.attachSubviews();
     this.$("#map-canvas").html(this.indexMap.$el);
     return this;
   }

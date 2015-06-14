@@ -1,0 +1,32 @@
+body {
+  overflow: scroll;
+}
+
+
+.page-wrap {
+  min-height: 100%;
+  overflow-y: scroll;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by its height */
+  margin: 0 auto -50px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+.site-footer, .page-wrap:after {
+  height: 50px;
+  background-color: black;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  p {
+    color: white;
+  }
+  .container {
+    margin-left: 100px;
+    float: left;
+    padding-bottom: 10px;
+    padding-top: 15px;
+  }
+}
