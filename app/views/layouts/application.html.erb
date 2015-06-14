@@ -1,33 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>MyCut</title>
-  <link href"https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.6/jquery.fullPage.css">
-  <% if Rails.env.production? %>
-    <% api_key = Figaro.env.google_maps_js_key %>
-  <% else %>
-    <% api_key = '' %>
-  <% end %>
-  <script type="text/javascript"
-  src="https://maps.googleapis.com/maps/api/js?key=<% api_key %>">
-  </script>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div id="wrap">
+  <head>
+    <title>MyCut</title>
+    <link href"https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.6/jquery.fullPage.css">
+    <% if Rails.env.production? %>
+      <% api_key = Figaro.env.google_maps_js_key %>
+    <% else %>
+      <% api_key = '' %>
+    <% end %>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"> </script>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="page-wrap">
+      <% if signed_in? %>
+        <nav id='nav' class="navbar-fixed-top">
+          <%= render "layouts/header" %>
+        </nav>
+      <% end %>
+      <%= yield %>
+    </div>
     <% if signed_in? %>
-      <nav id='nav' class="navbar-fixed-top">
-        <%= render "layouts/header" %>
-      </nav>
-  <% end %>
-  <%= yield %>
+      <%= render 'layouts/footer' %>
+    <% end %>
 
-</div>
-<% if signed_in? %>
-  <%= render 'layouts/footer' %>
-<% end %>
-
-</body>
+  </body>
 </html>

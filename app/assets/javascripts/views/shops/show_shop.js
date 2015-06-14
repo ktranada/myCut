@@ -1,6 +1,6 @@
 MyCut.Views.ShopItem = Backbone.CompositeView.extend({
-  className: "col-md-4",
   template: JST['shops/show_shop_item'],
+  className: "shop-item",
 
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
