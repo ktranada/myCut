@@ -1,6 +1,6 @@
 MyCut.Models.Shop = Backbone.Model.extend({
   urlRoot: '/api/shops'
-
+  // 
   // reviews: function() {
   //   this._reviews = this._reviews ||
   //      new MyCut.Collections.Reviews([], { shop: this });

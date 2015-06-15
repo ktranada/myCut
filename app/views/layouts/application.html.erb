@@ -15,17 +15,15 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="page-wrap group">
-      <% if signed_in? %>
-        <nav id='nav' class="navbar-fixed-top">
-          <%= render "layouts/header" %>
-        </nav>
-      <% end %>
-      <%= yield %>
-    </div>
     <% if signed_in? %>
-      <%= render 'layouts/footer' %>
+      <%= render partial: "layouts/header" %>
     <% end %>
+
+    <%= yield %>
+
+    <!-- <% if signed_in? %>
+      <%= render 'layouts/footer' %>
+    <% end %> -->
 
   </body>
 </html>

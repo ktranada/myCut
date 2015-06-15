@@ -25,31 +25,92 @@
        font-style: normal;
 }
 
+// Clearfix
 
-/* */
-#masthead {
- min-height:250px;
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
-#masthead h1 {
- font-size: 30px;
- line-height: 1;
- padding-top:20px;
-}
-
-/* Will ensure that the map will show since a div with no content
-   will, by default, collapse to 0 */
-shop-items-index {
-  background-color: #ebb3bd;
-  opacity: 1;
-}
 
 html, body, #map-canvas, {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+html, body {
   font-family: 'Oswald', sans-serif;
 }
+
+
+/*  Nav bar*/
+nav.navbar {
+  background-color: black;
+  color: white;
+  font-style: italic;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  label {
+    // font-style: normal;
+    font: "Arial";
+    color: #777;
+    letter-spacing: -1px;
+  }
+  form {
+    text-align: center;
+  }
+  img {
+    padding-top: 4px;
+    padding-bottom: 3px;
+    height: auto;
+    width: 50px;
+    .navbar-brand {
+      height: 50px;
+
+    }
+  }
+}
+
+/* Feed show - Landing page */
+shop-items-index {
+  background-color: #ebb3bd;
+  opacity: 1;
+}
+.feed-header {
+  color: rgb(202, 217, 231);
+  background-color: rgba(#008B8B, .5);
+  h1 {
+    color: seashell;
+  }
+}
+
+
+div.shop-items-index {
+  background-color: #798C9F;
+  opacity: 0.8;
+}
+
+//
+// hr {
+//     display: block;
+//     width: 175%;
+//     height: 1px;
+//     border: 0;
+//     border-top: 1px solid #ccc;
+//     margin: 1em 0;
+//     padding: 0;
+// }
+
+div.shop-feature {
+  float: right;
+  &button:hover {
+    background-color: #8C5233;
+  }
+}
+
 
 
 
@@ -60,7 +121,20 @@ html, body, #map-canvas, {
   }
 }
 
-.navbar-brand {
-  height: 50px;
 
+/* New Shop */
+
+// body {
+//  -webkit-background-size: cover;
+//  -moz-background-size: cover;
+//  -o-background-size: cover;
+//  background-size: cover;
+// }
+
+div.panel.panel-default.new-signup-form {
+  opacity: 0.9;
+  margin-top:30px;
+  .form-group.last {
+    margin-bottom:0px;
+  }
 }

@@ -3,7 +3,7 @@ module Api
 
     def index
       @shops = Shop.all
-      render json: @shops
+      render :index
     end
 
     def create

@@ -2,24 +2,20 @@
 #
 # Table name: shops
 #
-#  id                         :integer          not null, primary key
-#  moderator_id               :integer          not null
-#  name                       :string           not null
-#  address                    :string           not null
-#  city                       :string           not null
-#  state                      :string           not null
-#  zip                        :integer          not null
-#  phone                      :integer          not null
-#  latitude                   :float            not null
-#  longitude                  :float            not null
-#  rating                     :float            default(0.0), not null
-#  store_picture_file_name    :string
-#  store_picture_content_type :string
-#  store_picture_file_size    :integer
-#  store_picture_updated_at   :datetime
-#  created_at                 :datetime
-#  updated_at                 :datetime
-#  photo_url                  :string
+#  id           :integer          not null, primary key
+#  moderator_id :integer          not null
+#  name         :string           not null
+#  address      :string           not null
+#  city         :string           not null
+#  state        :string           not null
+#  zip          :integer          not null
+#  phone        :integer          not null
+#  latitude     :float            not null
+#  longitude    :float            not null
+#  rating       :float            default(0.0), not null
+#  created_at   :datetime
+#  updated_at   :datetime
+#  photo_url    :string
 #
 
 class Shop < ActiveRecord::Base

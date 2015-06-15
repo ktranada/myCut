@@ -9,6 +9,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  photo_url       :string
+#  username        :string           not null
 #
 
 require 'test_helper'

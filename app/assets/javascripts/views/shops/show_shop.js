@@ -1,6 +1,6 @@
 MyCut.Views.ShopItem = Backbone.CompositeView.extend({
   template: JST['shops/show_shop_item'],
-  className: "shop-index-item col-md-6 col-md-offset-1",
+  className: "shop-item col-md-12",
 
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
@@ -10,7 +10,7 @@ MyCut.Views.ShopItem = Backbone.CompositeView.extend({
     var renderedContent = this.template({ shop: this.model });
     this.$el.html(renderedContent);
     this.$el.find('.rating').raty({
-      score: this.model.attributes.rating,
+      score: this.model.attributes.average_rating,
       path: 'assets'
       })
     return this;

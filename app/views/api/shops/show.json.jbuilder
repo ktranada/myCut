@@ -27,7 +27,8 @@ json.barbers do
   json.array! @barbers do |barber|
     json.shop_id barber.id
     json.name barber.name
-    json.rating barber.rating
+    json.rating barber.average_rating
+    json.number_reviews barber.number_reviews
     json.photo_url barber.photo_url
     json.portfolio_pictures do
       json.array! barber.pictures do |picture|
