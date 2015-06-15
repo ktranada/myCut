@@ -1,5 +1,5 @@
 MyCut.Views.ShopItem = Backbone.CompositeView.extend({
-  template: JST['shops/show_shop_item'],
+  template: JST['shops/shop_index_item'],
   className: "shop-item col-md-12",
 
   initialize: function() {

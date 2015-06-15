@@ -10,7 +10,6 @@ window.MyCut = {
       $main: $("#main")
     });
     Backbone.history.start();
-
     $.backstretch([
          "https://dl.dropbox.com/s/dlrufec4t0q2kfg/background1.jpg?dl=0",
          "https://dl.dropbox.com/s/02r6ccf0836l7v8/nice_shop.jpg?dl=0",

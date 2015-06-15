@@ -22,6 +22,8 @@ MyCut.Routers.Router = Backbone.Router.extend({
       collection: MyCut.shops
     })
     this._swapView(landingPage);
+
+    landingPage.indexMap.initMap();
   },
 
   _swapView: function(newView) {
