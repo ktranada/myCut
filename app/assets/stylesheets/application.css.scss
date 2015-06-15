@@ -34,11 +34,19 @@
 }
 
 
-html, body, #map-canvas, {
-  height: 100%;
+html, body, div#main, div.first-level, div.container-fluid.level-two, div.row.level-three, div.map.col-md-4.col-md-offset-2, div#map-canvas.col-md-offset-4 {
+  height: 400px;
   margin: 0;
   padding: 0;
 }
+
+// div.map.col-md-4.col-md-offset-4 {
+//   height: 550px;
+// }
+//
+// map.col-md-4.col-md-offset-2 {
+//   height: 550px;
+// }
 
 html, body {
   font-family: 'Oswald', sans-serif;
