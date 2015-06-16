@@ -32,7 +32,7 @@ shop1 = Shop.create!(moderator_id: 1,
              rating: 0.0,
              tag_list: ["women, womens, keratin treatment, japanese hair straightening, curly hair, extensions, straight perms, coloring, thermal reconditioning, womens haircut, women haircut"],
              location_list: ["san francisco, union square, financial district"],
-             photo_url: "http://s3-media4.fl.yelpcdn.com/bphoto/rq3KWK5doz7Yltts1O2RnQ/o.jpg")
+             photo_url: "http://s3-media4.fl.yelpcdn.com/bphoto/rq3KWK5doz7Yltts1O2RnQ/md.jpg")
 barber_2 = Barber.create!(name: "Trevor", shop_id: shop1.id,  skill_list: ["coloring, keratin treatments"], photo_url: "http://s3-media2.fl.yelpcdn.com/bphoto/EGWxZatDc11tZosACS4qvA/o.jpg")
 barber_3 = Barber.create!(name: "Lauren", shop_id: shop1.id, skill_list: ["thermal reconditioning, coloring"])
 shop1_review_1 = shop1.reviews.create!(body: "This is the best salon experience I've ever had! From the start, Mary Ann (the receptionist, I believe) was super sweet and helpful. When I got there, I was warmly greeted by nearly everyone there. There was a bit of a miscommunication (I scheduled for a balayage but they had only listed me for a haircut). But my hair stylist, Britney, was accommodating and did the balayage anyway. The color turned out even better than I could've imagined. She was knowledgeable and really cool. The only negative thing was at the end when I was paying, another receptionist was helping me with my payment. I stood there for a while after I got my receipt, thinking there was a next step because she didn't say a word after. So after a few minutes of waiting at the desk, I asked, 'Am I all set?' and she just replied with yeah"  , author_id: 1, barber_id: barber_3.id, rating: 5)

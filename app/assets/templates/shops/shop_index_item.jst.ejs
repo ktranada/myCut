@@ -1,5 +1,7 @@
 <a href="#/shops/<%= shop.escape('id') %>">
-<h3><%= shop.escape('name') %></h3>
-<div class="rating" data-path="assets/images"></div><div><%= shop.escape('num_reviews') %> REVIEWS</div>
-<hr>
+  <div class="shop-photo"><img src="<%= shop.escape('photo_url') %>"></div>
+
+  <h3><%= shop.escape('name') %></h3>
+  <div class="rating" data-path="assets/images"></div><div><%= shop.escape('num_reviews') %> REVIEWS</div>
+  <hr>
 </a>
