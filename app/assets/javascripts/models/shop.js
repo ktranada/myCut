@@ -8,7 +8,7 @@ MyCut.Models.Shop = Backbone.Model.extend({
   },
 
   barbers: function() {
-    this._barbers = this._reviews ||
+    this._barbers = this._barbers ||
        new MyCut.Collections.Barbers([], { shop: this });
     return this._barbers;
   },
@@ -17,7 +17,9 @@ MyCut.Models.Shop = Backbone.Model.extend({
     if (response.reviews) {
       this.reviews().set(response.reviews, { parse: true });
       delete response.reviews
-    } else if (response.barbers) {
+    }
+
+    if (response.barbers) {
       this.barbers().set(response.barbers, {parse: true});
       delete response.barbers
     }

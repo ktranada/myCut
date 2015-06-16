@@ -34,7 +34,6 @@ MyCut.Routers.Router = Backbone.Router.extend({
 
   showShop: function(id) {
     var shopModel = MyCut.shops.getOrFetch(id);
-    debugger
     var shopView = new MyCut.Views.ShowShop({ model: shopModel});
     this._swapView(shopView);
   },

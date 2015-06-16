@@ -1,7 +1,6 @@
 MyCut.Views.ShopIndex = Backbone.CompositeView.extend({
   template: JST['shops/shop_index'],
 
-
   initialize: function() {
     this.listenTo(this.collection, "add", this.addShopSubviews)
     this.listenTo(this.collection, "remove", this.removeShopSubviews)

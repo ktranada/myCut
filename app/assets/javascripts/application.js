@@ -20,6 +20,7 @@
 //= require jquery.fullPage.min
 //= require jquery.serializejson
 //= require bootstrap-sprockets
+//= require unslider.min
 //= require my_cut
 //= require_tree ../templates
 //= require_tree ./models

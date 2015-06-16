@@ -200,16 +200,20 @@ background-color: rgba(0, 139, 139, 0.5);
 
 /* Show SHop */
 
-.shop-barber-slider {
-   position: relative;
-   width: 100%;
-   overflow: auto;
-   padding: 0px;
-   margin: 0px;
+.shop-barber-slider { position: relative; overflow: auto; }
+    .shop-barber-slider li { list-style: none; }
+        .shop-barber-slider ul li { float: left; }
+
+
+col-xs-9.col-md-6.col-md-offset-3 {
+  float: right;
 }
-.shop-barber-slider li {
-  list-style: none;
-}
-.shop-barber-slider ul li {
-  float: left;
+
+div.barber-photo.col-xs-3.col-md-4 {
+  width: 300px;
+  height: 100%;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
 }
