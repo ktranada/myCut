@@ -1,6 +1,6 @@
 module Api
   class ReviewsController < ApiController
-    def index      
+    def index
       render json: Review.all
     end
 
@@ -25,7 +25,7 @@ module Api
 
     def show
       @review = Review.find(params[:id])
-      render json: @review
+      render :show
     end
 
     def destroy
