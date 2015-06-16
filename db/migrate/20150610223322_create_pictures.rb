@@ -4,7 +4,7 @@ class CreatePictures < ActiveRecord::Migration
       t.string :picture_comment
       t.integer :imageable_id, null: false
       t.string :imageable_type, null: false
-      t.attachment :image
+      t.string :photo_url, null: false
 
       t.timestamps
     end

@@ -3,6 +3,7 @@
   <head>
     <title>MyCut</title>
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+    <script src="http://unslider.com/unslider.min.js"></script>
     <link href"https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.6/jquery.fullPage.css">
       <% if Rails.env.production? %>
       <% api_key = "key=ENV['google_maps_js_key']" %>
@@ -24,6 +25,12 @@
          "https://dl.dropbox.com/s/9swff9ea9nxs4i6/background2.jpg?dl=0",
          "https://dl.dropbox.com/s/kymuc918k7indue/salon1.jpg?dl=0"
        ], {duration: 12000, fade: 1000});
+    </script>
+
+    <script>
+      $(function(){
+        $('.shop-barber-slider').unslider();
+      })
     </script>
 
     <% if signed_in? %>

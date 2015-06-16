@@ -127,23 +127,23 @@ div.shops-index {
   }
 }
 
-//
-// hr {
-//     display: block;
-//     width: 175%;
-//     height: 1px;
-//     border: 0;
-//     border-top: 1px solid #ccc;
-//     margin: 1em 0;
-//     padding: 0;
-// }
-
 div.shop-feature {
   float: right;
   &button:hover {
     background-color: #8C5233;
   }
 }
+
+div.shop-photo {
+  float: left;
+  img.resize {
+    height: 90px;
+    width: 90px;
+    border-radius: 25px;
+    margin: 10px;
+  }
+}
+
 
 
 
@@ -158,12 +158,6 @@ div.shop-feature {
 
 /* New Shop */
 
-// body {
-//  -webkit-background-size: cover;
-//  -moz-background-size: cover;
-//  -o-background-size: cover;
-//  background-size: cover;
-// }
 
 div.panel.panel-default.new-signup-form {
   opacity: 0.9;
@@ -201,4 +195,21 @@ background-color: rgba(0, 139, 139, 0.5);
    text-transform: uppercase;
    font-style: italic;
 
+}
+
+
+/* Show SHop */
+
+.shop-barber-slider {
+   position: relative;
+   width: 100%;
+   overflow: auto;
+   padding: 0px;
+   margin: 0px;
+}
+.shop-barber-slider li {
+  list-style: none;
+}
+.shop-barber-slider ul li {
+  float: left;
 }

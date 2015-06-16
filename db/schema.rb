@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20150614233158) do
   create_table "barbers", force: :cascade do |t|
     t.integer  "shop_id",    null: false
     t.string   "name",       null: false
+    t.string   "photo_url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "photo_url"
   end
 
   add_index "barbers", ["shop_id"], name: "index_barbers_on_shop_id", using: :btree
@@ -30,15 +30,12 @@ ActiveRecord::Schema.define(version: 20150614233158) do
     t.string   "picture_comment"
     t.integer  "imageable_id",    null: false
     t.string   "imageable_type",  null: false
+    t.string   "photo_url",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "photo_url",       null: false
   end
 
   add_index "pictures", ["imageable_id", "imageable_type"], name: "index_pictures_on_imageable_id_and_imageable_type", using: :btree
-
-  create_table "ratings", force: :cascade do |t|
-  end
 
   create_table "reviews", force: :cascade do |t|
     t.text     "body",                     null: false
@@ -65,9 +62,9 @@ ActiveRecord::Schema.define(version: 20150614233158) do
     t.float    "latitude",                             null: false
     t.float    "longitude",                            null: false
     t.float    "rating",                 default: 0.0, null: false
+    t.string   "photo_url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "photo_url"
   end
 
   add_index "shops", ["moderator_id"], name: "index_shops_on_moderator_id", using: :btree
@@ -93,16 +90,17 @@ ActiveRecord::Schema.define(version: 20150614233158) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
+    t.string   "username",        null: false
     t.string   "email",           null: false
     t.string   "password_digest", null: false
     t.string   "session_token",   null: false
+    t.string   "photo_url"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "photo_url"
-    t.string   "username",        null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end
