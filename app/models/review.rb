@@ -13,12 +13,12 @@
 #
 
 class Review < ActiveRecord::Base
-  validates :body, :rating, :shop, :user, :barber_id, presence: true
+  validates :body, :rating, :shop, :author_id, :barber_id, presence: true
   validates_inclusion_of :rating, {in: 0.0..5.0 }
   # TODO validate :user_id uniquess : { scope: :shop_id}
   # so user can comment once for each shop, but can edit comments
 
-  belongs_to(:user, class_name: "User", foreign_key: :author_id)
+  belongs_to(:author, class_name: "User", foreign_key: :author_id)
   belongs_to :shop
   belongs_to :barber
   has_many :pictures, as: :imageable, dependent: :destroy
