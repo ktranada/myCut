@@ -16,7 +16,8 @@
 //= require backbone
 //= require composite_view
 //= require jquery.raty
-//= require jquery.backstretch
+//= require jquery.backstretch.min
+//= require jquery.fullPage.min
 //= require jquery.serializejson
 //= require bootstrap-sprockets
 //= require my_cut

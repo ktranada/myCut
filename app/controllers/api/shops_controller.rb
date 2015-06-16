@@ -8,6 +8,9 @@ module Api
 
     def create
       @shop = Shop.new(shop_params)
+      @shop.zip = @shop.zip.to_i
+      @shop.phone = @shop.phone.to_i
+      @shop.moderator_id = current_user.id
       if @shop.save
         render json: @shop
       else
@@ -39,7 +42,7 @@ module Api
     private
 
     def shop_params
-      params.require(:shop).permit(:name, :address, :city, :state, :rating,
+      params.require(:shop).permit(:name, :address, :city, :state, :zip, :rating,
                                    :phone, :tag_list, :locations_list, :photo_url)
     end
 

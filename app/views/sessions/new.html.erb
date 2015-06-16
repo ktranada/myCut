@@ -1,14 +1,13 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-md-6 vertical-middle col-md-offset-2">
             <div class="panel panel-default new-signup-form">
                 <div class="panel-heading"> <strong class="">Login</strong>
-
                 </div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" action="/session" method="post" >
                       <%= render 'shared/errors' %>
-                      <input type="hidden" name="authenticity_token" value="<%= csrf_auth_token %>">
+                      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-3 control-label"><h4><em>EMAIL</em></h4></label>
                             <div class="col-sm-9">
@@ -23,14 +22,14 @@
                         </div>
                         <div class="form-group last">
                             <div class="col-sm-offset-3 col-sm-9">
-                                <button class="btn guest-login grey">Guest Login</button><br>
+                                <button class="btn guest-login grey">Guest Login</button><br> <br>
                                 <button type="submit" class="btn btn-success btn-sm enter-button">Sign in</button>
                                 <button type="reset" class="btn btn-default btn-sm">Reset</button>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="panel-footer">Not Registered? <%= link_to "Register here", new_user_url%>Register here</a>
+                <div class="panel-footer">Not Registered? <%= link_to "Register here", new_user_url%></a>
                 </div>
             </div>
         </div>

@@ -1,1 +1,9 @@
 <div id="main"></div>
+
+<script>
+
+  $(document).ready(function(){
+    window.id = <%= current_user.id %>
+    MyCut.initialize();
+  });
+</script>

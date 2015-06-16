@@ -4,7 +4,7 @@
     <title>MyCut</title>
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
     <link href"https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.6/jquery.fullPage.css">
-    <% if Rails.env.production? %>
+      <% if Rails.env.production? %>
       <% api_key = "key=ENV['google_maps_js_key']" %>
     <% else %>
       <% api_key = '' %>
@@ -15,6 +15,17 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+
+    <script>
+      $.backstretch([
+         "https://dl.dropbox.com/s/dlrufec4t0q2kfg/background1.jpg?dl=0",
+         "https://dl.dropbox.com/s/02r6ccf0836l7v8/nice_shop.jpg?dl=0",
+         "https://dl.dropbox.com/s/u0g6entuipw2o2l/tatted_barber.jpg?dl=0",
+         "https://dl.dropbox.com/s/9swff9ea9nxs4i6/background2.jpg?dl=0",
+         "https://dl.dropbox.com/s/kymuc918k7indue/salon1.jpg?dl=0"
+       ], {duration: 12000, fade: 1000});
+    </script>
+
     <% if signed_in? %>
       <%= render partial: "layouts/header" %>
     <% end %>
@@ -24,6 +35,8 @@
     <!-- <% if signed_in? %>
       <%= render 'layouts/footer' %>
     <% end %> -->
+    <script src="http://api.filepicker.io/v1/filepicker.js"></script>
+    <script>filepicker.setKey("<%= ENV['FILEPICKER_API_KEY']%>")</script>
 
   </body>
 </html>

@@ -1,36 +1,43 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <div class="panel panel-default new-signup-form">
-                <div class="panel-heading"> <strong style="text-align: center;"><em>Let everyone what's good<em></strong>
+<br><br><br><br><br><br><br>
 
-                </div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form">
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
-                            <div class="col-sm-9">
-                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email" required="">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-3 control-label"></label>
-                            <div class="col-sm-9">
-                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password" required="">
-                            </div>
-                        </div>
-
-                        <div class="form-group last">
-                            <div class="col-sm-offset-3 col-sm-9">
-                                <button type="submit" class="btn btn-success btn-sm">Sign in</button>
-                                <button type="reset" class="btn btn-default btn-sm">Reset</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="panel-footer">Not Registered? <a href="#" class="">Register here</a>
-                </div>
-            </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-offset-4 col-xs-offset-3 col-xs-6 col-md-4">
+      <form>
+        <input type="hidden" name="shop[moderator_id]" value="<%= window.id %>">
+        <br>
+        <div class="form-group">
+          <label for="new-shop-name">SHOP NAME</label>
+          <input type="text" class="form-control new-shop-input" name="shop[name]" id="new-shop-name" >
         </div>
+        <div class="form-group">
+          <label for="shop-address">ADDRESS</label>
+          <input type="text" class="form-control new-shop-input" name="shop[address]" id="shop-address" placeholder="1000 Moon Way">
+        </div>
+        <div class="form-group">
+          <label for="shop-city">CITY</label>
+          <input type="text" class="form-control new-shop-input" name="shop[city]" id="shop-city" placeholder="Oakland">
+        </div>
+        <div class="form-group">
+          <label for="shop-state">STATE</label>
+          <input type="text" class="form-control new-shop-input" name="shop[state]" id="shop-state" placeholder="California">
+        </div>
+        <div class="form-group">
+          <label for="shop-zip">ZIP</label>
+          <input type="number" class="form-control" new-shop-input name="shop[zip]" id="shop-zip" placeholder="94606">
+        </div>
+        <div class="form-group">
+          <label for="shop-phone">PHONE</label>
+          <input type="number" id="shop-phone" class="form-control new-shop-input" name="shop[phone]" placeholder="4088052524">
+        </div>
+        <div class="form-group">
+          <label for="shop-photo">SHOP PHOTO</label><br>
+          <input type="filepicker" name="shop[photo_url]">
+
+          <br><br>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+      </form>
     </div>
+  </div>
 </div>

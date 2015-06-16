@@ -13,7 +13,6 @@ gem 'bootstrap-sass'
 gem 'backbone-on-rails'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
-gem 'jquery-ui-rails'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'ratyrate'
 gem 'geocoder'
@@ -22,14 +21,11 @@ gem 'figaro'
 # Will allow app to access secret information, private keyes, in production.
 # IE heroku. It will parse a Git ignored YAML
 
-gem "paperclip", "~> 4.2"
-
 gem 'aws-sdk', '< 2.0'
 # Amazon's S3 service
 
 gem 'filepicker-rails'
 # handles s3 work and is applicable for backbone views
-
 
 gem 'newrelic_rpm'
 # Will constantly send requests to site so it doesn't go to sleep.
