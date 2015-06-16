@@ -35,6 +35,7 @@ module Api
 
     def show
       @shop = Shop.find(params[:id])
+      @reviews = Review.where(shop_id: @shop.id)
       @barbers = Barber.where(shop_id: @shop.id)
       render :show
     end

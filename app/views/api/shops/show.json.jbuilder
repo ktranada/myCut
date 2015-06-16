@@ -1,4 +1,4 @@
-json.extract! @shop, :name, :address, :city, :state, :zip
+json.extract! @shop, :id, :name, :address, :city, :state, :zip
 json.average_rating @shop.average_rating
 json.num_reviews @shop.number_reviews
 json.phone @shop.parse_phone_number
@@ -9,7 +9,7 @@ end
 json.photo_url @shop.photo_url
 
 json.reviews do
-  json.array! @shop.reviews do |review|
+  json.array! @reviews do |review|
     json.author_id review.author_id
     json.shop_id review.shop_id
     json.body review.body
