@@ -13,6 +13,8 @@ json.reviews do
     json.author_id review.author_id
     json.shop_id review.shop_id
     json.body review.body
+    json.username review.author.username
+    json.avatar_url review.author.photo_url
     json.rating review.rating
     json.pictures do
       json.array! review.pictures do |picture|

@@ -25,7 +25,7 @@ module Api
 
     def show
       @review = Review.find(params[:id])
-      @author = @review.author
+      @author = User.find(@review.author_id)
       render :show
     end
 

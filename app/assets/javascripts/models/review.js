@@ -7,20 +7,10 @@ MyCut.Models.Review = Backbone.Model.extend({
     return this._pictures
   },
 
-  author: function(){
-    this._author = {}
-    return this._author
-  },
-
   parse: function(response) {
     if (response.pictures) {
       this.pictures().set(response.pictures, { parse: true } )
       delete response.pictures
-    }
-
-    if (response.author) {
-      this.author().set(response.author, {parse: true})
-      delete response.author
     }
     return response;
   }

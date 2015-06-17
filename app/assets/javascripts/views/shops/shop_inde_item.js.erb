@@ -7,7 +7,9 @@ MyCut.Views.ShopItem = Backbone.CompositeView.extend({
   },
 
   render: function() {
-    var renderedContent = this.template({ shop: this.model });
+    var renderedContent = this.template({
+      shop: this.model
+      });
     this.$el.html(renderedContent);
     this.$el.find('.rating').raty({
       score: this.model.attributes.average_rating,
