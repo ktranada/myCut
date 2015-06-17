@@ -13,6 +13,7 @@
 #
 
 class Review < ActiveRecord::Base
+  acts_as_taggable
   validates :body, :rating, :shop, :author_id, :barber_id, presence: true
   validates_inclusion_of :rating, {in: 0.0..5.0 }
   # TODO validate :user_id uniquess : { scope: :shop_id}

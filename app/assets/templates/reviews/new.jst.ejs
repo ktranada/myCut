@@ -1,34 +1,34 @@
 <br><br><br><br><br><br><br>
-
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-offset-4 col-xs-offset-3 col-xs-6 col-md-4">
-      <form>
-        <input type="hidden" name="shop[moderator_id]" value="<%= window.id %>">
+      <form class="new-review-form">
+        <input type="hidden" name="shop[author_id]" value="<%= window.id %>">
         <br>
-        <div class="form-group">
-          <label for="new-shop-name">SHOP NAME</label>
+        <div class="form-group review-barber-rating">
+          <label for="new-shop-name">RATING</label>
           <input type="text" class="form-control new-shop-input" name="shop[name]" id="new-shop-name" >
         </div>
-        <div class="form-group">
-          <label for="shop-address">ADDRESS</label>
-          <input type="text" class="form-control new-shop-input" name="shop[address]" id="shop-address" placeholder="1000 Moon Way">
+        <div class="form-group review-barber">
+          <label for="shop-barber">BARBER</label>
+          <select id="shop-barber" class="form-control barber-dropdown" name="review[barber_id]" >
+            <% barbers.each(function(barber){ %>
+              <option value="<%= barber.escape('barber_id')%>">1<%= barber.escape('name') %></option>
+            <% }) %>
+          </select>
         </div>
         <div class="form-group">
-          <label for="shop-city">CITY</label>
+          <label for="shop-city"></label>
           <input type="text" class="form-control new-shop-input" name="shop[city]" id="shop-city" placeholder="Oakland">
         </div>
         <div class="form-group">
-          <label for="shop-state">STATE</label>
-          <input type="text" class="form-control new-shop-input" name="shop[state]" id="shop-state" placeholder="California">
+          <label for="review-body">How was your experience?</label>
+          <textarea class="form-control new-shop-input" name="review[body]" id="review-body" rows="3"></textarea>
         </div>
         <div class="form-group">
-          <label for="shop-zip">ZIP</label>
-          <input type="number" class="form-control" new-shop-input name="shop[zip]" id="shop-zip" placeholder="94606">
-        </div>
-        <div class="form-group">
-          <label for="shop-phone">PHONE</label>
-          <input type="number" id="shop-phone" class="form-control new-shop-input" name="shop[phone]" placeholder="4088052524">
+          <label for="review-tags">TAGS</label>
+          <input type="text" class ="form-control new-shop-input" name="shop[taglist]" placeholder="fade, color, ethnic hair">
+
         </div>
         <div class="form-group">
           <label for="shop-photo">SHOP PHOTO</label><br>

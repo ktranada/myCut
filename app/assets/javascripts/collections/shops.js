@@ -4,7 +4,7 @@ MyCut.Collections.Shops = Backbone.Collection.extend({
 
   getOrFetch: function(id){
     var shops = this;
-    var shop = shops.get('id');
+    var shop = shops.get(id);
     if (shop){
       shop.fetch();
     } else {

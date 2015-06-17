@@ -37,7 +37,7 @@ module Api
 
     private
     def review_params
-      params.require(:review).permit(:body, :rating)
+      params.require(:review).permit(:body, :rating, :photos)
     end
 
   end

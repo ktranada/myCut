@@ -3,8 +3,9 @@ MyCut.Routers.Router = Backbone.Router.extend({
     "":                      "feedLandingPage",
     "shops/new":             "createShop",
     "shops/:id":             "showShop",
+    "shops/:id/review/new":  "newReview",
     "shops/":                "feedLandingPage",
-    "shops/:id/review/new":  "newReview"
+
 
   },
 
@@ -28,7 +29,11 @@ MyCut.Routers.Router = Backbone.Router.extend({
 
   newReview: function(id) {
     var shopModel = MyCut.shops.getOrFetch(id);
-    var newReviewForm = new MyCut.Views.NewReviewForm({ model: shopModel });
+    var barbers = shopModel.barbers();
+    var newReviewForm = new MyCut.Views.NewReviewForm({
+       model: shopModel,
+       barbers: barbers
+    });
     this._swapView(newReviewForm);
   },
 

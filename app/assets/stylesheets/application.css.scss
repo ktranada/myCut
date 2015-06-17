@@ -1,4 +1,4 @@
-/*
+ /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -12,11 +12,14 @@
  *
  *= require_tree .
  *= require_self
+ *= bootstrap-tagsinput
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+@import "jquery.dropdown.min";
+@import "tagmanager";
 
 @font-face {
        font-family: "Bodoni72";
@@ -152,12 +155,8 @@ div#map-canvas.col-md-offset-4 {
   transform: translateZ(0px);
   background-color: rgba(229, 227, 223, .5);
   opacity: .85;
-  border-radius: 250px;
+  border-radius: 2px;
 }
-
-
-
-
 
 .server-form {
   width: 250px;
@@ -166,6 +165,14 @@ div#map-canvas.col-md-offset-4 {
   }
 }
 
+
+div#map-canvas.circular.col-md-offset-4 {
+	width: 90%;
+	height: 90%;
+	border-radius: 45%;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+}
 
 /* New Shop */
 
@@ -304,16 +311,4 @@ span.review-username {
   border-bottom: aliceblue;
 border-bottom-style: inset;
 letter-spacing: 2px;
-}
-
-
-
-
-
-div#map-canvas.circular.col-md-offset-4 {
-	width: 90%;
-	height: 90%;
-	border-radius: 150px;
-	-webkit-border-radius: 150px;
-	-moz-border-radius: 150px;
 }
