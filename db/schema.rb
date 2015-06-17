@@ -38,13 +38,14 @@ ActiveRecord::Schema.define(version: 20150614233158) do
   add_index "pictures", ["imageable_id", "imageable_type"], name: "index_pictures_on_imageable_id_and_imageable_type", using: :btree
 
   create_table "reviews", force: :cascade do |t|
-    t.text     "body",                     null: false
-    t.integer  "author_id",                null: false
-    t.integer  "shop_id",                  null: false
-    t.float    "rating",     default: 0.0, null: false
+    t.text     "body",                        null: false
+    t.integer  "author_id",                   null: false
+    t.integer  "shop_id",                     null: false
+    t.float    "rating",        default: 0.0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "barber_id",                null: false
+    t.float    "barber_rating", default: 0.0
+    t.integer  "barber_id",                   null: false
   end
 
   add_index "reviews", ["author_id", "shop_id"], name: "index_reviews_on_author_id_and_shop_id", using: :btree

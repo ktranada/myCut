@@ -13,6 +13,7 @@ json.reviews do
     json.author_id review.author_id
     json.shop_id review.shop_id
     json.body review.body
+    json.barber_name review.barber.name
     json.username review.author.username
     json.avatar_url review.author.photo_url
     json.rating review.rating

@@ -1,9 +1,12 @@
 <div class="review-with-side">
   <div class="review-userprofile">
+    <div class="review-username-container"><span class="review-username"><%= review.escape('username') %></span></div>
+
     <div class="author-photo">
       <img class="user-avatar circular" src="//photos-5.dropbox.com/t/2/AACEN60CsCer7bBAbAY3Hu-Tp2gMfTlXSkOt1UAcEQ7aPg/12/103183491/jpeg/32x32/1/_/1/2/user_3.jpeg/CIPpmTEgASACIAMgBCAFIAYgBygBKAI/U8TvoeotKUN178V39WPDLD8PKQOeudgeGheXdNRQe0k?size=1280x960&size_mode=2">
     </div>
-    <div class="rating" data-path="assets/images"></div><div>
+    <br><br>
+    <span class="barber-review-rating">RATING FOR <span class="barber-name">{ <%= review.escape('barber_name') %> }</span></span>   <div class="rating" data-path="assets/images"></div>
   </div>
 
   <div class="review-body">
