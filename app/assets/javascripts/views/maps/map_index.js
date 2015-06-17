@@ -6,6 +6,7 @@ MyCut.Views.IndexMap = Backbone.View.extend({
 
   initialize: function(){
     this._markers = {};
+    this.geocoder = new google.maps.Geocoder();
     this.listenTo(this.collection, "add", this.addMarker);
     this.listenTo(this.colleciton, "remove", this.removeMarker)
   },
@@ -23,7 +24,18 @@ MyCut.Views.IndexMap = Backbone.View.extend({
    addMarker: function (listing) {
      if (this._markers[listing.id]) { return };
      var view = this;
-     this._coordinates = listing.get('coordinates');
+     var fullAddress = listing.address +
+                       ', ' + listing.city +
+                       ', ' + listing.state +
+                       ', ' + listing.zip;
+     this._coordinates = listing.get('coordinates') ||
+      this.geocoder({address: fullAddress}, function(result, status){
+        if (status == google.maps.GeocoderStatus.OK) {
+          return results[0].geometry.location;
+        } else {
+          alert("That location does not exist!");
+        }
+      })
 
      var marker = new google.maps.Marker({
        position: { lat: this._coordinates.latitude, lng: this._coordinates.longitude },
