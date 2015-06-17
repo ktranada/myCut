@@ -11,7 +11,7 @@ MyCut.Collections.Reviews = Backbone.Collection.extend({
   getOrFetch: function(id) {
     var reviews = this;
     debugger
-    var review = reviews.get('id');
+    var review = reviews.get(id);
     if (review){
       review.fetch();
     } else {

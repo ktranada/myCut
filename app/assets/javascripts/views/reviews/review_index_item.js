@@ -1,12 +1,13 @@
 MyCut.Views.ReviewIndexItem = Backbone.CompositeView.extend({
   template: JST['reviews/show'],
-  className: "col-md-8 col-md-offset-2"
+  className: "review-index-item col-md-9 col-md-offset-1",
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
   },
 
   render: function(){
-    var reviewSView = this.template({ review: this.model });
+    debugger
+    var reviewSubview = this.template({ review: this.model });
     this.$el.html(reviewSubview)
     return this;
   }

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_current_user!, only: [:destroy]
+
   def new; end
 
   def create
@@ -14,6 +15,11 @@ class UsersController < ApplicationController
   end
 
   def destroy
+  end
+
+  def show
+    @user = User.find(params[:id])
+    render :show
   end
 
   private

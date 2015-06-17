@@ -25,6 +25,7 @@ module Api
 
     def show
       @review = Review.find(params[:id])
+      @author = @review.author
       render :show
     end
 

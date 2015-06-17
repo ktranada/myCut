@@ -4,7 +4,7 @@ MyCut.Collections.Pictures = Backbone.Collection.extend({
 
   getOrFetch: function(id){
     var pictures = this;
-    var picture = pictures.get('id');
+    var picture = pictures.get(id);
     if (picture){
       picture.fetch();
     } else {

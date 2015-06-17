@@ -17,5 +17,4 @@ MyCut.Collections.Shops = Backbone.Collection.extend({
     }
     return shop;
   }
-
 });

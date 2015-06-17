@@ -4,7 +4,7 @@ MyCut.Collections.Barbers = Backbone.Collection.extend({
 
   getOrFetch: function (id) {
     var barbers = this;
-    var barber = barbers.get('id');
+    var barber = barbers.get(id);
     if (barber) {
       barber.fetch();
     } else {

@@ -16,7 +16,7 @@ MyCut.Views.ReviewsIndex = Backbone.CompositeView.extend({
 
   removeReviewSubview: function(review) {
     this.removeSubview('.review-items', review);
-  }
+  },
 
   render: function(){
     var reviewIndexView = this.template();

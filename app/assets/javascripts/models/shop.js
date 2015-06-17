@@ -23,7 +23,6 @@ MyCut.Models.Shop = Backbone.Model.extend({
       this.barbers().set(response.barbers, {parse: true});
       delete response.barbers
     }
-
     return response;
   }
 

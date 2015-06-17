@@ -1,1 +1,7 @@
-<div class="user-photo"><img src=""></div>
+<div class="author-photo"><img class="resize" src="<%= review.escape('author_photo_url') %>"></div>
+<div class="review-body">
+  <h3><%= review.escape('author') %></h3>
+  <div class="rating" data-path="assets/images"></div><div>
+  <div class="review-content"><%= review.escape('body') %></div>
+  <hr>
+</div>

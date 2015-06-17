@@ -4,7 +4,7 @@ MyCut.Collections.Tags = Backbone.Collection.extend({
 
   getOrFetch: function(id){
     var tags = this;
-    var tag = tags.get('id');
+    var tag = tags.get(id);
     if (tag){
       tag.fetch();
     } else {

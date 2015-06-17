@@ -2,8 +2,12 @@ MyCut.Views.ShowShop = Backbone.CompositeView.extend({
   template: JST['shops/show_shop'],
 
   initialize: function(){
-    // var headerSubview = new MyCut.Views.ShopHeader({ shop: this.model })
     this.listenTo(this.model, "sync", this.render);
+    var reviewsIndexSubview = new MyCut.Views.ReviewsIndex({
+      collection: this.model.reviews()
+    })
+    debugger
+    this.addSubview('.reviews-index', reviewsIndexSubview);
   },
 
   render: function(){

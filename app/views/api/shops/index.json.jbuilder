@@ -8,5 +8,4 @@ json.array! @shops do |shop|
     json.latitude shop.latitude
     json.longitude shop.longitude
   end
-
 end
