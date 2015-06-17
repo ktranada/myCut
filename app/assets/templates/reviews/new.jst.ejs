@@ -1,0 +1,43 @@
+<br><br><br><br><br><br><br>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-offset-4 col-xs-offset-3 col-xs-6 col-md-4">
+      <form>
+        <input type="hidden" name="shop[moderator_id]" value="<%= window.id %>">
+        <br>
+        <div class="form-group">
+          <label for="new-shop-name">SHOP NAME</label>
+          <input type="text" class="form-control new-shop-input" name="shop[name]" id="new-shop-name" >
+        </div>
+        <div class="form-group">
+          <label for="shop-address">ADDRESS</label>
+          <input type="text" class="form-control new-shop-input" name="shop[address]" id="shop-address" placeholder="1000 Moon Way">
+        </div>
+        <div class="form-group">
+          <label for="shop-city">CITY</label>
+          <input type="text" class="form-control new-shop-input" name="shop[city]" id="shop-city" placeholder="Oakland">
+        </div>
+        <div class="form-group">
+          <label for="shop-state">STATE</label>
+          <input type="text" class="form-control new-shop-input" name="shop[state]" id="shop-state" placeholder="California">
+        </div>
+        <div class="form-group">
+          <label for="shop-zip">ZIP</label>
+          <input type="number" class="form-control" new-shop-input name="shop[zip]" id="shop-zip" placeholder="94606">
+        </div>
+        <div class="form-group">
+          <label for="shop-phone">PHONE</label>
+          <input type="number" id="shop-phone" class="form-control new-shop-input" name="shop[phone]" placeholder="4088052524">
+        </div>
+        <div class="form-group">
+          <label for="shop-photo">SHOP PHOTO</label><br>
+          <input type="filepicker" name="shop[photo_url]">
+
+          <br><br>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

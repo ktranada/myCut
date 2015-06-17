@@ -112,6 +112,8 @@ shop-items-index {
 
 
 div.shops-index {
+  height: 72vh;
+  overflow-y: scroll;
   background-color: rgba(144, 65, 65, 0.8);
   h3 {
     color: snow;
@@ -237,6 +239,8 @@ height: 100%;
 ul.review-items.col-xs-12.col-md-6.col-md-offset-3 {
   list-style: none;
   background-color: rgba(0,0,0,.7);
+  height: 44vh;
+  overflow-y: scroll;
 }
 .review-items.col-xs-12.col-md-6.col-md-offset-3 {
   background-color: rgba(155,155,155, 0.7);
@@ -286,7 +290,7 @@ div.review-body {
   font-weight: 100;
   color: cadetblue;
   .barber-name {
-    color: #AD154F;
+    color: royalblue;
     font-weight: 900;
   }
 }
