@@ -13,8 +13,7 @@ MyCut.Routers.Router = Backbone.Router.extend({
   },
 
   barberShow: function(id, bid){
-    var barbers = new MyCut.Collections.Barbers();
-    var barber = barbers.getOrFetch(bid);
+    var barber = new MyCut.Collections.Barbers().getOrFetch(bid)
     debugger
     var barberView = new MyCut.Views.BarberShow({
       model: barber,

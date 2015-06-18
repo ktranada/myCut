@@ -2,7 +2,7 @@ MyCut.Views.BarberShow = Backbone.CompositeView.extend({
   template: JST['barbers/barber_show'],
 
   initialize: function(){
-    this.listenTo(this.collection, "sync change", this.render);
+    this.listenTo(this.model, "sync change", this.render);
   },
 
   renderGrid: function(){
@@ -19,7 +19,6 @@ MyCut.Views.BarberShow = Backbone.CompositeView.extend({
   },
 
   render: function(){
-    debugger
     var barberShowView = this.template({
       barber: this.model,
       images: this.collection
