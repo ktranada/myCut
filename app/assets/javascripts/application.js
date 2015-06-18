@@ -20,8 +20,6 @@
 //= require jquery.serializejson
 //= require bootstrap-sprockets
 //= require unslider.min
-//= require jquery.grid-a-licious.min
-// require bootstrap-modal-carousel.min
 //= require my_cut
 //= require_tree ../templates
 //= require_tree ./models

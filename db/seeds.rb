@@ -49,7 +49,6 @@ barber_3.pictures.create!(photo_url: "http://s3-media1.fl.yelpcdn.com/bphoto/UoY
 barber_3.pictures.create!(photo_url: "http://s3-media4.fl.yelpcdn.com/bphoto/wFJAKqVmOUrAa1MrfdPbFw/o.jpg")
 barber_3.pictures.create!(photo_url: "http://s3-media3.fl.yelpcdn.com/bphoto/x9Hhk9zcKnUHVo59yCoFrA/o.jpg")
 barber_3.pictures.create!(photo_url: "http://s3-media2.fl.yelpcdn.com/bphoto/osobIvmVOp4aHpS4dHPBEg/o.jpg")
-barber_2.pictures.create!(photo_url: "http://s3-media1.fl.yelpcdn.com/bphoto/RKb1-j9oQ6jZL7XeRXJ-iA/o.jpg")
 barber_2.pictures.create!(photo_url: "http://s3-media1.fl.yelpcdn.com/bphoto/UwUS_kjqIkLgl9ejB8-KRQ/o.jpg")
 barber_2.pictures.create!(photo_url: "http://s3-media1.fl.yelpcdn.com/bphoto/YC37DZvOJPDVF3hUDTXRGQ/o.jpg")
 barber_2.pictures.create!(photo_url: "http://s3-media3.fl.yelpcdn.com/bphoto/KrL-94pJJUm4xgsGeUTcqg/o.jpg")

@@ -1,7 +1,7 @@
-<%= barber.escape('name') %>
-
-<% images.each(function(image){ %>
-  <div class="grid-item">
-    <img class="grid-item-image" src="<%= image.escape('photo_url') %>">
+<div class="grid-container col-xs-12 col-md-8 col-md-offset-2">
+  <div class="photo-grid">
+    <% images.each(function(image){ %>
+        <img class="grid-item-image" src="<%= image.escape('photo_url') %>">
+    <% }) %>
   </div>
-<% }) %>
+</div>

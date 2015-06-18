@@ -1,0 +1,29 @@
+.grid-container {
+  background-color: rgba(0,83,111,.5);
+  text-align: center;
+  border-radius: 90px;
+  .photo-grid .grid-item-image {
+    display: inline-block;
+    border-radius: 90%;
+    margin: 10px;
+    height: 40vh;
+    -webkit-box-shadow:inset 0px 0px 0px 10px #f9f9f9;
+    -moz-box-shadow:inset 0px 0px 0px 10px #f9f9f9;
+    box-shadow:inset 0px 0px 0px 10px #f9f9f9;
+  }
+
+}
+
+// .grid-item-image {
+//   display: inline-block;
+//   border-radius: 90%;
+//   margin: 10px;
+//   height: 40vh;
+//   -webkit-box-shadow:inset 0px 0px 0px 10px #f9f9f9;
+//   -moz-box-shadow:inset 0px 0px 0px 10px #f9f9f9;
+//   box-shadow:inset 0px 0px 0px 10px #f9f9f9;
+// }
+
+// .photos-container {
+//   height: 40vh;
+// }

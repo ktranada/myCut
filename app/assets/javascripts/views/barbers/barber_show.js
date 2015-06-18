@@ -6,16 +6,28 @@ MyCut.Views.BarberShow = Backbone.CompositeView.extend({
   },
 
   renderGrid: function(){
-    $("#photos-grid").gridalicious({
-      animate: true,
-      selector: '.grid-item-image',
-      animationOptions: {
-        queue: false,
-        speed: 200,
-        duration: 300,
-        effect: 'fadeInOnAppear',
-      }
-    });
+    if (this.$('.photos-grid')){
+      this.$(".photos-grid").gridalicious({
+        animate: true,
+        width: 100,
+        gutter: 40,
+        selector: '.grid-items',
+        animationOptions: {
+          queue: false,
+          speed: 200,
+          duration: 300,
+          effect: 'fadeInOnAppear',
+        }
+      })
+      this.$('.grid-item-image').css('display', 'inline-block');
+    }
+
+
+  },
+  unsliderRender: function(){
+    if (this.$('banner')){
+      this.$('.banner').unslider();
+    }
   },
 
   render: function(){
@@ -24,7 +36,6 @@ MyCut.Views.BarberShow = Backbone.CompositeView.extend({
       images: this.collection
     });
     this.$el.html(barberShowView);
-    this.renderGrid();
     return this;
   }
 });
