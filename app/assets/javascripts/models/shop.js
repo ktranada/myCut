@@ -12,6 +12,7 @@ MyCut.Models.Shop = Backbone.Model.extend({
        new MyCut.Collections.Barbers([], { shop: this });
     return this._barbers;
   },
+  
 
   parse: function(response) {
     if (response.reviews) {

@@ -33,12 +33,12 @@ json.barbers do
     json.rating barber.average_rating
     json.number_reviews barber.number_reviews
     json.photo_url barber.photo_url
-    json.portfolio_pictures do
-      json.array! barber.pictures do |picture|
-        json.picture_comment picture.picture_comment
-        json.barber_id picture.imageable_id
-      end
-    end
+    # json.portfolio_pictures do
+    #   json.array! barber.pictures do |picture|
+    #     json.picture_comment picture.picture_comment
+    #     json.barber_id picture.imageable_id
+    #   end
+    # end
   end
 end
 
