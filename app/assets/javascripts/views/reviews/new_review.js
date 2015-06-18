@@ -9,6 +9,8 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
   initialize: function(options){
     this._reviews = options.collection;
     this._barbers = options.barbers
+    this.listenTo(this.model, "sync", this.render);
+
   },
 
   createReview: function(event) {
@@ -30,19 +32,23 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
     });
   },
 
+  initFilepicker: function(){
+    var $filePickerInput = this.$('input[type=filepicker]');
+    filepicker.constructWidget($filePickerInput[0]);
+  },
+
+
+
   render: function() {
     var newReviewForm = this.template({
       shop: this.model,
       barbers: this._barbers
       });
     this.$el.html(newReviewForm);
-    var $filePickerInput = this.$('input[type=filepicker]');
-    // Convert from jquerify object into the widget so it doens't break upon
-    // rerendering
+    this.initFilepicker();
     return this;
 
   },
-
 
   upload: function () {
     var review = this;
@@ -50,10 +56,8 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
       var newImage = new MyCut.Models.Picture({
         photo_url: blob.url
       });
-
       newImage.save({}, {
         success: function () {
-          alert('Image uploaded!');
         }
       })
     });

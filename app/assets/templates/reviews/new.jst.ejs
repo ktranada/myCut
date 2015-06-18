@@ -14,7 +14,7 @@
           <input type="text" class="form-control new-shop-input" name="review[rating]" id="review-rating" >
         </div>
         <div class="form-group review-barber">
-          <label for="shop-barber">BARBER</label>
+          <label for="shop-barber">BARBER | STYLIST</label>
           <select id="shop-barber" class="form-control barber-dropdown" name="review[barber_id]" >
             <% barbers.each(function(barber){ %>
               <option value="<%= barber.escape('barber_id')%>"><%= barber.escape('name') %></option>
@@ -22,7 +22,7 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="review-body">How was your experience?</label>
+          <label for="review-body">EXPERIENCE</label>
           <textarea class="form-control new-shop-input" name="review[body]" id="review-body" rows="3"></textarea>
         </div>
         <div class="form-group">
@@ -33,7 +33,10 @@
         </div>
         <div class="form-group">
           <label for="shop-photo">SHOP PHOTO</label><br>
-          <input type="filepicker" name="review[photo_url]">
+          <input type="filepicker"
+                 class="filepicker-object"
+                 data-fp-option-multiple="true"
+                 name="review[photo_url]">
           <br><br>
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>

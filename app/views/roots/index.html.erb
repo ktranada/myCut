@@ -1,0 +1,23 @@
+
+<div id="fullpage">
+  <div class="section">
+    <%=render partial: 'roots/first_section' %>
+  </div>
+  <div class="section">
+    <!-- < % render partial: 'roots/second_section' %> -->
+  </div>
+  <div class="section">
+    <!-- < % render partial: 'roots/third_section' %> -->
+  </div>
+  <div class="section">
+    <!-- < % render partial: 'roots/fourth_section' %> -->
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+     $('#fullpage').fullpage({
+       loopBottom: true
+     });
+   });
+ </script>
