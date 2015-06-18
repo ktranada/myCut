@@ -13,7 +13,7 @@ MyCut.Views.ShopItem = Backbone.CompositeView.extend({
     this.$el.html(renderedContent);
     this.$el.find('.rating').raty({
       score: this.model.attributes.average_rating,
-      path: 'assets'
+      path: 'assets/raty'
       })
     return this;
   }

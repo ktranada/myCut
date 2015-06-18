@@ -4,18 +4,17 @@ MyCut.Routers.Router = Backbone.Router.extend({
     "shops/new":             "createShop",
     "shops/:id":             "showShop",
     "shops/:id/review/new":  "newReview",
-    "shops/:id/barber/:id":  "barberShow",
-    "shops/":                "feedLandingPage",
-    "barbers/:id":           "barberShow"
+    "shops/:id/barber/:bid":  "barberShow",
+    "shops/":                "feedLandingPage"
   },
 
   initialize: function(options) {
     this.$main = options.$main;
   },
 
-  barberShow: function(id){
+  barberShow: function(id, bid){
     var barbers = new MyCut.Collections.Barbers();
-    var barber = barbers.getOrFetch(id);
+    var barber = barbers.getOrFetch(bid);
     var barberView = new MyCut.Views.BarberShow({
       model: barber,
       collection: barber.portfolio_pictures()

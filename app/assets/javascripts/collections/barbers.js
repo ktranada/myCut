@@ -15,6 +15,7 @@ MyCut.Collections.Barbers = Backbone.Collection.extend({
         }
       });
     }
+    debugger
     return barber;
   }
 });

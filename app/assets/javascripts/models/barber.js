@@ -8,9 +8,10 @@ MyCut.Models.Barber = Backbone.Model.extend({
   },
 
   parse: function(response) {
-    if (response.pictures) {
-      this.portfolio_pictures().set(response.pictures, { parse: true });
-      delete response.pictures
+    debugger
+    if (response.portfolio_pictures) {
+      this.portfolio_pictures().set(response.portfolio_pictures, { parse: true });
+      delete response.portfolio_pictures
     }
     return response
   }

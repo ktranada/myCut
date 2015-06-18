@@ -4,8 +4,8 @@
     <title>MyCut</title>
     <script src="//use.typekit.net/tmx1xsr.js"></script>
 
-
-
+    <script src="http://api.filepicker.io/v1/filepicker.js"></script>
+    <script>filepicker.setKey("<%= ENV['FILEPICKER_API_KEY']%>")</script>
     <script>try{Typekit.load();}catch(e){}</script>
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
       <% if Rails.env.production? %>
@@ -37,8 +37,7 @@
     <!-- <% if signed_in? %>
       <%= render 'layouts/footer' %>
     <% end %> -->
-    <script src="http://api.filepicker.io/v1/filepicker.js"></script>
-    <script>filepicker.setKey("<%= ENV['FILEPICKER_API_KEY']%>")</script>
+
     <!-- < script src="assets/bootstrap-tagsinput.min.js">< /script>
     < link rel="stylesheet" href="assets/bootstrap-tagsinput.css"> -->
   </body>
