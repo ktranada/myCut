@@ -1,4 +1,16 @@
-<div class="grid-container col-xs-12 col-md-8 col-md-offset-2">
+<div class="container col-xs-12 col-md-8 col-md-offset-2">
+  <div class="barber-information">
+    <h2 class="barber-show-info">work by</h2>
+    <h1 class="barber-show-name">
+      <%= barber.escape('name') %>
+    </h1>
+
+    <div class="back-navi">
+      <button type="button" class="btn btn-default"><a href="/#/shops/<%= barber.escape('shop_id') %>">Back to the fitting room</a></button>
+    </div>
+  </div>
+
+
   <div class="photo-grid">
     <% images.each(function(image){ %>
         <img class="grid-item-image" src="<%= image.escape('photo_url') %>">

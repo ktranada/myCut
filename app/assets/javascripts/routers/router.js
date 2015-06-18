@@ -1,4 +1,4 @@
-MyCut.Routers.Router = Backbone.Router.extend({
+  MyCut.Routers.Router = Backbone.Router.extend({
   routes: {
     "":                      "feedLandingPage",
     "shops/new":             "createShop",

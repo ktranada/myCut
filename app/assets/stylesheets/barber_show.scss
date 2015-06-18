@@ -1,7 +1,33 @@
-.grid-container {
+.container {
   background-color: rgba(0,83,111,.5);
   text-align: center;
   border-radius: 90px;
+
+  .barber-information {
+    .barber-show-info {
+      font-family: "fira-sans-2";
+      color: aliceblue;
+      margin-bottom: -35px;
+    }
+    .barber-show-name {
+      font-size: 10em;
+      font-family: "Oswald";
+      font-style: italic;
+      color: rgb(111, 54, 54);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      border-bottom: inset;
+    }
+
+    .back-navi {
+      font-family: "fira-sans-2";
+      a {
+        text-transform: uppercase;
+        background-color: aliceblue;
+      }
+    }
+
+  }
   .photo-grid .grid-item-image {
     display: inline-block;
     border-radius: 90%;
