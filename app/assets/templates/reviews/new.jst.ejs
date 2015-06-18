@@ -1,25 +1,25 @@
 <br><br><br><br><br><br><br>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-offset-4 col-xs-offset-3 col-xs-6 col-md-4">
+    <div class="has-error col-md-offset-4 col-xs-offset-3 col-xs-6 col-md-4">
+      <div class="errors-container"></div>
+
+
       <form class="new-review-form">
-        <input type="hidden" name="shop[author_id]" value="<%= window.id %>">
+        <input type="hidden" name="review[shop_id]" value="<%= shop.escape('id') %>">
+        <input type="hidden" name="review[author_id]" value="<%= window.id %>">
         <br>
         <div class="form-group review-barber-rating">
-          <label for="new-shop-name">RATING</label>
-          <input type="text" class="form-control new-shop-input" name="shop[name]" id="new-shop-name" >
+          <label for="review-rating">RATING</label>
+          <input type="text" class="form-control new-shop-input" name="review[rating]" id="review-rating" >
         </div>
         <div class="form-group review-barber">
           <label for="shop-barber">BARBER</label>
           <select id="shop-barber" class="form-control barber-dropdown" name="review[barber_id]" >
             <% barbers.each(function(barber){ %>
-              <option value="<%= barber.escape('barber_id')%>">1<%= barber.escape('name') %></option>
+              <option value="<%= barber.escape('barber_id')%>"><%= barber.escape('name') %></option>
             <% }) %>
           </select>
-        </div>
-        <div class="form-group">
-          <label for="shop-city"></label>
-          <input type="text" class="form-control new-shop-input" name="shop[city]" id="shop-city" placeholder="Oakland">
         </div>
         <div class="form-group">
           <label for="review-body">How was your experience?</label>
@@ -27,15 +27,15 @@
         </div>
         <div class="form-group">
           <label for="review-tags">TAGS</label>
-          <input type="text" class ="form-control new-shop-input" name="shop[taglist]" placeholder="fade, color, ethnic hair">
+          <br>
+          <input type="text" data-role="tagsinput" class ="form-control  new-shop-input" name="review[taglist]" placeholder="fade, color, ethnic hair">
 
         </div>
         <div class="form-group">
           <label for="shop-photo">SHOP PHOTO</label><br>
-          <input type="filepicker" name="shop[photo_url]">
-
+          <input type="filepicker" name="review[photo_url]">
           <br><br>
-          <button type="submit" class="btn btn-default">Submit</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
         </div>
       </form>
     </div>

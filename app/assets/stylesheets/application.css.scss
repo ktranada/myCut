@@ -12,7 +12,6 @@
  *
  *= require_tree .
  *= require_self
- *= bootstrap-tagsinput
  */
 
 @import "bootstrap-sprockets";
@@ -20,6 +19,7 @@
 @import "font-awesome";
 @import "jquery.dropdown.min";
 @import "tagmanager";
+@import "new_review";
 
 @font-face {
        font-family: "Bodoni72";

@@ -18,6 +18,9 @@ MyCut.Routers.Router = Backbone.Router.extend({
       collection: MyCut.shops
     })
     this._swapView(newShop);
+    var $filePickerInput = newShop.$('input[type=filepicker]');
+    debugger
+    filepicker.constructWidget($filePickerInput[0]);
   },
 
   feedLandingPage: function() {
@@ -29,10 +32,10 @@ MyCut.Routers.Router = Backbone.Router.extend({
 
   newReview: function(id) {
     var shopModel = MyCut.shops.getOrFetch(id);
-    var barbers = shopModel.barbers();
     var newReviewForm = new MyCut.Views.NewReviewForm({
        model: shopModel,
-       barbers: barbers
+       collection: shopModel.reviews(),
+       barbers: shopModel.barbers()
     });
     this._swapView(newReviewForm);
   },

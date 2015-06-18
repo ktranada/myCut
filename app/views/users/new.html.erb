@@ -2,10 +2,20 @@
 
 <%= render "shared/errors"%>
 
-<form class="server-form" enctype="multipart/form-data" action="/users" method="post">
+<form class="server-form" action="/users" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
   <div class="form-group">
-    <label for="email-input">Email<label>
+    <label>USERNAME
+      <input type="text"
+             class="form-control"
+             placeholder=""
+             name="user[username]">
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label for="email-input">EMAIL<label>
     <input type="email"
            class="form-control"
            id="email-input"
@@ -13,7 +23,7 @@
            name="user[email]">
   </div>
   <div class="form-group">
-    <label for="email-password">Password</label>
+    <label for="email-password">PASSWORD</label>
     <input type="password"
            class="form-control"
            name="user[password]"
@@ -26,7 +36,7 @@
     <input type="file"
            class="form-control"
            id="user-avatar"
-           name="user[avatar]">
+           name="user[photo_url]">
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>

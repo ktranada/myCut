@@ -18,6 +18,11 @@ module Api
       end
     end
 
+    def show
+      @barber = Barber.find(params[:id])
+      render json: @barber
+    end
+
     def destroy
       @barber = Barber.find(params[:id])
       if @barber.shop.moderator.id == current_user.id

@@ -14,7 +14,7 @@
 
 class Review < ActiveRecord::Base
   acts_as_taggable
-  validates :body, :rating, :shop, :author_id, :barber_id, presence: true
+  validates :body, :rating, :shop_id, :author_id, :barber_id, presence: true
   validates_inclusion_of :rating, {in: 0.0..5.0 }
   # TODO validate :user_id uniquess : { scope: :shop_id}
   # so user can comment once for each shop, but can edit comments

@@ -24,13 +24,16 @@ MyCut.Views.NewShop = Backbone.CompositeView.extend({
     var newShopData = $(event.currentTarget).serializeJSON();
     var newShop = new MyCut.Models.Shop(newShopData);
     debugger
+    var that = this;
     newShop.save({}, {
       success: function() {
         MyCut.shops.add(newShop);
         Backbone.history.navigate("#", { trigger: true});
       },
-      error: function(response) {
-
+      error: function(model, response) {
+        var errors = $.parseJSON(response.responseText).join("<br>")
+        var $container = that.$('.errors-container');
+        $container.html(errors)
       }
     })
   },
@@ -38,10 +41,6 @@ MyCut.Views.NewShop = Backbone.CompositeView.extend({
   render: function() {
     var newShopForm = this.template();
     this.$el.html(newShopForm);
-    var $filePickerInput = this.$('input[type=filepicker]');
-    // Convert from jquerify object into the widget so it doens't break upon
-    // rerendering
-    filepicker.constructWidget($filePickerInput[0]);
     return this;
   }
 

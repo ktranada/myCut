@@ -6,6 +6,9 @@ module Api
 
     def create
       @review = Review.new(review_params)
+      if (review_params.include?(:taglist))
+        @review.tag_list = review_params.taglist
+      end
       if (@review.save)
         render json: @review
       else
@@ -37,7 +40,7 @@ module Api
 
     private
     def review_params
-      params.require(:review).permit(:body, :rating, :photos)
+      params.require(:review).permit(:body, :rating, :author_id, :barber_id, :photos, :shop_id, :taglist)
     end
 
   end
