@@ -8,7 +8,6 @@ MyCut.Views.NewShop = Backbone.CompositeView.extend({
   upload: function () {
     filepicker.pick(function(blob) {
       var newImage = new MyCut.Models.Picture({
-
         photo_url: blob.url
       });
       newImage.save({}, {
