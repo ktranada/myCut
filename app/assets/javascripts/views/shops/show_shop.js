@@ -26,6 +26,10 @@ MyCut.Views.ShowShop = Backbone.CompositeView.extend({
     });
     this.$el.html(renderedContent)
     this.attachSubviews();
+    this.$el.find('.rating').raty({
+      score: this.model.attributes.average_rating,
+      path: 'assets'
+      })
     return this;
   }
 });
