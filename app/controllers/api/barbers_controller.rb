@@ -20,7 +20,7 @@ module Api
 
     def show
       @barber = Barber.find(params[:id])
-      render json: @barber
+      render :show
     end
 
     def destroy
