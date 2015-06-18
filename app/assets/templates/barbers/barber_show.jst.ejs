@@ -1,0 +1,7 @@
+<div id="photos-grid">
+  <% images.each(function(image){ %>
+    <div class="grid-item">
+      <img class="grid-item-image" src="<%= image.escape('photo_url') %>">
+    </div>
+  <% }) %>
+</div>

@@ -14,8 +14,12 @@ MyCut.Routers.Router = Backbone.Router.extend({
   },
 
   barberShow: function(id){
-    var barbers = new MyCut.Models.Barbers(id);
-    var barberView = new MyCut.Views.BarberShowView({ barber: barber });
+    var barbers = new MyCut.Collections.Barbers();
+    var barber = barbers.getOrFetch(id);
+    var barberView = new MyCut.Views.BarberShow({
+      model: barber,
+      collection: barber.portfolio_pictures()
+    });
     this._swapView(barberView);
   },
 

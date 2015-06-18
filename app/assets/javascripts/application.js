@@ -16,11 +16,11 @@
 //= require backbone
 //= require composite_view
 //= require jquery.raty
-// require jquery.dropdown.min
 //= require jquery.backstretch.min
 //= require jquery.serializejson
 //= require bootstrap-sprockets
 //= require unslider.min
+//= require jquery.grid-a-licious.min.js
 //= require my_cut
 //= require_tree ../templates
 //= require_tree ./models

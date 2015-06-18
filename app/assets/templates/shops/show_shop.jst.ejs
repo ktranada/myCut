@@ -15,7 +15,7 @@
   <div class="row shop-barbers-photos">
     <div class="col-xs-9 col-md-9 col-md-offset-3">
       <% barbers.each(function(barber) { %>
-        <div class="barber-photo col-xs-3 col-md-4"><a href="/#/barber/<%= barber.escape('barber_id') %>"><img class="barber-profile" src="<%= barber.escape('photo_url') %>"></a></div>
+        <div class="barber-photo col-xs-3 col-md-4"><a href="/#/barbers/<%= barber.escape('barber_id') %>"><img class="barber-profile" src="<%= barber.escape('photo_url') %>"></a></div>
       <% }); %>
     </div>
   </div>

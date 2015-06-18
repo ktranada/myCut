@@ -1,5 +1,11 @@
 module Api
   class BarbersController < ApiController
+    def index
+    @barbers = Barber.all
+    render json: @barbers  
+    end
+
+
     def create
       @barber = Barber.new(barber_params)
       if @barber.save

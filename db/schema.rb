@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20150614233158) do
 
   create_table "pictures", force: :cascade do |t|
     t.string   "picture_comment"
-    t.integer  "imageable_id",    null: false
-    t.string   "imageable_type",  null: false
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
     t.string   "photo_url",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
