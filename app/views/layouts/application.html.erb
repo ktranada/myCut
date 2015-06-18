@@ -19,18 +19,15 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-
-
-
     <script>
       $(function(){
         $('.shop-barber-slider').unslider();
       })
     </script>
 
-    <% if signed_in? %>
-      <%= render partial: "layouts/header" %>
-    <% end %>
+    <!-- <% if signed_in? %>
+      < % = render partial: "layouts/header" %>
+    <% end %> -->
 
     <%= yield %>
 

@@ -1,8 +1,6 @@
-MyCut.Views.NavBar = Backbone.View.extend({
+MyCut.Views.NavBar = Backbone.CompositeView.extend({
+  template: JST['navbar/navbar'],
   tagName: "nav",
-  className: "navbar navbar-default navbar-fixed-top",
-  template: JST['navbar/nav'],
-
   render: function() {
     var renderedNav = this.template();
     this.$el.html(renderedNav);

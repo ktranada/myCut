@@ -6,11 +6,18 @@ window.MyCut = {
   initialize: function() {
     MyCut.shops = new MyCut.Collections.Shops();
     MyCut.shops.fetch();
-    new MyCut.Routers.Router({
+
+    var router = new MyCut.Routers.Router({
       $main: $("#main"),
       collection: MyCut.shops
     });
 
+    var navbar = new MyCut.Views.NavBar({
+      router: router,
+      collection: MyCut.shops
+    })
+
+    $('#nav').html(navbar.render().$el);
     Backbone.history.start();
 
     $.backstretch([

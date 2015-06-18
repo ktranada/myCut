@@ -40,6 +40,10 @@ module Api
       render :show
     end
 
+    def search
+
+    end
+
     private
 
     def shop_params

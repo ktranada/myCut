@@ -15,7 +15,7 @@ MyCut.Views.ReviewIndexItem = Backbone.CompositeView.extend({
     });
     this.$el.html(reviewSubview)
     this.$el.find('.review.rating').raty({
-      score: this.model.attributes.rating,
+      score: this.model.rating,
       path: 'assets/raty'
       })
     return this;
