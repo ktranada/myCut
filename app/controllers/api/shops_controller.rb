@@ -41,10 +41,16 @@ module Api
     end
 
     def search
-      
+      @shops = shopSearch(searchData)
     end
 
     private
+
+    def searchData
+      # query = params[:]
+
+    end
+
 
     def shop_params
       params.require(:shop).permit(:name, :address, :city, :state, :zip, :rating,

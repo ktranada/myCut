@@ -4,7 +4,8 @@ MyCut.Views.NavBar = Backbone.CompositeView.extend({
 
   events: {
     'click .dropdown-toggle, .dropdown-menu': "dropMenu",
-    'click .log-out': "logOut"
+    'click .log-out':                         "logOut",
+    'submit form':                            "newSearch"
   },
 
 
@@ -14,6 +15,14 @@ MyCut.Views.NavBar = Backbone.CompositeView.extend({
 
   dropMenu: function() {
     $(".dropdown-menu").toggle();
+  },
+
+  newSearch: function(event){
+    event.preventDefault();
+    var formData = $(event.currentTarget).serializeJSON();
+    Backbone.history.navigate("/shops/search?des="+ formData.des + "&loc=" + formData.loc, {trigger: true})
+
+
   },
 
   render: function() {

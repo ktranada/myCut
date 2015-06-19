@@ -16,9 +16,9 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
   createReview: function(event) {
     event.preventDefault();
     var formData = $(event.currentTarget).serializeJSON();
+    debugger
     var newReview = new MyCut.Models.Review(formData['review']);
     var shop = this;
-    debugger
     newReview.save({}, {
       success: function(){
         shop._reviews.add(newReview);
