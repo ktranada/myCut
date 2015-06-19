@@ -42,35 +42,24 @@ module Api
 
     def search
       @shops = shop_search(search_data)
-      render json: @shops
+      render :index
     end
 
     private
 
     def search_data
-      byebug
        params[:search_query]
     end
 
     def shop_search(queries)
-      shops = []
       if (!queries.nil?)
-  byebug
-        description = queries[:description].split(",")
-        description.each do |desc|
-          shops_by_description = Shop.all.where(<<-SQL, desc)
-            SELECT * FROM shops WHERE UPPER(Name) LIKE UPPER('%desc%');
-          SQL
-          shops << shops_by_description
-          shops << Shop.all.tagged_with(desc)
-        end
-
-        shops << Shop.near(queries[:location])
-        shops.uniq! { |shop| shop[:name] }
+        description = queries[:des].split(",")[0]
+        shops = (Shop.where("UPPER(name) LIKE ? ", "%#{description.upcase}%") +
+                 Shop.tagged_with(queries[:des], any: :true)) &
+                 Shop.near(queries[:loc], 6)
+        return shops
       end
-      return shops
     end
-
 
     def shop_params
       params.require(:shop).permit(:name, :address, :city, :state, :zip, :rating,

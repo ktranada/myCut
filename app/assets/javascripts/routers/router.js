@@ -52,15 +52,14 @@
 
   shopSearch:function(params){
     debugger
-
     var query = {}
     params.replace(
       new RegExp("([^?=&]+)(=([^&]*))?", "g"),
       function($0, $1, $2, $3) { query[$1] = $3; }
     )
     var searchResults = new MyCut.Collections.SearchResult()
-    searchResults.fetch({ data: query })
-
+    searchResults.fetch({ data: { search_query: query } })
+    debugger
     var landingPage = new MyCut.Views.LandingPage({
       collection: searchResults
     })

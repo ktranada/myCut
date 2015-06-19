@@ -30,7 +30,7 @@ shop1 = Shop.create!(moderator_id: 1,
              zip: "94108",
              phone: 4154211111,
              rating: 0.0,
-             tag_list: ["women, womens, keratin treatment, japanese hair straightening, curly hair, extensions, straight perms, coloring, thermal reconditioning, womens haircut, women haircut"],
+             tag_list: ["women, womens, keratin, keratin treatment, japanese hair straightening, curly hair, extensions, straight perms, coloring, thermal reconditioning, womens haircut, women haircut"],
              location_list: ["san francisco, union square, financial district"],
              photo_url: "http://s3-media4.fl.yelpcdn.com/bphoto/rq3KWK5doz7Yltts1O2RnQ/o.jpg")
 barber_2 = Barber.create!(name: "Trevor", shop_id: shop1.id,  skill_list: ["coloring, keratin treatments"], photo_url: "http://s3-media2.fl.yelpcdn.com/bphoto/EGWxZatDc11tZosACS4qvA/o.jpg")
@@ -160,7 +160,7 @@ shop5 = Shop.create!(moderator_id: 1,
             zip: "94102",
             phone: 4154025277,
             rating: 0.0,
-            tag_list: ["bang trim, highlights, color, tone, ombre, keratin treatment, bayalage"],
+            tag_list: ["bang trim, highlights, color, tone, ombre, keratin, keratin treatment, bayalage"],
             location_list: ["san francisco, union square"],
             photo_url: "http://s3-media1.fl.yelpcdn.com/bphoto/wFJAKqVmOUrAa1MrfdPbFw/o.jpg")
 
@@ -193,7 +193,7 @@ shop6 = Shop.create!(moderator_id: 1,
             zip: "94112",
             phone: 4157158227,
             rating: 0.0,
-            tag_list: ["pompadour, barber, fade, barbers, mens haircut, womens, womens haircut, shaves, flat tops, buzz cut, shadow fade, skin fade, bald fade, tapers, line ups, razor line"],
+            tag_list: ["pompadour, barber, fades, fade, barbers, mens haircut, womens, womens haircut, shaves, flat tops, buzz cut, shadow fade, skin fade, bald fade, tapers, line ups, razor line"],
             location_list: ["san francisco, outer mission"],
             photo_url: "http://s3-media3.fl.yelpcdn.com/bphoto/E1Z8K2ve064hp1cGXHpdHA/o.jpg")
 
