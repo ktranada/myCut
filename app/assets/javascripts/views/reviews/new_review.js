@@ -17,6 +17,10 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
     event.preventDefault();
     var formData = $(event.currentTarget).serializeJSON();
     debugger
+
+    // var photos = formData.pi
+
+
     var newReview = new MyCut.Models.Review(formData['review']);
     var shop = this;
     newReview.save({}, {
@@ -53,6 +57,7 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
   upload: function () {
     var review = this;
     filepicker.pick(function(blob) {
+      debugger
       var newImage = new MyCut.Models.Picture({
         photo_url: blob.url
       });

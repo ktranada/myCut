@@ -14,6 +14,14 @@
 
   <div class="review-body">
     <div class="review-content"><%= review.escape('body') %></div>
+
+    <div class="review-photos-container">
+      <% pictures.each(function(picture){ %>
+        <div class="review-photo">
+          <img src="<%= picture.escape('photo_url') %>">          
+        </div>
+      <% }) %>
+    </div>
     <br><br>
   </div>
   <hr>

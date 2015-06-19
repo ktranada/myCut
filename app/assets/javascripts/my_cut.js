@@ -30,6 +30,7 @@ window.MyCut = {
        "https://dl.dropbox.com/s/kymuc918k7indue/salon1.jpg",
        "https://dl.dropbox.com/s/ivri3dnusq3y2f5/short_hair.jpg"
      ], {duration: 12000, fade: 1000});
+
   }
 };
 

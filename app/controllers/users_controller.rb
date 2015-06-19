@@ -1,4 +1,3 @@
-module Api
   class UsersController < ApplicationController
     before_action :require_current_user!, only: [:destroy]
 
@@ -30,4 +29,3 @@ module Api
     end
 
   end
-end

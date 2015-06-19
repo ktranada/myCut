@@ -1,42 +1,50 @@
-<h1>Sign up</h1>
+<br><br><br><br><br><br><br>
 
-<%= render "shared/errors"%>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-offset-4 col-xs-offset-3 col-xs-6 col-md-4">
+      <h1>Sign up</h1>
+      <form class="server-form" action="/users" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <div class="errors-container">
+          <%= render "shared/errors"%>
+        </div>
 
-<form class="server-form" action="/users" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <div class="form-group">
+          <label>USERNAME
+            <input type="text"
+                   class="form-control"
+                   placeholder=""
+                   name="user[username]">
+          </label>
+        </div>
 
-  <div class="form-group">
-    <label>USERNAME
-      <input type="text"
-             class="form-control"
-             placeholder=""
-             name="user[username]">
-    </label>
+        <div class="form-group">
+          <label for="email-input">EMAIL<label>
+          <input type="email"
+                 class="form-control"
+                 id="email-input"
+                 placeholder="Enter email"
+                 name="user[email]">
+        </div>
+        <div class="form-group">
+          <label for="email-password">PASSWORD</label>
+          <input type="password"
+                 class="form-control"
+                 name="user[password]"
+                 id="email-password"
+                 placeholder="Password">
+        </div>
+
+        <div class="form-group">
+          <label for="user-avatar">Upload a profile picture</label>
+          <input type="file"
+                 class="form-control"
+                 id="user-avatar"
+                 name="user[photo_url]">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="email-input">EMAIL<label>
-    <input type="email"
-           class="form-control"
-           id="email-input"
-           placeholder="Enter email"
-           name="user[email]">
-  </div>
-  <div class="form-group">
-    <label for="email-password">PASSWORD</label>
-    <input type="password"
-           class="form-control"
-           name="user[password]"
-           id="email-password"
-           placeholder="Password">
-  </div>
-
-  <div class="form-group">
-    <label for="user-avatar">Upload a profile picture</label>
-    <input type="file"
-           class="form-control"
-           id="user-avatar"
-           name="user[photo_url]">
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
+</div>
