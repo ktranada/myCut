@@ -1,9 +1,9 @@
   MyCut.Routers.Router = Backbone.Router.extend({
   routes: {
     "":                                  "feedLandingPage",
-    "shops/search?des=:des&loc=:loc":          "shopSearch",
-    "shops/new":                         "createShop",
+    "shops/*parameters":             "shopSearch",
     "shops/:id":                         "showShop",
+    "shops/new":                         "createShop",
     "shops/:id/review/new":              "newReview",
     "shops/:id/barbers/:bid":            "barberShow",
     "shops":                            "feedLandingPage",
@@ -47,21 +47,25 @@
     this._swapView(newReviewForm);
   },
 
-  shopSearch:function(des, loc){
-    debugger
-    var searchResults = new MyCut.Collections.searchResults({
+  //?des=:des&loc=:loc
+
+  shopSearch:function(shop, search){
+    var searchResults = new MyCut.Collections.SearchResult({
       searchData: {
-        description: des,
-        location: loc
+        description: search.des,
+        location: search.loc
       }
     })
+    searchResults.fetch();
+
     var landingPage = new MyCut.Views.LandingPage({
-      collection: searchData
+      collection: searchResults
     })
     this._swapView(landingPage);
   },
 
   showShop: function(id) {
+    debugger
     var shopModel = MyCut.shops.getOrFetch(id);
     var shopView = new MyCut.Views.ShowShop({ model: shopModel});
     this._swapView(shopView);

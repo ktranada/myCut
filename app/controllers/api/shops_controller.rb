@@ -41,13 +41,26 @@ module Api
     end
 
     def search
-      @shops = shopSearch(searchData)
+      @shops = shop_search(search_data)
+      render json: @shops
     end
 
     private
 
-    def searchData
-      # query = params[:]
+    def search_data
+      #  params.require(:searchData).permit(:description, :location)
+    end
+
+    def shop_search(queries)
+      # shops = []
+      # queries[:description].each do |desc|
+      #   shops_by_description = Shop.all.where(<<-SQL, desc)
+      #     SELECT * FROM shops WHERE UPPER(Name) LIKE UPPER('%desc%');
+      #   SQL
+      #   shops << shops_by_description
+      #   shops << Shop.all.tagged_with
+      # end
+
 
     end
 

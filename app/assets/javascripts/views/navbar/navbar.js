@@ -19,6 +19,7 @@ MyCut.Views.NavBar = Backbone.CompositeView.extend({
 
   newSearch: function(event){
     event.preventDefault();
+    debugger
     var formData = $(event.currentTarget).serializeJSON();
     Backbone.history.navigate("/shops/search?des="+ formData.des + "&loc=" + formData.loc, {trigger: true})
 
