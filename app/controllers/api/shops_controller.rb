@@ -52,13 +52,17 @@ module Api
     end
 
     def shop_search(queries)
-      if (!queries.nil?)
+      queries[:loc] = "san francisco" unless queries[:loc].present?
+
+      if (!queries[:des].empty?)
         description = queries[:des].split(",")[0]
         shops = (Shop.where("UPPER(name) LIKE ? ", "%#{description.upcase}%") +
                  Shop.tagged_with(queries[:des], any: :true)) &
                  Shop.near(queries[:loc], 6)
-        return shops
+      else
+        shops = Shop.all
       end
+      shops
     end
 
     def shop_params

@@ -48,10 +48,7 @@
     this._swapView(newReviewForm);
   },
 
-  //?des=:des&loc=:loc
-
   shopSearch:function(params){
-    debugger
     var query = {}
     params.replace(
       new RegExp("([^?=&]+)(=([^&]*))?", "g"),
@@ -59,7 +56,6 @@
     )
     var searchResults = new MyCut.Collections.SearchResult()
     searchResults.fetch({ data: { search_query: query } })
-    debugger
     var landingPage = new MyCut.Views.LandingPage({
       collection: searchResults
     })
