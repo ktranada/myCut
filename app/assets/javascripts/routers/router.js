@@ -1,9 +1,9 @@
   MyCut.Routers.Router = Backbone.Router.extend({
   routes: {
     "":                                  "feedLandingPage",
-    "shops/*parameters":             "shopSearch",
-    "shops/:id":                         "showShop",
     "shops/new":                         "createShop",
+    "shops/search?*parameters":             "shopSearch",
+    "shops/:id":                         "showShop",
     "shops/:id/review/new":              "newReview",
     "shops/:id/barbers/:bid":            "barberShow",
     "shops":                            "feedLandingPage",
@@ -50,23 +50,17 @@
 
   //?des=:des&loc=:loc
 
-  shopSearch:function(shop, search){
+  shopSearch:function(params){
     debugger
 
     var query = {}
-    search.replace(
+    params.replace(
       new RegExp("([^?=&]+)(=([^&]*))?", "g"),
       function($0, $1, $2, $3) { query[$1] = $3; }
     )
+    var searchResults = new MyCut.Collections.SearchResult()
+    searchResults.fetch({ data: query })
 
-    var searchResults = new MyCut.Collections.SearchResult({
-      search_query: {
-        description: query.des,
-        location: query.loc
-      }
-    })
-    searchResults.fetchShops();
-debugger
     var landingPage = new MyCut.Views.LandingPage({
       collection: searchResults
     })
