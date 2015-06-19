@@ -1,6 +1,6 @@
 MyCut.Collections.Shops = Backbone.Collection.extend({
   model: MyCut.Models.Shop,
-  url: '/api/shops/search',
+  url: '/api/shops',
 
   getOrFetch: function(id){
     var shops = this;
