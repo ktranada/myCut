@@ -1,7 +1,7 @@
   MyCut.Routers.Router = Backbone.Router.extend({
   routes: {
     "":                                  "feedLandingPage",
-    "search?find_des=:des&cur_loc:loc": "shopSearch",
+    "search?find_des=:des&cur_loc:loc":  "shopSearch",
     "shops/new":                         "createShop",
     "shops/:id":                         "showShop",
     "shops/:id/review/new":              "newReview",
@@ -48,13 +48,12 @@
   },
 
   shopSearch:function(des, loc){
-    var searchResults = new MyCut.collections.Shops({
+    var searchResults = new MyCut.Collections.searchResults({
       searchData: {
         description: des,
         location: loc
       }
     })
-
     var landingPage = new MyCut.Views.LandingPage({
       collection: searchData
     })
