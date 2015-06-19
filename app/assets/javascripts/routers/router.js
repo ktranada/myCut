@@ -1,11 +1,13 @@
   MyCut.Routers.Router = Backbone.Router.extend({
   routes: {
-    "":                      "feedLandingPage",
-    "shops/new":             "createShop",
-    "shops/:id":             "showShop",
-    "shops/:id/review/new":  "newReview",
-    "shops/:id/barbers/:bid":  "barberShow",
-    "shops/":                "feedLandingPage"
+    "":                                  "feedLandingPage",
+    "search?find_des=:dest&cur_loc:loc": "shopSearch"
+    "shops/new":                         "createShop",
+    "shops/:id":                         "showShop",
+    "shops/:id/review/new":              "newReview",
+    "shops/:id/barbers/:bid":            "barberShow",
+    "shops/":                            "feedLandingPage",
+
   },
 
   initialize: function(options) {
