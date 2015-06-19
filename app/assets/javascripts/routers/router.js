@@ -24,6 +24,7 @@
   },
 
   createShop: function() {
+    debugger
     var newShop = new MyCut.Views.NewShop({
       collection: MyCut.shops
     })
@@ -50,14 +51,22 @@
   //?des=:des&loc=:loc
 
   shopSearch:function(shop, search){
+    debugger
+
+    var query = {}
+    search.replace(
+      new RegExp("([^?=&]+)(=([^&]*))?", "g"),
+      function($0, $1, $2, $3) { query[$1] = $3; }
+    )
+
     var searchResults = new MyCut.Collections.SearchResult({
-      searchData: {
-        description: search.des,
-        location: search.loc
+      search_query: {
+        description: query.des,
+        location: query.loc
       }
     })
-    searchResults.fetch();
-
+    searchResults.fetchShops();
+debugger
     var landingPage = new MyCut.Views.LandingPage({
       collection: searchResults
     })
@@ -65,7 +74,6 @@
   },
 
   showShop: function(id) {
-    debugger
     var shopModel = MyCut.shops.getOrFetch(id);
     var shopView = new MyCut.Views.ShowShop({ model: shopModel});
     this._swapView(shopView);

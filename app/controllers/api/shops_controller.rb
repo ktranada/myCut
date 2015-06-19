@@ -48,20 +48,27 @@ module Api
     private
 
     def search_data
-      #  params.require(:searchData).permit(:description, :location)
+      byebug
+       params[:search_query]
     end
 
     def shop_search(queries)
-      # shops = []
-      # queries[:description].each do |desc|
-      #   shops_by_description = Shop.all.where(<<-SQL, desc)
-      #     SELECT * FROM shops WHERE UPPER(Name) LIKE UPPER('%desc%');
-      #   SQL
-      #   shops << shops_by_description
-      #   shops << Shop.all.tagged_with
-      # end
+      shops = []
+      if (!queries.nil?)
+  byebug
+        description = queries[:description].split(",")
+        description.each do |desc|
+          shops_by_description = Shop.all.where(<<-SQL, desc)
+            SELECT * FROM shops WHERE UPPER(Name) LIKE UPPER('%desc%');
+          SQL
+          shops << shops_by_description
+          shops << Shop.all.tagged_with(desc)
+        end
 
-
+        shops << Shop.near(queries[:location])
+        shops.uniq! { |shop| shop[:name] }
+      end
+      return shops
     end
 
 

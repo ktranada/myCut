@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
-//= require backbone.queryparams.min.js
 //= require composite_view
 //= require jquery.raty
 //= require jquery.backstretch.min
