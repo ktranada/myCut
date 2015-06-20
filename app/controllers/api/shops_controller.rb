@@ -53,7 +53,6 @@ module Api
 
     def shop_search(queries)
       queries[:loc] = "san francisco" unless queries[:loc].present?
-
       if (!queries[:des].empty?)
         description = queries[:des].split(",")[0]
         shops = (Shop.where("UPPER(name) LIKE ? ", "%#{description.upcase}%") +

@@ -53,6 +53,8 @@
       new RegExp("([^?=&]+)(=([^&]*))?", "g"),
       function($0, $1, $2, $3) { query[$1] = $3; }
     )
+
+    window.currentLoc = query.loc;
     var searchResults = new MyCut.Collections.SearchResult()
     searchResults.fetch({ data: { search_query: query } })
     var landingPage = new MyCut.Views.ShopSearchView({
