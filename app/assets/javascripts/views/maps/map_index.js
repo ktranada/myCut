@@ -16,14 +16,12 @@ MyCut.Views.IndexMap = Backbone.View.extend({
       center: { lat: 37.7577, lng: -122.4376 },
       zoom: 11
     };
-    debugger
     this._map = new window.google.maps.Map(this.el, mapOptions);
     this.collection.each(this.addMarker.bind(this));
   },
 
   // Event handlers
    addMarker: function (listing) {
-     debugger
      if (this._markers[listing.id]) { return };
      var view = this;
      var fullAddress = listing.address +
