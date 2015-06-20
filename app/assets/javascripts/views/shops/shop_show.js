@@ -21,6 +21,7 @@ MyCut.Views.ShowShop = Backbone.CompositeView.extend({
   render: function(){
     var barbers = this.model.barbers();
     var renderedContent = this.template({
+      mod_id: window.id,
       shop: this.model,
       barbers: barbers
     });

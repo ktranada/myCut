@@ -6,11 +6,18 @@
         <p class="lead"><%= shop.escape('phone') %><div class="rating" data-path="assets/images"></div></p>
 
     </div>
+
     <div class="shop-feature col-md-2">
     <br>
+
+        <% if (mod_id == shop.escape('moderator_id')) { %>
+          <a href="#/shops/<%= shop.escape('id') %>/edit"><button class="btn btn-default">EDIT YOUR SHOP</button></a>
+        <% } %>
+        <br><br>
         <a href="#/shops/<%= shop.escape('id') %>/review/new"><button class="btn btn-default">WRITE A REVIEW</button></a>
         <br><br>
         <a href="#"><button style="color: crimson;" class="btn btn-default">ALL SHOPS</button></a>
+        <br><br>
     </div>
   </div>
   <br><br><br>

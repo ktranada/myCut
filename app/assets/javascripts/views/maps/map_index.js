@@ -17,7 +17,8 @@ MyCut.Views.IndexMap = Backbone.View.extend({
       zoom: 11
     };
     this._map = new window.google.maps.Map(this.el, mapOptions);
-    this.attachMapListeners();
+    this.collection.each(this.addMarker.bind(this))
+    //this.attachMapListeners();
   },
 
   // Event handlers
@@ -52,7 +53,6 @@ MyCut.Views.IndexMap = Backbone.View.extend({
    },
 
    attachMapListeners: function(){
-     this.collection.each(this.addMarker.bind(this));
      this.listenTo(this.collection, "add", this.addMarker);
      this.listenTo(this.colleciton, "remove", this.removeMarker)
    },
