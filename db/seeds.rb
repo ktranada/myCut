@@ -65,7 +65,7 @@ shop2 = Shop.create!(moderator_id: 1,
              zip: "94014",
              phone: 6505504180,
              rating: 0.0,
-             tag_list: ["bald fade, taper, fade, lineups, razor fade, freestyle"],
+             tag_list: ["bald fade, taper, fade, lineup, lineups, razor fade, freestyle"],
              photo_url: "http://s3-media3.fl.yelpcdn.com/bphoto/2vYcw6f5426vZAIqINaekg/o.jpg")
 
  barber_4 = Barber.create!(name: "Derrick", shop_id: shop2.id, skill_list: ["bald fade, fade, taper, lineup, skin fade"], photo_url: "http://s3-media1.fl.yelpcdn.com/bphoto/_bmVfuNQybHT1k3DHzCdKA/o.jpg")

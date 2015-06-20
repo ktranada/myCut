@@ -19,11 +19,10 @@ MyCut.Views.NewShop = Backbone.CompositeView.extend({
   },
 
   initFilepicker: function(){
-    if (!this.$('button[type=button]')){
-      var $filePickerInput = this.$('input[type=filepicker]');
-      filepicker.constructWidget($filePickerInput[0]);
-    }
+    var $filePickerInput = this.$('input[type=filepicker]');
+    filepicker.constructWidget($filePickerInput[0]);
   },
+
 
   createShop: function(event){
     event.preventDefault();

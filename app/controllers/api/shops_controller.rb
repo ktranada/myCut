@@ -60,7 +60,7 @@ module Api
                  Shop.tagged_with(queries[:des], any: :true)) &
                  Shop.near(queries[:loc], 6)
       else
-        shops = Shop.all
+        shops = Shop.near(queries[:loc], 6)
       end
       shops
     end

@@ -1,11 +1,14 @@
 MyCut.Views.LandingPage = Backbone.CompositeView.extend({
   template: JST['shops/landing_page'],
   className: "first-level",
-  initialize: function() {
+  initialize: function(options) {
+    this.updatedLoc = options.newLoc
     this.indexMap = new MyCut.Views.IndexMap({
       collection: this.collection
     });
-    this.shopsIndex = new MyCut.Views.ShopIndex({ collection: this.collection });
+    this.shopsIndex = new MyCut.Views.ShopIndex({
+      collection: this.collection
+    });
   },
 
   render: function() {

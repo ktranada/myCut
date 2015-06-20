@@ -4,24 +4,26 @@ MyCut.Views.IndexMap = Backbone.View.extend({
   },
   className: "circular col-md-offset-4",
 
-  initialize: function(){
+  initialize: function(options){
     this._markers = {};
+    this.updatedLoc = options.updatedLoc;
     this.geocoder = new google.maps.Geocoder();
-    this.listenTo(this.collection, "add", this.addMarker);
-    this.listenTo(this.colleciton, "remove", this.removeMarker)
+
   },
 
   initMap: function(){
-    var mapOptions = {
+    var mapOptions = this.updatedLoc || {
       center: { lat: 37.7577, lng: -122.4376 },
       zoom: 11
     };
+    debugger
     this._map = new window.google.maps.Map(this.el, mapOptions);
     this.collection.each(this.addMarker.bind(this));
   },
 
   // Event handlers
    addMarker: function (listing) {
+     debugger
      if (this._markers[listing.id]) { return };
      var view = this;
      var fullAddress = listing.address +
@@ -29,9 +31,9 @@ MyCut.Views.IndexMap = Backbone.View.extend({
                        ', ' + listing.state +
                        ', ' + listing.zip;
      this._coordinates = listing.get('coordinates') ||
-      this.geocoder({address: fullAddress}, function(result, status){
+      this.geocoder.geocode({address: fullAddress}, function(result, status){
         if (status == google.maps.GeocoderStatus.OK) {
-          return results[0].geometry.location;
+          return result[0].geometry.location;
         } else {
           alert("That location does not exist!");
         }
@@ -50,6 +52,12 @@ MyCut.Views.IndexMap = Backbone.View.extend({
      this._markers[listing.id] = marker;
    },
 
+   attachMapListeners: function(){
+     this.listenTo(this.collection, "add", this.addMarker);
+     this.listenTo(this.colleciton, "remove", this.removeMarker)
+   },
+
+
    removeMarker: function (listing) {
      var marker = this._markers[listing.id];
      marker.setMap(null);
@@ -67,6 +75,10 @@ MyCut.Views.IndexMap = Backbone.View.extend({
      });
 
      infoWindow.open(this._map, marker);
+   },
+
+   changeCenter: function(loc){
+     this._map.setCenter(loc);
    }
 
 

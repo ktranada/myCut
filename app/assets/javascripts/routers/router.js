@@ -24,7 +24,6 @@
   },
 
   createShop: function() {
-    debugger
     var newShop = new MyCut.Views.NewShop({
       collection: MyCut.shops
     })
@@ -56,7 +55,8 @@
     )
     var searchResults = new MyCut.Collections.SearchResult()
     searchResults.fetch({ data: { search_query: query } })
-    var landingPage = new MyCut.Views.LandingPage({
+    var landingPage = new MyCut.Views.ShopSearchView({
+      newLoc: query.loc,
       collection: searchResults
     })
     this._swapView(landingPage);
