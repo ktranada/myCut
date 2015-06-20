@@ -16,9 +16,8 @@ MyCut.Views.IndexMap = Backbone.View.extend({
       center: { lat: 37.7577, lng: -122.4376 },
       zoom: 11
     };
-    debugger
     this._map = new window.google.maps.Map(this.el, mapOptions);
-    this.collection.each(this.addMarker.bind(this));
+    this.attachMapListeners();
   },
 
   // Event handlers
@@ -26,10 +25,11 @@ MyCut.Views.IndexMap = Backbone.View.extend({
      debugger
      if (this._markers[listing.id]) { return };
      var view = this;
-     var fullAddress = listing.address +
-                       ', ' + listing.city +
-                       ', ' + listing.state +
-                       ', ' + listing.zip;
+     var listingAttributes = listing.attributes;
+     var fullAddress = listingAttributes.address +
+                       ', ' + listingAttributes.city +
+                       ', ' + listingAttributes.state +
+                       ', ' + listingAttributes.zip;
      this._coordinates = listing.get('coordinates') ||
       this.geocoder.geocode({address: fullAddress}, function(result, status){
         if (status == google.maps.GeocoderStatus.OK) {
@@ -53,6 +53,7 @@ MyCut.Views.IndexMap = Backbone.View.extend({
    },
 
    attachMapListeners: function(){
+     this.collection.each(this.addMarker.bind(this));
      this.listenTo(this.collection, "add", this.addMarker);
      this.listenTo(this.colleciton, "remove", this.removeMarker)
    },
