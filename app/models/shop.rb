@@ -20,7 +20,9 @@
 
 class Shop < ActiveRecord::Base
   acts_as_taggable_on :tags, :locations
-  validates :name, :address, :city, :state,  :zip, :phone, presence: true
+  validates :name, :state, :zip, :city, presence: true
+  validates :address, :phone, presence: true, uniqueness: true
+
   validates_inclusion_of :rating, {in: 0..5 }
 
   has_many :reviews, dependent: :destroy
