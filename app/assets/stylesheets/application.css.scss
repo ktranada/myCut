@@ -18,10 +18,7 @@
 @import "bootstrap";
 // @import "font-awesome";
 @import "bootstrap-tagsinput.css";
-@import "new_review.scss";
 @import "barber_show.scss";
-@import "navbar.scss";
-@import "new_shop.scss";
 
 @font-face {
        font-family: "Bodoni72";
@@ -50,15 +47,6 @@ html, body, div#main, div.first-level, div.container-fluid.level-two, div.row.le
   margin: 0;
   padding: 0;
 }
-
-// div.map.col-md-4.col-md-offset-4 {
-//   height: 550px;
-// }
-//
-// map.col-md-4.col-md-offset-2 {
-//   height: 550px;
-// }
-
 html, body {
   font-family: 'Oswald', sans-serif;
 }
@@ -92,15 +80,23 @@ nav.navbar {
     }
   }
 }
+//////////////////////////////////////////////////////////////////
+/* Error Container */
+div.errors-container {
+  font-family: "fira-sans-2", sans-serif;
 
-/* new session */
+}
+
+
+//////////////////////////////////////////////////////////////////
+/*  new session */
+
 .veritcal-middle {
   vertical-align: middle;
 }
 .col-md-6.vertical-middle.col-md-offset-2 {
   vertical-align: middle;
 }
-
 
 /* Feed show - Landing page */
 shop-items-index {
@@ -176,8 +172,26 @@ div#map-canvas.circular.col-md-offset-4 {
 	-moz-border-radius: 150px;
 }
 
+//////////////////////////////////////////////////////////////////
 /* New Shop */
 
+div.col-md-offset-4.col-xs-offset-3.col-xs-6.col-md-4 {
+background-color: rgba(0, 139, 139, 0.5);
+  border-radius: 30px;
+  color: white;
+  letter-spacing: 3px;
+  form {
+    text-align: center;
+  }
+}
+
+::-webkit-input-placeholder {
+   color: #808080;
+   text-align: center;
+   text-transform: uppercase;
+   font-style: italic;
+
+}
 
 div.panel.panel-default.new-signup-form {
   opacity: 0.9;
@@ -201,7 +215,7 @@ label {
   font-weight: 100;
 }
 
-
+//////////////////////////////////////////////////////////////////
 /* Show Shop */
 
 .shop-barber-slider { position: relative; overflow: auto; }
@@ -232,4 +246,89 @@ height: 100%;
 -webkit-border-radius: 75px;
 // was 150px for circular view
 
+}
+
+//////////////////////////////////////////////////////////////////
+/* Review Item */
+
+ul.review-items.col-xs-12.col-md-6.col-md-offset-3 {
+  list-style: none;
+  background-color: rgba(0,0,0,.7);
+  height: 44vh;
+  overflow-y: scroll;
+}
+.review-items.col-xs-12.col-md-6.col-md-offset-3 {
+  background-color: rgba(155,155,155, 0.7);
+  color: white;
+  font-family: "Arial", sans-serif;
+  letter-spacing: .8px;
+}
+
+ul.review-items {
+  list-style: none;
+  padding: 20px;
+}
+
+img.user-avatar {
+  float: left;
+  margin-right: 20px;
+}
+
+div.review-content {
+  display: flex;
+  font-family: "fira-sans-2", "hair";
+
+}
+
+img.user-avatar.circular {
+  margin-right: 60px;
+  width: 100px;
+  height: 100px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+}
+
+div.review-userprofile {
+  padding: 8px;
+}
+
+div.review-body {
+  padding: 8px;
+}
+
+.barber-review-rating {
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 2px;
+  font-style: italic;
+  font-weight: 100;
+  color: cadetblue;
+  .barber-name {
+    color: royalblue;
+    font-weight: 900;
+  }
+}
+
+div.review-username-container{
+  text-align: center;
+  text-transform: uppercase;
+}
+span.review-username {
+  color: #AD154f;
+  border-bottom: aliceblue;
+border-bottom-style: inset;
+letter-spacing: 2px;
+}
+
+
+.review-photos-container {
+  text-align: center;
+  .review-photo {
+    display: inline-block;
+    img {
+      border-radius: 60px;
+      max-height: 30vh;
+    }
+  }
 }

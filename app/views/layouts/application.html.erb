@@ -9,13 +9,12 @@
       <% api_key = '' %>
     <% end %>
     <script src="//use.typekit.net/tmx1xsr.js"></script>
-
     <script src="http://api.filepicker.io/v1/filepicker.js"></script>
     <script>filepicker.setKey("<%= ENV['FILEPICKER_API_KEY']%>")</script>
     <script>try{Typekit.load();}catch(e){}</script>
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places,key=<%= api_key %>"></script>    
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places,key=<%= api_key %>"></script>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
