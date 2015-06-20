@@ -1,7 +1,14 @@
 MyCut.Views.NewShop = Backbone.CompositeView.extend({
-  template: JST['shops/shop_new'],
+  template: JST['shops/shop_form'],
   events: {
     "submit form": "createShop"
+  },
+
+
+  initialize: function(options){
+    this.model = options.model;
+    this._new = this.model.isNew()
+
   },
 
   upload: function () {
@@ -26,12 +33,10 @@ MyCut.Views.NewShop = Backbone.CompositeView.extend({
   createShop: function(event){
     event.preventDefault();
     var newShopData = $(event.currentTarget).serializeJSON();
-    var newShop = new MyCut.Models.Shop(newShopData);
-    debugger
     var that = this;
-    newShop.save({}, {
+    this.model.save(newShopData, {
       success: function() {
-        MyCut.shops.add(newShop);
+        that.add(newShop);
         Backbone.history.navigate("#", { trigger: true});
       },
       error: function(model, response) {
@@ -40,6 +45,10 @@ MyCut.Views.NewShop = Backbone.CompositeView.extend({
         $container.html(errors)
       }
     })
+  },
+
+  errorsShow: function(model, response){
+
   },
 
   render: function() {

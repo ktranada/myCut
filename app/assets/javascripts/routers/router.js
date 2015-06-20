@@ -25,7 +25,9 @@
   },
 
   shopCreate: function() {
+    var newShop = new MyCut.Models.Shop();
     var newShop = new MyCut.Views.NewShop({
+      model: newShop,
       collection: MyCut.shops
     })
     this._swapView(newShop);

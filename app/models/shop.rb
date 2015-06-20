@@ -20,9 +20,9 @@
 
 class Shop < ActiveRecord::Base
   acts_as_taggable_on :tags, :locations
-  validates :name, :photo_url, :state, :zip, :city, presence: true
+  validates :name, :state, :zip, :city, presence: true
   validates :address, :phone, presence: true, uniqueness: true
-
+  validate :shop_photo
 
   validates_inclusion_of :rating, {in: 0..5 }
 
@@ -31,8 +31,8 @@ class Shop < ActiveRecord::Base
 
   belongs_to :moderator, class_name: "User", foreign_key: :moderator_id
 
-  validates_inclusion_of :zip, :in => 10000..99999
-  validates_inclusion_of :phone, :in =>  1000000000..9999999999
+  validates_format_of :zip, with: /\A\d{5}-\d{4}|\A\d{5}\z/, :message => "should be in the form 12345 or 12345-1234"
+  validates_format_of :phone,:with => /\A\d{10}/, message: "should be in the form  4083334444"
 
   # Will tell geocoder which method returns geocodable address
   geocoded_by :full_street_address   # can also be an IP address
@@ -59,5 +59,7 @@ class Shop < ActiveRecord::Base
     return "(#{number[0..2]})-#{number[3..5]}-#{number[6..9]}"
   end
 
-
+  def shop_photo
+    errors.add(:base, "You must upload a shop photo.") unless self.photo_url.present?
+  end
 end

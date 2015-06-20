@@ -1,5 +1,5 @@
 MyCut.Views.ShopEditView = Backbone.View.extend({
-  template: JST['shops/shop_new'],
+  template: JST['shops/shop_form'],
 
   events: {
     "submit form": "edit"
@@ -9,7 +9,6 @@ MyCut.Views.ShopEditView = Backbone.View.extend({
     event.preventDefault();
     var that = this;
     var formData = $(event.currentTarget).serializeJSON()['shop'];
-    debugger
     this.model.save(formData, {
       success: function(){
         humane.log("Your shop has been updated");
