@@ -29,7 +29,7 @@
         </div>
         <div class="form-group">
           <label for="shop-phone">PHONE</label>
-          <input type="number" class="form-control new-shop-input" value="<%= shop.escape('phone') %>" name="shop[phone]" id="shop-phone" placeholder="4088052524">
+          <input type="number" class="form-control new-shop-input" value="<%= shop.escape('nonparsed_phone') %>" name="shop[phone]" id="shop-phone" placeholder="4088052524">
         </div>
         <div class="form-group">
           <label for="shop-photo">SHOP PHOTO</label><br>
@@ -39,7 +39,7 @@
                  name="shop[photo_url]">
 
           <br><br>
-          <button type ="submit" class="create-shop btn btn-default">Submit</button>
+          <button type ="submit" class="shop-form btn btn-default">Submit</button>
         </div>
       </form>
     </div>

@@ -2,16 +2,18 @@ MyCut.Views.ShopEditView = Backbone.View.extend({
   template: JST['shops/shop_new'],
 
   events: {
-    "submit .shop-edit-button": "edit"
+    "submit form": "edit"
   },
 
   edit: function(event){
     event.preventDefault();
+    var that = this;
     var formData = $(event.currentTarget).serializeJSON()['shop'];
+    debugger
     this.model.save(formData, {
       success: function(){
         humane.log("Your shop has been updated");
-        Backbone.history.navigate("shops/" + this.model.id, { trigger: true } )
+        Backbone.history.navigate("shops/" + that.model.get('id'), { trigger: true } )
       },
       error: function(model, response) {
         var errors = $.parseJSON(response.responseText).join("<br>")
@@ -22,7 +24,6 @@ MyCut.Views.ShopEditView = Backbone.View.extend({
   },
 
   render: function(){
-    debugger
     var renderedForm = this.template({
       shop: this.model
     });

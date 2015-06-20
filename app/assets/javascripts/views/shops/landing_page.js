@@ -16,6 +16,7 @@ MyCut.Views.LandingPage = Backbone.CompositeView.extend({
     this.$el.html(renderedLandingPage);
     this.$('.shops-composite').html(this.shopsIndex.render().$el);
     this.$(".map").html(this.indexMap.$el);
+
     return this;
   }
 

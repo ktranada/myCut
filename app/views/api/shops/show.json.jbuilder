@@ -2,6 +2,7 @@ json.extract! @shop, :moderator_id, :id, :name, :address, :city, :state, :zip
 json.average_rating @shop.average_rating
 json.num_reviews @shop.number_reviews
 json.phone @shop.parse_phone_number
+json.nonparsed_phone @shop.phone
 json.coordinates do
   json.latitude @shop.latitude
   json.longitude @shop.longitude
