@@ -1,5 +1,5 @@
 MyCut.Views.NewShop = Backbone.CompositeView.extend({
-  template: JST['shops/new'],
+  template: JST['shops/shop_new'],
   events: {
     "click .file-upload": "upload",
     "submit form": "createShop"
