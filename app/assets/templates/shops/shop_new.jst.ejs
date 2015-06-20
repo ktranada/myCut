@@ -9,31 +9,32 @@
         <br>
         <div class="form-group">
           <label for="new-shop-name">SHOP NAME</label>
-          <input type="text" class="form-control new-shop-input" name="shop[name]" id="new-shop-name" >
+          <input type="text" class="form-control new-shop-input" value="<%= shop.escape('name') %>" name="shop[name]" id="new-shop-name" >
         </div>
         <div class="form-group">
           <label for="shop-address">ADDRESS</label>
-          <input type="text" class="form-control new-shop-input" name="shop[address]" id="shop-address" placeholder="1000 Moon Way">
+          <input type="text" class="form-control new-shop-input" value="<%= shop.escape('address') %>" name="shop[address]" id="shop-address" placeholder="1000 Moon Way">
         </div>
         <div class="form-group">
           <label for="shop-city">CITY</label>
-          <input type="text" class="form-control new-shop-input" name="shop[city]" id="shop-city" placeholder="Oakland">
+          <input type="text" class="form-control new-shop-input" value="<%= shop.escape('city') %>" name="shop[city]" id="shop-city" placeholder="Oakland">
         </div>
         <div class="form-group">
           <label for="shop-state">STATE</label>
-          <input type="text" class="form-control new-shop-input" name="shop[state]" id="shop-state" placeholder="California">
+          <input type="text" class="form-control new-shop-input" value="<%= shop.escape('state') %>" name="shop[state]" id="shop-state" placeholder="California">
         </div>
         <div class="form-group">
           <label for="shop-zip">ZIP</label>
-          <input type="number" class="form-control" new-shop-input name="shop[zip]" id="shop-zip" placeholder="94606">
+          <input type="number" class="form-control new-shop-input" value="<%= shop.escape('zip') %>" name="shop[zip]" id="shop-zip" placeholder="94606">
         </div>
         <div class="form-group">
           <label for="shop-phone">PHONE</label>
-          <input type="number" id="shop-phone" class="form-control new-shop-input" name="shop[phone]" placeholder="4088052524">
+          <input type="number" class="form-control new-shop-input" value="<%= shop.escape('phone') %>" name="shop[phone]" id="shop-phone" placeholder="4088052524">
         </div>
         <div class="form-group">
           <label for="shop-photo">SHOP PHOTO</label><br>
           <input type="filepicker"
+                 value="<%= shop.escape('photo_url') %>"
                  class="filepicker-object"
                  name="shop[photo_url]">
 

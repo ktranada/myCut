@@ -1,7 +1,6 @@
 MyCut.Views.NewShop = Backbone.CompositeView.extend({
   template: JST['shops/shop_new'],
   events: {
-    "click .file-upload": "upload",
     "submit form": "createShop"
   },
 
@@ -44,7 +43,10 @@ MyCut.Views.NewShop = Backbone.CompositeView.extend({
   },
 
   render: function() {
-    var newShopForm = this.template();
+    var shop = new MyCut.Models.Shop();
+    var newShopForm = this.template({
+      shop: shop
+    });
     this.$el.html(newShopForm);
     this.initFilepicker();
     return this;

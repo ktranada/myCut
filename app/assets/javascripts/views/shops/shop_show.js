@@ -2,7 +2,7 @@ MyCut.Views.ShowShop = Backbone.CompositeView.extend({
   template: JST['shops/show_shop'],
 
   initialize: function(){
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync change", this.render);
     this.listenTo(this.model.reviews(), "add", this.addReviewSubview);
     this.listenTo(this.model.reviews(), "remove", this.removeReviewSubview);
     this.model.reviews().each(this.addReviewSubview.bind(this));
