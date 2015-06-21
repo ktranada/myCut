@@ -8,7 +8,7 @@ MyCut.Views.LandingPage = Backbone.CompositeView.extend({
     this.shopsIndex = new MyCut.Views.ShopIndex({
       collection: this.collection
     });
-    this.indexMap.initMap(true);
+    this.listenTo(this.collection, "sync", this.render);
   },
 
   render: function() {
@@ -16,7 +16,7 @@ MyCut.Views.LandingPage = Backbone.CompositeView.extend({
     this.$el.html(renderedLandingPage);
     this.$('.shops-composite').html(this.shopsIndex.render().$el);
     this.$(".map").html(this.indexMap.$el);
-
+    this.indexMap.initMap(true);
     return this;
   }
 
