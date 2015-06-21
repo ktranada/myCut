@@ -32,6 +32,8 @@ class Shop < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
   has_many :barbers, dependent: :destroy
 
+  before_validation :convert_tags
+
   belongs_to :moderator, class_name: "User", foreign_key: :moderator_id
 
   validates_format_of :zip, with: /\A\d{5}-\d{4}|\A\d{5}\z/, :message => "should be in the form 12345 or 12345-1234"
@@ -43,6 +45,11 @@ class Shop < ActiveRecord::Base
     reviews = self.reviews
     # ActiveRecord calculation sum on column ratings
     reviews.empty? ? nil : (reviews.sum(:rating) / reviews.length.to_f)
+  end
+
+  def convert_tags
+    byebug
+    [].push(self.tag_list) unless self.tag_list.is_a?(Array)
   end
 
   def number_reviews

@@ -6,7 +6,6 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
   },
 
   initialize: function(options){
-    debugger
     this._new = this.model.isNew()
 
   },
@@ -27,6 +26,11 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
   initFilepicker: function(){
     var $filePickerInput = this.$('input[type=filepicker]');
     filepicker.constructWidget($filePickerInput[0]);
+  },
+
+  initBSTAgs: function(){
+    debugger
+    $('#shop-tags').tagsinput('add', this.model);
   },
 
   shopForm: function(event){
@@ -58,6 +62,7 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
 
   updateShop: function() {
     var that = this
+    debugger
     this.model.save(this._formData, {
       success: function(){
         humane.log("Your shop has been updated");
@@ -77,7 +82,6 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
                       ', ' + this._formData.state;
 
     var geocoder = new google.maps.Geocoder();
-    debugger
     var that = this;
     geocoder.geocode({'address': fullAddress }, function(result, status){
       if (status == google.maps.GeocoderStatus.OK) {
@@ -95,9 +99,9 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
     var newShopForm = this.template({
       shop: this.model
     });
-    debugger
     this.$el.html(newShopForm);
     this.initFilepicker();
+    this.initBSTAgs();
     return this;
   },
 

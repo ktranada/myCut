@@ -224,13 +224,15 @@ col-xs-9.col-md-6.col-md-offset-3 {
 
 .shop-barbers-photos {
   text-align: center;
-  div.barber-photo.col-xs-3.col-md-4 {
-    width: 300px;
-    height: 100%;
-    display: inline-block;
-    img {
-      max-width: 100%;
-      max-height: 100%;
+  .col-xs-8.col-xs-offset-2.col-md-9.col-md-offset-3 {
+     .barber-photo.col-xs-6.col-md-4 {
+      width: 250px;
+      height: 100%;
+      display: inline-block;
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
     }
   }
 }
@@ -248,7 +250,7 @@ col-xs-9.col-md-6.col-md-offset-3 {
 
 
 img.barber-profile {
-  width: 100%;
+  width: 80%;
 height: 100%;
 -webkit-border-radius: 75px;
 // was 150px for circular view

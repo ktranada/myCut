@@ -3,7 +3,7 @@
     <div class="review-username-container">
       <span class="review-username"><%= review.escape('username') %></span>
       <br><br>
-      <span class="barber-review-rating">RATING FOR <span class="barber-name">{ <%= review.escape('barber_name') %> }</span></span>   <div class="rating" data-path="assets/images"></div>
+      <span class="barber-review-rating">RATING FOR <span class="barber-name">{ <%= review.escape('barber_name') %> }</span></span><div class="review rating" data-path="assets/images"></div>
 
     </div>
 
@@ -18,7 +18,7 @@
     <div class="review-photos-container">
       <% pictures.each(function(picture){ %>
         <div class="review-photo">
-          <img src="<%= picture.escape('photo_url') %>">          
+          <img src="<%= picture.escape('photo_url') %>">
         </div>
       <% }) %>
     </div>

@@ -19,6 +19,7 @@
 //= require jquery.backstretch.min
 //= require jquery.serializejson
 //= require bootstrap-sprockets
+//= require bootstrap-tagsinput.min
 //= require humane.min
 //= require unslider.min
 //= require my_cut

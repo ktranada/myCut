@@ -46,5 +46,5 @@ json.barbers do
   end
 end
 
-json.tags @shop.tag_list
-json.near_tags @shop.location_list
+json.tag_list @shop.tag_list
+json.location_list @shop.location_list

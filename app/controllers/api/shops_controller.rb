@@ -8,9 +8,9 @@ module Api
 
     def create
       @shop = Shop.new(shop_params)
+      @shop.tag_list = params[:tag_list]
       @shop.zip = @shop.zip.to_i
       @shop.phone = @shop.phone.to_i
-      @shop.moderator_id = current_user.id
       if @shop.save
         render json: @shop
       else
@@ -20,6 +20,8 @@ module Api
 
     def update
       @shop = Shop.find(params[:id])
+      byebug
+      @shop.tag_list = params[:tag_list]
       if @shop.update_attributes(shop_params)
         render json: @shop
       else
@@ -65,8 +67,8 @@ module Api
     end
 
     def shop_params
-      params.require(:shop).permit(:name, :address, :city, :latitude, :longitude, :state, :zip, :rating,
-                                   :phone, :tag_list, :locations_list, :photo_url)
+      params.require(:shop).permit(:moderator_id, :name, :address, :city, :latitude, :longitude, :state, :zip, :rating,
+                                   :phone, :tag_list, :photo_url)
     end
 
   end
