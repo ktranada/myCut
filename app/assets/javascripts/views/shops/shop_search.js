@@ -27,7 +27,6 @@ MyCut.Views.ShopSearchView = Backbone.CompositeView.extend({
 
   updateLoc: function(loc){
     var that = this;
-    debugger
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode({'address': loc}, function(result, status){
       if (status == google.maps.GeocoderStatus.OK) {

@@ -20,9 +20,12 @@
 
 class Shop < ActiveRecord::Base
   acts_as_taggable_on :tags, :locations
-  validates :name, :state, :zip, :city, presence: true
+  validates :name, :state, :latitude, :longitude, :zip, :city, presence: true
   validates :address, :phone, presence: true, uniqueness: true
   validate :shop_photo
+  # Will tell geocoder which method returns geocodable address
+  geocoded_by :full_street_address   # can also be an IP address
+  after_validation :geocode, if: :address_changed?        # auto-fetch coordinates
 
   validates_inclusion_of :rating, {in: 0..5 }
 
@@ -34,9 +37,6 @@ class Shop < ActiveRecord::Base
   validates_format_of :zip, with: /\A\d{5}-\d{4}|\A\d{5}\z/, :message => "should be in the form 12345 or 12345-1234"
   validates_format_of :phone,:with => /\A\d{10}/, message: "should be in the form  4083334444"
 
-  # Will tell geocoder which method returns geocodable address
-  geocoded_by :full_street_address   # can also be an IP address
-  after_validation :geocode, if: :address_changed?        # auto-fetch coordinates
 
 
   def average_rating

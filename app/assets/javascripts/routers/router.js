@@ -1,10 +1,10 @@
   MyCut.Routers.Router = Backbone.Router.extend({
   routes: {
-    "":                                  "feedLandingPage",
-    "shops/new":                         "shopCreate",
+    "":                                  "landingPage",
+    "shops/new":                         "shopForm",
     "shops/search?*parameters":          "shopSearch",
     "shops/:id":                         "shopShow",
-    "shops/:id/edit":                    "shopEdit",
+    "shops/:id/edit":                    "shopForm",
     "shops/:id/review/new":              "reviewNew",
     "shops/:id/barbers/:bid":            "barberShow",
     "shops":                             "feedLandingPage",
@@ -24,16 +24,7 @@
     this._swapView(barberView);
   },
 
-  shopCreate: function() {
-    var newShop = new MyCut.Models.Shop();
-    var newShop = new MyCut.Views.NewShop({
-      model: newShop,
-      collection: MyCut.shops
-    })
-    this._swapView(newShop);
-  },
-
-  feedLandingPage: function() {
+  landingPage: function() {
     var landingPage = new MyCut.Views.LandingPage({
       collection: MyCut.shops
     })
@@ -50,10 +41,19 @@
     this._swapView(newReviewForm);
   },
 
-  shopEdit: function(id){
-    var shop = MyCut.shops.getOrFetch(id);
-    var shopEditView = new MyCut.Views.ShopEditView({ model: shop });
-    this._swapView(shopEditView);
+  shopForm: function(id) {
+    debugger
+    if (id) {
+      var shop = MyCut.shops.getOrFetch(id)
+      debugger
+    } else {
+      var shop = new MyCut.Models.Shop();
+    }
+    var newShopForm = new MyCut.Views.ShopForm({
+      model: shop,
+      collection: MyCut.shops
+    })
+    this._swapView(newShopForm);
   },
 
   shopSearch:function(params){
@@ -62,7 +62,6 @@
       new RegExp("([^?=&]+)(=([^&]*))?", "g"),
       function($0, $1, $2, $3) { query[$1] = $3; }
     )
-
     window.currentLoc = query.loc;
     var searchResults = new MyCut.Collections.SearchResult()
     searchResults.fetch({ data: { search_query: query } })

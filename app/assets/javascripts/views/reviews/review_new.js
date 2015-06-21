@@ -17,7 +17,6 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
     event.preventDefault();
     var formData = $(event.currentTarget).serializeJSON();
     debugger
-
     var photos = formData.pictures
 
 
@@ -66,5 +65,5 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
         }
       })
     });
-  },
+  }
 });

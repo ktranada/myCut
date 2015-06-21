@@ -6,6 +6,8 @@
       <form>
         <div class="errors-container"></div>
         <input type="hidden" name="shop[moderator_id]" value="<%= window.id %>">
+        <input type="hidden" name="shop[latitude]" value="<%= shop.escape('longitude') %>">
+        <input type="hidden" name="shop[longitude]" value="<%= shop.escape('longitude') %>">
         <br>
         <div class="form-group">
           <label for="new-shop-name">SHOP NAME</label>
