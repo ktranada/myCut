@@ -42,7 +42,6 @@
   },
 
   shopForm: function(id) {
-    debugger
     if (id) {
       var shop = MyCut.shops.getOrFetch(id)
       debugger

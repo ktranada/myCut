@@ -26,7 +26,6 @@ MyCut.Views.IndexMap = Backbone.View.extend({
   // Event handlers
    addMarker: function (listing) {
      if (this._markers[listing.id]) { return };
-     debugger
      var view = this;
      var listingAttributes = listing.attributes;
      var fullAddress = listingAttributes.address +
@@ -41,7 +40,7 @@ MyCut.Views.IndexMap = Backbone.View.extend({
           alert("That location does not exist!");
         }
       })
-debugger
+      debugger
      var marker = new google.maps.Marker({
        position: { lat: this._coordinates.latitude, lng: this._coordinates.longitude },
        map: this._map,

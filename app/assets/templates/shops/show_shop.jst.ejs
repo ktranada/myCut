@@ -3,36 +3,32 @@
     <div class="col-md-7 col-xs-6 col-md-offset-1">
       <h1><em><%= shop.escape('name') %></em>
       </h1>
-        <p class="lead"><%= shop.escape('phone') %><div class="rating" data-path="assets/images"></div></p>
-
+        <p class="lead"><%= shop.escape('phone') %><div class="shop rating" data-path="assets/images"></div></p>
     </div>
-
-    <div class="shop-feature col-md-2">
-    <br>
-
+    <div class="shop-feature col-md-4">
+      <br>
         <% if (mod_id == shop.escape('moderator_id')) { %>
-          <a href="#/shops/<%= shop.escape('id') %>/edit"><button class="btn btn-default">EDIT YOUR SHOP</button></a>
+          <div> <a href="#/shops/<%= shop.escape('id') %>/edit"><button class="btn btn-default">EDIT YOUR SHOP</button></a></div>
         <% } %>
         <br><br>
-        <a href="#/shops/<%= shop.escape('id') %>/review/new"><button class="btn btn-default">WRITE A REVIEW</button></a>
-        <br><br>
-        <a href="#"><button style="color: crimson;" class="btn btn-default">ALL SHOPS</button></a>
+        <div><a href="#/shops/<%= shop.escape('id') %>/review/new"><button class="btn btn-default">WRITE A REVIEW</button></a></div>
+        <div> <a href="#"><button style="color: crimson;" class="btn btn-default">ALL SHOPS</button></a></div>
         <br><br>
     </div>
   </div>
-  <br><br><br>
+  <br><br>
 
   <div class="row shop-barbers-photos">
-    <div class="col-xs-9 col-md-9 col-md-offset-3">
+    <div class="col-xs-10 col-xs-offset-1 col-md-9 col-md-offset-3">
       <% barbers.each(function(barber) { %>
-        <div class="barber-photo col-xs-3 col-md-4"><a href="/#/shops/<%= shop.escape('id') %>/barbers/<%= barber.escape('barber_id') %>"><img class="barber-profile" src="<%= barber.escape('photo_url') %>"></a></div>
+        <div class="barber-photo col-xs-6 col-md-4"><a href="/#/shops/<%= shop.escape('id') %>/barbers/<%= barber.escape('barber_id') %>"><img class="barber-profile" src="<%= barber.escape('photo_url') %>"></a></div>
       <% }); %>
     </div>
   </div>
   <br><br>
   <div class="row level-three">
     <div class="reviews-index">
-      <ul class="review-items col-xs-12 col-md-6 col-md-offset-3">
+      <ul class="review-items col-xs-12 col-md-8 col-md-offset-2">
       </ul>
     </div>
   </div>

@@ -9,8 +9,12 @@
   vertical-align: middle;
   border-radius: 4px;
   max-width: 100%;
+  width: 100%;
   line-height: 22px;
   cursor: text;
+  span.tag.label.label-info {
+
+  }
 }
 .bootstrap-tagsinput input {
   border: none;
@@ -28,8 +32,19 @@
 }
 .bootstrap-tagsinput .tag {
   margin-right: 2px;
-  color: white;
+  color: black;
+  font-weight: 500;
+  color: black;
+  letter-spacing: .1em;
+  font-size: smaller;
+  font-style: italic;
+  text-transform: uppercase;
 }
+
+.label-info {
+  background-color: #800000;
+}
+
 .bootstrap-tagsinput .tag [data-role="remove"] {
   margin-left: 8px;
   cursor: pointer;

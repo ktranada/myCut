@@ -33,6 +33,12 @@
           <label for="shop-phone">PHONE</label>
           <input type="number" class="form-control new-shop-input" value="<%= shop.escape('nonparsed_phone') %>" name="shop[phone]" id="shop-phone" placeholder="4088052524">
         </div>
+
+        <div class="form-group">
+          <label for="shop-tags">TAGS</label>
+          <input type="text" class="form-control new-shop-input"  id="shop-tags" name="shop[tag_list]" value="<%= shop.escape('tag_list') %>" >
+        </div>
+
         <div class="form-group">
           <label for="shop-photo">SHOP PHOTO</label><br>
           <input type="filepicker"
