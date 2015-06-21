@@ -22,6 +22,7 @@
 //= require bootstrap-tagsinput.min
 //= require bootbox.min
 //= require humane.min
+//= require cloudinary
 //= require my_cut
 //= require_tree ../templates
 //= require_tree ./models
