@@ -14,7 +14,7 @@ MyCut.Views.ShopIndex = Backbone.CompositeView.extend({
   },
 
   removeShopSubviews: function(shop){
-    this.removeSubview(".shops-index", shop);
+    this.removeModelSubview(".shops-index", shop);
   },
 
   render: function(){

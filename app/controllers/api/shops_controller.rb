@@ -20,7 +20,6 @@ module Api
 
     def update
       @shop = Shop.find(params[:id])
-      byebug
       @shop.tag_list = params[:tag_list]
       if @shop.update_attributes(shop_params)
         render json: @shop

@@ -25,7 +25,8 @@ class Shop < ActiveRecord::Base
   validate :shop_photo
   # Will tell geocoder which method returns geocodable address
   geocoded_by :full_street_address   # can also be an IP address
-  after_validation :geocode, if: :address_changed?        # auto-fetch coordinates
+  after_validation :geocode, if: :address_changed?
+
 
   validates_inclusion_of :rating, {in: 0..5 }
 
@@ -48,7 +49,6 @@ class Shop < ActiveRecord::Base
   end
 
   def convert_tags
-    byebug
     [].push(self.tag_list) unless self.tag_list.is_a?(Array)
   end
 

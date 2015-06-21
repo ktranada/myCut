@@ -33,6 +33,8 @@ MyCut.Views.IndexMap = Backbone.View.extend({
                        ', ' + listingAttributes.state +
                        ', ' + listingAttributes.zip;
      this._coordinates = listing.get('coordinates') ||
+                         { latitude: listingAttributes.latitude,
+                           longitude: listingAttributes.longitude} ||
       this.geocoder.geocode({address: fullAddress}, function(result, status){
         if (status == google.maps.GeocoderStatus.OK) {
           return result[0].geometry.location;
@@ -80,7 +82,6 @@ MyCut.Views.IndexMap = Backbone.View.extend({
    },
 
    changeCenter: function(loc){
-     debugger
      this._map.setCenter(loc);
    }
 

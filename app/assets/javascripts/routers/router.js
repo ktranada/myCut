@@ -44,7 +44,6 @@
   shopForm: function(id) {
     if (id) {
       var shop = MyCut.shops.getOrFetch(id)
-      debugger
     } else {
       var shop = new MyCut.Models.Shop();
     }

@@ -4,8 +4,6 @@ json.array! @shops do |shop|
   json.num_reviews shop.number_reviews
   json.phone shop.parse_phone_number
   json.photo_url shop.photo_url
-  json.coordinates do
-    json.latitude shop.latitude
-    json.longitude shop.longitude
-  end
+  json.latitude shop.latitude
+  json.longitude shop.longitude
 end

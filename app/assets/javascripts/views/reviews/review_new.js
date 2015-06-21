@@ -2,8 +2,9 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
   template: JST['reviews/new'],
 
   events: {
-    "click .create-review": "createReview",
+    "submit form": "createReview",
     "click .file-upload": "upload"
+
   },
 
   initialize: function(options){
@@ -16,6 +17,7 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
   createReview: function(event) {
     event.preventDefault();
     var formData = $(event.currentTarget).serializeJSON();
+    debugger
     debugger
     var photos = formData.pictures
 

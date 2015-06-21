@@ -61,6 +61,7 @@ module Api
     private
 
     def review_params
+      byebug
       params.require(:review).permit(:body, :rating, :author_id, :barber_id, :shop_id, :photos, :taglist)
     end
 

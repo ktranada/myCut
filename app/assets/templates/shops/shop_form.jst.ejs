@@ -1,5 +1,4 @@
-<br><br><br><br><br><br><br>
-
+<br><br><br><br>
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-offset-4 col-xs-offset-3 col-xs-6 col-md-4">
@@ -47,9 +46,12 @@
                  name="shop[photo_url]">
 
           <br><br>
-          <button type ="submit" class="shop-form btn btn-default">Submit</button>
+          <button type="submit" class="shop-form btn btn-default">Submit</button>
         </div>
       </form>
+      <% if (!shop.isNew()) { %>
+        <a class="confirm" ><button class="confirm btn btn-primary delete-shop">DELETE</button></a>
+      <% } %>
     </div>
   </div>
 </div>

@@ -177,11 +177,20 @@ div#map-canvas.circular.col-md-offset-4 {
 
 div.col-md-offset-4.col-xs-offset-3.col-xs-6.col-md-4 {
 background-color: rgba(0, 139, 139, 0.5);
+text-align: center;
   border-radius: 30px;
   color: white;
   letter-spacing: 3px;
   form {
     text-align: center;
+  }
+  button.shop-form {
+    padding: 6px 40px;
+  }
+  a button.confirm {
+    background-color: crimson;
+    opacity: 1;
+    margin-bottom: 6px;
   }
 }
 

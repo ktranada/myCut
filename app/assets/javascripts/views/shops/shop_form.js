@@ -2,7 +2,8 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
   template: JST['shops/shop_form'],
   events: {
     "submit form": "shopForm",
-    "click .file-upload": "upload"
+    "click .file-upload": "upload",
+    "click a.confirm": "shopDelete"
   },
 
   initialize: function(options){
@@ -29,7 +30,6 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
   },
 
   initBSTAgs: function(){
-    debugger
     $('#shop-tags').tagsinput('add', this.model);
   },
 
@@ -39,15 +39,15 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
     if (this._new) {
       this.generateCoordinates();
     } else {
-      this.updateShop();
+      this.shopUpdate();
     }
   },
 
-  createShop: function() {
+  shopCreate: function() {
     var that = this
     this.model.save(this._formData, {
       success: function() {
-        humane.log("Your shop has been created!");
+        humane.log("Your shop has been created!", {timeoutAfterMove: 2000});
         that.collection.add(that.model);
         Backbone.history.navigate("", { trigger: true});
       },
@@ -57,15 +57,25 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
         $container.html(errors)
       }
     })
-
   },
 
-  updateShop: function() {
+  shopDelete: function(e){
+    var that = this;
+    bootbox.confirm("Are you sure you want to delete your shop?", function(result){
+      if (result == true){
+        that.model.destroy();
+        humane.log("Your shop has been deleted.")
+        Backbone.history.navigate("", {trigger: true});
+      }
+    });
+  },
+
+  shopUpdate: function() {
     var that = this
     debugger
     this.model.save(this._formData, {
       success: function(){
-        humane.log("Your shop has been updated");
+        humane.log("Your shop has been updated.", { timeoutAfterMove: 2000});
         Backbone.history.navigate("shops/" + that.model.get('id'), { trigger: true } )
       },
       error: function(model, response) {
@@ -88,7 +98,7 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
         var coord = result[0].geometry.location;
         that._formData.latitude = coord.A;
         that._formData.longitude = coord.F;
-        that.createShop(coord);
+        that.shopCreate(coord);
       } else {
         that.$('.errors-container').html("Invalid business location.");
       }
