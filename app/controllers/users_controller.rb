@@ -5,6 +5,7 @@
 
     def create
       @user = User.new(user_params)
+      @user.photo_url = "http://res.cloudinary.com/mycut/image/upload/c_fill,h_120,r_max,w_120/v1434910961/default_avatar.jpg"
       if (@user.save)
         sign_in!(@user)
         redirect_to root_url
@@ -25,7 +26,7 @@
     private
 
     def user_params
-      params.require(:user).permit(:email, :password, :photo_url)
+      params.require(:user).permit(:username, :email, :password, :photo_url)
     end
 
   end

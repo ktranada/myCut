@@ -19,12 +19,6 @@ gem 'figaro'
 # Will allow app to access secret information, private keyes, in production.
 # IE heroku. It will parse a Git ignored YAML
 
-gem 'aws-sdk', '< 2.0'
-# Amazon's S3 service
-
-gem 'filepicker-rails'
-# handles s3 work and is applicable for backbone views
-
 gem 'newrelic_rpm'
 # Will constantly send requests to site so it doesn't go to sleep.
 
