@@ -6,13 +6,15 @@ MyCut.Views.ShopAddBarbers = Backbone.CompositeView.extend({
   },
 
   initialize: function(options){
+    debugger
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.collection, "add", this.addBarber)
-    this.listenTo(this.collection, "remove", this.removeBarber);
-    this.collection.each(this.addBarber)
+    this.listenTo(this.collection, "add", this.addBarberSubview)
+    this.listenTo(this.collection, "remove", this.removeBarberSubview);
+    this.collection.each(this.addBarberSubview.bind(this));
   },
 
   addBarberModal: function(){
+    debugger
     var barberForm = new MyCut.Views.BarberFormModal({
       shop: this.model,
       collection: this.collection
@@ -21,6 +23,7 @@ MyCut.Views.ShopAddBarbers = Backbone.CompositeView.extend({
   },
 
   addBarberSubview: function(barber){
+    debugger
     var shopBarber = new MyCut.Views.ShopBarberView({
        model: barber
     });
@@ -36,6 +39,7 @@ MyCut.Views.ShopAddBarbers = Backbone.CompositeView.extend({
   render: function(){
     var renderedContent = this.template();
     this.$el.html(renderedContent);
+    this.attachSubviews();
     return this;
   }
 

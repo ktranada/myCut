@@ -65,7 +65,7 @@ MyCut.Views.BarberFormModal = Backbone.CompositeView.extend({
   },
 
   render: function(){
-    var renderedContent = this.template();
+    var renderedContent = this.template({barber: this.barber});
     this.$el.html(renderedContent);
     return this;
   },

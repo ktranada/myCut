@@ -225,6 +225,68 @@ label {
   font-weight: 100;
 }
 
+//////////////////////////////////////////////////////////////////
+/* Adding Barbers */
+
+
+.buttons-divider {
+  margin-right: 40px;
+  .barber-control-buttons {
+    float: right;
+    span {
+      padding: 5px;
+      font-size: 40px;
+      &:hover {
+        cursor: pointer;
+
+      }
+    }
+  }
+}
+
+.barber-photos {
+  display: inline-block;
+  li {
+    float: left;
+    border-style: solid;
+    border-width: 5px;
+    text-align: center;
+    list-style: none;
+    height: 300px;
+    width: 230px;
+    margin: 0px 10px;
+    div.barber-container {
+      span {
+        text-transform: uppercase;
+        font-family: 'fira-sans-2';
+      }
+      div.barber-profile-crop {
+        // overflow: hidden;
+        height: 200px;
+        overflow: hidden;
+        img.shop-barber-photo {
+          object-fit: contain;
+          margin: 0px 10px 0px 10px;
+          // height: 100%;
+          height: 200px;
+        }
+      }
+    }
+  }
+}
+.barber-container {
+  span {
+    text-transform: uppercase;
+    font-family: 'fira-sans-2';
+  }
+
+
+}
+
+
+
+//////////////////////////////////////////////////////////////////
+/*  Forms   */
 .modal-form {
   text-align: center;
   position: fixed;
@@ -234,6 +296,29 @@ label {
   left: 0;
   z-index: 3;
   background: rgba(0, 0, 0, .5);
+
+  .cancel-button {
+    float: right;
+    font-size: 20px;
+    padding: 5px;
+    margin-top: -15px;
+    margin-right: -6px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .form-group {
+    input {
+      text-align: center;
+    }
+  }
+
+  .title {
+    text-align: center;
+    font-size: 40px;
+    clear: right;
+    text-indent: 10px;
+  }
 
   .form-buttons {
     font-family: 'Oswald';
@@ -247,7 +332,7 @@ label {
     left: 50%;
     position: absolute;
     background: rgba(0, 139, 139, .5);
-    padding: 25px;
+    padding: 15px;
 
   }
 
@@ -272,6 +357,7 @@ col-xs-9.col-md-6.col-md-offset-3 {
 .shop-barbers-photos {
   text-align: center;
   .col-xs-8.col-xs-offset-2.col-md-9.col-md-offset-3 {
+    height
      .barber-photo.col-xs-6.col-md-4 {
       width: 250px;
       height: 100%;
@@ -294,13 +380,15 @@ col-xs-9.col-md-6.col-md-offset-3 {
 }
 
 
+.barber-photo {
+  height: 300px;
+  .barber-profile {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+  // was 150px for circular view
 
-img.barber-profile {
-  width: 80%;
-height: 100%;
--webkit-border-radius: 75px;
-// was 150px for circular view
-
+  }
 }
 
 //////////////////////////////////////////////////////////////////
@@ -352,6 +440,13 @@ div.review-body {
   padding: 8px;
 }
 
+.barber-name {
+  font-family: 'fira-sans-2';
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 40px;
+}
+
 .barber-review-rating {
   text-transform: uppercase;
   font-family: "Oswald", sans-serif;
@@ -362,6 +457,7 @@ div.review-body {
   .barber-name {
     color: royalblue;
     font-weight: 900;
+    font-size: 18px;
   }
 }
 

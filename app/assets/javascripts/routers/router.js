@@ -34,6 +34,7 @@
 
   shopBarbersNew: function(id){
     var currentShop = MyCut.shops.getOrFetch(id);
+    debugger
     var barberCreationView = new MyCut.Views.ShopAddBarbers({
       model: currentShop,
       collection: currentShop.barbers()

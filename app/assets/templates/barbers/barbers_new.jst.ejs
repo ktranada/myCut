@@ -1,5 +1,9 @@
 <div class="modal-form">
+
   <div class="form-container barber-create-form">
+    <span class="cancel-button"><i class="fa fa-times"></i></span>
+    <br>
+    <% title = barber.isNew() ? "NEW BARBER" : "EDIT BARBER" %>
     <div class="title">NEW BARBER</div>
     <br>
     <form class="form-group">
@@ -12,8 +16,8 @@
       <br><br>
 
       <div class="form-buttons">
-        <span class="cancel-barber-button">CANCEL</span>
-        <input type="submit" class="create-barber-button">CREATE</input>
+
+        <input type="submit" class="create-barber-button">
       </div>
     </form>
   </div>

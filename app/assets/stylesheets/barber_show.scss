@@ -1,7 +1,8 @@
 .container {
   background-color: rgba(0,83,111,.5);
   text-align: center;
-  border-radius: 90px;
+  // border-radius: 90px;
+  // makes it an oval/circle
 
   .barber-information {
     .barber-show-info {
@@ -30,12 +31,13 @@
   }
   .photo-grid .grid-item-image {
     display: inline-block;
-    border-radius: 90%;
+    height: 300px;
+    width: auto;
     margin: 10px;
-    height: 40vh;
-    -webkit-box-shadow:inset 0px 0px 0px 10px #f9f9f9;
-    -moz-box-shadow:inset 0px 0px 0px 10px #f9f9f9;
-    box-shadow:inset 0px 0px 0px 10px #f9f9f9;
+    object-fit: contain;
+    border-style: solid;
+    border-width: 5px;
+    border-color: maroon;
   }
 
 }
