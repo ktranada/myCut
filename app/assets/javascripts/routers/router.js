@@ -36,7 +36,7 @@
     var currentShop = MyCut.shops.getOrFetch(id);
     var barberCreationView = new MyCut.Views.ShopAddBarbers({
       model: currentShop,
-      collection: currentShop.barbers();
+      collection: currentShop.barbers()
     });
     this._swapView(barberCreationView);
   },
