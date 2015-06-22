@@ -40,10 +40,8 @@
 
         <div class="form-group">
           <label for="shop-photo">SHOP PHOTO</label><br>
-          <input type="filepicker"
-                 value="<%= shop.escape('photo_url') %>"
-                 class="filepicker-object"
-                 name="shop[photo_url]">
+          <button class="upload-button">Choose a photo</button>
+          <div class="photo-preview"></div>
 
           <br><br>
           <button type="submit" class="shop-form btn btn-default">Submit</button>

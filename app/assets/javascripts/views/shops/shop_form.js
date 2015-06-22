@@ -2,12 +2,13 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
   template: JST['shops/shop_form'],
   events: {
     "submit form": "shopForm",
-    "click .file-upload": "upload",
+    "click .upload-button": "upload",
     "click a.confirm": "shopDelete"
   },
 
   initialize: function(options){
     this._new = this.model.isNew()
+    this.listenTo(this.model, "sync add", this.render)
 
   },
 
@@ -24,10 +25,10 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
     });
   },
 
-  initFilepicker: function(){
-    var $filePickerInput = this.$('input[type=filepicker]');
-    filepicker.constructWidget($filePickerInput[0]);
-  },
+  // initFilepicker: function(){
+  //   var $filePickerInput = this.$('input[type=filepicker]');
+  //   filepicker.constructWidget($filePickerInput[0]);
+  // },
 
   initBSTAgs: function(){
     $('#shop-tags').tagsinput('add', this.model);
@@ -110,20 +111,21 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
       shop: this.model
     });
     this.$el.html(newShopForm);
-    this.initFilepicker();
+    // this.initFilepicker();
     this.initBSTAgs();
     return this;
   },
 
-  upload: function () {
+  upload: function(e){
+    debugger
     var that = this;
-    filepicker.pick(function(blob) {
-      var newImage = new MyCut.Models.Picture({
-        imageable_type: "Shop",
-        photo_url: blob.url
-      });
-      newImage.save({}, {
-        success: function () {
+    e.preventDefault();
+    cloudinary.openUploadWidget(SHOP_CLOUD, function(error, result){
+      var data = result[0];
+      debugger
+      that.model.save({photo_url: data.eager[0].url }, {
+        success: function() {
+          that.$('div.photo-preview').html("<img src=" + data.url + '">');
         }
       })
     });

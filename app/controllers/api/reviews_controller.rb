@@ -19,7 +19,6 @@ module Api
         pictures = photo_params
         tags = tag_params
         if (!pictures.nil?)
-          byebug
           photo_urls = pictures.split(",")
           photo_urls.each do |photo_url|
             @review.pictures.create!(photo_url: photo_url)
@@ -61,7 +60,6 @@ module Api
     private
 
     def review_params
-      byebug
       params.require(:review).permit(:body, :rating, :author_id, :barber_id, :shop_id, :photos, :taglist)
     end
 

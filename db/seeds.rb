@@ -13,11 +13,11 @@ Review.destroy_all
 Barber.destroy_all
 Picture.destroy_all
 
-user1 = User.create!(username: "guest", email: 'guest@gmail.com' , password: 'password', photo_url: "https://dl.dropbox.com/s/zp27re1j4301pii/user_5.jpg?dl=0")
-user2 = User.create!(username: "kevin", email: 'kevin@gmail.com' , password: 'password', photo_url: "https://dl.dropbox.com/s/5i52djfnyj5ud5r/me.jpeg?dl=0")
-user3 = User.create!(username: "lana", email: 'lana@gmail.com', password: 'password', photo_url: "https://dl.dropbox.com/s/6qnol7sg9tydmoa/user_4.jpeg?dl=0")
-user4 = User.create!(username: "danny", email: 'danny@gmail.com', password: 'password', photo_url: "https://dl.dropbox.com/s/qmpulmvwfbodv2p/user_3.jpeg?dl=0")
-user5 = User.create!(username: "vicky", email: 'vicky@gmail.com', password: 'password', photo_url: "https://dl.dropbox.com/s/83d8r8vtw28mb3v/user_1.jpg?dl=0")
+user1 = User.create!(username: "guest", email: 'guest@gmail.com' , password: 'password', photo_url: "https://dl.dropbox.com/s/zp27re1j4301pii/user_5.jpg?dl=0", thumb_url: "https://dl.dropbox.com/s/zp27re1j4301pii/user_5.jpg?dl=0")
+user2 = User.create!(username: "kevin", email: 'kevin@gmail.com' , password: 'password', photo_url: "https://dl.dropbox.com/s/5i52djfnyj5ud5r/me.jpeg?dl=0", thumb_url: "https://dl.dropbox.com/s/5i52djfnyj5ud5r/me.jpeg?dl=0")
+user3 = User.create!(username: "lana", email: 'lana@gmail.com', password: 'password', photo_url: "https://dl.dropbox.com/s/6qnol7sg9tydmoa/user_4.jpeg?dl=0", thumb_url: "https://dl.dropbox.com/s/6qnol7sg9tydmoa/user_4.jpeg?dl=0")
+user4 = User.create!(username: "danny", email: 'danny@gmail.com', password: 'password', photo_url: "https://dl.dropbox.com/s/qmpulmvwfbodv2p/user_3.jpeg?dl=0", thumb_url: "https://dl.dropbox.com/s/qmpulmvwfbodv2p/user_3.jpeg?dl=0")
+user5 = User.create!(username: "vicky", email: 'vicky@gmail.com', password: 'password', photo_url: "https://dl.dropbox.com/s/83d8r8vtw28mb3v/user_1.jpg?dl=0", thumb_url: "https://dl.dropbox.com/s/83d8r8vtw28mb3v/user_1.jpg?dl=0")
 
 
 ######################################### Shop 1

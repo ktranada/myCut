@@ -5,6 +5,8 @@ class CreatePictures < ActiveRecord::Migration
       t.integer :imageable_id
       t.string :imageable_type
       t.string :photo_url, null: false
+      t.string :thumb_url
+      t.string :medium_url
 
       t.timestamps
     end
