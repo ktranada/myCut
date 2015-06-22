@@ -3,7 +3,7 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
   events: {
     "submit form": "shopForm",
     "click .upload-button": "upload",
-    "click a.confirm": "shopDelete"
+    "click a.confirm": "shopDelete",
   },
 
   initialize: function(options){
@@ -24,11 +24,6 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
       })
     });
   },
-
-  // initFilepicker: function(){
-  //   var $filePickerInput = this.$('input[type=filepicker]');
-  //   filepicker.constructWidget($filePickerInput[0]);
-  // },
 
   initBSTAgs: function(){
     $('#shop-tags').tagsinput('add', this.model);
