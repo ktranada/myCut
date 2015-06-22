@@ -2,19 +2,21 @@ MyCut.Views.BarberFormModal = Backbone.CompositeView.extend({
   template: JST['barbers/barbers_new'],
   events: {
     "submit form": "formData",
-    "click button.upload-button": "upload",
-    "click .cancel-new-barber": "cancelForm"
+    "click .upload-button": "upload",
+    "click span.cancel-barber-button": "cancelForm",
+    "keyup e": "cancelForm"
   },
 
   initialize: function(options){
     this.shop = options.shop;
     this.barber = options.model || new MyCut.Models.Barber();
     this._isNew = this.barber.isNew();
+    var that = this;
   },
 
-  cancelForm: function() {
+  cancelForm: function(e) {
     event.preventDefault();
-    this.$el.hide();
+      this.$el.hide();
   },
 
   formData: function(event){
@@ -34,15 +36,16 @@ MyCut.Views.BarberFormModal = Backbone.CompositeView.extend({
 
   createBarber: function(){
     var that = this;
-    this._barberData.shop_id = this.model.get('id');
+    this._barberData.shop_id = this.shop.get('id');
     this.barber.save(this._barberData, {
       success: function(){
-        that.collection.add(newBarber);
+        that.collection.add(that.barber);
         humane.log("You have sucessfully added a barber");
-        Backbone.history.navigate("shops/" + that.mode.get('id') + "/edit/barbers", { trigger: true });
+        Backbone.history.navigate("shops/" + that.shop.get('id') + "/edit/barbers", { trigger: true });
+        that.$el.hide();
       },
       error: function(model, response) {
-        that.errorHander(response);
+        that.errorHandler(response);
       }
     })
   },
@@ -69,9 +72,9 @@ MyCut.Views.BarberFormModal = Backbone.CompositeView.extend({
 
   upload: function() {
     var that = this;
+    debugger
     cloudinary.openUploadWidget(BARBER_CLOUDINARY, function(error, result){
-      var data = result[0];
-      that.barber.photo_url = data.eager[0].url
+      that.barber.attributes.photo_url = result[0].eager[0].url
     })
   }
 });

@@ -1,17 +1,20 @@
 <div class="modal-form">
   <div class="form-container barber-create-form">
-    <div class="title">New Barber</div>
-
+    <div class="title">NEW BARBER</div>
+    <br>
     <form class="form-group">
       <label for="barber-name">NAME</label>
       <input type="text" class="form-control" name="barber[name]" id="barber-name">
       <br>
       <label>PHOTO</label>
       <br>
-      <button class="upload-button">Choose a photo</button>
-      <br>
-      <button class="cancel-new-barber cancel-button">Cancel</button>
-      <input type="submit" class="submit-button create-barber" value="Add">
+      <span class="upload-button"><i class="fa fa-plus"></i></span>
+      <br><br>
+
+      <div class="form-buttons">
+        <span class="cancel-barber-button">CANCEL</span>
+        <input type="submit" class="create-barber-button">CREATE</input>
+      </div>
     </form>
   </div>
 </div>
