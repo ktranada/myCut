@@ -34,11 +34,11 @@
 
   shopBarbersNew: function(id){
     var currentShop = MyCut.shops.getOrFetch(id);
-    var barberCreation = new MyCut.Views.ShopAddBarbers({
+    var barberCreationView = new MyCut.Views.ShopAddBarbers({
       model: currentShop,
       collection: currentShop.barbers();
     });
-
+    this._swapView(barberCreationView);
   },
 
   reviewNew: function(id) {

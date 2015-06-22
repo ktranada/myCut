@@ -224,6 +224,31 @@ label {
   font-weight: 100;
 }
 
+.modal-form {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, .5);
+
+  .form-container {
+    top: 50%; // Level from which margin-top starts.
+              // downwards, if pos margin; upwards, if negative.
+    left: 50%;
+    position: absolute;
+    background: rgb(0, 139, 139);
+    padding: 25px;
+
+  }
+
+
+}
+
+
+
+
 //////////////////////////////////////////////////////////////////
 /* Shop Show */
 
