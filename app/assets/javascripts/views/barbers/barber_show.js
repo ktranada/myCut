@@ -20,6 +20,7 @@ MyCut.Views.ShopBarberView = Backbone.CompositeView.extend({
 
   openBarberPortfolioModal: function(event){
     var el = $(event.currentTarget)
+    debugger
     this.portfolioModal = new MyCut.Views.BarberPortfolioModal({
       model: this.model,
       collection: this.model.portfolio_pictures()

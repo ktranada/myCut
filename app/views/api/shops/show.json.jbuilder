@@ -15,6 +15,7 @@ json.photo_url @shop.photo_url
 json.reviews do
   json.array! @reviews do |review|
     json.author_id review.author_id
+    json.id review.id
     json.shop_id review.shop_id
     json.body review.body
     json.barber_name review.barber.name
@@ -41,6 +42,7 @@ json.barbers do
     json.portfolio_pictures do
       json.array! barber.pictures do |picture|
         json.picture_comment picture.picture_comment
+        json.id picture.id
         json.barber_id picture.imageable_id
         json.photo_url picture.photo_url
       end

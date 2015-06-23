@@ -93,14 +93,14 @@ ActiveRecord::Schema.define(version: 20150614233158) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",                                                                                                                         null: false
-    t.string   "email",                                                                                                                            null: false
-    t.string   "password_digest",                                                                                                                  null: false
-    t.string   "session_token",                                                                                                                    null: false
+    t.string   "username",        null: false
+    t.string   "email",           null: false
+    t.string   "password_digest", null: false
+    t.string   "session_token",   null: false
     t.string   "photo_url"
-    t.string   "thumb_url",       default: "http://res.cloudinary.com/mycut/image/upload/c_fill,h_120,r_max,w_120/v1434910961/default_avatar.jpg"
-    t.datetime "created_at",                                                                                                                       null: false
-    t.datetime "updated_at",                                                                                                                       null: false
+    t.string   "thumb_url"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
