@@ -464,6 +464,8 @@ div.container-fluid.level-two {
 /* Review Item */
 
 .level-three {
+  width: 600px;
+  float: left;
   .reviews-index {
     clear: both;
     max-width: 80%;
@@ -528,22 +530,21 @@ div.container-fluid.level-two {
         }
       }
     }
-    .side-column{
-      .barber-container {
-        max-width: 60%;
-        text-align: center;
-      }
-      ul li {
-        list-style: none;
-        display: inline-block;
-      }
-    }
   }
 }
 
-ul.barber-container {
-  text-align: center;
-  margin: 0 100px;
+.side-column{
+  display: inline;
+  .barber-container {
+    height: auto;
+    width: 500px;
+    display: inline;
+    text-align: center;
+  }
+  ul li {
+    list-style: none;
+    display: inline-block;
+  }
 }
 
 li.barber-photo {
