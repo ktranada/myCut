@@ -36,17 +36,15 @@
   clear: both;
 }
 
-html, body {
+html, body, .first-level, .level-two, .landing-level-three, .map-container, .map, #map-canvas {
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
-
-html, body, div#main, div.first-level, div.container-fluid.level-two, div.row.level-three, div.map-container ,div.map.col-md-4.col-md-offset-2, div#map-canvas {
-  height: 400px;
-  margin: 0;
-  padding: 0;
+.map-container {
+  width: 40%;
+  height: 72vh;
 }
 html, body {
   font-family: 'Oswald', sans-serif;
@@ -55,6 +53,7 @@ html, body {
 
 /*  Nav bar*/
 nav.navbar {
+  width: 100%;
   background-color: black;
   color: white;
   font-style: italic;
@@ -107,6 +106,7 @@ shop-items-index {
 }
 .feed-header {
   color: rgb(202, 217, 231);
+  width: 100%;
   background-color: rgba(#008B8B, .5);
   h1 {
     color: seashell;
@@ -639,12 +639,16 @@ div.review-body {
 
 
 .review-photos-container {
-  text-align: center;
-  .review-photo {
+  margin-left: 100px;
+  .photo-container {
+    list-style: none;
     display: inline-block;
-    img {
-      border-radius: 60px;
-      max-height: 30vh;
+    .review-photo {
+      img {
+        // border-radius: 60px;
+        // max-height: 30vh;
+        height: 150px
+      }
     }
   }
 }

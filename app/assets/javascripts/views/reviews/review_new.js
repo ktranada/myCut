@@ -27,6 +27,7 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
     this.review.save({}, {
       success: function(){
         shop._reviews.add(shop.review);
+        shop.persistPhotos();
         humane.log("You've successfully written a review!");
         Backbone.history.navigate("shops/" + shop.review.get('shop_id'), {trigger: true});
       },
@@ -69,7 +70,6 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
 
   createPhotos: function(result){
     var self = this;
-    var reviewPictures = this.review.pictures();
     result.forEach(function(photo){
       debugger
       if (self.reviewPictures.length < 3) {
@@ -83,6 +83,17 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
         humane.log("You can only upload a max of 3 pictures.");
       }
     });
+  },
+
+  persistPhotos: function(){
+    var that = this;
+    this.reviewPictures.forEach(function(picture) {
+      picture.set({
+        imageable_id: that.review.get('id'),
+        imageable_type: "Review"
+      })
+      picture.save();
+    })
   }
 
 });
