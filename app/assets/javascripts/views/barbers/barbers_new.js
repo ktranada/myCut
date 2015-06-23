@@ -3,9 +3,9 @@ MyCut.Views.BarberFormModal = Backbone.CompositeView.extend({
   events: {
     "submit form": "formData",
     "click .upload-button": "upload",
-    "click span.cancel-barber-button": "cancelForm",
-    "keyup e": "cancelForm"
+    "click span.cancel-button": "cancelForm"
   },
+  className: "modal-form",
 
   initialize: function(options){
     this.shop = options.shop;

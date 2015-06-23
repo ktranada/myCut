@@ -32,7 +32,8 @@ end
 
 json.barbers do
   json.array! @barbers do |barber|
-    json.barber_id barber.id
+    json.id barber.id
+    json.shop_id barber.shop_id
     json.name barber.name
     json.rating barber.average_rating
     json.number_reviews barber.number_reviews

@@ -1,6 +1,14 @@
 MyCut.Views.ShopBarberView = Backbone.CompositeView.extend({
   template: JST['barbers/barber_profile'],
   tagName: "li",
+  className:  "barber-list-item",
+
+  attributes: function(){
+    debugger
+    return {
+      'data-id': this.model.get('id')
+    };
+  },
   events: {
     "click": "displayPortfolio"
   },

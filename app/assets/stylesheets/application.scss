@@ -245,6 +245,7 @@ label {
 }
 
 .barber-photos {
+  margin: 50px 100px;
   display: inline-block;
   li {
     float: left;
@@ -254,7 +255,8 @@ label {
     list-style: none;
     height: 300px;
     width: 230px;
-    margin: 0px 10px;
+    margin: 10px 10px;
+
     div.barber-container {
       span {
         text-transform: uppercase;
@@ -273,6 +275,10 @@ label {
       }
     }
   }
+  li.barber-list-item.selected {
+    border-color: maroon;
+  }
+
 }
 .barber-container {
   span {
@@ -331,7 +337,7 @@ label {
               // downwards, if pos margin; upwards, if negative.
     left: 50%;
     position: absolute;
-    background: rgba(0, 139, 139, .5);
+    background: rgba(0, 139, 139, .8);
     padding: 15px;
 
   }
