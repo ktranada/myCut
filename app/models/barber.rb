@@ -13,7 +13,7 @@
 class Barber < ActiveRecord::Base
   validates :name, :photo_url, presence: true
   has_many :pictures, as: :imageable, dependent: :destroy
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   acts_as_taggable_on :skills
 
   belongs_to :shop

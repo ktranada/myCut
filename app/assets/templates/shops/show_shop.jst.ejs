@@ -8,11 +8,12 @@
     <div class="shop-feature col-md-4">
       <br>
         <% if (mod_id == shop.escape('moderator_id')) { %>
-          <div> <a href="#/shops/<%= shop.escape('id') %>/edit"><button class="btn btn-default">EDIT YOUR SHOP</button></a></div>
+          <div> <a class="shop-mod-buttons" href="#/shops/<%= shop.escape('id') %>/edit">EDIT YOUR SHOP</a></div>
+          <div> <a class="shop-mod-buttons" href="#/shops/<%= shop.escape('id') %>/edit/barbers">ADD STAFF</a></div>
         <% } %>
         <br><br>
         <div><a href="#/shops/<%= shop.escape('id') %>/review/new"><button class="btn btn-default">WRITE A REVIEW</button></a></div>
-        <div> <a href="#"><button style="color: crimson;" class="btn btn-default">ALL SHOPS</button></a></div>
+        <div> <a href="#"><button style="color: crimson; margin-left: 10px;" class="btn btn-default">ALL SHOPS</button></a></div>
         <br><br>
     </div>
   </div>

@@ -5,18 +5,17 @@ MyCut.Views.ShopAddBarbers = Backbone.CompositeView.extend({
     "click .new-barber-button": "addBarberModal",
     "click li.barber-list-item": "selectBarber",
 
-    "click .delete-barber-button": "confirmDeletion",
-    "click .confirm-delete":       "removeSelectedBarbers"
+    "click .delete-barber-button": "openDeleteModal",
+
+    "dblclick li.barber-list-item": "openBarberPortfolio"
   },
 
   initialize: function(options){
-    debugger
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.collection, "add", this.addBarberSubview)
     this.listenTo(this.collection, "remove", this.removeBarberSubview);
     this.collection.each(this.addBarberSubview.bind(this));
     this.selectedBarbers = [];
-
     this.addDeleteModal();
   },
 
@@ -28,8 +27,8 @@ MyCut.Views.ShopAddBarbers = Backbone.CompositeView.extend({
     $('body').append(barberForm.render().$el);
   },
 
+
   addBarberSubview: function(barber){
-    debugger
     var shopBarber = new MyCut.Views.ShopBarberView({
        model: barber
     });
@@ -38,13 +37,24 @@ MyCut.Views.ShopAddBarbers = Backbone.CompositeView.extend({
 
   addDeleteModal: function(){
     this.deleteModal = new MyCut.Views.BarberDelete({
-      collection: this.selectedBarbers
+      collection: this.selectedBarbers,
+      view: this
     });
     $('body').append(this.deleteModal.render().$el);
   },
 
-  confirmDeletion: function(){
-    $('.modal-form.delete-modal').show();
+  openBarberPortfolio: function(event){
+    var el = $(event.currentTarget)
+    var barber = this.collection.get(el.data('id'));
+    var portfolioModal = new MyCut.Views.BarberPortfolioModal({
+      model: barber,
+      collection: barber.portfolio_pictures();
+    })
+    $('body').append(portfolioModal.render().$el);
+  },
+
+  openDeleteModal: function(){
+    this.deleteModal.$el.show();
   },
 
   removeBarberSubview: function(barber){
@@ -59,7 +69,6 @@ MyCut.Views.ShopAddBarbers = Backbone.CompositeView.extend({
   },
 
   selectBarber: function(event) {
-    debugger
     var el = $(event.currentTarget)
     var barber = this.collection.get(el.data('id'));
     var index = this.selectedBarbers.indexOf(barber);
