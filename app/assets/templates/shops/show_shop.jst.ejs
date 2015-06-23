@@ -17,28 +17,30 @@
         <br><br>
     </div>
   </div>
-</div>
 
-<div class="level-three">
-  <div class="reviews-index">
-    <ul class="review-items"></ul>
-  </div>
+ <div class="row">
+    <div class="level-three col-md-6">
+      <div class="reviews-index">
+        <ul class="review-items"></ul>
+      </div>
 
-</div>
+    </div>
 
 
-<div class="side-container">
-  <div class="sidebar-header"><span>Check out our staffs' portfolios</span></div>
-  <div class="side-column">
-    <ul class="barber-container">
-      <% barbers.each(function(barber) { %>
-        <li class="barber-photo">
-          <span class="barber-name"><%= barber.escape('name') %></span>
-          <br>
-          <a href="/#/shops/<%= shop.escape('id') %>/barbers/<%= barber.escape('id') %>">
-            <img class="barber-profile" src="<%= barber.escape('photo_url') %>">
-          </a>
-        </li>
-      <% }); %>
-    </ul>
+    <div class="side-container col-md-6">
+      <div class="sidebar-header"><span class="barber-tooltip">CHECK OUT THE TALENT & VIEW A PORTFOLIO</span></div>
+        <div class="side-column">
+          <ul class="barber-container">
+            <% barbers.each(function(barber) { %>
+              <li class="barber-photo">
+                <span class="barber-name"><%= barber.escape('name') %></span>
+                <br>
+                <a href="/#/shops/<%= shop.escape('id') %>/barbers/<%= barber.escape('id') %>">
+                  <img class="barber-profile" src="<%= barber.escape('photo_url') %>">
+                </a>
+              </li>
+            <% }); %>
+          </ul>
+        </div>
+   </div>
 </div>

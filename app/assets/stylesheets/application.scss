@@ -505,16 +505,16 @@ div.container-fluid.level-two {
   width: 55%;
     float: left;
     margin-right: -100px;
-    margin-top: -82px;
+    margin-top: -60px;
   .reviews-index {
     clear: both;
     max-width: 80%;
-    margin: 100px 50px 0px 50px;
+    margin: 100px 5px 0px 30px;
     .review-items {
       max-width: 100%;
       list-style: none;
       padding: 20px;
-      background-color: rgba(155,155,155, 0.7);
+      background: rgba(100, 19, 19, 0.8);
       color: white;
       font-family: "Arial", sans-serif;
       letter-spacing: .8px;
@@ -558,14 +558,6 @@ div.container-fluid.level-two {
                 -moz-border-radius: 150px;
               }
             }
-            .review-body {
-              .review-content {
-
-              }
-              .review-photos-container {
-
-              }
-            }
           }
         }
       }
@@ -576,28 +568,31 @@ div.container-fluid.level-two {
   text-align: center;
   margin-top: -50px;
   .sidebar-header {
-    margin-right: -50%;
+    margin-top: 60px;
+    span{
+      margin-left: 5%;
+      font-family: 'fira-sans-2';
+      font-weight: 600;
+      font-style: italic;
+      font-size: 30px;
+      color: rgb(171, 9, 71);
+    }
     .side-column{
       overflow: auto;
       display: inline;
-      .barber-container {
-        height: auto;
-        width: 500px;
-        display: inline;
-        text-align: center;
-      }
-      ul li {
-        list-style: none;
-        display: inline-block;
-      }
     }
   }
 }
 
-li.barber-photo {
-  list-style: none;
-  display: inline-block;
-
+ul.barber-container {
+  background-color: rgba(240, 248, 255, .8);
+  margin-right: 20px;
+  overflow-y: scroll;
+  height: 550px;
+  li.barber-photo {
+    list-style: none;
+    display: inline-block;
+  }
 }
 div.review-content {
   display: flex;
