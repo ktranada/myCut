@@ -21,12 +21,6 @@ MyCut.Views.BarberPortfolioModal = Backbone.CompositeView.extend({
     this.removeModelSubview('.barber-portfolio-collection', photo);
   },
 
-  checkModal: function(e){
-    // if (e.target != $('.port-container.barber-portfolio-form')){
-    //   this.closeModal();
-    // }
-  },
-
    closeModal: function(){
      this.$el.hide();
      this.remove();
@@ -46,7 +40,6 @@ MyCut.Views.BarberPortfolioModal = Backbone.CompositeView.extend({
   },
 
   upload: function(e){
-debugger
     e.preventDefault();
     var that = this;
     cloudinary.openUploadWidget(BARBER_PORT_CLOUDINARY, function(error, result){

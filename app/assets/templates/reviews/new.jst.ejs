@@ -17,7 +17,7 @@
           <label for="shop-barber">BARBER | STYLIST</label>
           <select id="shop-barber" class="form-control barber-dropdown" name="review[barber_id]" >
             <% barbers.each(function(barber){ %>
-              <option value="<%= barber.escape('barber_id')%>"><%= barber.escape('name') %></option>
+              <option value="<%= barber.escape('id')%>"><%= barber.escape('name') %></option>
             <% }) %>
           </select>
         </div>
@@ -26,18 +26,12 @@
           <textarea class="form-control new-shop-input" name="review[body]" id="review-body" rows="3"></textarea>
         </div>
         <div class="form-group">
-          <label for="review-tags">TAGS</label>
-          <br>
-          <input type="text" data-role="tagsinput" class ="form-control  new-shop-input" name="review[taglist]" placeholder="fade, color, ethnic hair">
-
-        </div>
-        <div class="form-group">
-          <label for="shop-photo">PHOTOS</label><br>
-          <input type="filepicker"
-                 class="filepicker-object"
-                 data-fp-option-multiple="true"
-                 name="pictures">
+          <span class="upload-button"><i class="fa fa-plus"></i></span>
           <br><br>
+          <ul class="preview-collection"></ul>
+
+          </div>
+          <br>
           <button  class="create-review btn btn-primary">Submit</button>
         </div>
       </form>

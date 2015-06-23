@@ -175,6 +175,23 @@ div#map-canvas.circular.col-md-offset-4 {
 }
 
 //////////////////////////////////////////////////////////////////
+/* New Review */
+
+.preview-collection {
+  margin-left: 10%;
+  li {
+    display: inline-block;
+    list-style: none;
+    .port-image-container {
+      img {
+        height: 120px;
+      }
+    }
+  }
+}
+
+
+//////////////////////////////////////////////////////////////////
 /* New Shop */
 
 div.col-md-offset-4.col-xs-offset-3.col-xs-6.col-md-4 {

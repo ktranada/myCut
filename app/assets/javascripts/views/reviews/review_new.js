@@ -3,7 +3,7 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
 
   events: {
     "submit form": "createReview",
-    "click .file-upload": "upload"
+    "click .upload-button": "upload"
 
   },
 
@@ -11,23 +11,24 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
     this._reviews = options.collection;
     this._barbers = options.barbers
     this.listenTo(this.model, "sync", this.render);
-
+    this.review = new MyCut.Models.Review();
+    debugger
+    this.reviewPictures = this.review.pictures();
+    this.listenTo(this.reviewPictures, "add", this.addPreviewSubview);
+    this.listenTo(this.reviewPictures, "remove", this.removePreviewSubview);
   },
 
   createReview: function(event) {
     event.preventDefault();
     var formData = $(event.currentTarget).serializeJSON();
     debugger
-    debugger
-    var photos = formData.pictures
-
-
-    var newReview = new MyCut.Models.Review(formData['review']);
+    this.review.set(formData['review']);
     var shop = this;
-    newReview.save({}, {
+    this.review.save({}, {
       success: function(){
-        shop._reviews.add(newReview);
-        Backbone.history.navigate("shops/" + newReview.get('shop_id'), {trigger: true});
+        shop._reviews.add(shop.review);
+        humane.log("You've successfully written a review!");
+        Backbone.history.navigate("shops/" + shop.review.get('shop_id'), {trigger: true});
       },
       error: function(model, response) {
         var errors = $.parseJSON(response.responseText).join("<br>")
@@ -37,8 +38,14 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
     });
   },
 
+  addPreviewSubview: function(picture){
+    var picture = new MyCut.Views.ReviewNewPicture({ model: picture });
+    this.addSubview('.preview-collection', picture)
+  },
 
-
+  removePreviewSubview: function(picture){
+    this.removeModelSubview('.preview-collection', picture);
+  },
 
   render: function() {
     var newReviewForm = this.template({
@@ -50,17 +57,32 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
 
   },
 
-  upload: function () {
-    var review = this;
-    filepicker.pick(function(blob) {
+  upload: function() {
+    var that = this;
+    debugger
+    cloudinary.openUploadWidget(USER_CLOUDINARY, function(error, result){
+      if (!error) {
+        that.createPhotos(result);
+      }
+    })
+  },
+
+  createPhotos: function(result){
+    var self = this;
+    var reviewPictures = this.review.pictures();
+    result.forEach(function(photo){
       debugger
-      var newImage = new MyCut.Models.Picture({
-        photo_url: blob.url
-      });
-      newImage.save({}, {
-        success: function () {
-        }
-      })
+      if (self.reviewPictures.length < 3) {
+        var picture = new MyCut.Models.Picture();
+        var photo_url = photo.eager[1].url;
+        picture.set({
+          photo_url: photo_url,
+        })
+        self.reviewPictures.add(picture);
+      } else {
+        humane.log("You can only upload a max of 3 pictures.");
+      }
     });
   }
+
 });
