@@ -252,6 +252,14 @@ label {
   .barber-photos {
     margin: 50px auto;
     display: inline-block;
+    .empty-shop {
+      margin-left: 500px;
+      font-size: 40px;
+      color: aliceblue;
+      span {
+        margin-left: 40px;
+      }
+    }
     li {
       float: left;
       border-style: solid;
