@@ -13,11 +13,11 @@ Review.destroy_all
 Barber.destroy_all
 Picture.destroy_all
 
-user1 = User.create!(username: "guest", email: 'guest@gmail.com' , password: 'password', photo_url: "https://dl.dropbox.com/s/zp27re1j4301pii/user_5.jpg?dl=0")
-user2 = User.create!(username: "kevin", email: 'kevin@gmail.com' , password: 'password', photo_url: "https://dl.dropbox.com/s/5i52djfnyj5ud5r/me.jpeg?dl=0")
-user3 = User.create!(username: "lana", email: 'lana@gmail.com', password: 'password', photo_url: "https://dl.dropbox.com/s/6qnol7sg9tydmoa/user_4.jpeg?dl=0")
-user4 = User.create!(username: "danny", email: 'danny@gmail.com', password: 'password', photo_url: "https://dl.dropbox.com/s/qmpulmvwfbodv2p/user_3.jpeg?dl=0")
-user5 = User.create!(username: "vicky", email: 'vicky@gmail.com', password: 'password', photo_url: "https://dl.dropbox.com/s/83d8r8vtw28mb3v/user_1.jpg?dl=0")
+user1 = User.create!(username: "guest", email: 'guest@gmail.com' , password: 'password', photo_url: "https://dl.dropbox.com/s/zp27re1j4301pii/user_5.jpg?dl=0", thumb_url: "https://dl.dropbox.com/s/zp27re1j4301pii/user_5.jpg?dl=0")
+user2 = User.create!(username: "kevin", email: 'kevin@gmail.com' , password: 'password', photo_url: "https://dl.dropbox.com/s/5i52djfnyj5ud5r/me.jpeg?dl=0", thumb_url: "https://dl.dropbox.com/s/5i52djfnyj5ud5r/me.jpeg?dl=0")
+user3 = User.create!(username: "lana", email: 'lana@gmail.com', password: 'password', photo_url: "https://dl.dropbox.com/s/6qnol7sg9tydmoa/user_4.jpeg?dl=0", thumb_url: "https://dl.dropbox.com/s/6qnol7sg9tydmoa/user_4.jpeg?dl=0")
+user4 = User.create!(username: "danny", email: 'danny@gmail.com', password: 'password', photo_url: "https://dl.dropbox.com/s/qmpulmvwfbodv2p/user_3.jpeg?dl=0", thumb_url: "https://dl.dropbox.com/s/qmpulmvwfbodv2p/user_3.jpeg?dl=0")
+user5 = User.create!(username: "vicky", email: 'vicky@gmail.com', password: 'password', photo_url: "https://dl.dropbox.com/s/83d8r8vtw28mb3v/user_1.jpg?dl=0", thumb_url: "https://dl.dropbox.com/s/83d8r8vtw28mb3v/user_1.jpg?dl=0")
 
 
 ######################################### Shop 1
@@ -36,7 +36,7 @@ shop1 = Shop.create!(moderator_id: 1,
              location_list: ["san francisco, union square, financial district"],
              photo_url: "http://s3-media4.fl.yelpcdn.com/bphoto/rq3KWK5doz7Yltts1O2RnQ/o.jpg")
 barber_2 = Barber.create!(name: "Trevor", shop_id: shop1.id,  skill_list: ["coloring, keratin treatments"], photo_url: "http://s3-media2.fl.yelpcdn.com/bphoto/EGWxZatDc11tZosACS4qvA/o.jpg")
-barber_3 = Barber.create!(name: "Lauren", shop_id: shop1.id, skill_list: ["thermal reconditioning, coloring"])
+barber_3 = Barber.create!(name: "Lauren", shop_id: shop1.id, skill_list: ["thermal reconditioning, coloring"], photo_url: "http://res.cloudinary.com/mycut/image/upload/c_fill,g_faces,h_300,w_200/v1435005797/barbers/lauren.jpg")
 shop1_review_1 = shop1.reviews.create!(body: "This is the best salon experience I've ever had! From the start, Mary Ann (the receptionist, I believe) was super sweet and helpful. When I got there, I was warmly greeted by nearly everyone there. There was a bit of a miscommunication (I scheduled for a balayage but they had only listed me for a haircut). But my hair stylist, Britney, was accommodating and did the balayage anyway. The color turned out even better than I could've imagined. She was knowledgeable and really cool. The only negative thing was at the end when I was paying, another receptionist was helping me with my payment. I stood there for a while after I got my receipt, thinking there was a next step because she didn't say a word after. So after a few minutes of waiting at the desk, I asked, 'Am I all set?' and she just replied with yeah"  , author_id: 1, barber_id: barber_3.id, rating: 5)
 shop1_review_2 = shop1.reviews.create!(body: "I absolutely LOVE this salon! I have followed two of their greatest stylists (Olive and Kat) from a previous salon and their work continues to shine over anything else I've ever seen. The way both of these girls work their color magic keeps me coming back time and time again and I'm so happy that this place exists so that they can continue their awesome work. Both ladies are extremely warm and talented and ask if you'd like coffee or tea upon arrival and WILL NOT let you leave unless you're 100% satisfied with what they've done. As a woman, its hard to trust people with something as precious as your hair color, and I'm telling you - if you want the job done not just right and professionally - but with warmth and character - ask for them! Seriously cannot go wrong with what they do!
 
@@ -82,7 +82,7 @@ shop2 = Shop.create!(moderator_id: 1,
  barber_5.pictures.create!(photo_url: "http://s3-media3.fl.yelpcdn.com/bphoto/BdoP3nE-U_8M3U4r7fY4AA/o.jpg")
  barber_5.pictures.create!(photo_url: "http://s3-media1.fl.yelpcdn.com/bphoto/3QQHKT5qCKvY-2QZCVy7tg/o.jpg")
  barber_5.pictures.create!(photo_url: "http://s3-media4.fl.yelpcdn.com/bphoto/3VSZBATXy8bhzEHLtrAHcw/o.jpg")
- barber_5.pictures.create!(photo_url: "http://s3-media2.fl.yelpcdn.com/bphoto/9us0ShBXh9YM6z5Rj3e7rw/o.jp")
+ barber_5.pictures.create!(photo_url: "http://s3-media2.fl.yelpcdn.com/bphoto/9us0ShBXh9YM6z5Rj3e7rw/o.jpg")
  barber_5.pictures.create!(photo_url: "http://s3-media1.fl.yelpcdn.com/bphoto/CKwthbNkoYHAwh2z4qEgSQ/o.jpg")
 
 

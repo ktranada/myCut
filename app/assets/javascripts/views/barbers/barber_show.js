@@ -1,16 +1,34 @@
-MyCut.Views.BarberShow = Backbone.CompositeView.extend({
-  template: JST['barbers/barber_show'],
+MyCut.Views.ShopBarberView = Backbone.CompositeView.extend({
+  template: JST['barbers/barber_profile'],
+  tagName: "li",
+  className:  "barber-list-item",
 
-  initialize: function(){
-    this.listenTo(this.model, "sync change", this.render);
+  attributes: function(){
+    debugger
+    return {
+      'data-id': this.model.get('id')
+    };
+  },
+  events: {
+    "click": "displayPortfolio"
   },
 
+  initialize: function(){
+    this.listenTo(this.model, "sync", this.render);
+  },
+
+  // displayPortfolio: function(){
+  //   v
+  //
+  // }
+
   render: function(){
-    var barberShowView = this.template({
-      barber: this.model,
-      images: this.collection
-    });
-    this.$el.html(barberShowView);
+    var renderedContent = this.template({
+      barber: this.model
+    })
+    this.$el.html(renderedContent)
     return this;
   }
+
+
 });

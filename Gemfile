@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.3.5'
+gem 'font-awesome-sass'
 gem 'backbone-on-rails'
 gem 'jquery-rails'
 gem 'acts-as-taggable-on', '~> 3.4'

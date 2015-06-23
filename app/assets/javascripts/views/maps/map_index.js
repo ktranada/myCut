@@ -42,7 +42,6 @@ MyCut.Views.IndexMap = Backbone.View.extend({
           alert("That location does not exist!");
         }
       })
-      debugger
      var marker = new google.maps.Marker({
        position: { lat: this._coordinates.latitude, lng: this._coordinates.longitude },
        map: this._map,

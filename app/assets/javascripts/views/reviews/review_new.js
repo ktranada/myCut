@@ -37,10 +37,6 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
     });
   },
 
-  initFilepicker: function(){
-    var $filePickerInput = this.$('input[type=filepicker]');
-    filepicker.constructWidget($filePickerInput[0]);
-  },
 
 
 
@@ -50,7 +46,6 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
       barbers: this._barbers
       });
     this.$el.html(newReviewForm);
-    this.initFilepicker();
     return this;
 
   },

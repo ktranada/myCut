@@ -2,7 +2,7 @@ module Api
   class BarbersController < ApiController
     def index
     @barbers = Barber.all
-    render json: @barbers  
+    render json: @barbers
     end
 
 
@@ -42,7 +42,7 @@ module Api
     private
 
     def barber_params
-      params.require(:barber).permit(:name, :rating, :photo_url)
+      params.require(:barber).permit(:name, :shop_id, :rating, :photo_url)
     end
 
   end

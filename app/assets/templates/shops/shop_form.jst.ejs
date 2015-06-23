@@ -1,4 +1,4 @@
-<br><br><br><br>
+<br>
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-offset-4 col-xs-offset-3 col-xs-6 col-md-4">
@@ -40,13 +40,10 @@
 
         <div class="form-group">
           <label for="shop-photo">SHOP PHOTO</label><br>
-          <input type="filepicker"
-                 value="<%= shop.escape('photo_url') %>"
-                 class="filepicker-object"
-                 name="shop[photo_url]">
-
+          <button class="upload-button">Choose a photo</button>
           <br><br>
           <button type="submit" class="shop-form btn btn-default">Submit</button>
+          
         </div>
       </form>
       <% if (!shop.isNew()) { %>

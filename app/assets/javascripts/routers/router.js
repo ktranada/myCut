@@ -5,9 +5,10 @@
     "shops/search?*parameters":          "shopSearch",
     "shops/:id":                         "shopShow",
     "shops/:id/edit":                    "shopForm",
+    "shops/:id/edit/barbers":            "shopBarbersNew",
     "shops/:id/review/new":              "reviewNew",
     "shops/:id/barbers/:bid":            "barberShow",
-    "shops":                             "feedLandingPage",
+    "shops":                             "feedLandingPage"
 
   },
 
@@ -29,6 +30,15 @@
       collection: MyCut.shops
     })
     this._swapView(landingPage);
+  },
+
+  shopBarbersNew: function(id){
+    var currentShop = MyCut.shops.getOrFetch(id);
+    var barberCreationView = new MyCut.Views.ShopAddBarbers({
+      model: currentShop,
+      collection: currentShop.barbers()
+    });
+    this._swapView(barberCreationView);
   },
 
   reviewNew: function(id) {
