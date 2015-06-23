@@ -1,24 +1,21 @@
-<div class="modal-form">
-
-  <div class="form-container barber-create-form">
-    <span class="cancel-button"><i class="fa fa-times"></i></span>
+<div class="form-container barber-create-form">
+  <span class="cancel-button"><i class="fa fa-times"></i></span>
+  <br>
+  <% title = barber.isNew() ? "NEW BARBER" : "EDIT BARBER" %>
+  <div class="title">NEW BARBER</div>
+  <br>
+  <form class="form-group">
+    <label for="barber-name">NAME</label>
+    <input type="text" class="form-control" name="barber[name]" id="barber-name">
     <br>
-    <% title = barber.isNew() ? "NEW BARBER" : "EDIT BARBER" %>
-    <div class="title">NEW BARBER</div>
+    <label>PHOTO</label>
     <br>
-    <form class="form-group">
-      <label for="barber-name">NAME</label>
-      <input type="text" class="form-control" name="barber[name]" id="barber-name">
-      <br>
-      <label>PHOTO</label>
-      <br>
-      <span class="upload-button"><i class="fa fa-plus"></i></span>
-      <br><br>
+    <span class="upload-button"><i class="fa fa-plus"></i></span>
+    <br><br>
 
-      <div class="form-buttons">
+    <div class="form-buttons">
 
-        <input type="submit" class="create-barber-button">
-      </div>
-    </form>
-  </div>
+      <input type="submit" class="create-barber-button">
+    </div>
+  </form>
 </div>

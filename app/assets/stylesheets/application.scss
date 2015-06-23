@@ -228,68 +228,110 @@ label {
 //////////////////////////////////////////////////////////////////
 /* Adding Barbers */
 
-
-.buttons-divider {
-  margin-right: 40px;
-  .barber-control-buttons {
-    float: right;
-    span {
-      padding: 5px;
-      font-size: 40px;
-      &:hover {
-        cursor: pointer;
-
+.shop-barbers-edit {
+  background-color: rgba(0, 139, 139, 0.5);
+  .buttons-divider {
+    margin-right: 40px;
+    .barber-control-buttons {
+      float: right;
+      .fa {
+        color: aliceblue;
       }
-    }
-  }
-}
-
-.barber-photos {
-  margin: 50px 100px;
-  display: inline-block;
-  li {
-    float: left;
-    border-style: solid;
-    border-width: 5px;
-    text-align: center;
-    list-style: none;
-    height: 300px;
-    width: 230px;
-    margin: 10px 10px;
-
-    div.barber-container {
       span {
-        text-transform: uppercase;
-        font-size: 20px;
-        font-family: 'fira-sans-2';
-        margin-bottom: 10px;
-      }
-      div.barber-profile-crop {
-        // overflow: hidden;
-        height: 200px;
-        overflow: hidden;
-        img.shop-barber-photo {
-          object-fit: contain;
-          margin: 10px 10px 0px 10px;
-          // height: 100%;
-          height: 200px;
+        padding: 5px;
+        font-size: 40px;
+        &:hover {
+          cursor: pointer;
+
         }
       }
     }
   }
-  li.barber-list-item.selected {
+
+  .barber-photos {
+    margin: 50px auto;
+    display: inline-block;
+    li {
+      float: left;
+      border-style: solid;
+      border-width: 5px;
+      text-align: center;
+      list-style: none;
+      height: 300px;
+      width: 230px;
+      margin: 10px 10px;
+
+      div.barber-container {
+        span {
+          text-transform: uppercase;
+          font-size: 20px;
+          font-family: 'fira-sans-2';
+          margin-bottom: 10px;
+          font-weight: 300px;
+        }
+        div.barber-profile-crop {
+          // overflow: hidden;
+          height: 200px;
+          overflow: hidden;
+          img.shop-barber-photo {
+            object-fit: contain;
+            margin: 10px 10px 0px 10px;
+            // height: 100%;
+            height: 200px;
+          }
+        }
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+    li.barber-list-item{
+      background-color: rgb(228, 233, 236);
+
+    }
+  }
+
+  .selected {
     border-color: maroon;
   }
+  .barber-container {
+    span {
+      text-transform: uppercase;
+      font-family: 'fira-sans-2';
+    }
 
-}
-.barber-container {
-  span {
-    text-transform: uppercase;
-    font-family: 'fira-sans-2';
+
   }
 
-
 }
+.port-container.barber-portfolio-form {
+  overflow: scroll;
+  .title {
+    text-transform: uppercase;
+    font-style: italic;
+    text-decoration: underline;
+    letter-spacing: .2em;
+  }
+  .barber-portfolio-collection {
+    text-align: center;
+    margin-left: -40px;
+    .portfolio-collection-item {
+      display: inline-block;
+      list-style: none;
+      .port-image-container {
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        img {
+          object-fit: contain;
+          max-height: 200px;
+        }
+      }
+    }
+
+  }
+}
+
 
 
 
@@ -344,7 +386,17 @@ label {
     width: 450px;
     margin-top: -173px;
     margin-left: -250px;
+
   }
+
+  .port-container {
+    background: rgba(100, 19, 19, 0.95);
+    padding: 15px;
+    width: 80%;
+    height: 85vh;
+    margin: 100px auto;
+  }
+
 
 }
 

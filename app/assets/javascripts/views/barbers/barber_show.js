@@ -4,23 +4,28 @@ MyCut.Views.ShopBarberView = Backbone.CompositeView.extend({
   className:  "barber-list-item",
 
   attributes: function(){
-    debugger
     return {
       'data-id': this.model.get('id')
     };
   },
   events: {
-    "click": "displayPortfolio"
+    "click .barber-portfolio-modal": "openBarberPortfolioModal"
   },
 
   initialize: function(){
     this.listenTo(this.model, "sync", this.render);
   },
 
-  // displayPortfolio: function(){
-  //   v
-  //
-  // }
+
+  openBarberPortfolioModal: function(event){
+    var el = $(event.currentTarget)
+    this.portfolioModal = new MyCut.Views.BarberPortfolioModal({
+      model: this.model,
+      collection: this.model.portfolio_pictures()
+    })
+    $('body').append(this.portfolioModal.render().$el);
+    this.portfolioModal.$el.show();
+  },
 
   render: function(){
     var renderedContent = this.template({

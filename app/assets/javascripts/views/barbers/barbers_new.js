@@ -11,6 +11,7 @@ MyCut.Views.BarberFormModal = Backbone.CompositeView.extend({
     this.shop = options.shop;
     this.barber = options.model || new MyCut.Models.Barber();
     this._isNew = this.barber.isNew();
+    debugger
     var that = this;
   },
 
@@ -36,6 +37,7 @@ MyCut.Views.BarberFormModal = Backbone.CompositeView.extend({
 
   createBarber: function(){
     var that = this;
+    debugger
     this._barberData.shop_id = this.shop.get('id');
     this.barber.save(this._barberData, {
       success: function(){

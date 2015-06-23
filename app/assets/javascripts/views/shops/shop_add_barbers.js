@@ -1,13 +1,14 @@
 MyCut.Views.ShopAddBarbers = Backbone.CompositeView.extend({
   template: JST['shops/shop_edit_barbers'],
-
+  className: "shop-barbers-edit",
   events: {
     "click .new-barber-button": "addBarberModal",
-    "click li.barber-list-item": "selectBarber",
+    // "click li.barber-list-item": "selectBarber",
 
-    "click .delete-barber-button": "openDeleteModal",
+    "dblclick li.barber-list-item": "barberPortfolio",
 
-    "dblclick li.barber-list-item": "openBarberPortfolio"
+    "click .delete-barber-button": "openDeleteModal"
+    // "dblclick li.barber-list-item": "openBarberPortfolio"
   },
 
   initialize: function(options){
@@ -41,16 +42,6 @@ MyCut.Views.ShopAddBarbers = Backbone.CompositeView.extend({
       view: this
     });
     $('body').append(this.deleteModal.render().$el);
-  },
-
-  openBarberPortfolio: function(event){
-    var el = $(event.currentTarget)
-    var barber = this.collection.get(el.data('id'));
-    var portfolioModal = new MyCut.Views.BarberPortfolioModal({
-      model: barber,
-      collection: barber.portfolio_pictures();
-    })
-    $('body').append(portfolioModal.render().$el);
   },
 
   openDeleteModal: function(){

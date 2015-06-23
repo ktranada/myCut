@@ -42,6 +42,7 @@ json.barbers do
       json.array! barber.pictures do |picture|
         json.picture_comment picture.picture_comment
         json.barber_id picture.imageable_id
+        json.photo_url picture.photo_url
       end
     end
   end
