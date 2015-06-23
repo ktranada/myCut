@@ -117,7 +117,9 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
     e.preventDefault();
     cloudinary.openUploadWidget(SHOP_CLOUD, function(error, result){
       if (!error) {
-        that.model.set('photo_url', result[0].eager[0].url);
+        var photo_url =  result[0].eager[0].url;
+        that.model.set('photo_url', photo_url);
+        that.$('img').attr('src', photo_url)
       }
     });
   }

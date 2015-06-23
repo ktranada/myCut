@@ -45,6 +45,11 @@ html, body, .first-level, .level-two, .landing-level-three, .map-container, .map
 .map-container {
   width: 40%;
   height: 72vh;
+  .map {
+    #map-canvas{
+      opacity: .8;
+    }
+  }
 }
 html, body {
   font-family: 'Oswald', sans-serif;
@@ -81,6 +86,10 @@ nav.navbar {
   }
 }
 
+
+.nav-search {
+  margin-left: 10%;
+}
 //////////////////////////////////////////////////////////////////
 /* Error Container */
 div.errors-container {
@@ -241,6 +250,28 @@ input#new-shop-name.form-control {
 }
 label {
   font-weight: 100;
+}
+i.fa-picture-o {
+  font-size: 30px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.preview-container {
+  text-align: center;
+  .fa-picture-o {
+    font-size: 30px;
+  }
+  .preview {
+    list-style: none;
+    display: inline-block;
+    img {
+      width: 300px;
+      border-radius: 25px;
+      margin-left: -12%;
+    }
+  }
 }
 
 //////////////////////////////////////////////////////////////////
