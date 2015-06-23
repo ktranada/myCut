@@ -5,14 +5,14 @@ MyCut.Views.BarberFormModal = Backbone.CompositeView.extend({
     "click .upload-button": "upload",
     "click span.cancel-button": "cancelForm"
   },
-  className: "modal-form",
+  className: "modal-form barber-container",
 
   initialize: function(options){
     this.shop = options.shop;
     this.barber = options.model || new MyCut.Models.Barber();
     this._isNew = this.barber.isNew();
-    debugger
     var that = this;
+    this.listenTo
   },
 
   cancelForm: function(e) {
@@ -37,7 +37,6 @@ MyCut.Views.BarberFormModal = Backbone.CompositeView.extend({
 
   createBarber: function(){
     var that = this;
-    debugger
     this._barberData.shop_id = this.shop.get('id');
     this.barber.save(this._barberData, {
       success: function(){
@@ -74,9 +73,10 @@ MyCut.Views.BarberFormModal = Backbone.CompositeView.extend({
 
   upload: function() {
     var that = this;
-    debugger
     cloudinary.openUploadWidget(BARBER_CLOUDINARY, function(error, result){
-      that.barber.attributes.photo_url = result[0].eager[0].url
+      var photo_url = result[0].eager[0].url;
+      that.barber.attributes.photo_url = photo_url;
+      that.$('img').attr('src', photo_url)
     })
   }
 });

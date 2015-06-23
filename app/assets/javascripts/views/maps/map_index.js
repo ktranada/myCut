@@ -2,7 +2,7 @@ MyCut.Views.IndexMap = Backbone.View.extend({
   attributes: {
     id: "map-canvas"
   },
-  className: "circular col-md-offset-4",
+  className: "circular",
 
   initialize: function(options){
     this._markers = {};

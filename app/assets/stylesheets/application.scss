@@ -43,7 +43,7 @@ html, body {
 }
 
 
-html, body, div#main, div.first-level, div.container-fluid.level-two, div.row.level-three, div.map-container ,div.map.col-md-4.col-md-offset-2, div#map-canvas.col-md-offset-4 {
+html, body, div#main, div.first-level, div.container-fluid.level-two, div.row.level-three, div.map-container ,div.map.col-md-4.col-md-offset-2, div#map-canvas {
   height: 400px;
   margin: 0;
   padding: 0;
@@ -81,6 +81,7 @@ nav.navbar {
     }
   }
 }
+
 //////////////////////////////////////////////////////////////////
 /* Error Container */
 div.errors-container {
@@ -368,6 +369,9 @@ label {
     font-size: 40px;
     clear: right;
     text-indent: 10px;
+    .modal-title {
+      text-decoration: underline;
+    }
   }
 
   .form-buttons {
@@ -386,7 +390,25 @@ label {
     width: 450px;
     margin-top: -173px;
     margin-left: -250px;
-
+    .form-group {
+      label {
+        font-size: 30px;
+        font-style: italic;
+        .modal-form-category {
+          border-style: double;
+          padding: 0px 10px 0px 5px;
+        }
+      }
+      .upload-button {
+        .fa-plus {
+          font-size: 30px;
+          padding: 10px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
   }
 
   .port-container {
@@ -396,6 +418,13 @@ label {
     height: 85vh;
     margin: 100px auto;
   }
+
+  .barber-create-form{
+    margin-top: -300px;
+  }
+
+
+
 
 
 }
@@ -453,7 +482,8 @@ div.container-fluid.level-two {
   height: 300px;
   .barber-profile {
     width: auto;
-    height: 100%;
+    height: 70%;
+    margin: 10px;
     object-fit: contain;
   // was 150px for circular view
 
@@ -464,8 +494,10 @@ div.container-fluid.level-two {
 /* Review Item */
 
 .level-three {
-  width: 600px;
-  float: left;
+  width: 55%;
+    float: left;
+    margin-right: -100px;
+    margin-top: -82px;
   .reviews-index {
     clear: both;
     max-width: 80%;
@@ -478,7 +510,7 @@ div.container-fluid.level-two {
       color: white;
       font-family: "Arial", sans-serif;
       letter-spacing: .8px;
-      height: 44vh;
+      height: 65vh;
       overflow-y: scroll;
       .review-item {
         .review-with-side{
@@ -532,18 +564,25 @@ div.container-fluid.level-two {
     }
   }
 }
-
-.side-column{
-  display: inline;
-  .barber-container {
-    height: auto;
-    width: 500px;
-    display: inline;
-    text-align: center;
-  }
-  ul li {
-    list-style: none;
-    display: inline-block;
+.side-container {
+  text-align: center;
+  margin-top: -50px;
+  .sidebar-header {
+    margin-right: -50%;
+    .side-column{
+      overflow: auto;
+      display: inline;
+      .barber-container {
+        height: auto;
+        width: 500px;
+        display: inline;
+        text-align: center;
+      }
+      ul li {
+        list-style: none;
+        display: inline-block;
+      }
+    }
   }
 }
 

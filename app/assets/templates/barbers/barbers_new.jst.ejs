@@ -2,15 +2,17 @@
   <span class="cancel-button"><i class="fa fa-times"></i></span>
   <br>
   <% title = barber.isNew() ? "NEW BARBER" : "EDIT BARBER" %>
-  <div class="title">NEW BARBER</div>
+  <div class="title"><span class="modal-title"><%= title %></span></div>
   <br>
   <form class="form-group">
     <label for="barber-name">NAME</label>
     <input type="text" class="form-control" name="barber[name]" id="barber-name">
     <br>
-    <label>PHOTO</label>
+    <label><span class="modal-form-category">PHOTO</span></label>
     <br>
     <span class="upload-button"><i class="fa fa-plus"></i></span>
+
+    <div class="upload-preview"><img></div>
     <br><br>
 
     <div class="form-buttons">
