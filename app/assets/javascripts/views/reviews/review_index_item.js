@@ -1,6 +1,7 @@
 MyCut.Views.ReviewIndexItem = Backbone.CompositeView.extend({
   template: JST['reviews/show'],
   tagName: "li",
+  className: "review-item",
   // review-index-item col-md-9 col-md-offset-1
   initialize: function(options) {
     this.author = options.author;
@@ -8,7 +9,6 @@ MyCut.Views.ReviewIndexItem = Backbone.CompositeView.extend({
   },
 
   render: function(){
-    debugger
     var reviewSubview = this.template({
       review: this.model,
       author: this.author,
