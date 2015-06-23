@@ -304,6 +304,10 @@ label {
     border-color: maroon;
   }
   .barber-container {
+    .select-box {
+      float: left;
+      margin: 5px -20px 0px 10px;
+    }
     span {
       text-transform: uppercase;
       font-family: 'fira-sans-2';
@@ -319,6 +323,7 @@ label {
     text-transform: uppercase;
     font-style: italic;
     text-decoration: underline;
+    color: aliceblue;
     letter-spacing: .2em;
   }
   .barber-portfolio-collection {
@@ -586,9 +591,8 @@ div.container-fluid.level-two {
 
 ul.barber-container {
   background-color: rgba(240, 248, 255, .8);
-  margin-right: 20px;
   overflow-y: scroll;
-  height: 550px;
+  height: 61.5vh;
   li.barber-photo {
     list-style: none;
     display: inline-block;

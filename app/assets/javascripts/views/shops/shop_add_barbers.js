@@ -3,7 +3,7 @@ MyCut.Views.ShopAddBarbers = Backbone.CompositeView.extend({
   className: "shop-barbers-edit",
   events: {
     "click .new-barber-button": "addBarberModal",
-    // "click li.barber-list-item": "selectBarber",
+    "click .delete-barber-button": "removeSelectedBarbers",
 
     "dblclick li.barber-list-item": "barberPortfolio",
 
@@ -16,7 +16,7 @@ MyCut.Views.ShopAddBarbers = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "add", this.addBarberSubview)
     this.listenTo(this.collection, "remove", this.removeBarberSubview);
     this.collection.each(this.addBarberSubview.bind(this));
-    this.selectedBarbers = [];
+    MyCut.selectedBarbers = [];
     this.addDeleteModal();
   },
 
@@ -31,14 +31,16 @@ MyCut.Views.ShopAddBarbers = Backbone.CompositeView.extend({
 
   addBarberSubview: function(barber){
     var shopBarber = new MyCut.Views.ShopBarberView({
-       model: barber
+       model: barber,
+       collection: this.collection
+
     });
     this.addSubview('.barber-photos', shopBarber);
   },
 
   addDeleteModal: function(){
     this.deleteModal = new MyCut.Views.BarberDelete({
-      collection: this.selectedBarbers,
+      collection: MyCut.selectedBarbers,
       view: this
     });
     $('body').append(this.deleteModal.render().$el);
@@ -53,25 +55,11 @@ MyCut.Views.ShopAddBarbers = Backbone.CompositeView.extend({
   },
 
   removeSelectedBarbers: function(){
-    this.selectedBarbers.forEach(function(barber){
+    debugger
+    MyCut.selectedBarbers.forEach(function(barber){
       this.removeBarberSubview(barber);
       barber.destroy();
     }.bind(this));
-  },
-
-  selectBarber: function(event) {
-    var el = $(event.currentTarget)
-    var barber = this.collection.get(el.data('id'));
-    var index = this.selectedBarbers.indexOf(barber);
-
-    var barbers = this.selectedBarbers;
-    if (index == -1 && !el.hasClass('selected')) {
-       el.addClass('selected');
-      this.selectedBarbers.push(this.collection.get(barber));
-    } else {
-      el.removeClass('selected');
-      this.selectedBarbers = barbers.slice(index, index);
-    }
   },
 
 
