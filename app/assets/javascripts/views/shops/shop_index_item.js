@@ -1,10 +1,19 @@
 MyCut.Views.ShopItem = Backbone.CompositeView.extend({
   template: JST['shops/shop_index_item'],
   className: "shop-item col-md-12",
+  attributes: function() {
+    return {
+    "data-listing-id": this.model.get('id')
+    }
+  },
 
-  initialize: function() {
+  initialize: function(options) {
+    this.map = options.map;
     this.listenTo(this.model, "sync", this.render);
   },
+
+
+
 
   render: function() {
     var renderedContent = this.template({

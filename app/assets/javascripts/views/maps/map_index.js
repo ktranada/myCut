@@ -6,8 +6,8 @@ MyCut.Views.IndexMap = Backbone.View.extend({
   initialize: function(options){
     this._markers = {};
     this.updatedLoc = options.updatedLoc;
-    this.geocoder = new google.maps.Geocoder();
-
+    // this.listenTo(this.collection, 'add', this.addMarker);
+    // this.listenTo(this.collection, 'remove', this.removeMarker);
   },
 
   initMap: function(addMarkers){
@@ -25,26 +25,8 @@ MyCut.Views.IndexMap = Backbone.View.extend({
   // Event handlers
    addMarker: function (listing) {
      if (this._markers[listing.id]) { return };
-     var view = this;
      debugger
-    //  var listingAttributes = listing.attributes;
-    //  if (!listing.get('latitude')){
-    //    var fullAddress = listingAttributes.address +
-    //                      ', ' + listingAttributes.city +
-    //                      ', ' + listingAttributes.state +
-    //                      ', ' + listingAttributes.zip;
-    //    this._coordinates = listing.get('coordinates') ||
-    //                        { latitude: listingAttributes.latitude,
-    //                          longitude: listingAttributes.longitude} ||
-    //     this.geocoder.geocode({address: fullAddress}, function(result, status){
-    //       if (status == google.maps.GeocoderStatus.OK) {
-    //         return result[0].geometry.location;
-    //       } else {
-    //         alert("That location does not exist!");
-    //       }
-    //     })
-    //  }
-
+     var view = this;
      var marker = new google.maps.Marker({
        position: { lat: listing.get('latitude'), lng: listing.get('longitude') },
        map: this._map,
@@ -57,12 +39,6 @@ MyCut.Views.IndexMap = Backbone.View.extend({
 
      this._markers[listing.id] = marker;
    },
-
-   attachMapListeners: function(){
-     this.listenTo(this.collection, "add", this.addMarker);
-     this.listenTo(this.colleciton, "remove", this.removeMarker)
-   },
-
 
    removeMarker: function (listing) {
      var marker = this._markers[listing.id];
@@ -85,7 +61,16 @@ MyCut.Views.IndexMap = Backbone.View.extend({
 
    changeCenter: function(loc){
      this._map.setCenter(loc);
-   }
+   },
 
+   startBounce: function (id) {
+      var marker = this._markers[id];
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+    },
+
+    stopBounce: function (id) {
+      var marker = this._markers[id];
+      marker.setAnimation(null);
+    }
 
 });

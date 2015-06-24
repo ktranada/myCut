@@ -42,17 +42,17 @@ module Api
     end
 
     def search
-      @shops = shop_search(search_data)
+      @shops = filter_shops(filter_options)
       render :index
     end
 
     private
 
-    def search_data
-       params[:search_query]
+    def filter_options
+      params[:filter_options]
     end
 
-    def shop_search(queries)
+    def filter_shops(queries)
       queries[:loc] = "san francisco" unless queries[:loc].present?
       if (!queries[:des].empty?)
         description = queries[:des].split(",")[0]

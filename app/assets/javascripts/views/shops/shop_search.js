@@ -7,13 +7,16 @@ MyCut.Views.ShopSearchView = Backbone.CompositeView.extend({
     this.indexMap = new MyCut.Views.IndexMap({
       collection: this.collection
     });
+    debugger
     this.shopsIndex = new MyCut.Views.ShopIndex({
+      map: this.indexMap,
       collection: this.collection
     });
 
     this.listenTo(this.collection, "sync", this.render);
 
   },
+
 
   render: function() {
     var renderedLandingPage = this.template();

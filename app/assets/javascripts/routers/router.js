@@ -85,7 +85,7 @@
     )
     window.currentLoc = query.loc;
     var searchResults = new MyCut.Collections.SearchResult()
-    searchResults.fetch({ data: { search_query: query } })
+    searchResults.fetch({ data: { filter_options: query } })
     var landingPage = new MyCut.Views.ShopSearchView({
       newLoc: query.loc,
       collection: searchResults
