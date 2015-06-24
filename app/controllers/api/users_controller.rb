@@ -3,7 +3,7 @@ module Api
     before_action :require_signed_in!
 
     def destroy
-      @user = User.find(params[:id])
+      @user = User.find(params[:id]) 
       @user.destroy
       render json: {}
     end

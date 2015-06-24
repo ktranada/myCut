@@ -26,14 +26,13 @@ MyCut.Views.UserAccount = Backbone.CompositeView.extend({
     debugger
     this.model.destroy({
       success: function(model, response){
-        humane.log("Come back~");
         $.ajax({
-          url: '/sessions/new',
-          type: "GET",
-          success: function(result){
-            humane.log("You have successfully deleted your account.");
-          }
-        })
+          url: '/session',
+          type: 'DELETE',
+          success: function() {
+            window.location = "/session";
+          },
+        });
       }
     });
   },
