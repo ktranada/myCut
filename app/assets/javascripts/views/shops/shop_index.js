@@ -1,11 +1,6 @@
 MyCut.Views.ShopIndex = Backbone.CompositeView.extend({
   template: JST['shops/shop_index'],
 
-  events: {
-    'mouseenter .shop-item': 'startBounce',
-    'mouseleave .shop-item': 'stopBounce'
-  },
-
   initialize: function(options) {
     this.map = options.map;
     this.listenTo(this.collection, "sync", this.render);
@@ -24,15 +19,6 @@ MyCut.Views.ShopIndex = Backbone.CompositeView.extend({
   },
 
 
-  startBounce: function (event) {
-    var listingId = $(event.currentTarget).data('listing-id');
-    this.map.startBounce(listingId);
-  },
-
-  stopBounce: function (event) {
-    var listingId = $(event.currentTarget).data('listing-id');
-    this.map.stopBounce(listingId);
-  },
 
   removeShopSubviews: function(shop){
     this.removeModelSubview(".shops-index", shop);

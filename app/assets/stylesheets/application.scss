@@ -688,6 +688,12 @@ ul.barber-container {
   li.barber-photo {
     list-style: none;
     display: inline-block;
+    a {
+      text-decoration: none;
+    }
+    &:hover {
+      border-style: double;
+    }
   }
 }
 div.review-content {
@@ -714,7 +720,7 @@ div.review-body {
 
 
 .review-photos-container {
-  margin-left: 100px;
+  margin-left: 22%;
   .photo-container {
     list-style: none;
     display: inline-block;

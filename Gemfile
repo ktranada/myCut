@@ -36,3 +36,5 @@ group :production do
   gem 'rails_12factor'
   # enables serving assets in production and setting your logger to standard out
 end
+
+ruby "2.1.0"

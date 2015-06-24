@@ -1,18 +1,26 @@
 MyCut.Views.ShopItem = Backbone.CompositeView.extend({
   template: JST['shops/shop_index_item'],
   className: "shop-item col-md-12",
-  attributes: function() {
-    return {
-    "data-listing-id": this.model.get('id')
-    }
+
+  events: {
+    'mouseenter': 'startBounce',
+    'mouseleave': 'stopBounce'
   },
 
   initialize: function(options) {
     this.map = options.map;
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync change", this.render);
   },
 
 
+    startBounce: function () {
+      debugger
+      this.map.startBounce(this.model.get('id'));
+    },
+
+    stopBounce: function () {
+      this.map.stopBounce(this.model.get('id'));
+    },
 
 
   render: function() {

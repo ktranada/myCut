@@ -64,6 +64,7 @@ MyCut.Views.IndexMap = Backbone.View.extend({
    },
 
    startBounce: function (id) {
+     debugger
       var marker = this._markers[id];
       marker.setAnimation(google.maps.Animation.BOUNCE);
     },

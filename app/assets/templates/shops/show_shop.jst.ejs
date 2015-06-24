@@ -34,9 +34,9 @@
           <ul class="barber-container">
             <% barbers.each(function(barber) { %>
               <li class="barber-photo">
-                <span class="barber-name"><%= barber.escape('name') %></span>
-                <br>
                 <a href="/#/shops/<%= shop.escape('id') %>/barbers/<%= barber.escape('id') %>">
+                  <span class="barber-name"><%= barber.escape('name') %></span>
+                  <br>
                   <img class="barber-profile" src="<%= barber.escape('photo_url') %>">
                 </a>
               </li>
