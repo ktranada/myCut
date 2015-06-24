@@ -25,7 +25,10 @@ MyCut.Views.NavBar = Backbone.CompositeView.extend({
   },
 
   render: function() {
-    var renderedNav = this.template();
+    var logo ="<%= asset_path('logo.png') %>";
+    var renderedNav = this.template({
+      logo: logo
+    });
     this.$el.html(renderedNav);
     return this;
   }
