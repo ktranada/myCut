@@ -4,11 +4,13 @@
 #
 #  id              :integer          not null, primary key
 #  picture_comment :string
-#  imageable_id    :integer          not null
-#  imageable_type  :string           not null
+#  imageable_id    :integer
+#  imageable_type  :string
+#  photo_url       :string           not null
+#  thumb_url       :string
+#  medium_url      :string
 #  created_at      :datetime
 #  updated_at      :datetime
-#  photo_url       :string           not null
 #
 
 class Picture < ActiveRecord::Base

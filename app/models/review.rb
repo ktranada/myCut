@@ -2,14 +2,15 @@
 #
 # Table name: reviews
 #
-#  id         :integer          not null, primary key
-#  body       :text             not null
-#  author_id  :integer          not null
-#  shop_id    :integer          not null
-#  rating     :float            default(0.0), not null
-#  created_at :datetime
-#  updated_at :datetime
-#  barber_id  :float            not null
+#  id            :integer          not null, primary key
+#  body          :text             not null
+#  author_id     :integer          not null
+#  shop_id       :integer          not null
+#  rating        :float            default(0.0), not null
+#  created_at    :datetime
+#  updated_at    :datetime
+#  barber_rating :float            default(0.0)
+#  barber_id     :integer          not null
 #
 
 class Review < ActiveRecord::Base

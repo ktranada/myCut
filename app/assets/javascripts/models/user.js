@@ -8,10 +8,22 @@ MyCut.Models.User = Backbone.Model.extend({
     return this._reviews;
   },
 
+  shops: function(){
+    this._shops = this._shops ||
+      new MyCut.Collections.Shops([], { moderator: this })
+    return this._shops;
+  },
+
   parse: function(response){
+    debugger
     if (response.reviews){
       this.reviews().set(response.reviews, {parse: true});
       delete response.reviews;
+    }
+
+    if (response.shops){
+      this.shops().set(response.shops, {parse: true});
+      delete response.shops;
     }
     return response
   }

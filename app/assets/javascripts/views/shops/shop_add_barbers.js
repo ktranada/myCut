@@ -55,7 +55,6 @@ MyCut.Views.ShopAddBarbers = Backbone.CompositeView.extend({
   },
 
   removeSelectedBarbers: function(){
-    debugger
     MyCut.selectedBarbers.forEach(function(barber){
       this.removeBarberSubview(barber);
       barber.destroy();

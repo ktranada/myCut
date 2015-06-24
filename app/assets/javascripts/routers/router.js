@@ -1,6 +1,7 @@
   MyCut.Routers.Router = Backbone.Router.extend({
   routes: {
     "":                                  "landingPage",
+    "account":                           "accountShow",
     "shops/new":                         "shopForm",
     "shops/search?*parameters":          "shopSearch",
     "shops/:id":                         "shopShow",
@@ -14,6 +15,18 @@
 
   initialize: function(options) {
     this.$main = options.$main;
+  },
+
+  accountShow: function(){
+    debugger
+    var user = new MyCut.Models.User({id: window.id});
+    user.fetch();
+    var accountView = new MyCut.Views.UserAccount({
+      model: user,
+      collection: user.shops()
+    })
+    this._swapView(accountView);
+
   },
 
   barberShow: function(id, bid){

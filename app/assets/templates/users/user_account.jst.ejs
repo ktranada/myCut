@@ -1,0 +1,19 @@
+<div class="row header col-md-8 col-md-offset-2">
+  <div class="user-account-information col-md-4 col-md-offset-1">
+    <span class="user-username"><%= user.escape('username') %></span><br><br>
+    <span class="user-email"><%= user.escape('email') %></span><br><br>
+
+    <div class="user-avatar-container">
+      <img src="<%= user.escape('photo_url') %>">
+    </div>
+    <br><br>
+    <div class="row account-buttons">
+      <span class="delete-account">DELETE</span>
+      &nbsp;&nbsp;&nbsp;
+      <span classs="edit-account">EDIT</span>
+    </div>
+  </div>
+  <div class="managed-shops col-md-6 col-md-offset-1"><i class="fa fa-times delete-shop"></i>
+    <hr>
+  </div>
+</div>

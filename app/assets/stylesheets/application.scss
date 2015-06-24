@@ -90,6 +90,50 @@ nav.navbar {
 .nav-search {
   margin-left: 10%;
 }
+
+//////////////////////////////////////////////////////////////////
+/* User Account */
+//
+.row.header {
+  background: rgba(100, 19, 19, 0.95);
+  margin-top: 100px;
+  .user-account-information {
+    font-family: "fira-sans-2";
+    display: inline-block;
+    text-align: center;
+    margin-top: 10%;
+    color: aliceblue;
+    .user-username {
+      font-size: 30px;
+      font-weight: 700;
+      font-style: italic;
+      text-transform: uppercase;
+      text-decoration: underline;
+    }
+    .user-email {
+      font-size: 20px;
+      font-weight: 400;
+    }
+    .user-avatar-container {
+      img {
+        height: 200px;
+      }
+    }
+    .account-buttons {
+      text-align: center;
+    }
+  }
+  .managed-shops {
+    display: inline-block;
+    height: 600px;
+    overflow: scroll;
+  }
+}
+
+
+
+
+
 //////////////////////////////////////////////////////////////////
 /* Error Container */
 div.errors-container {

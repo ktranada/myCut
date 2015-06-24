@@ -1,11 +1,9 @@
   class UsersController < ApplicationController
-    before_action :require_current_user!, only: [:destroy]
-
     def new; end
 
     def create
       @user = User.new(user_params)
-      @user.photo_url = "http://res.cloudinary.com/mycut/image/upload/c_fill,h_120,r_max,w_120/v1434910961/default_avatar.jpg"
+      @user.photo_url = "https://dl.dropboxusercontent.com/s/zp27re1j4301pii/user_5.jpg?dl=0"
       if (@user.save)
         sign_in!(@user)
         redirect_to root_url
@@ -15,13 +13,7 @@
       end
     end
 
-    def destroy
-    end
 
-    def show
-      @user = User.find(params[:id])
-      render :show
-    end
 
     private
 

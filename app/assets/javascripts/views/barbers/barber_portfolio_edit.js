@@ -10,12 +10,10 @@ MyCut.Views.BarberPortfolioModal = Backbone.CompositeView.extend({
      this.listenTo(this.model, "sync", this.render);
      this.listenTo(this.collection, "add", this.addBarberPortPictureSubview);
      this.listenTo(this.collection, "remove", this.removeBarberPortPictureSubview);
-     debugger
      this.collection.each(this.addBarberPortPictureSubview.bind(this));
    },
 
   addBarberPortPictureSubview: function(photo){
-    debugger
     var pictureSubview = new MyCut.Views.PortfolioPicture({ model: photo });
     this.addSubview('.barber-portfolio-collection', pictureSubview);
   },
@@ -54,7 +52,6 @@ MyCut.Views.BarberPortfolioModal = Backbone.CompositeView.extend({
   parsePhotos: function(photos){
     var that = this;
     photos.forEach(function(photo){
-      debugger
       var picture = new MyCut.Models.Picture();
       picture.set({
         photo_url: photo.eager[0].url,
