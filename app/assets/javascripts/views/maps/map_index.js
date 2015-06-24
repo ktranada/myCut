@@ -6,6 +6,8 @@ MyCut.Views.IndexMap = Backbone.View.extend({
   initialize: function(options){
     this._markers = {};
     this.updatedLoc = options.updatedLoc;
+    this.markerImage = "http://res.cloudinary.com/mycut/image/upload/c_scale,w_20/v1435185992/raty/scissor.png";
+
     // this.listenTo(this.collection, 'add', this.addMarker);
     // this.listenTo(this.collection, 'remove', this.removeMarker);
   },
@@ -30,11 +32,11 @@ MyCut.Views.IndexMap = Backbone.View.extend({
      var marker = new google.maps.Marker({
        position: { lat: listing.get('latitude'), lng: listing.get('longitude') },
        map: this._map,
-       title: listing.get('name')
+       icon: this.markerImage
      });
 
      google.maps.event.addListener(marker, 'click', function (event) {
-       view.showMarkerInfo(event, marker);
+       view.showMarkerInfo(event, marker, listing);
      });
 
      this._markers[listing.id] = marker;
@@ -46,14 +48,14 @@ MyCut.Views.IndexMap = Backbone.View.extend({
      delete this._markers[listing.id];
    },
 
-   showMarkerInfo: function (event, marker) {
+   showMarkerInfo: function (event, marker, shop) {
      // This event will be triggered when a marker is clicked. Right now it
      // simply opens an info window with the title of the marker. However, you
      // could get fancier if you wanted (maybe use a template for the content of
      // the window?)
-
+     var shopInfo = JST['maps/info_window']({ shop: shop });
      var infoWindow = new google.maps.InfoWindow({
-       content: marker.title
+       content: shopInfo
      });
 
      infoWindow.open(this._map, marker);
