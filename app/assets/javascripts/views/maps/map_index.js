@@ -26,23 +26,27 @@ MyCut.Views.IndexMap = Backbone.View.extend({
    addMarker: function (listing) {
      if (this._markers[listing.id]) { return };
      var view = this;
-     var listingAttributes = listing.attributes;
-     var fullAddress = listingAttributes.address +
-                       ', ' + listingAttributes.city +
-                       ', ' + listingAttributes.state +
-                       ', ' + listingAttributes.zip;
-     this._coordinates = listing.get('coordinates') ||
-                         { latitude: listingAttributes.latitude,
-                           longitude: listingAttributes.longitude} ||
-      this.geocoder.geocode({address: fullAddress}, function(result, status){
-        if (status == google.maps.GeocoderStatus.OK) {
-          return result[0].geometry.location;
-        } else {
-          alert("That location does not exist!");
-        }
-      })
+     debugger
+    //  var listingAttributes = listing.attributes;
+    //  if (!listing.get('latitude')){
+    //    var fullAddress = listingAttributes.address +
+    //                      ', ' + listingAttributes.city +
+    //                      ', ' + listingAttributes.state +
+    //                      ', ' + listingAttributes.zip;
+    //    this._coordinates = listing.get('coordinates') ||
+    //                        { latitude: listingAttributes.latitude,
+    //                          longitude: listingAttributes.longitude} ||
+    //     this.geocoder.geocode({address: fullAddress}, function(result, status){
+    //       if (status == google.maps.GeocoderStatus.OK) {
+    //         return result[0].geometry.location;
+    //       } else {
+    //         alert("That location does not exist!");
+    //       }
+    //     })
+    //  }
+
      var marker = new google.maps.Marker({
-       position: { lat: this._coordinates.latitude, lng: this._coordinates.longitude },
+       position: { lat: listing.get('latitude'), lng: listing.get('longitude') },
        map: this._map,
        title: listing.get('name')
      });

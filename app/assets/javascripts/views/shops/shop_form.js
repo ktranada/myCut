@@ -11,20 +11,6 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
     this.listenTo(this.model, "sync add", this.render)
 
   },
-
-  upload: function () {
-    filepicker.pick(function(blob) {
-      var newImage = new MyCut.Models.Picture({
-        photo_url: blob.url
-      });
-      newImage.save({}, {
-        success: function () {
-          alert('Image uploaded!');
-        }
-      })
-    });
-  },
-
   initBSTAgs: function(){
     $('#shop-tags').tagsinput('add', this.model);
   },
@@ -86,7 +72,6 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
     var fullAddress = this._formData.address +
                       ', ' + this._formData.city +
                       ', ' + this._formData.state;
-
     var geocoder = new google.maps.Geocoder();
     var that = this;
     geocoder.geocode({'address': fullAddress }, function(result, status){
