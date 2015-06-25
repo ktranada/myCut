@@ -15,7 +15,6 @@ MyCut.Models.User = Backbone.Model.extend({
   },
 
   parse: function(response){
-    debugger
     if (response.reviews){
       this.reviews().set(response.reviews, {parse: true});
       delete response.reviews;

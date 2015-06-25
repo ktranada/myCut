@@ -3,27 +3,27 @@ MyCut.Views.UserAccount = Backbone.CompositeView.extend({
   classname: "container-fluid user-account",
 
   events: {
-    "click .edit-account": "openAccountModal",
-    "click .delete-account": "deleteConfirmal"
+    "click .edit-account": "openEditModal",
+    "click .delete-account": "openDeleteModal"
   },
 
   initialize: function(){
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync change", this.render);
     this.collection.each(this.addShopSubview);
     this.listenTo(this.collection, "add", this.addShopSubview);
     this.listenTo(this.collection, "remove", this.removeModelSubview);
     this.addDeleteModal();
+    debugger
+    this.addEditModal();
   },
 
   addShopSubview: function(shop){
-    debugger
     var shopSubview = new MyCut.Views.ShopItem({ model: shop });
     this.addSubview('.managed-shops', shopSubview);
   },
 
   deleteAccount: function(){
     this.deleteModal.remove();
-    debugger
     this.model.destroy({
       success: function(model, response){
         $.ajax({
@@ -39,22 +39,30 @@ MyCut.Views.UserAccount = Backbone.CompositeView.extend({
 
   addDeleteModal: function(){
     this.deleteModal = new MyCut.Views.UserDelete({ view: this });
-    debugger
     $('body').append(this.deleteModal.render().$el);
   },
 
-  deleteConfirmal: function(){
-    debugger
+  openDeleteModal: function(){
     this.deleteModal.$el.show();
+  },
+
+
+  addEditModal: function(){
+    this.accountModal = new MyCut.Views.UserAccountEditModal({
+      model: this.model,
+      view: this
+    })
+    $('body').append(this.accountModal.render().$el);
+  },
+
+  openEditModal: function(){
+    this.accountModal.$el.show();
   },
 
   removeShopSubview: function(shop){
     this.removeModelSubview('.managed-shops', shop);
   },
 
-  openAccountModal: function(){
-    this.accountModal = new MyCut.Views
-  },
 
   render: function(){
     var renderedContent = this.template({

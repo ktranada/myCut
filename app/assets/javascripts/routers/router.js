@@ -18,7 +18,6 @@
   },
 
   accountShow: function(){
-    debugger
     var user = new MyCut.Models.User({id: window.id});
     user.fetch();
     var accountView = new MyCut.Views.UserAccount({
@@ -35,14 +34,14 @@
       model: barber,
       collection: barber.portfolio_pictures()
     });
-    this._swapView(barberView);
+    this.preSwap(barberView);
   },
 
   landingPage: function() {
     var landingPage = new MyCut.Views.LandingPage({
       collection: MyCut.shops
     })
-    this._swapView(landingPage);
+    this.preSwap(landingPage);
   },
 
   shopBarbersNew: function(id){
@@ -61,7 +60,7 @@
        collection: shopModel.reviews(),
        barbers: shopModel.barbers()
     });
-    this._swapView(newReviewForm);
+    this.preSwap(newReviewForm);
   },
 
   shopForm: function(id) {
@@ -74,7 +73,7 @@
       model: shop,
       collection: MyCut.shops
     })
-    this._swapView(newShopForm);
+    this.preSwap(newShopForm);
   },
 
   shopSearch:function(params){
@@ -90,15 +89,19 @@
       newLoc: query.loc,
       collection: searchResults
     })
-    this._swapView(landingPage);
+    this.preSwap(landingPage);
   },
 
   shopShow: function(id) {
     var shopModel = MyCut.shops.getOrFetch(id);
     var shopView = new MyCut.Views.ShowShop({ model: shopModel});
-    this._swapView(shopView);
+    this.preSwap(shopView);
   },
 
+  preSwap: function(newView) {
+    $('.modal-form') && $('.modal-form').remove();
+    this._swapView(newView)
+  },
 
   _swapView: function(newView) {
     this._currentView && this._currentView.remove();

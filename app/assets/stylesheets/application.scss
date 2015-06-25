@@ -225,6 +225,13 @@ nav.navbar {
 .row.header {
   background: rgba(100, 19, 19, 0.95);
   margin-top: 100px;
+  .back {
+    font-size: 30px;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
   .user-account-information {
     font-family: "fira-sans-2";
     display: inline-block;
@@ -232,7 +239,7 @@ nav.navbar {
     margin-top: 10%;
     color: aliceblue;
     .user-username {
-      font-size: 30px;
+      font-size: 40px;
       font-weight: 700;
       font-style: italic;
       text-transform: uppercase;
@@ -249,12 +256,23 @@ nav.navbar {
     }
     .account-buttons {
       text-align: center;
+      font-size: 30px;
+      span {
+        margin-right: 20px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
     }
   }
   .managed-shops {
     display: inline-block;
     height: 600px;
     overflow: scroll;
+    .no-response-filler {
+      margin-top: 50%;
+      font-size: 30px;
+    }
   }
 }
 
@@ -318,6 +336,9 @@ div.errors-container {
   }
 }
 
+label.si-input {
+  width: 70%;
+}
 
 
 //////////////////////////////////////////////////////////////////
@@ -472,6 +493,11 @@ i.fa-picture-o {
   }
 }
 
+.preview-container-user {
+  img {
+    height: 120px;
+  }
+}
 .preview-container {
   text-align: center;
   .fa-picture-o {
@@ -696,6 +722,11 @@ i.fa-picture-o {
 
   .barber-create-form{
     margin-top: -300px;
+    span {
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 
 

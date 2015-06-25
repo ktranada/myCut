@@ -17,7 +17,6 @@ MyCut.Views.UserDelete = Backbone.CompositeView.extend({
   },
 
   confirmDelete: function(){
-    debugger
     this.userView.deleteAccount();
   },
 

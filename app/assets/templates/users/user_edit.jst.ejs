@@ -1,0 +1,51 @@
+<div class="form-container barber-create-form">
+  <form>
+    <br>
+    <div class="errors-container" style="font-size: 20px; font-weight: bold;">
+      <br>
+    </div>
+      <div class="form-group">
+        <label class="si-input">USERNAME
+          <input type="text"
+                 class="form-control"
+                 name="user[username]"
+                 value="<%= user.escape('username') %>">
+        </label>
+      </div>
+      <div class="form-group">
+        <label class="si-input" for="email-password">OLD PASSWORD
+        <input type="password"
+               class="form-control"
+               name="user[password]"
+               id="email-password">
+         </label>
+      </div>
+      <div class="form-group">
+        <label class="si-input" for="email-password">NEW PASSWORD
+          <br>
+        <input type="password"
+               class="form-control"
+               name="new_password">
+         </label>
+      </div>
+      <div class="form-group">
+        <label class="si-input" for="email-password">CONFIRM PASSWORD
+        <input type="password"
+               class="form-control"
+               name="confirm_password">
+         </label>
+      </div>
+
+      <div class="form-group">
+        <label>PROFILE PICTURE</label><br>
+        <span class="upload-button" name="user[photo_url]"><i class="fa fa-picture-o"></i></</span>
+      </div>
+      <div class="preview-container-user">
+        <img src="<%= user.escape('photo_url') %>">
+      </div><br>
+      <input  type="submit" class="submit-edit" value="UPDATE ACCOUNT"id=""></input>
+      <br>
+      <br>
+      <span class="cancel-edit">CANCEL</span>
+  </form>
+</div>
