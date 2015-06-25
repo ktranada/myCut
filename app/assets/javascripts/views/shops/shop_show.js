@@ -20,10 +20,15 @@ MyCut.Views.ShowShop = Backbone.CompositeView.extend({
   },
   render: function(){
     var barbers = this.model.barbers();
+    var cityStateZip = this.model.get('city') + ", " +
+                       this.model.get("state") + " " +
+                       this.model.get("zip");
+
     var renderedContent = this.template({
       mod_id: window.id,
       shop: this.model,
-      barbers: barbers
+      barbers: barbers,
+      cityStateZip: cityStateZip
     });
     this.$el.html(renderedContent)
     this.attachSubviews();
