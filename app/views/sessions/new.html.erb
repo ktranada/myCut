@@ -1,46 +1,38 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-offset-4 col-xs-offset-3 col-xs-6 col-md-4">
-            <div class="panel panel-default new-signup-form">
-                <div class="panel-heading"> <strong class="">Login</strong>
-                </div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" action="/session" method="post" >
-                      <%= render 'shared/errors' %>
-                      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-3 control-label"><h4><em>EMAIL</em></h4></label>
-                            <div class="col-sm-9">
-                                <input type="email" class="form-control" name="user[email]" id="inputEmail3" placeholder="Email" tabindex="1" required="">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-3 control-label"><h4><em>PASSWORD</em></h4></label>
-                            <div class="col-sm-9">
-                                <input type="password" class="form-control" name="user[password]" id="inputPassword3" placeholder="Password" tabindex="2" required="">
-                            </div>
-                        </div>
-                        <div class="form-group last">
-                            <div class="col-sm-offset-3 col-sm-9">
-                                <button class="btn guest-login grey">Guest Login</button><br> <br>
-                                <button type="submit" class="btn btn-success btn-sm enter-button">Sign in</button>
-                                <button type="reset" class="btn btn-default btn-sm">Reset</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="panel-footer">Not Registered? <%= link_to "Register here", new_user_url%></a>
-                </div>
+<div class="container-fluid session-page">
+  <div class="row">
+    <div class="session-container col-md-3 col-md-offset-4">
+      <form action="/session" method="post" >
+        <%= render 'shared/errors' %>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <div class="form-container">
+            <div class="form-group">
+                <label for="inputEmail3"><h4><em>EMAIL</em></h4></label>
+                <input type="email" class="form-control" name="user[email]" id="inputEmail3" tabindex="1">
             </div>
-        </div>
+            <div class="form-group session-password-container">
+              <label for="inputPassword3"><h4><em>PASSWORD</em></h4></label>
+              <input type="password" class="form-control" name="user[password]" id="inputPassword3" tabindex="2" required="">
+            </div>
+            <br>
+            <div class="session-buttons last">
+              <span class="guest-login">Guest Login</span><br> <br>
+              <button type="submit" class="btn btn-sm btn-default enter-button">Sign in</button>
+              <button type="reset" class="btn btn-default btn-sm">Reset</button>
+            </div>
+          </div>
+      </form>
+      <br>
+      <div class="session-register">Not Registered? <%= link_to "Sign up here", new_user_url%></div>
     </div>
+  </div>
+
 </div>
 
-<% emails = %w(guest@gmail.com guest@gmail.com lana@gmail.com) %>
+<% emails = %w(guest@gmail.com kevin@gmail.com danny@gmail.com vicky@gmail.com lana@gmail.com) %>
 
 
 <script>
-   $('.btn.guest-login.grey').click(function(){
+   $('.guest-login').click(function(){
      $("input[name='user[email]']").val('');
      $("input[name='user[password]']").val('');
      autoTyper('<%= emails.sample %>', $("input[name='user[email]']"), function(){

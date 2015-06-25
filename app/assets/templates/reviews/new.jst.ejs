@@ -10,8 +10,14 @@
         <input type="hidden" name="review[author_id]" value="<%= window.id %>">
         <br>
         <div class="form-group review-barber-rating">
-          <label for="review-rating">RATING</label>
-          <input type="text" class="form-control new-shop-input" name="review[rating]" id="review-rating" >
+          <label for="review-rating">RATING</label><br>
+          <% var a = [1,2,3,4,5] %>
+          <% a.forEach(function(num) { %>
+            <label class="radio-inline">
+              <input class="rating-value" type="radio" name="review[rating]" value="<% num %>"><%= num %>
+            </label>
+          <%  }) %>
+          <br>
         </div>
         <div class="form-group review-barber">
           <label for="shop-barber">BARBER | STYLIST</label>

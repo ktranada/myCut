@@ -1,0 +1,48 @@
+<div class="main-fp-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+          <div class="s2-container ">
+            <br>
+            <span>RATINGS BASED ON <span class="emphasis">PERFORMANCE</span></span><br>
+            <span>PERFORMANCE SUPPORTED BY <span class="emphasis">PROOF</span></span><br>
+            <span>REVIEWS FILLED WITH <span class="emphasis">SUBSTANCE</span></span><br>
+            <br>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="hipster-grabbers">
+        <div class="input">
+          <input class="hipster-input" disabled type="text">
+        </div>
+      </div>
+    </div>
+    <br><br><br><br><br>
+    <div class="row">
+      <div class="entry-container">
+        <a href="/session/new"><span class="entry-point">ENTER</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+   (function(){
+     var autoTyper = function(word, $el){
+       var terms = ["bald fade ", "pixie cut ", "bob cut ", "layers ", "undercut ", "taper ", "coloring ", "keratin treatment ", "weaves ", "pompadour ",
+                    "curls ", "corn rolls "]
+       var typer = setInterval(function(){
+        $el.val($el.val() + word.slice(0,1));
+        word = word.substr(1);
+        if(word.length === 0){
+          clearInterval(typer);
+          var term = terms[Math.floor(Math.random() * terms.length)];
+          $("input[class='hipster-input']").val('');
+          autoTyper(term, $("input[class='hipster-input']"))
+        }
+      }, 350);
+    }
+     autoTyper('pompadour', $("input[class='hipster-input']"));
+  })();
+</script>

@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require jquery.fullPage.scss
  *= require_tree .
  *= require_self
  */
@@ -27,7 +28,120 @@
        font-weight: normal;
        font-style: normal;
 }
+//////////////////////////////////////////////////////////////////
+/* Welcome Page */
 
+#section1{
+  background-color: black;
+}
+#section2 {
+  background: rgba(100, 19, 19, 0.952941);
+}
+
+.main-fp-wrapper {
+  .default-top-s1 {
+    text-align: center;
+    .logo-container {
+      img {
+        background-size: 100%;
+        height: 60%;
+        min-height: 450px;
+        color: white;
+      }
+    }
+    span {
+      font-size: 40px;
+      letter-spacing: .3em;
+      margin-left: 1%;
+      color: aliceblue;
+      text-decoration: overline;
+      font-style: italic;
+      .arrow{
+      }
+    }
+    .arrow {
+      font-size: 40px;
+      color: rgb(157, 7, 35);
+    }
+  }
+}
+.s2-container {
+  background: rgba(100, 19, 19, 0);
+  font-family: 'fira-sans-2';
+  border-radius: 0;
+  text-align: right;
+  margin-top: -15%;
+  font-size: 20px;
+  margin-right: 42%;
+  span {
+    color: aliceblue;
+    .emphasis {
+      color: black;
+      font-weight: bold;
+      letter-spacing: .3em;
+    }
+  }
+}
+.hipster-grabbers {
+  width: 700px;
+  margin: auto;
+  input[type="text"] {
+    -webkit-appearance: none;
+    display: inline-block;
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    width: auto;
+    font: inherit;
+    vertical-align: baseline;
+    background: transparent;
+    color: inherit;
+  }
+  .input > input {
+    width: 600px;
+    font-size: 80px;
+    color: black;
+    border-bottom: 10px solid black;
+    margin-left: -2%;
+    font-family: 'fira-sans-2';
+    text-align: -webkit-center;
+  }
+  .input > input:focus {
+    color: blue;
+    border-color: black;
+  }
+  .input > label {
+    display: block;
+    padding: 10px 0;
+    font-weight: bold;
+  }
+}
+
+.entry-container {
+  margin-left: 41%;
+  a {
+    text-decoration: none;
+    .entry-point {
+      font-size: 40px;
+      color: aliceblue;
+      letter-spacing: .5em;
+        &:hover {
+          cursor: crosshair;
+          text-decoration: none;
+        }
+      }
+    }
+}
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////
 // Clearfix
 
 .group:after {
@@ -158,13 +272,55 @@ div.errors-container {
 
 //////////////////////////////////////////////////////////////////
 /*  new session */
+.session-page {
+  background-image: url(https://dl.dropbox.com/s/02r6ccf0836l7v8/nice_shop.jpg);
+  height: 100%;
+  .session-container {
+      background-color: rgba(0, 139, 139, 0.5);
+    text-align: center;
+    margin-left: 35%;
+    color: aliceblue;
+    margin-top: 13%;
+    .errors-container{
+        text-align: center;
+        font-family: "oswald";
+        font-weight: bold;
+      color: black;
+    }
+    .form-control {
+      text-align: center;
+    }
+    .session-buttons {
+      text-align: center;
+      .guest-login {
+        padding: 5px;
+        border-style: solid;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+    .session-register{
+      text-align: center;
+      a {
+        color: crimson;
+        text-decoration: none;
+      }
+    }
+  }
 
-.veritcal-middle {
-  vertical-align: middle;
 }
-.col-md-6.vertical-middle.col-md-offset-2 {
-  vertical-align: middle;
+
+.signup {
+  background-image: url(https://res.cloudinary.com/mycut/image/upload/v1435206124/misc/silver3.jpg);
+  .si-input {
+    width: 60%;
+  }
 }
+
+
+
+//////////////////////////////////////////////////////////////////
 
 /* Feed show - Landing page */
 shop-items-index {
