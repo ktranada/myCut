@@ -16,7 +16,7 @@ module Api
     def update
       @user = User.find(params[:id])
       if (!@user.is_password?(user_params[:password]))
-        render json: errors[:base] << "You must input your original password"
+        render json: @user.errors[:base] << "You must enter your password before making any changes.", status: :unprocessable_entity
       else
         new_params = user_params
         new_params["password"] = user_params["new_password"]

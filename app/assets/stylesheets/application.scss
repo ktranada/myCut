@@ -15,6 +15,7 @@
  *= require_self
  */
 
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome-sprockets";
@@ -188,25 +189,37 @@ html, body, .first-level, .level-two, .landing-level-three, .map-container, .map
 
 .map-container {
   width: 40%;
-  height: 72vh;
+  height: 66vh;;
   .map {
     #map-canvas{
     }
   }
 }
 html, body {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'ProximaNova-Thin';
 }
 
+a {
+  text-decoration: none;
+  color: black;
+  &:hover {
+    color: black;
+  }
+}
 //////////////////////////////////////////////////////////////////
 /* Map info window */
 
 .minfo {
+  font-family: "ProximaNova-Thin";
   .minfo-name{
     text-decoration: underline;
     text-transform: uppercase;
     font-size: 20px;
     color: crimson;
+    a {
+      text-decoration: none;
+      color: black;
+    }
   }
 }
 
@@ -300,6 +313,7 @@ nav.navbar {
     overflow: scroll;
     .no-response-filler {
       margin-top: 50%;
+      color: white;
       font-size: 30px;
     }
   }
@@ -320,19 +334,23 @@ div.errors-container {
 //////////////////////////////////////////////////////////////////
 /*  new session */
 .session-page {
-  background-image: url(https://dl.dropbox.com/s/02r6ccf0836l7v8/nice_shop.jpg);
+  background-image: url(https://res.cloudinary.com/mycut/image/upload/v1435206124/misc/silver3.jpg);
   height: 100%;
   .session-container {
-      background-color: rgba(0, 139, 139, 0.5);
+      background-color: rgba(0, 139, 139, 0.7);
     text-align: center;
     margin-left: 35%;
     color: aliceblue;
     margin-top: 13%;
     .errors-container{
         text-align: center;
-        font-family: "oswald";
+        font-family: "ProximaNova-Thin";
         font-weight: bold;
       color: black;
+      margin-left: -4%;
+    }
+    label {
+      letter-spacing: .2em;
     }
     .form-control {
       text-align: center;
@@ -350,7 +368,7 @@ div.errors-container {
     .session-register{
       text-align: center;
       a {
-        color: crimson;
+        color: black;
         text-decoration: none;
       }
     }
@@ -360,6 +378,12 @@ div.errors-container {
 
 .signup {
   background-image: url(https://res.cloudinary.com/mycut/image/upload/v1435206124/misc/silver3.jpg);
+  a {
+    text-decoration: none;
+    &:hover {
+      font-size: 20px;
+    }
+  }
   .si-input {
     width: 60%;
   }
@@ -380,33 +404,83 @@ shop-items-index {
 .feed-header {
   color: rgb(202, 217, 231);
   width: 100%;
-  background-color: rgba(#008B8B, .5);
+  background-color: rgba(#008B8B, .65);
+  font-family: "ProximaNova-Thin";
+  font-size: larger;
   h1 {
-    color: seashell;
+    color: white;
+    em {
+      font-size: 50px;
+    }
   }
 }
 
 
 div.shops-index {
-  height: 72vh;
+  padding-top: 10px;
+  height: 66vh;
   overflow-y: scroll;
-  background-color: rgba(144, 65, 65, 0.8);
-  h3 {
-    color: snow;
-    font-weight: 100;
-    letter-spacing: 1.5px;
+  background-color: rgba(144, 65, 65, 0.91);
+  .no-response-filler {
+    margin-top: 40%;
+    margin-left: 15%;
+    font-size: 30px;
+    color: white;
   }
-  .shop-item a  {
+  h3 {
+    color: white;
+    font-weight: 100;
+    font-family: "ProximaNova-Thin";
+      font-size: 18px;
+  }
+  .shop-item, a {
     text-decoration: none;
-    background-color: rgba(#008B8B, .5);
-    &:hover {
-      background-color: seashell;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    .review.rating {
+      margin-top: -2%;
+      div {
+        color: black;
+      }
+    }
+    .tag_list {
+      // white-space: nowrap;
+      // overflow: hidden;
+      // text-overflow: ellipsis;
+      font-size: 11px;
+      text-transform: uppercase;
+      color: white;
+      span {
+        color: black;
+        font-family: "ProximaNova-Bold";
+        letter-spacing: .1em;
+      }
+
+    }
+  }
+}
+.review-new {
+  label.radio-inline {
+    color: white;
+  }
+}
+
+.shop-item, a {
+  &:hover {
+    .tag_list {
+      overflow: visible;
+      white-space: pre-wrap;
+      clear: both;
+      margin-bottom: -2%;
     }
   }
 }
 
 div.shop-feature {
   float: right;
+  margin-top: 1%;
   &button:hover {
     background-color: #8C5233;
   }
@@ -468,7 +542,7 @@ div#map-canvas.circular.col-md-offset-4 {
 /* New Shop */
 
 div.col-md-offset-4.col-xs-offset-3.col-xs-6.col-md-4 {
-background-color: rgba(0, 139, 139, 0.5);
+background-color: rgba(0, 139, 139, 0.78);
 text-align: center;
   border-radius: 30px;
   color: white;
@@ -612,6 +686,8 @@ i.fa-picture-o {
       }
     }
     li.barber-list-item{
+      margin-left: 4%;
+      margin-right: 4%;
       background-color: rgb(228, 233, 236);
 
     }
@@ -705,7 +781,7 @@ i.fa-picture-o {
   }
 
   .form-buttons {
-    font-family: 'Oswald';
+    font-family: 'ProximaNova-Regular';
     font-style: italic;
     font-weight: lighter;
   }
@@ -757,6 +833,23 @@ i.fa-picture-o {
       }
     }
   }
+  .user-edit-form {
+    margin-top: -350px;
+    .submit-edit {
+      border-style: none;
+      background-color: aliceblue;
+      border-radius: 10px;
+      padding: 5px;
+      margin-bottom: -17%;
+
+    }
+    span {
+      font-size: 30px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
 
 
 
@@ -793,6 +886,7 @@ col-xs-9.col-md-6.col-md-offset-3 {
 
 div.container-fluid.level-two {
   height: 200px;
+  margin-right: -2%;
 }
 
 .shop-mod-buttons {
@@ -804,11 +898,18 @@ div.container-fluid.level-two {
 }
 
 .feed-header {
+  p {
+    font-family: "ProximaNova-Light";
+    color: white;
+    font-size: 19px;
+  }
   .shop-loc {
     position: absolute;
 margin-left: 25%;
-font-family: "Oswald";
-font-size: 16px;
+font-family: "ProximaNova-Light";
+font-size: 19px;
+color: white;
+
   }
   .shop-feature {
     text-align: center;
@@ -847,9 +948,8 @@ font-size: 16px;
       max-width: 100%;
       list-style: none;
       padding: 20px;
-      background: rgba(100, 19, 19, 0.8);
+      background: rgba(100, 19, 19, 0.87);
       color: white;
-      font-family: "Arial", sans-serif;
       letter-spacing: .8px;
       height: 65vh;
       overflow-y: scroll;
@@ -860,22 +960,22 @@ font-size: 16px;
               text-align: center;
               text-transform: uppercase;
               .review-username {
-                color: #AD154f;
+                color: white;
                 border-bottom: aliceblue;
                 border-bottom-style: inset;
-                letter-spacing: 2px;
+                letter-spacing: 4px;
+                font-size: 14px;
               }
               .barber-review-rating {
                 text-transform: uppercase;
-                font-family: "Oswald", sans-serif;
+                font-family: "ProximaNova-Bold";
                 letter-spacing: 2px;
                 font-style: italic;
                 font-weight: 100;
-                color: cadetblue;
+                color: black;
                 .barber-name {
-                  color:       royalblue;
-                  font-weight: 900;
-                  font-size: 18px;
+                  font-size: 14px;
+                  color: white;
                 }
               }
             }
@@ -897,6 +997,8 @@ font-size: 16px;
     }
   }
 }
+
+
 .side-container {
   text-align: center;
   margin-top: -50px;
@@ -918,7 +1020,7 @@ font-size: 16px;
 }
 
 ul.barber-container {
-  background-color: rgba(240, 248, 255, .8);
+  background-color: rgba(240, 248, 255, .84);
   overflow-y: scroll;
   height: 61.5vh;
   li.barber-photo {
@@ -934,7 +1036,10 @@ ul.barber-container {
 }
 div.review-content {
   display: flex;
-  font-family: "ProximaNova-Regular", "hair";
+  font-family: "ProximaNova-Thin";
+  font-size: 12px;
+  letter-spacing: .02em;
+  line-height: 159%;
 
 }
 

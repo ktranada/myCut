@@ -24,7 +24,6 @@
 //= require humane.min
 //= require jquery.fullPage.min
 //= require cloudinary
-//= require blur.min
 //= require my_cut
 //= require_tree ../templates
 //= require_tree ./models

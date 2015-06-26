@@ -69,7 +69,6 @@
   },
 
   shopSearch:function(params){
-    debugger
     if (params) {
       var query = {}
       params.replace(

@@ -1,6 +1,10 @@
 <a class="listing-name" href="#/shops/<%= shop.escape('id') %>">
   <div class="shop-photo"><img class="resize" src="<%= shop.escape('photo_url') %>"></div>
   <h3><%= shop.escape('name') %></h3>
-  <div class="review rating" data-path="assets/images"></div><div><%= shop.escape('num_reviews') %> REVIEWS</div>
+  <div class="review rating" data-path="assets/images"></div><span style="color:white;"><%= shop.escape("num_reviews") %> Reviews</span><br>
+  <br>
+  <div class="tag_list">
+    <span class=""><%= tag_list %></span>
+  </div>
   <hr>
 </a>

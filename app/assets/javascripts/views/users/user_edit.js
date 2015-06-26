@@ -1,6 +1,6 @@
 MyCut.Views.UserAccountEditModal = Backbone.View.extend({
   template: JST['users/user_edit'],
-  className: "modal-form edit-modal",
+  className: "modal-form user-edit-modal",
 
   events: {
     "click .cancel-edit": "closeEdit",
@@ -19,10 +19,12 @@ MyCut.Views.UserAccountEditModal = Backbone.View.extend({
     event.preventDefault();
     var that = this;
     this.formData = $(event.currentTarget).serializeJSON();
-    
+
     if (this.formData['new_password'] == this.formData['confirm_password']) {
       this.formData["user"]["new_password"] = this.formData['new_password'];
-      this.formData ["user"]["photo_url"] = this.formData["photo_url"];
+      debugger
+      this.formData ["user"]["photo_url"] = this.model.get("photo_url");
+      debugger;
       this.model.save(this.formData, {
         success: function(){
           humane.log("You've successfully updated your account!");
@@ -52,7 +54,7 @@ MyCut.Views.UserAccountEditModal = Backbone.View.extend({
   },
 
   render: function(){
-    
+
     var renderedContent = this.template({ user: this.model })
     this.$el.html(renderedContent);
     this.$el.hide();

@@ -1,5 +1,5 @@
 MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
-  template: JST['reviews/new'],
+  template: JST['reviews/review_new'],
 
   events: {
     "submit form": "createReview",
@@ -12,7 +12,7 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
     this._barbers = options.barbers
     this.listenTo(this.model, "sync", this.render);
     this.review = new MyCut.Models.Review();
-    
+
     this.reviewPictures = this.review.pictures();
     this.listenTo(this.reviewPictures, "add", this.addPreviewSubview);
     this.listenTo(this.reviewPictures, "remove", this.removePreviewSubview);
@@ -21,7 +21,7 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
   createReview: function(event) {
     event.preventDefault();
     var formData = $(event.currentTarget).serializeJSON();
-    
+
     this.review.set(formData['review']);
     var shop = this;
     this.review.save({}, {
@@ -60,7 +60,7 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
 
   upload: function() {
     var that = this;
-    
+
     cloudinary.openUploadWidget(USER_CLOUDINARY, function(error, result){
       if (!error) {
         that.createPhotos(result);
@@ -71,7 +71,7 @@ MyCut.Views.NewReviewForm = Backbone.CompositeView.extend({
   createPhotos: function(result){
     var self = this;
     result.forEach(function(photo){
-      
+
       if (self.reviewPictures.length < 3) {
         var picture = new MyCut.Models.Picture();
         var photo_url = photo.eager[1].url;

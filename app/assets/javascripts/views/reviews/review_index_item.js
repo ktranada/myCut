@@ -1,5 +1,5 @@
 MyCut.Views.ReviewIndexItem = Backbone.CompositeView.extend({
-  template: JST['reviews/show'],
+  template: JST['reviews/review_show'],
   tagName: "li",
   className: "review-item",
   // review-index-item col-md-9 col-md-offset-1

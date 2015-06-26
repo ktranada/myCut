@@ -10,6 +10,8 @@ MyCut.Views.ShopItem = Backbone.CompositeView.extend({
   initialize: function(options) {
     this.map = options.map;
     this.listenTo(this.model, "sync change", this.render);
+    this.tagList = this.model.get('tag_list').join(" - ");
+
   },
 
 
@@ -24,7 +26,8 @@ MyCut.Views.ShopItem = Backbone.CompositeView.extend({
 
   render: function() {
     var renderedContent = this.template({
-      shop: this.model
+      shop: this.model,
+      tag_list: this.tagList
       });
     this.$el.html(renderedContent);
     this.$el.find('.rating').raty({
