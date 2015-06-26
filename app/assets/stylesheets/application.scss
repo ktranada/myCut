@@ -23,8 +23,38 @@
 @import "barber_show.scss";
 @import "bigbox.css";
 @font-face {
-       font-family: "Bodoni72";
-       src: font-url('BodoniSvtyTwoITCTT-Book.ttf') format("truetype");
+       font-family: "ProximaNova-Thin";
+       src: url('https://dl.dropboxusercontent.com/s/xbt0u83jiousmp7/ProximaNova-Thin.otf') format("opentype");
+       font-weight: normal;
+       font-style: normal;
+}
+@font-face {
+       font-family: "ProximaNova-Light";
+       src: url('https://dl.dropboxusercontent.com/s/2i2se49lvui74db/ProximaNova-Light.otf') format("opentype");
+       font-weight: normal;
+       font-style: normal;
+}
+@font-face {
+       font-family: "ProximaNova-Regular";
+       src: url('https://dl.dropboxusercontent.com/s/jmqlir0gdc6qhoi/ProximaNova-Reg.otf') format("opentype");
+       font-weight: normal;
+       font-style: normal;
+}
+@font-face {
+       font-family: "ProximaNova-Semibold";
+       src: url('https://dl.dropboxusercontent.com/s/6l0u7tf5g2iofu7/ProximaNova-Semibold.otf') format("opentype");
+       font-weight: normal;
+       font-style: normal;
+}
+@font-face {
+       font-family: "ProximaNova-Bold";
+       src: url('https://dl.dropboxusercontent.com/s/zuntunlk4igjxzf/ProximaNova-Bold.otf') format("opentype");
+       font-weight: normal;
+       font-style: normal;
+}
+@font-face {
+       font-family: "ProximaNova-Extrabold";
+       src: url('https://dl.dropboxusercontent.com/s/r10bnc45r87fnbx/ProximaNova-Extrabold.otf') format("opentype");
        font-weight: normal;
        font-style: normal;
 }
@@ -67,7 +97,7 @@
 }
 .s2-container {
   background: rgba(100, 19, 19, 0);
-  font-family: 'fira-sans-2';
+  font-family: 'ProximaNova-Regular';
   border-radius: 0;
   text-align: right;
   margin-top: -15%;
@@ -105,7 +135,7 @@
     color: black;
     border-bottom: 10px solid black;
     margin-left: -2%;
-    font-family: 'fira-sans-2';
+    font-family: 'ProximaNova-Regular';
     text-align: -webkit-center;
   }
   .input > input:focus {
@@ -161,7 +191,6 @@ html, body, .first-level, .level-two, .landing-level-three, .map-container, .map
   height: 72vh;
   .map {
     #map-canvas{
-      opacity: .8;
     }
   }
 }
@@ -233,7 +262,7 @@ nav.navbar {
     }
   }
   .user-account-information {
-    font-family: "fira-sans-2";
+    font-family: "ProximaNova-Regular";
     display: inline-block;
     text-align: center;
     margin-top: 10%;
@@ -283,7 +312,7 @@ nav.navbar {
 //////////////////////////////////////////////////////////////////
 /* Error Container */
 div.errors-container {
-  font-family: "fira-sans-2", sans-serif;
+  font-family: "ProximaNova-Regular", sans-serif;
 
 }
 
@@ -562,7 +591,7 @@ i.fa-picture-o {
         span {
           text-transform: uppercase;
           font-size: 20px;
-          font-family: 'fira-sans-2';
+          font-family: 'ProximaNova-Regular';
           margin-bottom: 10px;
           font-weight: 300px;
         }
@@ -598,7 +627,7 @@ i.fa-picture-o {
     }
     span {
       text-transform: uppercase;
-      font-family: 'fira-sans-2';
+      font-family: 'ProximaNova-Regular';
     }
 
 
@@ -875,7 +904,7 @@ font-size: 16px;
     margin-top: 60px;
     span{
       margin-left: 5%;
-      font-family: 'fira-sans-2';
+      font-family: 'ProximaNova-Regular';
       font-weight: 600;
       font-style: italic;
       font-size: 30px;
@@ -905,7 +934,7 @@ ul.barber-container {
 }
 div.review-content {
   display: flex;
-  font-family: "fira-sans-2", "hair";
+  font-family: "ProximaNova-Regular", "hair";
 
 }
 
@@ -919,7 +948,7 @@ div.review-body {
 }
 
 .barber-name {
-  font-family: 'fira-sans-2';
+  font-family: 'ProximaNova-Regular';
   font-weight: 400;
   text-transform: uppercase;
   font-size: 40px;

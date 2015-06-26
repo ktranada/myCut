@@ -1,6 +1,6 @@
   MyCut.Routers.Router = Backbone.Router.extend({
   routes: {
-    "":                                  "landingPage",
+    "":                                  "shopSearch",
     "account":                           "accountShow",
     "shops/new":                         "shopForm",
     "shops/search?*parameters":          "shopSearch",
@@ -8,8 +8,7 @@
     "shops/:id/edit":                    "shopForm",
     "shops/:id/edit/barbers":            "shopBarbersNew",
     "shops/:id/review/new":              "reviewNew",
-    "shops/:id/barbers/:bid":            "barberShow",
-    "shops":                             "feedLandingPage"
+    "shops/:id/barbers/:bid":            "barberShow"
 
   },
 
@@ -35,13 +34,6 @@
       collection: barber.portfolio_pictures()
     });
     this.preSwap(barberView);
-  },
-
-  landingPage: function() {
-    var landingPage = new MyCut.Views.LandingPage({
-      collection: MyCut.shops
-    })
-    this.preSwap(landingPage);
   },
 
   shopBarbersNew: function(id){
@@ -77,18 +69,26 @@
   },
 
   shopSearch:function(params){
-    var query = {}
-    params.replace(
-      new RegExp("([^?=&]+)(=([^&]*))?", "g"),
-      function($0, $1, $2, $3) { query[$1] = $3; }
-    )
-    window.currentLoc = query.loc;
-    var searchResults = new MyCut.Collections.SearchResult()
-    searchResults.fetch({ data: { filter_options: query } })
-    var landingPage = new MyCut.Views.ShopSearchView({
-      newLoc: query.loc,
-      collection: searchResults
-    })
+    debugger
+    if (params) {
+      var query = {}
+      params.replace(
+        new RegExp("([^?=&]+)(=([^&]*))?", "g"),
+        function($0, $1, $2, $3) { query[$1] = $3; }
+      )
+      window.currentLoc = query.loc;
+      var searchResults = new MyCut.Collections.SearchResult()
+      searchResults.fetch({ data: { filter_options: query } })
+      var landingPage = new MyCut.Views.ShopSearchView({
+        newLoc: query.loc,
+        collection: searchResults
+      })
+    } else {
+      var landingPage = new MyCut.Views.ShopSearchView({
+        newLoc: window.currentLoc,
+        collection: MyCut.shops
+      })
+    }
     this.preSwap(landingPage);
   },
 

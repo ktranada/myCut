@@ -10,7 +10,7 @@ MyCut.Views.ShopIndex = Backbone.CompositeView.extend({
   },
 
   addShopSubviews: function(shop) {
-    debugger
+    
     var shopSubview = new MyCut.Views.ShopItem({
       map: this.map,
       model: shop

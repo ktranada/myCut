@@ -14,7 +14,6 @@ MyCut.Views.ShopItem = Backbone.CompositeView.extend({
 
 
     startBounce: function () {
-      debugger
       this.map.startBounce(this.model.get('id'));
     },
 

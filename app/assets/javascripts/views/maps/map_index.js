@@ -27,7 +27,7 @@ MyCut.Views.IndexMap = Backbone.View.extend({
   // Event handlers
    addMarker: function (listing) {
      if (this._markers[listing.id]) { return };
-     debugger
+
      var view = this;
      var marker = new google.maps.Marker({
        position: { lat: listing.get('latitude'), lng: listing.get('longitude') },
@@ -66,7 +66,7 @@ MyCut.Views.IndexMap = Backbone.View.extend({
    },
 
    startBounce: function (id) {
-     debugger
+  
       var marker = this._markers[id];
       marker.setAnimation(google.maps.Animation.BOUNCE);
     },

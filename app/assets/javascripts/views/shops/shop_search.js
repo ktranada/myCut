@@ -7,7 +7,7 @@ MyCut.Views.ShopSearchView = Backbone.CompositeView.extend({
     this.indexMap = new MyCut.Views.IndexMap({
       collection: this.collection
     });
-    debugger
+
     this.shopsIndex = new MyCut.Views.ShopIndex({
       map: this.indexMap,
       collection: this.collection
@@ -31,14 +31,16 @@ MyCut.Views.ShopSearchView = Backbone.CompositeView.extend({
   updateLoc: function(loc){
     var that = this;
     var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({'address': loc}, function(result, status){
-      if (status == google.maps.GeocoderStatus.OK) {
-         var loc = result[0].geometry.location;
-         that.indexMap.changeCenter(loc);
-      } else {
-        alert("That location does not exist!");
-      }
-    })
+    if (loc != window.currentLoc) {
+      geocoder.geocode({'address': loc}, function(result, status){
+        if (status == google.maps.GeocoderStatus.OK) {
+           var loc = result[0].geometry.location;
+           that.indexMap.changeCenter(loc);
+        } else {
+          alert("That location does not exist!");
+        }
+      })
+    }
   }
 
 });

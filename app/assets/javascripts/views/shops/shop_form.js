@@ -54,7 +54,7 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
 
   shopUpdate: function() {
     var that = this
-    debugger
+    
     this.model.save(this._formData, {
       success: function(){
         humane.log("Your shop has been updated.", { timeoutAfterMove: 2000});
@@ -97,7 +97,7 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
   },
 
   upload: function(e){
-    debugger
+    
     var that = this;
     e.preventDefault();
     cloudinary.openUploadWidget(SHOP_CLOUD, function(error, result){

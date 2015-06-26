@@ -19,7 +19,7 @@ MyCut.Views.UserAccountEditModal = Backbone.View.extend({
     event.preventDefault();
     var that = this;
     this.formData = $(event.currentTarget).serializeJSON();
-    debugger
+    
     if (this.formData['new_password'] == this.formData['confirm_password']) {
       this.formData["user"]["new_password"] = this.formData['new_password'];
       this.formData ["user"]["photo_url"] = this.formData["photo_url"];
@@ -52,7 +52,7 @@ MyCut.Views.UserAccountEditModal = Backbone.View.extend({
   },
 
   render: function(){
-    debugger
+    
     var renderedContent = this.template({ user: this.model })
     this.$el.html(renderedContent);
     this.$el.hide();

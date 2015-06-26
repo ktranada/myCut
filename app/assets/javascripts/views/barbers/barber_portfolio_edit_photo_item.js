@@ -14,7 +14,7 @@ MyCut.Views.PortfolioPicture = Backbone.CompositeView.extend({
   },
 
   deletePicture: function(event){
-    debugger
+    
     this.model.destroy();
   },
 

@@ -13,7 +13,7 @@ MyCut.Views.UserAccount = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "add", this.addShopSubview);
     this.listenTo(this.collection, "remove", this.removeModelSubview);
     this.addDeleteModal();
-    debugger
+    
     this.addEditModal();
   },
 

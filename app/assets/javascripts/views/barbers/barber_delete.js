@@ -17,7 +17,7 @@ MyCut.Views.BarberDelete = Backbone.CompositeView.extend({
   },
 
   confirmDelete: function(){
-    debugger
+    
     this.barberView.removeSelectedBarbers();
     this.$el.hide();
   },

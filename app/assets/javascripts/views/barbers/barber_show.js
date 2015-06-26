@@ -20,7 +20,7 @@ MyCut.Views.ShopBarberView = Backbone.CompositeView.extend({
 
   openBarberPortfolioModal: function(event){
     var el = $(event.currentTarget)
-    debugger
+    
     this.portfolioModal = new MyCut.Views.BarberPortfolioModal({
       model: this.model,
       collection: this.model.portfolio_pictures()
@@ -35,7 +35,7 @@ MyCut.Views.ShopBarberView = Backbone.CompositeView.extend({
     var barbers = MyCut.selectedBarbers;
     if (index == -1 && !this.$el.hasClass('selected')) {
        this.$el.addClass('selected');
-       debugger
+
       MyCut.selectedBarbers.push(this.collection.get(this.model));
       this.$('.select-box').html('<i class="fa fa-check-square-o"></i>');
     } else {
