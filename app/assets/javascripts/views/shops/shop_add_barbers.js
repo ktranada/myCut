@@ -2,7 +2,7 @@ MyCut.Views.ShopAddBarbers = Backbone.CompositeView.extend({
   template: JST['shops/shop_edit_barbers'],
   className: "shop-barbers-edit",
   events: {
-    "click .new-barber-button": "addBarberModal",
+    "click .new-barber-button": "openBarberModal",
     "click .delete-barber-button": "removeSelectedBarbers",
 
     "dblclick li.barber-list-item": "barberPortfolio",
@@ -17,11 +17,12 @@ MyCut.Views.ShopAddBarbers = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "remove", this.removeBarberSubview);
     this.collection.each(this.addBarberSubview.bind(this));
     MyCut.selectedBarbers = [];
+    this.addBarberModal();
     this.addDeleteModal();
   },
 
   addBarberModal: function(){
-    var barberForm = new MyCut.Views.BarberFormModal({
+     this.barberModal = new MyCut.Views.BarberFormModal({
       shop: this.model,
       collection: this.collection
     });
@@ -46,6 +47,10 @@ MyCut.Views.ShopAddBarbers = Backbone.CompositeView.extend({
     $('body').append(this.deleteModal.render().$el);
   },
 
+  openBarberModal: function(){
+    this.barberModal.$el.show();
+  },
+
   openDeleteModal: function(){
     this.deleteModal.$el.show();
   },
@@ -63,7 +68,9 @@ MyCut.Views.ShopAddBarbers = Backbone.CompositeView.extend({
 
 
   render: function(){
-    var renderedContent = this.template();
+    var renderedContent = this.template({
+      shop: this.model
+    });
     this.$el.html(renderedContent);
     this.attachSubviews();
     return this;

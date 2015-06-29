@@ -19,9 +19,10 @@ module Api
         render json: @user.errors[:base] << "You must enter your password before making any changes.", status: :unprocessable_entity
       else
         new_params = user_params
-        new_params["password"] = user_params["new_password"]
-        new_params["photo_url"] = params["photo_url"]
+        byebug
+        new_params["password"] = (user_params["new_password"].nil?) ? user_params['password'] : user_params["new_password"]
         new_params.delete("new_password")
+        new_params["photo_url"] = params["photo_url"]
         if @user.update_attributes(new_params)
           render json: @user
         else

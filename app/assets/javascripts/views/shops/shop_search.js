@@ -23,6 +23,7 @@ MyCut.Views.ShopSearchView = Backbone.CompositeView.extend({
     this.$el.html(renderedLandingPage);
     this.$('.shops-composite').html(this.shopsIndex.render().$el);
     this.$(".map").html(this.indexMap.$el);
+    debugger
     this.indexMap.initMap(true);
     this.updateLoc(this.newLoc);
     return this;

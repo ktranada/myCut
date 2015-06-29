@@ -10,8 +10,10 @@ MyCut.Views.ShopItem = Backbone.CompositeView.extend({
   initialize: function(options) {
     this.map = options.map;
     this.listenTo(this.model, "sync change", this.render);
-    this.tagList = this.model.get('tag_list').join(" - ");
-
+    debugger
+    if (this.model.get('tag_list')) {
+      this.tagList = this.model.get('tag_list').join(" - ");
+    }
   },
 
 

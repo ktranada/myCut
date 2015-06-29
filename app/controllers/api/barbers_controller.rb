@@ -26,6 +26,7 @@ module Api
 
     def show
       @barber = Barber.find(params[:id])
+      @reviews = @barber.reviews.order("created_at DESC")
       render :show
     end
 

@@ -15,9 +15,11 @@ Picture.destroy_all
 
 user1 = User.create!(username: "guest", email: 'guest@gmail.com' , password: 'password', photo_url: "https://dl.dropboxusercontent.com/s/zp27re1j4301pii/user_5.jpg", thumb_url: "https://dl.dropboxusercontent.com/s/zp27re1j4301pii/user_5.jpg")
 user2 = User.create!(username: "kevin", email: 'kevin@gmail.com' , password: 'password', photo_url: "https://dl.dropboxusercontent.com/s/5i52djfnyj5ud5r/me.jpeg", thumb_url: "https://dl.dropboxusercontent.com/s/5i52djfnyj5ud5r/me.jpeg")
-user3 = User.create!(username: "lana", email: 'lana@gmail.com', password: 'password', photo_url: "https://dl.dropboxusercontent.com/s/6qnol7sg9tydmoa/user_4.jpeg", thumb_url: "https://dl.dropboxusercontent.com/s/6qnol7sg9tydmoa/user_4.jpeg")
-user4 = User.create!(username: "danny", email: 'danny@gmail.com', password: 'password', photo_url: "https://dl.dropboxusercontent.com/s/qmpulmvwfbodv2p/user_3.jpeg", thumb_url: "https://dl.dropboxusercontent.com/s/qmpulmvwfbodv2p/user_3.jpeg")
-user5 = User.create!(username: "vicky", email: 'vicky@gmail.com', password: 'password', photo_url: "https://dl.dropboxusercontent.com/s/83d8r8vtw28mb3v/user_1.jpg", thumb_url: "https://dl.dropboxusercontent.com/s/83d8r8vtw28mb3v/user_1.jpg")
+user3 = User.create!(username: "lana", email: 'lana@gmail.com', password: 'password', photo_url: "http://res.cloudinary.com/mycut/image/upload/v1435588738/avatars/1782139_813044228731992_5708476506467472977_n.jpg")
+user4 = User.create!(username: "danny", email: 'danny@gmail.com', password: 'dinkleberg', photo_url: "http://res.cloudinary.com/mycut/image/upload/v1435588686/avatars/10689479_867846916008_7107299238096929499_n.jpg")
+user5 = User.create!(username: "vicky", email: 'vicky@gmail.com', password: 'akdslmlge', photo_url: "https://dl.dropboxusercontent.com/s/83d8r8vtw28mb3v/user_1.jpg", thumb_url: "https://dl.dropboxusercontent.com/s/83d8r8vtw28mb3v/user_1.jpg")
+user6 = User.create!(username: "suavecito", email: 'suavecity@pomade.com', password: 'genakn', photo_url: "http://res.cloudinary.com/mycut/image/upload/v1435587601/avatars/images.jpg")
+user7 = User.create!(username: "adagio", email: 'adagio@escargo.com', password: 'gmleamgl', photo_url: "http://res.cloudinary.com/mycut/image/upload/v1435357426/avatars/qsfxi67w0hsfb2988y6k.jpg")
 
 
 ######################################### Shop 1
@@ -122,8 +124,14 @@ barber_6.pictures.create!(photo_url: "https://s3-media1.fl.yelpcdn.com/bphoto/96
 barber_6.pictures.create!(photo_url: "https://s3-media1.fl.yelpcdn.com/bphoto/Wd0kggJFJ9H2kXfrZYJDCA/o.jpg")
 
 
-shop_3_review_1 = shop3.reviews.create!(body: "I've been going to Joseph for just over 2 years now. I found him by yelp accident and now I will not leave him! Joseph has done amazing things with my hair! His highlights and color are always on point! He takes the time to curl my stubborn non-curlable hair.  He even took the time to explain what products would benefit my hair and make it healthier.", author_id: 1, shop_id: shop3.id, barber_id: barber_6.id, rating: 5)
-shop_3_review_2 = shop3.reviews.create!(body: "I love getting my hair done by Joseph.  He is truly talented and knows what the client wants and what would work for them. I have been getting a hair cut and color from him for over a year now and have followed him everywhere he goes. He knows what works best for my wavy hair and always gives me a cut that works with my natural curl. Whether you want a radical change in hair color or just subtle sun kissed high lights he's the best! I love how he treats you and you feel so pampered after you go see him. I highly recommend him.  If you are looking for a talented stylist with reasonable prices and great results Joseph's your guy.", author_id: 2, shop_id: shop3.id, barber_id: barber_6.id, rating: 5)
+shop_3_review_1 = shop3.reviews.create!(body: "I've been going to Joseph for just over 2 years now. I found him by yelp accident and now I will not leave him! Joseph has done amazing things with my hair! His highlights and color are always on point!
+
+ He takes the time to curl my stubborn non-curlable hair.  He even took the time to explain what products would benefit my hair and make it healthier.", author_id: 1, shop_id: shop3.id, barber_id: barber_6.id, rating: 5)
+shop_3_review_2 = shop3.reviews.create!(body: "I love getting my hair done by Joseph.  He is truly talented and knows what the client wants and what would work for them. I have been getting a hair cut and color from him for over a year now and have followed him everywhere he goes.
+
+He knows what works best for my wavy hair and always gives me a cut that works with my natural curl. Whether you want a radical change in hair color or just subtle sun kissed high lights he's the best! I love how he treats you and you feel so pampered after you go see him. I highly recommend him.
+
+ If you are looking for a talented stylist with reasonable prices and great results Joseph's your guy.", author_id: 2, shop_id: shop3.id, barber_id: barber_6.id, rating: 5)
 shop_3_review_3 = shop3.reviews.create!(body: "He takes time, makes suggestions, and just really has a good eye. Its lots of fun to go see him. Like someone else on here said 'I always walk away feeling like a gazillion bucks'! Oh, and he never tries to sell you product--just makes your hair look fantastic. :)", author_id: 3, shop_id: shop3.id, barber_id: barber_6.id, rating: 4)
 shop_3_review_4 = shop3.reviews.create!(body: "This man is amazing. I've been going to him for years. He is an utmost professional and always treats me like family when he is dressing my hair. This man takes his work seriously and is fantastic. Every treatment I've gotten from him is worth noting. I have put him through a lot of ringers these past years; cuts, colors (not always natural colors), washes, cornrows, curls, product advise. Almost anything you could do to ones head, and still more to come.
 
@@ -183,11 +191,15 @@ barber_8.pictures.create!(photo_url: "https://s3-media4.fl.yelpcdn.com/bphoto/wF
 barber_9.pictures.create!(photo_url: "https://s3-media4.fl.yelpcdn.com/bphoto/O2MxT-3WbsNzDs8dAaEE0g/o.jpg")
 barber_9.pictures.create!(photo_url: "https://s3-media2.fl.yelpcdn.com/bphoto/9_zidRRD593kCWRToRLmjg/o.jpg")
 
-shop_5_review_1 = shop5.reviews.create!(body: "I was referred to Chanin over a year ago to have some highlights, tint and a cut done. I cannot tell you how happy I am with her work. Chanin listens to your needs and also makes recommendations that in the end turn out beautiful. Many people have cut my hair and done a good job. Chanin is one of the first hairdressers I can say I Love my haircut! She nailed it and I am one picky broad! Chanin does fantastic color and knows how to cut! Highly recommend!", author_id: 2, shop_id: shop5.id, barber_id: barber_9.id, rating: 5)
+shop_5_review_1 = shop5.reviews.create!(body: "I was referred to Chanin over a year ago to have some highlights, tint and a cut done. I cannot tell you how happy I am with her work. Chanin listens to your needs and also makes recommendations that in the end turn out beautiful.
+
+ Many people have cut my hair and done a good job. Chanin is one of the first hairdressers I can say I Love my haircut! She nailed it and I am one picky broad! Chanin does fantastic color and knows how to cut! Highly recommend!", author_id: 2, shop_id: shop5.id, barber_id: barber_9.id, rating: 5)
 shop_5_review_2 = shop5.reviews.create!(body: "My stylist KIM CARMICHAEL. Half way through my session I looked like a different person and my hair was doing stuff I've never seen before. I asked for just a little trim, but instead I got a super buzzed hipster haircut, you know the side sweep to one side look.
 
 Although that is a popular style, it just doesn't look good on me. After my haircut, I couldn't look at people because I was so ashamed of what I looked like. I will never go back and I wouldn't book KIM CARMICHAEL if you are a guy.", author_id: 3, shop_id: shop5.id, barber_id: barber_8.id, rating: 1)
-shop_5_review_3 = shop5.reviews.create!(body: "I have high maintenance, thick, curly hair, sometimes I feel bad for stylists that have to tame my mane. Kim did a great job and was extremely patient. Had to get a haircut after the blow out and I must say I was impressed. I hate getting my haircut- I would rather go to the dentist, but Kim cut off just the right amount to where my hair looks healthy and is still long.", author_id: 1, shop_id: shop5.id, barber_id: barber_8.id, rating: 4)
+shop_5_review_3 = shop5.reviews.create!(body: "I have high maintenance, thick, curly hair, sometimes I feel bad for stylists that have to tame my mane. Kim did a great job and was extremely patient. Had to get a haircut after the blow out and I must say I was impressed.
+
+I hate getting my haircut- I would rather go to the dentist, but Kim cut off just the right amount to where my hair looks healthy and is still long.", author_id: 1, shop_id: shop5.id, barber_id: barber_8.id, rating: 4)
 shop_5_review_4 = shop5.reviews.create!(body: "I can only thank fate for setting me up with Kim. When I attempted to explain what I wanted to do (while averting my eyes from the unforgiving salon mirror), Kim was completely candid with me - saying she didn't like the current color and that the length wasn't doing anything for me - and it left me trusting her immediately", author_id: 4, shop_id: shop5.id, barber_id: barber_8.id, rating: 5)
 
 
@@ -224,316 +236,291 @@ barber_11.pictures.create!(photo_url: "https://s3-media3.fl.yelpcdn.com/bphoto/9
 barber_11.pictures.create!(photo_url: "https://s3-media2.fl.yelpcdn.com/bphoto/loXVqDul7vylMcQB4NNZIg/o.jpg")
 
 shop_6_review_1 = shop6.reviews.create!(body: "Go see Savy and avoid all 3! Shes got mad skills and a chill sense of humor.", author_id: 4, shop_id: shop6.id, barber_id: barber_10.id, rating: 5)
-shop_6_review_2 = shop6.reviews.create!(body: "One hour later, I was seated. I ended up getting cut by Saavy. She's nice, gave me the cut and hard part I wanted, and seemed detail-oriented. Only issue was that I was knicked and cut on both sides of my head and in the back of my neck during the line-up. 9 hours later, it still burns when I showered and it's still bleeding. $25 for the haircut, and even though I was bleeding, I still gave tip 'cause I'm a nice guy.", author_id: 2, shop_id: shop6.id, barber_id: barber_10.id, rating: 1)
+shop_6_review_2 = shop6.reviews.create!(body: "One hour later, I was seated. I ended up getting cut by Saavy. She's nice, gave me the cut and hard part I wanted, and seemed detail-oriented.
+
+ Only issue was that I was knicked and cut on both sides of my head and in the back of my neck during the line-up. 9 hours later, it still burns when I showered and it's still bleeding. $25 for the haircut, and even though I was bleeding, I still gave tip 'cause I'm a nice guy.", author_id: 2, shop_id: shop6.id, barber_id: barber_10.id, rating: 1)
 shop_6_review_3 = shop6.reviews.create!(body: "First time at this place and it was great! Needed a fresh cut before prom and Emilio didn't dissapoint. Possibly one of the cleanest cut I've ever gotten and I will definately be coming back. The price is also great", author_id: 3, shop_id: shop6.id, barber_id: barber_11.id, rating: 5)
-shop_6_review_4 = shop6.reviews.create!(body: "I've been going to Emilio's for the past 3 years. Despite no longer living in the area, I still go out of my way and make the drive out to his barbershop because I know I'll get a great haircut every time. It's a great, old school shop with new school barbers.  They've done everything from fauxhawks, fades, and tapers for me. Savy and Emilio are A+ in my opinion.", author_id: 1, shop_id: shop6.id, barber_id: barber_11.id, rating: 5)
+shop_6_review_4 = shop6.reviews.create!(body: "I've been going to Emilio's for the past 3 years. Despite no longer living in the area, I still go out of my way and make the drive out to his barbershop because I know I'll get a great haircut every time.
+
+It's a great, old school shop with new school barbers.  They've done everything from fauxhawks, fades, and tapers for me. Savy and Emilio are A+ in my opinion.", author_id: 1, shop_id: shop6.id, barber_id: barber_11.id, rating: 5)
 
 
 shop_6_review_3.pictures.create!(photo_url: "https://s3-media2.fl.yelpcdn.com/bphoto/YA0EZVwvjkgBJRdSdJyrgQ/o.jpg")
 shop_6_review_2.pictures.create!(photo_url:"https://s3-media2.fl.yelpcdn.com/bphoto/JQWT7AXW-3CWr16d3IS_Iw/o.jpg")
-
-
-# ######################################## Shop 7
-shop7 = Shop.create!(moderator_id: 2,
-            name: "Slick and Dapper Barber Shop",
-            address: "3619 Grand Ave",
-            city: "Oakland",
-            state: "CA",
-            zip: "94610",
-            phone: 5102510796,
-            rating: 0.0,
-            latitude: 37.8154102,
-            longitude: -122.2460818,
-            tag_list: ["pompadour, barber, fades, fade, barbers, mens haircut, womens, womens haircut, shaves, flat tops, buzz cut, shadow fade, skin fade, bald fade, tapers, line ups, razor line"],
-            location_list: ["san francisco, outer mission"],
-            photo_url: "https://s3-media3.fl.yelpcdn.com/bphoto/E1Z8K2ve064hp1cGXHpdHA/o.jpg")
-
-barber_12 = Barber.create!(name: "Savy", skill_list: ["designs"], shop_id: shop6.id, photo_url: "https://s3-media2.fl.yelpcdn.com/bphoto/JQWT7AXW-3CWr16d3IS_Iw/o.jpg")
-barber_13 = Barber.create!(name: "Emilio", skill_list: ["fades, tapers, bald taper, bald fade, lineup"], shop_id: shop6.id, photo_url: "https://s3-media4.fl.yelpcdn.com/bphoto/s-piSUo22qKjS-B9-9iGBw/o.jpg")
-
-barber_12.pictures.create!(photo_url:"")
-barber_12.pictures.create!(photo_url:"")
-barber_12.pictures.create!(photo_url: "")
-
-barber_13.pictures.create!(photo_url: "")
-barber_13.pictures.create!(photo_url: "")
-barber_13.pictures.create!(photo_url: "")
-barber_13.pictures.create!(photo_url: "")
-barber_13.pictures.create!(photo_url: "")
-barber_13.pictures.create!(photo_url: "")
-
-shop_6_review_1 = shop6.reviews.create!(body: "", author_id: 4, shop_id: shop6.id, barber_id: barber_10.id, rating: 5)
-shop_6_review_2 = shop6.reviews.create!(body: "", author_id: 2, shop_id: shop6.id, barber_id: barber_10.id, rating: 1)
-shop_6_review_3 = shop6.reviews.create!(body: "", author_id: 3, shop_id: shop6.id, barber_id: barber_11.id, rating: 5)
-shop_6_review_4 = shop6.reviews.create!(body: "", author_id: 1, shop_id: shop6.id, barber_id: barber_11.id, rating: 5)
-
-
-shop_6_review_3.pictures.create!(photo_url: "")
-shop_6_review_2.pictures.create!(photo_url: "")
-
-# ######################################## Shop 8
-
-shop_8 = Shop.create!(moderator_id: 1,
-            name: "Temescal Alley Barber Shop",
-            address: "470-B 49th St",
-            city: "Oakland",
-            state: "CA",
-            zip: "94609",
-            phone: 5107615074,
-            rating: 0.0,
-            latitude: 37.8361206,
-            longitude: -122.2618713,
-            tag_list: ["pompadour, barber, fades, fade, barbers, mens haircut, womens, womens haircut, shaves, flat tops, buzz cut, shadow fade, skin fade, bald fade, tapers, line ups, razor line"],
-            location_list: ["san francisco, outer mission"],
-            photo_url: "https://s3-media3.fl.yelpcdn.com/bphoto/E1Z8K2ve064hp1cGXHpdHA/o.jpg")
-
-barber14 = Barber.create!(name: "Savy", skill_list: ["designs"], shop_id: shop_8.id, photo_url: "https://s3-media2.fl.yelpcdn.com/bphoto/JQWT7AXW-3CWr16d3IS_Iw/o.jpg")
-barber_15 = Barber.create!(name: "Emilio", skill_list: ["fades, tapers, bald taper, bald fade, lineup"], shop_id: shop_8.id, photo_url: "https://s3-media4.fl.yelpcdn.com/bphoto/s-piSUo22qKjS-B9-9iGBw/o.jpg")
-
-barber14.pictures.create!(photo_url:"")
-barber14.pictures.create!(photo_url:"")
-barber14.pictures.create!(photo_url: "")
-
-barber_15.pictures.create!(photo_url: "")
-barber_15.pictures.create!(photo_url: "")
-barber_15.pictures.create!(photo_url: "")
-barber_15.pictures.create!(photo_url: "")
-barber_15.pictures.create!(photo_url: "")
-barber_15.pictures.create!(photo_url: "")
-
-shop_8_review_1 = shop_8.reviews.create!(body: "", author_id: 4, shop_id: shop_8.id, barber_id: barber14.id, rating: 5)
-shop_8_review_2 = shop_8.reviews.create!(body: "", author_id: 2, shop_id: shop_8.id, barber_id: barber14.id, rating: 1)
-shop_8_review_3 = shop_8.reviews.create!(body: "", author_id: 3, shop_id: shop_8.id, barber_id: barber_15.id, rating: 5)
-shop_8_review_4 = shop_8.reviews.create!(body: "", author_id: 1, shop_id: shop_8.id, barber_id: barber_15.id, rating: 5)
-
-
-shop_8_review_3.pictures.create!(photo_url: "")
-shop_8_review_2.pictures.create!(photo_url: "")
-
-# ######################################## Shop 9
-shop_9 = Shop.create!(moderator_id: 3,
-            name: "Slick & Dapper On Broadway",
-            address: "4121 Broadway",
-            city: "Oakland",
-            state: "CA",
-            zip: "94611",
-            phone: 5102509569,
-            rating: 0.0,
-            latitude: 37.8288988,
-            longitude: -122.2559286,
-            tag_list: ["pompadour, barber, fades, fade, barbers, mens haircut, womens, womens haircut, shaves, flat tops, buzz cut, shadow fade, skin fade, bald fade, tapers, line ups, razor line"],
-            location_list: ["san francisco, outer mission"],
-            photo_url: "https://s3-media3.fl.yelpcdn.com/bphoto/E1Z8K2ve064hp1cGXHpdHA/o.jpg")
-
-barber_16 = Barber.create!(name: "Savy", skill_list: ["designs"], shop_id: shop_9.id, photo_url: "https://s3-media2.fl.yelpcdn.com/bphoto/JQWT7AXW-3CWr16d3IS_Iw/o.jpg")
-barber_17 = Barber.create!(name: "Emilio", skill_list: ["fades, tapers, bald taper, bald fade, lineup"], shop_id: shop_9.id, photo_url: "https://s3-media4.fl.yelpcdn.com/bphoto/s-piSUo22qKjS-B9-9iGBw/o.jpg")
-
-barber_16.pictures.create!(photo_url:"")
-barber_16.pictures.create!(photo_url:"")
-barber_16.pictures.create!(photo_url: "")
-
-barber_17.pictures.create!(photo_url: "")
-barber_17.pictures.create!(photo_url: "")
-barber_17.pictures.create!(photo_url: "")
-barber_17.pictures.create!(photo_url: "")
-barber_17.pictures.create!(photo_url: "")
-barber_17.pictures.create!(photo_url: "")
-
-shop_9_review_1 = shop_9.reviews.create!(body: "", author_id: 4, shop_id: shop_9.id, barber_id: barber_16.id, rating: 5)
-shop_9_review_2 = shop_9.reviews.create!(body: "", author_id: 2, shop_id: shop_9.id, barber_id: barber_16.id, rating: 1)
-shop_9_review_3 = shop_9.reviews.create!(body: "", author_id: 3, shop_id: shop_9.id, barber_id: barber_17.id, rating: 5)
-shop_9_review_4 = shop_9.reviews.create!(body: "", author_id: 1, shop_id: shop_9.id, barber_id: barber_17.id, rating: 5)
-
-
-shop_9_review_3.pictures.create!(photo_url: "")
-shop_9_review_2.pictures.create!(photo_url: "")
-
-# ######################################## Shop 10
-shop10 = Shop.create!(moderator_id: 4,
-            name: "Al's Barber Shop",
-            address: "1429 23rd Ave",
-            city: "Oakland",
-            state: "CA",
-            zip: "94606",
-            phone: 5104369705,
-            rating: 0.0,
-            latitude: 37.7838974,
-            longitude: -122.2356796,
-            tag_list: ["pompadour, barber, fades, fade, barbers, mens haircut, womens, womens haircut, shaves, flat tops, buzz cut, shadow fade, skin fade, bald fade, tapers, line ups, razor line"],
-            location_list: ["san francisco, outer mission"],
-            photo_url: "https://s3-media3.fl.yelpcdn.com/bphoto/E1Z8K2ve064hp1cGXHpdHA/o.jpg")
-
-barber_17 = Barber.create!(name: "Savy", skill_list: ["designs"], shop_id: shop10.id, photo_url: "https://s3-media2.fl.yelpcdn.com/bphoto/JQWT7AXW-3CWr16d3IS_Iw/o.jpg")
-barber_18 = Barber.create!(name: "Emilio", skill_list: ["fades, tapers, bald taper, bald fade, lineup"], shop_id: shop10.id, photo_url: "https://s3-media4.fl.yelpcdn.com/bphoto/s-piSUo22qKjS-B9-9iGBw/o.jpg")
-
-barber_17.pictures.create!(photo_url:"")
-barber_17.pictures.create!(photo_url:"")
-barber_17.pictures.create!(photo_url: "")
-
-barber_18.pictures.create!(photo_url: "")
-barber_18.pictures.create!(photo_url: "")
-barber_18.pictures.create!(photo_url: "")
-barber_18.pictures.create!(photo_url: "")
-barber_18.pictures.create!(photo_url: "")
-barber_18.pictures.create!(photo_url: "")
-
-shop_10_review_1 = shop10.reviews.create!(body: "", author_id: 4, shop_id: shop10.id, barber_id: barber_17.id, rating: 5)
-shop_10_review_2 = shop10.reviews.create!(body: "", author_id: 2, shop_id: shop10.id, barber_id: barber_17.id, rating: 1)
-shop_10_review_3 = shop10.reviews.create!(body: "", author_id: 3, shop_id: shop10.id, barber_id: barber_18.id, rating: 5)
-shop_10_review_4 = shop10.reviews.create!(body: "", author_id: 1, shop_id: shop10.id, barber_id: barber_18.id, rating: 5)
-
-
-shop_10_review_3.pictures.create!(photo_url: "")
-shop_10_review_2.pictures.create!(photo_url: "")
-
-# ######################################## Shop 11
-shop_11 = Shop.create!(moderator_id: 5,
-            name: "Lucky's Barber Shop",
-            address: "948 Clay St",
-            city: "Oakland",
-            state: "CA",
-            zip: "94607",
-            phone: 5108365825,
-            rating: 0.0,
-            latitude: 37.8021305054426,
-            longitude: -122.275487110019,
-            tag_list: ["pompadour, barber, fades, fade, barbers, mens haircut, womens, womens haircut, shaves, flat tops, buzz cut, shadow fade, skin fade, bald fade, tapers, line ups, razor line"],
-            location_list: ["san francisco, outer mission"],
-            photo_url: "https://s3-media3.fl.yelpcdn.com/bphoto/E1Z8K2ve064hp1cGXHpdHA/o.jpg")
-
-barber_19 = Barber.create!(name: "Savy", skill_list: ["designs"], shop_id: shop_11.id, photo_url: "https://s3-media2.fl.yelpcdn.com/bphoto/JQWT7AXW-3CWr16d3IS_Iw/o.jpg")
-barber_20 = Barber.create!(name: "Emilio", skill_list: ["fades, tapers, bald taper, bald fade, lineup"], shop_id: shop_11.id, photo_url: "https://s3-media4.fl.yelpcdn.com/bphoto/s-piSUo22qKjS-B9-9iGBw/o.jpg")
-
-barber_19.pictures.create!(photo_url:"")
-barber_19.pictures.create!(photo_url:"")
-barber_19.pictures.create!(photo_url: "")
-
-barber_20.pictures.create!(photo_url: "")
-barber_20.pictures.create!(photo_url: "")
-barber_20.pictures.create!(photo_url: "")
-barber_20.pictures.create!(photo_url: "")
-barber_20.pictures.create!(photo_url: "")
-barber_20.pictures.create!(photo_url: "")
-
-shop_11_review_1 = shop_11.reviews.create!(body: "", author_id: 4, shop_id: shop_11.id, barber_id: barber_19.id, rating: 5)
-shop_11_review_2 = shop_11.reviews.create!(body: "", author_id: 2, shop_id: shop_11.id, barber_id: barber_19.id, rating: 1)
-shop_11_review_3 = shop_11.reviews.create!(body: "", author_id: 3, shop_id: shop_11.id, barber_id: barber_20.id, rating: 5)
-shop_11_review_4 = shop_11.reviews.create!(body: "", author_id: 1, shop_id: shop_11.id, barber_id: barber_20.id, rating: 5)
-
-
-shop_11_review_3.pictures.create!(photo_url: "")
-shop_11_review_2.pictures.create!(photo_url: "")
-
-# ######################################## Shop 12
-shop_12 = Shop.create!(moderator_id: 2,
-            name: "Marquee Salon",
-            address: "420 40th St",
-            city: "Oakland",
-            state: "CA",
-            zip: "94609",
-            phone: 5102856679,
-            rating: 0.0,
-            latitude: 37.8286204708335,
-            longitude: -122.260081772461,
-            tag_list: ["pompadour, barber, fades, fade, barbers, mens haircut, womens, womens haircut, shaves, flat tops, buzz cut, shadow fade, skin fade, bald fade, tapers, line ups, razor line"],
-            location_list: ["san francisco, outer mission"],
-            photo_url: "https://s3-media3.fl.yelpcdn.com/bphoto/E1Z8K2ve064hp1cGXHpdHA/o.jpg")
-
-barber_21 = Barber.create!(name: "Savy", skill_list: ["designs"], shop_id: shop_12.id, photo_url: "https://s3-media2.fl.yelpcdn.com/bphoto/JQWT7AXW-3CWr16d3IS_Iw/o.jpg")
-barber_21 = Barber.create!(name: "Emilio", skill_list: ["fades, tapers, bald taper, bald fade, lineup"], shop_id: shop_12.id, photo_url: "https://s3-media4.fl.yelpcdn.com/bphoto/s-piSUo22qKjS-B9-9iGBw/o.jpg")
-
-barber_21.pictures.create!(photo_url:"")
-barber_21.pictures.create!(photo_url:"")
-barber_21.pictures.create!(photo_url: "")
-
-barber_21.pictures.create!(photo_url: "")
-barber_21.pictures.create!(photo_url: "")
-barber_21.pictures.create!(photo_url: "")
-barber_21.pictures.create!(photo_url: "")
-barber_21.pictures.create!(photo_url: "")
-barber_21.pictures.create!(photo_url: "")
-
-shop_12_review_1 = shop_12.reviews.create!(body: "", author_id: 4, shop_id: shop_12.id, barber_id: barber_21.id, rating: 5)
-shop_12_review_2 = shop_12.reviews.create!(body: "", author_id: 2, shop_id: shop_12.id, barber_id: barber_21.id, rating: 1)
-shop_12_review_3 = shop_12.reviews.create!(body: "", author_id: 3, shop_id: shop_12.id, barber_id: barber_21.id, rating: 5)
-shop_12_review_4 = shop_12.reviews.create!(body: "", author_id: 1, shop_id: shop_12.id, barber_id: barber_21.id, rating: 5)
-
-
-shop_12_review_3.pictures.create!(photo_url: "")
-shop_12_review_2.pictures.create!(photo_url: "")
-
-# ######################################## Shop 13
-shop_13 = Shop.create!(moderator_id: 3,
-            name: "Jaujou Studio",
-            address: "3351 Grand Ave",
-            city: "Oakland",
-            state: "CA",
-            zip: "94610",
-            phone: 5102083449,
-            rating: 0.0,
-            latitude: 37.813549,
-            longitude: -122.2468262,
-            tag_list: ["pompadour, barber, fades, fade, barbers, mens haircut, womens, womens haircut, shaves, flat tops, buzz cut, shadow fade, skin fade, bald fade, tapers, line ups, razor line"],
-            location_list: ["san francisco, outer mission"],
-            photo_url: "https://s3-media3.fl.yelpcdn.com/bphoto/E1Z8K2ve064hp1cGXHpdHA/o.jpg")
-
-barber_22 = Barber.create!(name: "Savy", skill_list: ["designs"], shop_id: shop_13.id, photo_url: "https://s3-media2.fl.yelpcdn.com/bphoto/JQWT7AXW-3CWr16d3IS_Iw/o.jpg")
-barber_23 = Barber.create!(name: "Emilio", skill_list: ["fades, tapers, bald taper, bald fade, lineup"], shop_id: shop_13.id, photo_url: "https://s3-media4.fl.yelpcdn.com/bphoto/s-piSUo22qKjS-B9-9iGBw/o.jpg")
-
-barber_22.pictures.create!(photo_url:"")
-barber_22.pictures.create!(photo_url:"")
-barber_22.pictures.create!(photo_url: "")
-
-barber_23.pictures.create!(photo_url: "")
-barber_23.pictures.create!(photo_url: "")
-barber_23.pictures.create!(photo_url: "")
-barber_23.pictures.create!(photo_url: "")
-barber_23.pictures.create!(photo_url: "")
-barber_23.pictures.create!(photo_url: "")
-
-shop_13_review_1 = shop_13.reviews.create!(body: "", author_id: 4, shop_id: shop_13.id, barber_id: barber_22.id, rating: 5)
-shop_13_review_2 = shop_13.reviews.create!(body: "", author_id: 2, shop_id: shop_13.id, barber_id: barber_22.id, rating: 1)
-shop_13_review_3 = shop_13.reviews.create!(body: "", author_id: 3, shop_id: shop_13.id, barber_id: barber_23.id, rating: 5)
-shop_13_review_4 = shop_13.reviews.create!(body: "", author_id: 1, shop_id: shop_13.id, barber_id: barber_23.id, rating: 5)
-
-
-shop_13_review_3.pictures.create!(photo_url: "")
-shop_13_review_2.pictures.create!(photo_url: "")
-
-# ######################################## Shop 14
-shop_14 = Shop.create!(moderator_id: 3,
-            name: "77Salon Inc",
-            address: "5358 College Ave",
-            city: "Oakland",
-            state: "CA",
-            zip: "94618",
-            phone: 5106017776,
-            rating: 0.0,
-            latitude: 37.8395251,
-            longitude: -122.2512358,
-            tag_list: ["pompadour, barber, fades, fade, barbers, mens haircut, womens, womens haircut, shaves, flat tops, buzz cut, shadow fade, skin fade, bald fade, tapers, line ups, razor line"],
-            location_list: ["san francisco, outer mission"],
-            photo_url: "https://s3-media3.fl.yelpcdn.com/bphoto/E1Z8K2ve064hp1cGXHpdHA/o.jpg")
-
-barber_24 = Barber.create!(name: "Savy", skill_list: ["designs"], shop_id: shop_14.id, photo_url: "https://s3-media2.fl.yelpcdn.com/bphoto/JQWT7AXW-3CWr16d3IS_Iw/o.jpg")
-barber_25 = Barber.create!(name: "Emilio", skill_list: ["fades, tapers, bald taper, bald fade, lineup"], shop_id: shop_14.id, photo_url: "https://s3-media4.fl.yelpcdn.com/bphoto/s-piSUo22qKjS-B9-9iGBw/o.jpg")
-
-barber_24.pictures.create!(photo_url:"")
-barber_24.pictures.create!(photo_url:"")
-barber_24.pictures.create!(photo_url: "")
-
-barber_25.pictures.create!(photo_url: "")
-barber_25.pictures.create!(photo_url: "")
-barber_25.pictures.create!(photo_url: "")
-barber_25.pictures.create!(photo_url: "")
-barber_25.pictures.create!(photo_url: "")
-barber_25.pictures.create!(photo_url: "")
-
-shop_14_review_1 = shop_14.reviews.create!(body: "", author_id: 4, shop_id: shop_14.id, barber_id: barber_24.id, rating: 5)
-shop_14_review_2 = shop_14.reviews.create!(body: "", author_id: 2, shop_id: shop_14.id, barber_id: barber_24.id, rating: 1)
-shop_14_review_3 = shop_14.reviews.create!(body: "", author_id: 3, shop_id: shop_14.id, barber_id: barber_25.id, rating: 5)
-shop_14_review_4 = shop_14.reviews.create!(body: "", author_id: 1, shop_id: shop_14.id, barber_id: barber_25.id, rating: 5)
-
-
-shop_14_review_3.pictures.create!(photo_url: "")
-shop_14_review_2.pictures.create!(photo_url: "")
+#
+#
+# # ######################################## Shop 7
+# shop7 = Shop.create!(moderator_id: 2,
+#             name: "Slick and Dapper Barber Shop",
+#             address: "3619 Grand Ave",
+#             city: "Oakland",
+#             state: "CA",
+#             zip: "94610",
+#             phone: 5102510796,
+#             rating: 0.0,
+#             latitude: 37.8154102,
+#             longitude: -122.2460818,
+#             tag_list: ["haircuts, straight razor shaves, razor shaves, beard trim, seniors, first responders, responders, children, traditional, hipster"],
+#             location_list: ["lower hills, grand lake"],
+#             photo_url: "http://s3-media4.fl.yelpcdn.com/bphoto/az76ciYPK229M4TJXvccKQ/o.jpg")
+#
+# barber_12 = Barber.create!(name: "Manny", skill_list: ["designs"], shop_id: shop6.id, photo_url: "https://s3-media2.fl.yelpcdn.com/bphoto/JQWT7AXW-3CWr16d3IS_Iw/o.jpg")
+# barber_13 = Barber.create!(name: "Nick", skill_list: ["fades, tapers, bald taper, bald fade, lineup"], shop_id: shop6.id, photo_url: "https://s3-media4.fl.yelpcdn.com/bphoto/s-piSUo22qKjS-B9-9iGBw/o.jpg")
+#
+# barber_12.pictures.create!(photo_url:"")
+# barber_12.pictures.create!(photo_url:"")
+# barber_12.pictures.create!(photo_url: "")
+#
+# barber_13.pictures.create!(photo_url: "")
+# barber_13.pictures.create!(photo_url: "")
+# barber_13.pictures.create!(photo_url: "")
+# barber_13.pictures.create!(photo_url: "")
+# barber_13.pictures.create!(photo_url: "")
+# barber_13.pictures.create!(photo_url: "")
+#
+# shop_6_review_1 = shop6.reviews.create!(body: "", author_id: 4, shop_id: shop6.id, barber_id: barber_10.id, rating: 5)
+# shop_6_review_2 = shop6.reviews.create!(body: "", author_id: 2, shop_id: shop6.id, barber_id: barber_10.id, rating: 1)
+# shop_6_review_3 = shop6.reviews.create!(body: "", author_id: 3, shop_id: shop6.id, barber_id: barber_11.id, rating: 5)
+# shop_6_review_4 = shop6.reviews.create!(body: "", author_id: 1, shop_id: shop6.id, barber_id: barber_11.id, rating: 5)
+#
+#
+# shop_6_review_3.pictures.create!(photo_url: "")
+# shop_6_review_2.pictures.create!(photo_url: "")
+#
+# # ######################################## Shop 8
+#
+# shop_8 = Shop.create!(moderator_id: 1,
+#             name: "Temescal Alley Barber Shop",
+#             address: "470-B 49th St",
+#             city: "Oakland",
+#             state: "CA",
+#             zip: "94609",
+#             phone: 5107615074,
+#             rating: 0.0,
+#             latitude: 37.8361206,
+#             longitude: -122.2618713,
+#             tag_list: ["", ""],
+#             location_list: ["", ""],
+#             photo_url: "")
+# barber14 = Barber.create!(name: "Savy", skill_list: ["designs"], shop_id: shop_8.id, photo_url: "https://s3-media2.fl.yelpcdn.com/bphoto/JQWT7AXW-3CWr16d3IS_Iw/o.jpg")
+# barber_15 = Barber.create!(name: "Emilio", skill_list: ["fades, tapers, bald taper, bald fade, lineup"], shop_id: shop_8.id, photo_url: "https://s3-media4.fl.yelpcdn.com/bphoto/s-piSUo22qKjS-B9-9iGBw/o.jpg")
+#
+# barber14.pictures.create!(photo_url:"")
+# barber14.pictures.create!(photo_url:"")
+# barber14.pictures.create!(photo_url: "")
+#
+# barber_15.pictures.create!(photo_url: "")
+# barber_15.pictures.create!(photo_url: "")
+# barber_15.pictures.create!(photo_url: "")
+# barber_15.pictures.create!(photo_url: "")
+# barber_15.pictures.create!(photo_url: "")
+# barber_15.pictures.create!(photo_url: "")
+#
+# shop_8_review_1 = shop_8.reviews.create!(body: "My barber did an awesome job cutting my hair at TABS. I had been going to a place in Pleasanton only because it was convenient to my old job, so I went in not really knowing what to expect from TABS. It can be a hit or miss in finding a good barber to give a good cut without you having to explain in detail what you want and what looks for you.  My barber cut my hair how I wanted and suggested a couple changes, which I am glad he did.
+#
+# It is a great environment and everyone was in a good mood to be working on a Sunday.
+#
+# Make sure to bring cash (cash only) and expect to wait during the weekend.  I put my name on the board, went over to the farmers market, and got a bite to eat. By the time I got back it was my turn.
+#
+# ", author_id: 4, shop_id: shop_8.id, barber_id: barber14.id, rating: 5)
+# shop_8_review_2 = shop_8.reviews.create!(body: "", author_id: 7, shop_id: shop_8.id, barber_id: barber14.id, rating: 3)
+# shop_8_review_3 = shop_8.reviews.create!(body: "", author_id: 1, shop_id: shop_8.id, barber_id: barber_15.id, rating: 2)
+# shop_8_review_4 = shop_8.reviews.create!(body: "I'm really disappointed in the haircut that was given to my daughter's fiancee at Temescal Alley Barber Shop. I gave him a gift certificate for his birthday to come here, and I went on and on about how cool this place was.
+# We were excited to see what they could do, and I was confident that they would give him a cool hair cut. Sadly though,he ended up leaving with the worst haircut I have seen in a long time. My daughter told the barber to cut it shorter and he didn't listen.
+# I should say that my daughter's fiancee has curly hair. Hair cutters almost always tend to freak out a little bit with curly hair, and this guy was no different. But if you look at my photos, this was just a horrible job. From the sideburns, to the round lolly pop effect he gave him.
+# To top it off, my daughter had to re- cut it when they got home, because they were going to have their engagement pictures in a couple of days after this tragic hair cut!  I'm warning all those guys who have curly hair to not go here. I think all they know how to work with is straight hair.
+# The service was not good from start to finish. When they walked in they were asked what could they do today, and they said a hair cut. The guy by the door promptly tells them 'Just so you know, this isn't a salon.' No kidding, that is why they were there.", author_id: 5, shop_id: shop_8.id, barber_id: barber_15.id, rating: 1)
+#
+#
+# shop_8_review_3.pictures.create!(photo_url: "")
+# shop_8_review_2.pictures.create!(photo_url: "")
+# shop_8_review_4.pictures.create!(photo_url: "http://res.cloudinary.com/mycut/image/upload/v1435591220/review/o.jpg")
+#
+# # ######################################## Shop 9
+# shop_9 = Shop.create!(moderator_id: 3,
+#             name: "Slick & Dapper On Broadway",
+#             address: "4121 Broadway",
+#             city: "Oakland",
+#             state: "CA",
+#             zip: "94611",
+#             phone: 5102509569,
+#             rating: 0.0,
+#             latitude: 37.8288988,
+#             longitude: -122.2559286,
+#             tag_list: ["", ""],
+#             location_list: ["", ""],
+#             photo_url: "")
+#
+# barber_16 = Barber.create!(name: "Savy", skill_list: ["designs"], shop_id: shop_9.id, photo_url: "https://s3-media2.fl.yelpcdn.com/bphoto/JQWT7AXW-3CWr16d3IS_Iw/o.jpg")
+# barber_17 = Barber.create!(name: "Emilio", skill_list: ["fades, tapers, bald taper, bald fade, lineup"], shop_id: shop_9.id, photo_url: "https://s3-media4.fl.yelpcdn.com/bphoto/s-piSUo22qKjS-B9-9iGBw/o.jpg")
+#
+# barber_16.pictures.create!(photo_url:"")
+# barber_16.pictures.create!(photo_url:"")
+# barber_16.pictures.create!(photo_url: "")
+#
+# barber_17.pictures.create!(photo_url: "")
+# barber_17.pictures.create!(photo_url: "")
+# barber_17.pictures.create!(photo_url: "")
+# barber_17.pictures.create!(photo_url: "")
+# barber_17.pictures.create!(photo_url: "")
+# barber_17.pictures.create!(photo_url: "")
+#
+# shop_9_review_1 = shop_9.reviews.create!(body: "", author_id: 4, shop_id: shop_9.id, barber_id: barber_16.id, rating: 5)
+# shop_9_review_2 = shop_9.reviews.create!(body: "", author_id: 2, shop_id: shop_9.id, barber_id: barber_16.id, rating: 1)
+# shop_9_review_3 = shop_9.reviews.create!(body: "", author_id: 3, shop_id: shop_9.id, barber_id: barber_17.id, rating: 5)
+# shop_9_review_4 = shop_9.reviews.create!(body: "", author_id: 1, shop_id: shop_9.id, barber_id: barber_17.id, rating: 5)
+#
+#
+# shop_9_review_3.pictures.create!(photo_url: "")
+# shop_9_review_2.pictures.create!(photo_url: "")
+#
+# # ######################################## Shop 10
+# shop10 = Shop.create!(moderator_id: 4,
+#             name: "Maddix Bruyn, Traditional Barber",
+#             address: "1195 65th St",
+#             city: "Oakland",
+#             state: "CA",
+#             zip: "94608",
+#             phone: 9499339455,
+#             rating: 0.0,
+#             latitude: 37.847267,
+#             longitude: -122.288048,
+#             tag_list: ["traditional, hot lather, straight razor, neck shave, shave, bay rum finish, head shaves, razor fade, fade, contour, barbers, men's hair salon"],
+#             photo_url: "http://res.cloudinary.com/mycut/image/upload/v1435596759/shops/o.jpg")
+#
+# barber_17 = Barber.create!(name: "Maddux", skill_list: ["designs"], shop_id: shop10.id, photo_url: "https://s3-media2.fl.yelpcdn.com/bphoto/JQWT7AXW-3CWr16d3IS_Iw/o.jpg")
+#
+# barber_17.pictures.create!(photo_url:"https://res.cloudinary.com/mycut/image/upload/v1435596864/barbers/barber_portoflio/maddux/o.jpg")
+# barber_17.pictures.create!(photo_url:"https://res.cloudinary.com/mycut/image/upload/v1435596947/barbers/barber_portoflio/maddux/as.jpg")
+# barber_17.pictures.create!(photo_url: "http://res.cloudinary.com/mycut/image/upload/v1435597003/barbers/barber_portoflio/maddux/maddux3.jpg")
+# barber_17.pictures.create!(photo_url: "http://res.cloudinary.com/mycut/image/upload/v1435597030/barbers/barber_portoflio/maddux/maddux4.jpg")
+# barber_17.pictures.create!(photo_url: "http://res.cloudinary.com/mycut/image/upload/v1435597057/barbers/barber_portoflio/maddux/maddux5.jpg")
+# barber_17.pictures.create!(photo_url: "http://res.cloudinary.com/mycut/image/upload/v1435597123/barbers/barber_portoflio/maddux/maddux6.jpg")
+#
+# shop_10_review_1 = shop10.reviews.create!(body: "I looked on Yelp. And I looked, and looked. And, eventually,  I stumbled onto to Maddix's page, and realized that not only was he well reviewed, but he took appointments and he was 5 blocks from my home. Done deal.
+#
+# Got my first haircut today, and I was very happy with the experience. Maddix is a cool guy who knows what he is doing. He's definitely a cut above the typical barber experience in the East Bay, and I will be going back for sure...", author_id: 4, shop_id: shop10.id, barber_id: barber_17.id, rating: 5)
+# shop_10_review_2 = shop10.reviews.create!(body: "This guy can give a haircut like NO one!!
+#
+# Before I started going to Maddix, the only person I would let cut my hair was, well, me. I decided I wanted a cleaner look, and gave him a try - and I never looked back. Amazing cut, great price, and he's always right on time. If I had the option for more than 5 stars, I'd give more.", author_id: 2, shop_id: shop10.id, barber_id: barber_17.id, rating: 5)
+# shop_10_review_3 = shop10.reviews.create!(body: "Protip: The phone number listed here is Maddix's cell phone. Text him to make an appointment. As he noted, he's usually booked out a week in advance.
+#
+# I started off by texting Maddix. He was very helpful and courteous. He could not accommodate my very much last minute and certainly unreasonable request to get into a Saturday morning appointment (I was texting him on Friday night). However, he did refer me to Frank and assured me that the cut would be comparable. I texted Frank and setup an appointment for 11am on Saturday.
+# ", author_id: 3, shop_id: shop10.id, barber_id: barber_17.id, rating: 5)
+#
+# shop_10_review_2.pictures.create!(photo_url: "http://res.cloudinary.com/mycut/image/upload/v1435597363/barbers/barber_portoflio/maddux/maddux7.jpg")
+#
+#
+# # ######################################## Shop 12
+# shop_12 = Shop.create!(moderator_id: 2,
+#             name: "Marquee Salon",
+#             address: "420 40th St",
+#             city: "Oakland",
+#             state: "CA",
+#             zip: "94609",
+#             phone: 5102856679,
+#             rating: 0.0,
+#             latitude: 37.8286204708335,
+#             longitude: -122.260081772461,
+#             tag_list: ["", ""],
+#             location_list: ["", ""],
+#             photo_url: "")
+#
+# barber_21 = Barber.create!(name: "Savy", skill_list: ["designs"], shop_id: shop_12.id, photo_url: "https://s3-media2.fl.yelpcdn.com/bphoto/JQWT7AXW-3CWr16d3IS_Iw/o.jpg")
+# barber_21 = Barber.create!(name: "Emilio", skill_list: ["fades, tapers, bald taper, bald fade, lineup"], shop_id: shop_12.id, photo_url: "https://s3-media4.fl.yelpcdn.com/bphoto/s-piSUo22qKjS-B9-9iGBw/o.jpg")
+#
+# barber_21.pictures.create!(photo_url:"")
+# barber_21.pictures.create!(photo_url:"")
+# barber_21.pictures.create!(photo_url: "")
+#
+# barber_21.pictures.create!(photo_url: "")
+# barber_21.pictures.create!(photo_url: "")
+# barber_21.pictures.create!(photo_url: "")
+# barber_21.pictures.create!(photo_url: "")
+# barber_21.pictures.create!(photo_url: "")
+# barber_21.pictures.create!(photo_url: "")
+#
+# shop_12_review_1 = shop_12.reviews.create!(body: "", author_id: 4, shop_id: shop_12.id, barber_id: barber_21.id, rating: 5)
+# shop_12_review_2 = shop_12.reviews.create!(body: "", author_id: 2, shop_id: shop_12.id, barber_id: barber_21.id, rating: 1)
+# shop_12_review_3 = shop_12.reviews.create!(body: "", author_id: 5, shop_id: shop_12.id, barber_id: barber_21.id, rating: 5)
+# shop_12_review_4 = shop_12.reviews.create!(body: "", author_id: 7, shop_id: shop_12.id, barber_id: barber_21.id, rating: 5)
+#
+#
+# shop_12_review_3.pictures.create!(photo_url: "")
+# shop_12_review_2.pictures.create!(photo_url: "")
+#
+# # ######################################## Shop 13
+# shop_13 = Shop.create!(moderator_id: 3,
+#             name: "Jaujou Studio",
+#             address: "3351 Grand Ave",
+#             city: "Oakland",
+#             state: "CA",
+#             zip: "94610",
+#             phone: 5102083449,
+#             rating: 0.0,
+#             latitude: 37.813549,
+#             longitude: -122.2468262,
+#             tag_list: ["", ""],
+#             location_list: ["", ""],
+#             photo_url: "")
+#
+# barber_22 = Barber.create!(name: "Savy", skill_list: ["designs"], shop_id: shop_13.id, photo_url: "https://s3-media2.fl.yelpcdn.com/bphoto/JQWT7AXW-3CWr16d3IS_Iw/o.jpg")
+# barber_23 = Barber.create!(name: "Emilio", skill_list: ["fades, tapers, bald taper, bald fade, lineup"], shop_id: shop_13.id, photo_url: "https://s3-media4.fl.yelpcdn.com/bphoto/s-piSUo22qKjS-B9-9iGBw/o.jpg")
+#
+# barber_22.pictures.create!(photo_url:"")
+# barber_22.pictures.create!(photo_url:"")
+# barber_22.pictures.create!(photo_url: "")
+#
+# barber_23.pictures.create!(photo_url: "")
+# barber_23.pictures.create!(photo_url: "")
+# barber_23.pictures.create!(photo_url: "")
+# barber_23.pictures.create!(photo_url: "")
+# barber_23.pictures.create!(photo_url: "")
+# barber_23.pictures.create!(photo_url: "")
+#
+# shop_13_review_1 = shop_13.reviews.create!(body: "", author_id: 4, shop_id: shop_13.id, barber_id: barber_22.id, rating: 5)
+# shop_13_review_2 = shop_13.reviews.create!(body: "", author_id: 2, shop_id: shop_13.id, barber_id: barber_22.id, rating: 1)
+# shop_13_review_3 = shop_13.reviews.create!(body: "", author_id: 3, shop_id: shop_13.id, barber_id: barber_23.id, rating: 5)
+# shop_13_review_4 = shop_13.reviews.create!(body: "", author_id: 1, shop_id: shop_13.id, barber_id: barber_23.id, rating: 5)
+#
+#
+# shop_13_review_3.pictures.create!(photo_url: "")
+# shop_13_review_2.pictures.create!(photo_url: "")
+#
+# # ######################################## Shop 14
+# shop_14 = Shop.create!(moderator_id: 3,
+#             name: "77Salon Inc",
+#             address: "5358 College Ave",
+#             city: "Oakland",
+#             state: "CA",
+#             zip: "94618",
+#             phone: 5106017776,
+#             rating: 0.0,
+#             latitude: 37.8395251,
+#             longitude: -122.2512358,
+#             tag_list: ["", ""],
+#             location_list: ["", ""],
+#             photo_url: "")
+#
+# barber_24 = Barber.create!(name: "Savy", skill_list: ["designs"], shop_id: shop_14.id, photo_url: "https://s3-media2.fl.yelpcdn.com/bphoto/JQWT7AXW-3CWr16d3IS_Iw/o.jpg")
+# barber_25 = Barber.create!(name: "Emilio", skill_list: ["fades, tapers, bald taper, bald fade, lineup"], shop_id: shop_14.id, photo_url: "https://s3-media4.fl.yelpcdn.com/bphoto/s-piSUo22qKjS-B9-9iGBw/o.jpg")
+#
+# barber_24.pictures.create!(photo_url:"")
+# barber_24.pictures.create!(photo_url:"")
+# barber_24.pictures.create!(photo_url: "")
+#
+# barber_25.pictures.create!(photo_url: "")
+# barber_25.pictures.create!(photo_url: "")
+# barber_25.pictures.create!(photo_url: "")
+# barber_25.pictures.create!(photo_url: "")
+# barber_25.pictures.create!(photo_url: "")
+# barber_25.pictures.create!(photo_url: "")
+#
+# shop_14_review_1 = shop_14.reviews.create!(body: "", author_id: 4, shop_id: shop_14.id, barber_id: barber_24.id, rating: 5)
+# shop_14_review_2 = shop_14.reviews.create!(body: "", author_id: 2, shop_id: shop_14.id, barber_id: barber_24.id, rating: 1)
+# shop_14_review_3 = shop_14.reviews.create!(body: "", author_id: 3, shop_id: shop_14.id, barber_id: barber_25.id, rating: 5)
+# shop_14_review_4 = shop_14.reviews.create!(body: "", author_id: 1, shop_id: shop_14.id, barber_id: barber_25.id, rating: 5)
+#
+#
+# shop_14_review_3.pictures.create!(photo_url: "")
+# shop_14_review_2.pictures.create!(photo_url: "")

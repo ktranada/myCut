@@ -83,6 +83,7 @@
         collection: searchResults
       })
     } else {
+      // MyCut.shops.fetch();
       var landingPage = new MyCut.Views.ShopSearchView({
         newLoc: window.currentLoc,
         collection: MyCut.shops

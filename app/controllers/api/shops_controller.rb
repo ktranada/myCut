@@ -36,7 +36,7 @@ module Api
 
     def show
       @shop = Shop.find(params[:id])
-      @reviews = Review.where(shop_id: @shop.id)
+      @reviews = @shop.reviews.order("created_at DESC")
       @barbers = Barber.where(shop_id: @shop.id)
       render :show
     end
@@ -57,7 +57,7 @@ module Api
       if (!queries[:des].empty?)
         description = queries[:des].split(",")[0]
         shops = (Shop.where("UPPER(name) LIKE ? ", "%#{description.upcase}%") +
-                 Shop.tagged_with(queries[:des], any: :true)) &&
+                 Shop.tagged_with(queries[:des], any: :true)) &
                  Shop.near(queries[:loc], 6)
       else
         shops = Shop.near(queries[:loc], 6)

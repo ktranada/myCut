@@ -1,3 +1,4 @@
+
 # == Schema Information
 #
 # Table name: reviews
@@ -24,5 +25,9 @@ class Review < ActiveRecord::Base
   belongs_to :shop
   belongs_to :barber
   has_many :pictures, as: :imageable, dependent: :destroy
+
+  def parsed_create_date
+    self.created_at.strftime("%b %d, %Y")
+  end
 
 end

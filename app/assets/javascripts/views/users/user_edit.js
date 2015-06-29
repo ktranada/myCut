@@ -44,6 +44,7 @@ MyCut.Views.UserAccountEditModal = Backbone.View.extend({
   upload: function(event){
     var that = this;
     event.preventDefault();
+    debugger
     cloudinary.openUploadWidget(USER_CLOUDINARY, function(error, result){
       if (!error) {
         var photo_url =  result[0].eager[1].url;

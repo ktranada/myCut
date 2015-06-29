@@ -1,18 +1,34 @@
 MyCut.Views.ShowShop = Backbone.CompositeView.extend({
   template: JST['shops/show_shop'],
 
+  // events: {
+  //   "click .shop-map-button": "openMapModal"
+  // },
+
   initialize: function(){
     this.listenTo(this.model, "sync change", this.render);
     this.listenTo(this.model.reviews(), "add", this.addReviewSubview);
     this.listenTo(this.model.reviews(), "remove", this.removeReviewSubview);
     this.model.reviews().each(this.addReviewSubview.bind(this));
+    // this.addMapModal();
   },
 
   addReviewSubview: function(review) {
     var reviewSubview = new MyCut.Views.ReviewIndexItem({
-      model: review
+      model: review,
+      author: review.author
     })
-    this.addSubview('.review-items',reviewSubview);
+    this.addSubview('.review-items', reviewSubview, false);
+  },
+
+  addMapModal: function(){
+    debugger
+    this.shopMap = new MyCut.Views.ShopMapModal({ model: this.model });
+    $('body').append(this.shopMap.render().$el)
+  },
+
+  openMapModal: function(){
+    this.shopMap.$el.show();
   },
 
   removeReviewSubview: function(review) {

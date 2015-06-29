@@ -167,8 +167,13 @@
 }
 
 
-
-
+.no-access {
+  text-align: center;
+  margin-top: 20%;
+  font-size: 40px;
+  color: white;
+  background-color: red;
+}
 
 
 
@@ -905,9 +910,10 @@ div.container-fluid.level-two {
   }
   .shop-loc {
     position: absolute;
-margin-left: 25%;
+margin-left: 17%;
 font-family: "ProximaNova-Light";
 font-size: 19px;
+margin-top: -1px;
 color: white;
 
   }
@@ -980,15 +986,20 @@ color: white;
               }
             }
             .author-photo {
-              .user-avatar.circular {
+              .circular {
+                margin-top: 15px;
                 float: left;
                 margin-right: 20px;
-                margin-right: 60px;
+                margin-right: 40px;
                 width: 100px;
                 height: 100px;
+                overflow-y: hidden;
                 border-radius: 150px;
                 -webkit-border-radius: 150px;
                 -moz-border-radius: 150px;
+                .user-avatar {
+                  width: 100px;
+                }
               }
             }
           }
@@ -1037,9 +1048,10 @@ ul.barber-container {
 div.review-content {
   display: flex;
   font-family: "ProximaNova-Thin";
-  font-size: 12px;
+  font-size: 13.3px;
   letter-spacing: .02em;
   line-height: 159%;
+  white-space: pre-wrap;
 
 }
 

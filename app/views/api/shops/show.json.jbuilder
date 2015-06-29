@@ -17,6 +17,7 @@ json.reviews do
     json.author_id review.author_id
     json.id review.id
     json.shop_id review.shop_id
+    json.date review.parsed_create_date
     json.body review.body
     json.barber_name review.barber.name
     json.username review.author.username
