@@ -1,12 +1,21 @@
-<div class="form-container barber-create-form">
+<div class="form-container user-delete barber-create-form">
   <br>
-  <div class="title">CONFIRMATION</div>
+  <div class="title">WARNING</div>
   <br>
-  <strong>WARNING<strong><br>
   <span>You are about to <span class="warning">irreversibly</span> delete your account.</span>
   <br>Do you wish to proceed?
   <br><br>
-  <span class="cancel-delete">CANCEL</span>
-  &nbsp; &nbsp;
-  <span class="confirm-delete">YES</span>
+  <div class="options">
+    <span class="cancel-delete">CANCEL</span>
+    &nbsp; &nbsp;
+    <span class="confirm-delete">YES</span>
+  </div>
+  <div class="password-req">
+    <form >
+      <label>Please input your password</label>
+      <input type="text" class="form-control" name="password"><br>
+      <button type="submit" class="btn btn-primary" name="user[password]">DELETE MY ACCOUNT</button>
+
+    </form>
+  </div>
 </div>

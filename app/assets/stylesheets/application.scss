@@ -759,6 +759,40 @@ i.fa-picture-o {
   z-index: 3;
   background: rgba(0, 0, 0, .5);
 
+  .user-delete {
+    color: white;
+    span {
+      font-size: 14px;
+      color: white;
+      .warning {
+        color: crimson;
+        text-transform: uppercase;
+        font-weight: bold;
+
+      }
+    }
+    .options {
+      .cancel-delete{
+        &:hover {
+          background-color: gray;
+        }
+      }
+      .confirm-delete {
+        &:hover {
+          background-color: crimson;
+        }
+      }
+      span {
+        border-color: black;
+        border-style: solid;
+        padding: 5px;
+      }
+    }
+    .password-req {
+      font-size: 14px;
+      font-style: italic;
+    }
+  }
   .cancel-button {
     float: right;
     font-size: 20px;

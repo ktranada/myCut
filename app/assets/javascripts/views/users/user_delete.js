@@ -1,10 +1,11 @@
 MyCut.Views.UserDelete = Backbone.CompositeView.extend({
-  template: JST['barbers/barber_delete'],
+  template: JST['users/user_delete'],
   className: "modal-form delete-modal",
 
   events: {
     "click .cancel-delete": "cancelDelete",
-    "click .confirm-delete": "confirmDelete"
+    "click .confirm-delete": "promptPassword",
+    "submit form": "confirmDelete"
   },
 
   initialize: function(options){
@@ -16,13 +17,23 @@ MyCut.Views.UserDelete = Backbone.CompositeView.extend({
     this.$el.hide();
   },
 
-  confirmDelete: function(){
-    this.userView.deleteAccount();
+  promptPassword: function(){
+    this.$('.options').hide();
+    this.$('.password-req').show();
+  },
+
+  confirmDelete: function(event){
+    event.preventDefault();
+    debugger
+    var password = $(event.currentTarget).serializeJSON();
+
+    this.userView.deleteAccount(password);
   },
 
   render: function() {
     var renderedContent = this.template();
     this.$el.html(renderedContent);
+    this.$('.password-req').hide();
     this.$el.hide();
     return this;
   }

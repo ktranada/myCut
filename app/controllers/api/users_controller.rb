@@ -4,8 +4,12 @@ module Api
 
     def destroy
       @user = User.find(params[:id])
-      @user.destroy
-      render json: {}
+      if (@user.is_password?(params[:password]))
+        @user.destroy
+        render json: {}
+      else
+        render json: @user.errors.full_messages, status: :unprocessable_entity
+      end
     end
 
     def show

@@ -14,12 +14,13 @@ Barber.destroy_all
 Picture.destroy_all
 
 user1 = User.create!(username: "guest", email: 'guest@gmail.com' , password: 'password', photo_url: "https://dl.dropboxusercontent.com/s/zp27re1j4301pii/user_5.jpg", thumb_url: "https://dl.dropboxusercontent.com/s/zp27re1j4301pii/user_5.jpg")
-user2 = User.create!(username: "kevin", email: 'kevin@gmail.com' , password: 'password', photo_url: "https://dl.dropboxusercontent.com/s/5i52djfnyj5ud5r/me.jpeg", thumb_url: "https://dl.dropboxusercontent.com/s/5i52djfnyj5ud5r/me.jpeg")
+user2 = User.create!(username: "kevin", admin: true, email: 'kevin@gmail.com' , password: 'wildfire', photo_url: "https://dl.dropboxusercontent.com/s/5i52djfnyj5ud5r/me.jpeg", thumb_url: "https://dl.dropboxusercontent.com/s/5i52djfnyj5ud5r/me.jpeg")
 user3 = User.create!(username: "lana", email: 'lana@gmail.com', password: 'password', photo_url: "http://res.cloudinary.com/mycut/image/upload/v1435588738/avatars/1782139_813044228731992_5708476506467472977_n.jpg")
 user4 = User.create!(username: "danny", email: 'danny@gmail.com', password: 'dinkleberg', photo_url: "http://res.cloudinary.com/mycut/image/upload/v1435588686/avatars/10689479_867846916008_7107299238096929499_n.jpg")
 user5 = User.create!(username: "vicky", email: 'vicky@gmail.com', password: 'akdslmlge', photo_url: "https://dl.dropboxusercontent.com/s/83d8r8vtw28mb3v/user_1.jpg", thumb_url: "https://dl.dropboxusercontent.com/s/83d8r8vtw28mb3v/user_1.jpg")
 user6 = User.create!(username: "suavecito", email: 'suavecity@pomade.com', password: 'genakn', photo_url: "http://res.cloudinary.com/mycut/image/upload/v1435587601/avatars/images.jpg")
-user7 = User.create!(username: "adagio", email: 'adagio@escargo.com', password: 'gmleamgl', photo_url: "http://res.cloudinary.com/mycut/image/upload/v1435357426/avatars/qsfxi67w0hsfb2988y6k.jpg")
+user7 = User.create!(username: "bonnie", email: 'adagioolo@escargo.com', password: 'gmleamgl', photo_url: "http://res.cloudinary.com/mycut/image/upload/v1435357426/avatars/qsfxi67w0hsfb2988y6k.jpg")
+user7 = User.create!(username: "adagio", email: 'adagio@escargo.com', password: 'password', photo_url: "http://res.cloudinary.com/mycut/image/upload/v1435357426/avatars/qsfxi67w0hsfb2988y6k.jpg")
 
 
 ######################################### Shop 1

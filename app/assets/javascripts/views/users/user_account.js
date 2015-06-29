@@ -13,7 +13,7 @@ MyCut.Views.UserAccount = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "add", this.addShopSubview);
     this.listenTo(this.collection, "remove", this.removeModelSubview);
     this.addDeleteModal();
-    
+
     this.addEditModal();
   },
 
@@ -22,17 +22,25 @@ MyCut.Views.UserAccount = Backbone.CompositeView.extend({
     this.addSubview('.managed-shops', shopSubview);
   },
 
-  deleteAccount: function(){
-    this.deleteModal.remove();
-    this.model.destroy({
+  deleteAccount: function(password){
+    var that = this;
+    $.ajax({
+      url: "/api/users/" + window.id,
+      type: 'DELETE',
+      dataType: "json",
+      data: password,
       success: function(model, response){
         $.ajax({
           url: '/session/new',
           type: 'get',
           success: function() {
+            that.deleteModal.remove();
             window.location = "/welcome";
-          },
+          }
         });
+      },
+      error: function(model, response) {
+        humane.log("You must input the correct password.");
       }
     });
   },
