@@ -112,20 +112,18 @@ collections, but they will fetch from the new `search` routes.
 [Details][phase-five]
 
 ### Bonus Features (TBD)
-- [ ] Enable user creation of tags
-- [ ] Show on specific reviews for barber on page
-- [ ] Place safeguards against non-privileged users from accessing the API.
-- [ ] Allow moderator to upload photo to a portfolio
+- [x] Enable user creation of tags
+- [x] Show on specific reviews for barber on page
+- [x] Place safeguards against non-privileged users from accessing the API.
+- [x] Allow moderator to upload photo to a portfolio
 - [ ] Many-to-many association between barber + shop
-- [ ] Display shop by average rating 
+- [x] Display shop by average rating 
 - [ ] Activity history (e.g. likes, reblogs, taggings)
 - [ ] Queries
   - [ ] Search by barber
 - [ ] Barber Account
   - [ ] Upload portfolio 
-- [ ] Read/leave views
-  - [ ] Barber/stylist
-- [ ] Modal barber portfolio
+- [x] Modal barber portfolio
 [phase-one]: ./docs/phases/phase1.md
 [phase-two-a]: ./docs/phases/phase2a.md
 [phase-two-b]: ./docs/phases/phase2b.md
