@@ -26,7 +26,7 @@ MyCut.Views.ShopAddBarbers = Backbone.CompositeView.extend({
       shop: this.model,
       collection: this.collection
     });
-    $('body').append(barberForm.render().$el);
+    $('body').append(this.barberModal.render().$el);
   },
 
 
