@@ -54,7 +54,7 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
 
   shopUpdate: function() {
     var that = this
-    
+
     this.model.save(this._formData, {
       success: function(){
         humane.log("Your shop has been updated.", { timeoutAfterMove: 2000});
@@ -72,18 +72,29 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
     var fullAddress = this._formData.address +
                       ', ' + this._formData.city +
                       ', ' + this._formData.state;
-    var geocoder = new google.maps.Geocoder();
     var that = this;
-    geocoder.geocode({'address': fullAddress }, function(result, status){
-      if (status == google.maps.GeocoderStatus.OK) {
-        var coord = result[0].geometry.location;
-        that._formData.latitude = coord.A;
-        that._formData.longitude = coord.F;
-        that.shopCreate(coord);
-      } else {
-        that.$('.errors-container').html("Invalid business location.");
-      }
-    });
+    // var geocoder = new google.maps.Geocoder();
+    // geocoder.geocode({'address': fullAddress }, function(result, status){
+    //   if (status == google.maps.GeocoderStatus.OK) {
+    //     var coord = result[0].geometry.location;
+    //     that._formData.latitude = coord.A;
+    //     that._formData.longitude = coord.F;
+    //     that.shopCreate(coord);
+    //   } else {
+    //     that.$('.errors-container').html("Invalid business location.");
+    //   }
+    // });
+    var geocoder = L.mapbox.geocoder('mapbox.places-v1');
+    geocoder.query('New York City', showMap);
+
+    function showMap(err, data) {
+        if (data.lbounds) {
+            map.fitBounds(data.lbounds);
+            var marker = L.marker([data.latlng[0], data.latlng[1]]).addTo(map);
+        } else if (data.latlng) {
+            map.setView([data.latlng[0], data.latlng[1]], 13);
+        }
+    }
   },
 
   render: function() {
@@ -97,7 +108,7 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
   },
 
   upload: function(e){
-    
+
     var that = this;
     e.preventDefault();
     cloudinary.openUploadWidget(SHOP_CLOUD, function(error, result){

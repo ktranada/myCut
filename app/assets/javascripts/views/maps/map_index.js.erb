@@ -2,13 +2,15 @@ MyCut.Views.IndexMap = Backbone.View.extend({
   attributes: {
     id: "map-canvas"
   },
+  events: {
+    // "click": "centerMap"
+  },
 
   initialize: function(options){
     this._markers = {};
     this.updatedLoc = options.updatedLoc;
     this.markerImage = "http://res.cloudinary.com/mycut/image/upload/c_scale,w_20/v1435185992/raty/scissor.png";
-
-    // this.listenTo(this.collection, 'add', this.addMarker);
+    this.listenTo(this.collection, 'add', this.addMarker);
     // this.listenTo(this.collection, 'remove', this.removeMarker);
   },
 
@@ -17,27 +19,51 @@ MyCut.Views.IndexMap = Backbone.View.extend({
       center: { lat: 37.7577, lng: -122.4376 },
       zoom: 11
     };
-    this._map = new window.google.maps.Map(this.el, mapOptions);
+    // this._map = new window.google.maps.Map(this.el, mapOptions);
+    debugger
+    this._map = L.mapbox.map(this.el, 'kevintran.3285da64', { accessToken: "pk.eyJ1Ijoia2V2aW50cmFuIiwiYSI6IjZjMjRmOTcyMWJjOGVkOGUxMGYwNWNmZGZlYmRmMzc0In0.-RSnemDd11jVMz3WnG5UXg" })
+        .setView([37.7577, -122.4376], 9);
+
+
+
     if (addMarkers){
       this.collection.each(this.addMarker.bind(this))
       // this.attachMapListeners();
     }
   },
 
+  centerMap: function(e){
+    debugger
+    this._map.panTo(e.layer.getLatLng());
+  },
+
   // Event handlers
    addMarker: function (listing) {
      if (this._markers[listing.id]) { return };
-debugger
      var view = this;
-     var marker = new google.maps.Marker({
-       position: { lat: listing.get('latitude'), lng: listing.get('longitude') },
-       map: this._map,
-       icon: this.markerImage
-     });
+    //  var marker = new google.maps.Marker({
+    //    position: { lat: listing.get('latitude'), lng: listing.get('longitude') },
+    //    map: this._map,
+    //    icon: this.markerImage
+    //  });
+    debugger
+     var marker = L.icon({
+          iconUrl: this.markerImage
+      });
 
-     google.maps.event.addListener(marker, 'click', function (event) {
-       view.showMarkerInfo(event, marker, listing);
-     });
+      // TODO this is for tooltips
+    // var myLayer = L.mapbox.featureLayer().addTo(this._map);
+    // marker.bindPopup(shopInfo, {
+    //   minWidth: 150
+    // })
+
+    var shopInfo = JST['maps/info_window']({ shop: listing });
+
+     L.marker([listing.get('latitude'), listing.get('longitude')], { icon: marker }).addTo(this._map);
+
+    //  google.maps.event.addListener(marker, 'click', function (event) {
+    //    view.showMarkerInfo(event, marker, listing);
+    //  });
 
      this._markers[listing.id] = marker;
    },
@@ -62,7 +88,9 @@ debugger
    },
 
    changeCenter: function(loc){
+     debugger
      this._map.setCenter(loc);
+    //  this._map.setView([])
    },
 
    startBounce: function (id) {

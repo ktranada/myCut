@@ -23,8 +23,6 @@ MyCut.Views.ShopSearchView = Backbone.CompositeView.extend({
     this.$el.html(renderedLandingPage);
     this.$('.shops-composite').html(this.shopsIndex.render().$el);
     this.$(".map").html(this.indexMap.$el);
-    debugger
-    this.indexMap.initMap(true);
     this.updateLoc(this.newLoc);
     return this;
   },
@@ -33,7 +31,7 @@ MyCut.Views.ShopSearchView = Backbone.CompositeView.extend({
     var that = this;
     var geocoder = new google.maps.Geocoder();
     if (loc != window.currentLoc) {
-      geocoder.geocode({'address': loc}, function(result, status){
+      geocoder.geocode({address: loc}, function(result, status){
         if (status == google.maps.GeocoderStatus.OK) {
            var loc = result[0].geometry.location;
            that.indexMap.changeCenter(loc);

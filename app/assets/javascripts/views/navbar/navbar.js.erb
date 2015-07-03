@@ -1,6 +1,7 @@
 MyCut.Views.NavBar = Backbone.CompositeView.extend({
   template: JST['navbar/navbar'],
   tagName: "nav",
+  className: "col-md-10 col-md-offset-1",
 
   events: {
     'click .dropdown-toggle, .dropdown-menu': "dropMenu",
@@ -19,7 +20,7 @@ MyCut.Views.NavBar = Backbone.CompositeView.extend({
 
   newSearch: function(event){
     event.preventDefault();
-    
+
     var formData = $(event.currentTarget).serializeJSON();
     Backbone.history.navigate("/shops/search?des="+ formData.des + "&loc=" + formData.loc, {trigger: true})
   },

@@ -90,6 +90,7 @@
       })
     }
     this.preSwap(landingPage);
+    landingPage.indexMap.initMap(true);
   },
 
   shopShow: function(id) {
