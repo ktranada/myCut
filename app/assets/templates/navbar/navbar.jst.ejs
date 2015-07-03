@@ -1,45 +1,60 @@
 <nav class="navbar navbar-inverse navbar-static-top group">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="pull-left" href="#">
-        <img src="<%= logo %>">
-      </a>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <div class="col-sm-9 nav-search col-md-9 col-offset-sm-4 pull-left">
-    		<form class="navbar-form">
-          <div class="input-group">
-            <span class="input-group-addon">Find</span>
-            <input type="text" class="form-control" name="des" placeholder="fade, keratin treatment, shaves" id="find-by">
-          </div>
-          <div class="input-group">
-            <span class="input-group-addon">NEAR</span>
-      			<input type="text" class="form-control" name="loc" value="<%= window.currentLoc %>" id="srch-term">
-      		</div>
-          <button class="btn btn-default query-submit"><i class="glyphicon glyphicon-search"></i></button>
-    		</form>
-  		</div>
-      <div class="navbar-right">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= window.currentUser %><span class="caret"></span></a>
-
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#/account">My Profile</a></li>
-              <li class="divider"></li>
-              <li><a class="log-out" href="/session" data-method="delete">Logout</a></li>
-            </ul>
-          </li>
-        </ul>
+    <div class="row">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="pull-left" href="#">
+          <img src="<%= logo %>">
+        </a>
       </div>
-        <ul class="nav navbar-nav navbar-right">
-        </ul>
-    </div><!-- /.navbar-collapse -->
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="col-sm-9 nav-search col-md-9 col-offset-sm-4 pull-left">
+          <form class="navbar-form">
+            <div class="input-group">
+              <span class="input-group-addon">Find</span>
+              <input type="text" class="form-control" name="des" placeholder="fade, keratin treatment, shaves" id="find-by">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon">NEAR</span>
+              <input type="text" class="form-control" name="loc" value="<%= window.currentLoc %>" id="srch-term">
+            </div>
+            <button class="btn btn-default query-submit"><i class="glyphicon glyphicon-search"></i></button>
+          </form>
+        </div>
+        <div class="navbar-right">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= window.currentUser %><span class="caret"></span></a>
+
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#/account">My Profile</a></li>
+                <li class="divider"></li>
+                <li><a class="log-out" href="/session" data-method="delete">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+          <ul class="nav navbar-nav navbar-right">
+          </ul>
+      </div><!-- /.navbar-collapse -->
+    </div>
+
+    <div class="row feed-header">
+      <div class="col-md-7 col-xs-6 col-md-offset-1">
+        <h1><em>Shops</em>
+          <p class="lead">Get your cut today</p>
+        </h1>
+      </div>
+      <br>
+      <div class="shop-feature col-md-2">
+          <a href="#/shops/new"><button class="btn btn-default">Feature your shop</button></a>
+      </div>
+    </div>
   </div><!-- /.container-fluid -->
+</nav>

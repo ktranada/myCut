@@ -257,7 +257,7 @@ nav.navbar {
     letter-spacing: -1px;
   }
   form {
-    text-align: center;
+    text-align: webkit-center;
   }
   img {
     padding-top: 4px;
@@ -268,6 +268,12 @@ nav.navbar {
       height: 50px;
 
     }
+  }
+  .navbar-header {
+    padding-left: 10px;
+  }
+  .navbar-collapse {
+    padding-right: 20px;
   }
 }
 
@@ -418,7 +424,6 @@ shop-items-index {
 }
 .feed-header {
   color: rgb(202, 217, 231);
-  width: 100%;
   background-color: rgba(#008B8B, .65);
   font-family: "ProximaNova-Thin";
   font-size: larger;
