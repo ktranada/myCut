@@ -15,7 +15,6 @@ MyCut.Views.ShopItem = Backbone.CompositeView.extend({
     }
   },
 
-
     startBounce: function () {
       this.map.startBounce(this.model.get('id'));
     },
@@ -23,7 +22,6 @@ MyCut.Views.ShopItem = Backbone.CompositeView.extend({
     stopBounce: function () {
       this.map.stopBounce(this.model.get('id'));
     },
-
 
   render: function() {
     var renderedContent = this.template({
