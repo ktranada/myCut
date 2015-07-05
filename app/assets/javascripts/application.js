@@ -20,10 +20,10 @@
 //= require jquery.serializejson
 //= require bootstrap-sprockets
 //= require bootstrap-tagsinput.min
-//= require bootbox.min
 //= require humane.min
 //= require jquery.fullPage.min
 //= require cloudinary
+//= require bootbox.min
 //= require my_cut
 //= require_tree ../templates
 //= require_tree ./models

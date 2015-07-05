@@ -29,17 +29,17 @@ MyCut.Views.ShopSearchView = Backbone.CompositeView.extend({
 
   updateLoc: function(loc){
     var that = this;
-    var geocoder = new google.maps.Geocoder();
+    var geocoder = L.mapbox.geocoder('mapbox.places-v1');
     if (loc != window.currentLoc) {
-      geocoder.geocode({address: loc}, function(result, status){
-        if (status == google.maps.GeocoderStatus.OK) {
-           var loc = result[0].geometry.location;
-           that.indexMap.changeCenter(loc);
-        } else {
-          alert("That location does not exist!");
+      geocoder.query(loc, function (err, data){
+        if (data.lbounds){
+          debugger
+          var newLoc = data.latlng;
+          that.indexMap.changeCenter(newLoc);
         }
       })
     }
+
   }
 
 });

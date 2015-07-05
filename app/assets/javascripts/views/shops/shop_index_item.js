@@ -3,8 +3,9 @@ MyCut.Views.ShopItem = Backbone.CompositeView.extend({
   className: "shop-item col-md-12",
 
   events: {
-    'mouseenter': 'startBounce',
-    'mouseleave': 'stopBounce'
+    'mouseenter': 'displayTooltip',
+    // "mousetenter": "toggleShop"
+    'mouseleave': 'hideTooltip'
   },
 
   initialize: function(options) {
@@ -15,13 +16,14 @@ MyCut.Views.ShopItem = Backbone.CompositeView.extend({
     }
   },
 
-    startBounce: function () {
-      this.map.startBounce(this.model.get('id'));
-    },
+  displayTooltip: function () {
+    
+    this.map._markers[this.model.get('id')].openPopup();
+  },
 
-    stopBounce: function () {
-      this.map.stopBounce(this.model.get('id'));
-    },
+  hideTooltip: function () {
+    this.map._markers[this.model.get('id')].closePopup();
+  },
 
   render: function() {
     var renderedContent = this.template({

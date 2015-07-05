@@ -2,7 +2,8 @@ module Api
   class ShopsController < ApiController
 
     def index
-      @shops = Shop.all
+      @shops = Shop.near("san francisco", 7);
+      
       render :index
     end
 
@@ -60,9 +61,7 @@ module Api
                  Shop.tagged_with(queries[:des], any: :true )) &
                  Shop.near(queries[:loc], 6) &
                  Shop.joins('LEFT OUTER JOIN barbers ON shops.id = barbers.shop_id').where('barbers.shop_id IS NOT NULL');
-
       else
-
         shops = Shop.near(queries[:loc], 6).joins('LEFT OUTER JOIN barbers ON shops.id = barbers.shop_id').where('barbers.shop_id IS NOT NULL');
       end
       shops

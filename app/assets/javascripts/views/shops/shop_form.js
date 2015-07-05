@@ -30,7 +30,6 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
     this.model.save(this._formData, {
       success: function() {
         humane.log("Your shop has been created!", {timeoutAfterMove: 2000});
-        that.collection.add(that.model);
         Backbone.history.navigate("", { trigger: true});
       },
       error: function(model, response) {
@@ -85,14 +84,13 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
     //   }
     // });
     var geocoder = L.mapbox.geocoder('mapbox.places-v1');
-    geocoder.query('New York City', showMap);
+    geocoder.query(fullAddress, showMap);
 
     function showMap(err, data) {
         if (data.lbounds) {
-            map.fitBounds(data.lbounds);
-            var marker = L.marker([data.latlng[0], data.latlng[1]]).addTo(map);
-        } else if (data.latlng) {
-            map.setView([data.latlng[0], data.latlng[1]], 13);
+            that._formData.latitude = data.latlng[0];
+            that._formData.longitude = data.latlng[1];
+            that.shopCreate();
         }
     }
   },

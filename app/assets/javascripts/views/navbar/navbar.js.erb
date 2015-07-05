@@ -12,6 +12,7 @@ MyCut.Views.NavBar = Backbone.CompositeView.extend({
 
   initialize: function(options){
     this.router = options.router;
+    this.listenTo(window.currentLoc, "change", this.updateLoc);
   },
 
   dropMenu: function() {
@@ -32,6 +33,10 @@ MyCut.Views.NavBar = Backbone.CompositeView.extend({
     });
     this.$el.html(renderedNav);
     return this;
+  },
+
+  updateLoc: function(){
+    $(".search-near").val(window.currentLoc);
   }
 
 });

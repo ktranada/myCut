@@ -6,6 +6,8 @@ MyCut.Views.ShowShop = Backbone.CompositeView.extend({
   // },
 
   initialize: function(){
+    debugger
+    window.$('.index-banner').hide();
     this.listenTo(this.model, "sync change", this.render);
     this.listenTo(this.model.reviews(), "add", this.addReviewSubview);
     this.listenTo(this.model.reviews(), "remove", this.removeReviewSubview);
@@ -22,7 +24,7 @@ MyCut.Views.ShowShop = Backbone.CompositeView.extend({
   },
 
   addMapModal: function(){
-    
+
     this.shopMap = new MyCut.Views.ShopMapModal({ model: this.model });
     $('body').append(this.shopMap.render().$el)
   },

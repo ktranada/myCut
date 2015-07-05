@@ -3,7 +3,7 @@ MyCut.Views.IndexMap = Backbone.View.extend({
     id: "map-canvas"
   },
   events: {
-    // "click": "centerMap"
+    // "mouseover .leaflet-marker-icon": "displayTooltip"
   },
 
   initialize: function(options){
@@ -11,7 +11,7 @@ MyCut.Views.IndexMap = Backbone.View.extend({
     this.updatedLoc = options.updatedLoc;
     this.markerImage = "http://res.cloudinary.com/mycut/image/upload/c_scale,w_20/v1435185992/raty/scissor.png";
     this.listenTo(this.collection, 'add', this.addMarker);
-    // this.listenTo(this.collection, 'remove', this.removeMarker);
+    this.geoJSON = [];
   },
 
   initMap: function(addMarkers){
@@ -19,16 +19,13 @@ MyCut.Views.IndexMap = Backbone.View.extend({
       center: { lat: 37.7577, lng: -122.4376 },
       zoom: 14
     };
-    // this._map = new window.google.maps.Map(this.el, mapOptions);
-
-    this._map = L.mapbox.map(this.el, 'kevintran.3285da64', { accessToken: "pk.eyJ1Ijoia2V2aW50cmFuIiwiYSI6IjZjMjRmOTcyMWJjOGVkOGUxMGYwNWNmZGZlYmRmMzc0In0.-RSnemDd11jVMz3WnG5UXg" })
+    this._map = L.mapbox.map(this.el, 'kevintran.3285da64')
         .setView([37.7577, -122.4376], 12);
 
 
 
     if (addMarkers){
       this.collection.each(this.addMarker.bind(this))
-      // this.attachMapListeners();
     }
   },
 
@@ -37,35 +34,28 @@ MyCut.Views.IndexMap = Backbone.View.extend({
     this._map.panTo(e.layer.getLatLng());
   },
 
+  displayTooltip: function(){
+
+  },
+
   // Event handlers
    addMarker: function (listing) {
      if (this._markers[listing.id]) { return };
      var view = this;
-    //  var marker = new google.maps.Marker({
-    //    position: { lat: listing.get('latitude'), lng: listing.get('longitude') },
-    //    map: this._map,
-    //    icon: this.markerImage
-    //  });
 
      var marker = L.icon({
           iconUrl: this.markerImage
       });
 
-      // TODO this is for tooltips
-    // var myLayer = L.mapbox.featureLayer().addTo(this._map);
-    // marker.bindPopup(shopInfo, {
-    //   minWidth: 150
-    // })
+      this.geoJSON.push({
+        type: "Feature",
 
-    var shopInfo = JST['maps/info_window']({ shop: listing });
+      })
+     var newMarker = L.marker([listing.get('latitude'), listing.get('longitude')], {icon: marker })
+                      .bindPopup(JST['maps/info_window']({ shop: listing }))
+                      .addTo(this._map);
 
-     L.marker([listing.get('latitude'), listing.get('longitude')], { icon: marker }).addTo(this._map);
-
-    //  google.maps.event.addListener(marker, 'click', function (event) {
-    //    view.showMarkerInfo(event, marker, listing);
-    //  });
-
-     this._markers[listing.id] = marker;
+     this._markers[listing.id] = newMarker;
    },
 
    removeMarker: function (listing) {
@@ -74,23 +64,8 @@ MyCut.Views.IndexMap = Backbone.View.extend({
      delete this._markers[listing.id];
    },
 
-   showMarkerInfo: function (event, marker, shop) {
-     // This event will be triggered when a marker is clicked. Right now it
-     // simply opens an info window with the title of the marker. However, you
-     // could get fancier if you wanted (maybe use a template for the content of
-     // the window?)
-     var shopInfo = JST['maps/info_window']({ shop: shop });
-     var infoWindow = new google.maps.InfoWindow({
-       content: shopInfo
-     });
-
-     infoWindow.open(this._map, marker);
-   },
-
    changeCenter: function(loc){
-
-     this._map.setCenter(loc);
-    //  this._map.setView([])
+     this._map.setView([loc[0] + .03, loc[1] + .1])
    },
 
    startBounce: function (id) {
