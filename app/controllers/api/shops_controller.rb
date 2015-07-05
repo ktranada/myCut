@@ -57,10 +57,13 @@ module Api
       if (!queries[:des].empty?)
         description = queries[:des].split(",")[0]
         shops = (Shop.where("UPPER(name) LIKE ? ", "%#{description.upcase}%") +
-                 Shop.tagged_with(queries[:des], any: :true)) &
-                 Shop.near(queries[:loc], 6)
+                 Shop.tagged_with(queries[:des], any: :true )) &
+                 Shop.near(queries[:loc], 6) &
+                 Shop.joins('LEFT OUTER JOIN barbers ON shops.id = barbers.shop_id').where('barbers.shop_id IS NOT NULL');
+
       else
-        shops = Shop.near(queries[:loc], 6)
+
+        shops = Shop.near(queries[:loc], 6).joins('LEFT OUTER JOIN barbers ON shops.id = barbers.shop_id').where('barbers.shop_id IS NOT NULL');
       end
       shops
     end

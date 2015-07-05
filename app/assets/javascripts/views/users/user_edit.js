@@ -22,9 +22,9 @@ MyCut.Views.UserAccountEditModal = Backbone.View.extend({
 
     if (this.formData['new_password'] == this.formData['confirm_password']) {
       this.formData["user"]["new_password"] = this.formData['new_password'];
-      debugger
+      
       this.formData ["user"]["photo_url"] = this.model.get("photo_url");
-      debugger;
+      ;
       this.model.save(this.formData, {
         success: function(){
           humane.log("You've successfully updated your account!");
@@ -44,7 +44,7 @@ MyCut.Views.UserAccountEditModal = Backbone.View.extend({
   upload: function(event){
     var that = this;
     event.preventDefault();
-    debugger
+    
     cloudinary.openUploadWidget(USER_CLOUDINARY, function(error, result){
       if (!error) {
         var photo_url =  result[0].eager[1].url;

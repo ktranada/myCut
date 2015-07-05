@@ -185,18 +185,24 @@
   display: block;
   clear: both;
 }
+.map-container {
+}
 
-html, body, .first-level, .level-two, .landing-level-three, .map-container, .map, #map-canvas {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+#map-canvas {
+
 }
 
 .map-container {
-  width: 40%;
-  height: 66vh;;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
   .map {
     #map-canvas{
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 100%;
     }
   }
 }
@@ -211,14 +217,6 @@ a {
     color: black;
   }
 }
-///////////////////////////////////////////////
-// Mapbox
-Map {
-  font-directory: url("fonts/Roboto Thin");
-  }
-
-
-
 
 
 //////////////////////////////////////////////////////////////////
@@ -244,7 +242,7 @@ Map {
 /*  Nav bar*/
 nav.navbar {
   width: 100%;
-  background-color: black;
+  background-color: rgba(0,0,0,.1);
   color: white;
   font-style: italic;
   font-size: 1.2em;
@@ -271,15 +269,53 @@ nav.navbar {
   }
   .navbar-header {
     padding-left: 10px;
+    background-color: black;
   }
   .navbar-collapse {
-    padding-right: 20px;
+    padding-right: 30px;
+    background-color: black;
+  }
+  .container-fluid {
+    margin-bottom: -150px;
+    .feed-header {
+      height: 110px;
+    }
   }
 }
 
 
 .nav-search {
   margin-left: 10%;
+}
+
+.navbar-inverse {
+  background: black;
+  border-color: rgba(0,0,0,0);
+}
+
+.dropdown {
+  a {
+    &:hover {
+      background-color: black;
+    }
+    &:focus {
+      background-color: black;
+    }
+  }
+}
+
+a.dropdown-toggle {
+  color: white;
+  background-color: black;
+  &:hover {
+    background-color: black;
+  }
+}
+nav > li > a:hover, .nav > li > a:focus {
+  background-color: black;
+}
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  background-color: black;
 }
 
 //////////////////////////////////////////////////////////////////
@@ -334,7 +370,7 @@ nav.navbar {
     overflow: scroll;
     .no-response-filler {
       margin-top: 50%;
-      color: white;
+      color: black;
       font-size: 30px;
     }
   }
@@ -424,9 +460,11 @@ shop-items-index {
 }
 .feed-header {
   color: rgb(202, 217, 231);
-  background-color: rgba(#008B8B, .65);
+  background-color: rgba(128, 0, 0, 0.85);
   font-family: "ProximaNova-Thin";
   font-size: larger;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   h1 {
     color: white;
     em {
@@ -435,21 +473,29 @@ shop-items-index {
   }
 }
 
+.first-level {
+  position: relative;
+  .map-container {
+    position: absolute;
+  }
+}
 
 div.shops-index {
+  position: absolute;
+  border-radius: 10px;
   padding-top: 10px;
   height: 66vh;
   overflow-y: scroll;
-  background-color: rgba(144, 65, 65, 0.91);
+  background-color: rgba(255, 255, 255, 0.71);
   .no-response-filler {
     margin-top: 40%;
     margin-left: 15%;
     font-size: 30px;
-    color: white;
+    color: black;
   }
   h3 {
-    color: white;
-    font-weight: 100;
+    color: black;
+    font-weight: bolder;
     font-family: "ProximaNova-Thin";
       font-size: 18px;
   }
@@ -464,11 +510,11 @@ div.shops-index {
       div {
         color: black;
       }
+      span {
+        color: black;
+      }
     }
     .tag_list {
-      // white-space: nowrap;
-      // overflow: hidden;
-      // text-overflow: ellipsis;
       font-size: 11px;
       text-transform: uppercase;
       color: white;
@@ -515,15 +561,15 @@ div.shop-photo {
     margin: 10px;
   }
 }
-
-div#map-canvas.col-md-offset-4 {
-  position: relative;
-  overflow: hidden;
-  transform: translateZ(0px);
-  background-color: rgba(229, 227, 223, .5);
-  opacity: .85;
-  border-radius: 2px;
-}
+//
+// div#map-canvas.col-md-offset-4 {
+//   position: relative;
+//   overflow: hidden;
+//   transform: translateZ(0px);
+//   background-color: rgba(229, 227, 223, .5);
+//   opacity: .85;
+//   border-radius: 2px;
+// }
 
 .server-form {
   width: 250px;
@@ -532,14 +578,14 @@ div#map-canvas.col-md-offset-4 {
   }
 }
 
-
-div#map-canvas.circular.col-md-offset-4 {
-	width: 90%;
-	height: 90%;
-	border-radius: 90%;
-	-webkit-border-radius: 150px;
-	-moz-border-radius: 150px;
-}
+//
+// div#map-canvas.circular.col-md-offset-4 {
+// 	width: 90%;
+// 	height: 90%;
+// 	border-radius: 90%;
+// 	-webkit-border-radius: 150px;
+// 	-moz-border-radius: 150px;
+// }
 
 //////////////////////////////////////////////////////////////////
 /* New Review */

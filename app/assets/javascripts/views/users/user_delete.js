@@ -24,7 +24,7 @@ MyCut.Views.UserDelete = Backbone.CompositeView.extend({
 
   confirmDelete: function(event){
     event.preventDefault();
-    debugger
+    
     var password = $(event.currentTarget).serializeJSON();
 
     this.userView.deleteAccount(password);

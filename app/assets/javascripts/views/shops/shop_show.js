@@ -22,7 +22,7 @@ MyCut.Views.ShowShop = Backbone.CompositeView.extend({
   },
 
   addMapModal: function(){
-    debugger
+    
     this.shopMap = new MyCut.Views.ShopMapModal({ model: this.model });
     $('body').append(this.shopMap.render().$el)
   },
