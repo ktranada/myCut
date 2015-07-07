@@ -1,8 +1,13 @@
+.barber-public {
+  height: 100%;
+}
 .container {
-  background-color: rgba(0,83,111,.85);
+  background-color: rgba(0,0,0, 0.75);
   text-align: center;
+  height: 101%;
 
   .barber-information {
+    margin: 0 10%;
     .barber-show-info {
       font-family: "ProximaNova-Thin";
       color: aliceblue;
@@ -11,19 +16,33 @@
     .barber-show-name {
       font-size: 10em;
       font-family: "ProximaNova-Thin";
-      font-style: italic;
-      color: rgb(111, 54, 54);
+      color: white;
       text-transform: uppercase;
       letter-spacing: .1em;
       border-bottom: inset;
+      border-bottom-width: thin;
     }
 
     .back-navi {
       font-family: "ProximaNova-thin";
-      a {
-        text-transform: uppercase;
-        text-decoration: none;
+      .back-button {
+        padding: 10px;
+        background-color: rgba(207, 0, 15,.5);
+        border-radius: 3px;
+        a {
+          text-transform: uppercase;
+          text-decoration: none;
+          font-family: "proximanova-semibold";
+        }
+        &:hover {
+          background-color: rgba(207, 0, 15,.7);
+          -webkit-transition: all .1s;
+          cursor: pointer;
+
+
+        }
       }
+
     }
 
   }
@@ -33,9 +52,7 @@
     width: auto;
     margin: 10px;
     object-fit: contain;
-    border-style: solid;
-    border-width: 5px;
-    border-color: maroon;
+    border-radius: 12px;
   }
 
 }

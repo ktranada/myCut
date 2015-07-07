@@ -64,6 +64,7 @@ Backbone.CompositeView = Backbone.View.extend({
     this.eachSubview(function (subview) {
       subview.remove();
     });
+    $('.modal-form') && $('.modal-form').remove();
   },
 
   removeSubview: function (selector, subview) {

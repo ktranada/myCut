@@ -1,12 +1,12 @@
 MyCut.Views.NavBar = Backbone.CompositeView.extend({
   template: JST['navbar/navbar'],
   tagName: "nav",
-  className: "col-md-10 col-md-offset-1",
 
   events: {
     'click .dropdown-toggle, .dropdown-menu': "dropMenu",
     'click .log-out':                         "logOut",
-    'submit form':                            "newSearch"
+    'submit form':                            "newSearch",
+    'click .nav-search-glass': "openSearchBar"
   },
 
 
@@ -26,12 +26,18 @@ MyCut.Views.NavBar = Backbone.CompositeView.extend({
     Backbone.history.navigate("/shops/search?des="+ formData.des + "&loc=" + formData.loc, {trigger: true})
   },
 
+  openSearchBar: function(){
+    $('.nav-search-glass').hide();
+    $('.navbar-form').show();
+  },
+
   render: function() {
     var logo ="<%= asset_path('logo.png') %>";
     var renderedNav = this.template({
       logo: logo
     });
     this.$el.html(renderedNav);
+    $('.navbar-form').hide();
     return this;
   },
 

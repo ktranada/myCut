@@ -2,43 +2,35 @@ MyCut.Views.IndexMap = Backbone.View.extend({
   attributes: {
     id: "map-canvas"
   },
-  events: {
-    // "mouseover .leaflet-marker-icon": "displayTooltip"
-  },
 
   initialize: function(options){
     this._markers = {};
-    this.updatedLoc = options.updatedLoc;
     this.markerImage = "http://res.cloudinary.com/mycut/image/upload/c_scale,w_20/v1435185992/raty/scissor.png";
     this.listenTo(this.collection, 'add', this.addMarker);
-    this.geoJSON = [];
+    this.listenTo(this.collection, "remove", this.removeMarker);
+
+    var geocoder = L.mapbox.geocoder('mapbox.places-v1');
+    geocoder.query(options.updatedLoc, showMap);
+
+    function showMap(err, data) {
+      debugger
+        if (data.lbounds) {
+            this.updatedLoc = [data.latlng[0], data.latlng[1]];
+        }
+      }
   },
 
   initMap: function(addMarkers){
-    var mapOptions = this.updatedLoc || {
-      center: { lat: 37.7577, lng: -122.4376 },
-      zoom: 14
-    };
+    debugger
+    var mapOptions = this.updatedLoc || [ 37.7577, -122.4376  + .1];
     this._map = L.mapbox.map(this.el, 'kevintran.3285da64')
-        .setView([37.7577, -122.4376], 12);
-
-
+        .setView(mapOptions, 12);
 
     if (addMarkers){
       this.collection.each(this.addMarker.bind(this))
     }
   },
 
-  centerMap: function(e){
-
-    this._map.panTo(e.layer.getLatLng());
-  },
-
-  displayTooltip: function(){
-
-  },
-
-  // Event handlers
    addMarker: function (listing) {
      if (this._markers[listing.id]) { return };
      var view = this;
@@ -47,10 +39,6 @@ MyCut.Views.IndexMap = Backbone.View.extend({
           iconUrl: this.markerImage
       });
 
-      this.geoJSON.push({
-        type: "Feature",
-
-      })
      var newMarker = L.marker([listing.get('latitude'), listing.get('longitude')], {icon: marker })
                       .bindPopup(JST['maps/info_window']({ shop: listing }))
                       .addTo(this._map);
@@ -60,7 +48,6 @@ MyCut.Views.IndexMap = Backbone.View.extend({
 
    removeMarker: function (listing) {
      var marker = this._markers[listing.id];
-     marker.setMap(null);
      delete this._markers[listing.id];
    },
 
@@ -68,15 +55,5 @@ MyCut.Views.IndexMap = Backbone.View.extend({
      this._map.setView([loc[0] + .03, loc[1] + .1])
    },
 
-   startBounce: function (id) {
-
-      var marker = this._markers[id];
-      marker.setAnimation(google.maps.Animation.BOUNCE);
-    },
-
-    stopBounce: function (id) {
-      var marker = this._markers[id];
-      marker.setAnimation(null);
-    }
 
 });

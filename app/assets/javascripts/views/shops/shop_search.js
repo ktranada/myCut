@@ -5,6 +5,7 @@ MyCut.Views.ShopSearchView = Backbone.CompositeView.extend({
   initialize: function(options) {
     this.newLoc = options.newLoc;
     this.indexMap = new MyCut.Views.IndexMap({
+      updatedLoc: this.newLoc,
       collection: this.collection
     });
 
@@ -33,7 +34,6 @@ MyCut.Views.ShopSearchView = Backbone.CompositeView.extend({
     if (loc != window.currentLoc) {
       geocoder.query(loc, function (err, data){
         if (data.lbounds){
-          debugger
           var newLoc = data.latlng;
           that.indexMap.changeCenter(newLoc);
         }

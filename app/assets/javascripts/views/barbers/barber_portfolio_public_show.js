@@ -1,5 +1,6 @@
 MyCut.Views.BarberShow = Backbone.CompositeView.extend({
   template: JST['barbers/barber_show'],
+  className: "barber-public",
 
   initialize: function(){
     this.listenTo(this.model, "sync change", this.render);

@@ -4,8 +4,8 @@
     <title>myCut</title>
     <link rel="icon" type="image/png"
      href="https://dl.dropbox.com/s/hmryjygr6a2iuvb/logo.png" />
-
-
+     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100' rel='stylesheet' type='text/css'>
+     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
     <% if Rails.env.production? %>
       <% api_key = "ENV['google_maps_js_key']" %>
     <% else %>
@@ -20,7 +20,7 @@
     <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
 
     <script>
-      L.mapbox.accessToken = 'pk.eyJ1Ijoia2V2aW50cmFuIiwiYSI6IjZjMjRmOTcyMWJjOGVkOGUxMGYwNWNmZGZlYmRmMzc0In0.-RSnemDd11jVMz3WnG5UXg';
+      L.mapbox.accessToken = 'pk.eyJ1Ijoia2V2aW50cmFuIiwiYSI6ImMyMGI0MGJkMTcwNmU1OTc3ZWM0NWNkN2EzMTNhN2Y3In0.ELHdwvQ1fdEJydRFW9PbdQ';
     </script>
 
     <script type="text/javascript">
@@ -44,7 +44,9 @@
 
   </head>
   <body>
+    <div class="backstretch-container">
 
+    </div>
 
 
     <%= yield %>

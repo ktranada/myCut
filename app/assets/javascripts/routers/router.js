@@ -24,7 +24,7 @@
       collection: user.shops()
     })
     this._swapView(accountView);
-
+    window.$('.index-banner').hide();
   },
 
   barberShow: function(id, bid){

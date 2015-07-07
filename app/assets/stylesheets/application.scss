@@ -14,7 +14,9 @@
  *= require_tree .
  *= require_self
  */
-
+#main {
+  height: 95%;
+}
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -179,11 +181,13 @@
 
 //////////////////////////////////////////////////////////////////
 // Clearfix
-
-.group:after {
-  content: "";
-  display: block;
-  clear: both;
+.clearfix:after {
+   visibility: hidden;
+   display: block;
+   font-size: 0;
+   content: " ";
+   clear: both;
+   height: 0;
 }
 .map-container {
 }
@@ -208,6 +212,7 @@
 }
 html, body {
   font-family: 'ProximaNova-Thin';
+  height: 100%;
 }
 
 a {
@@ -241,13 +246,12 @@ a {
 //////////////////////////////////////////////////////////////////
 /*  Nav bar*/
 nav.navbar {
-  width: 100%;
-  background-color: rgba(0,0,0,.1);
   color: white;
   font-style: italic;
   font-size: 1.2em;
   text-transform: uppercase;
   letter-spacing: -1px;
+  margin-bottom: 0;
   label {
     // font-style: normal;
     font: "Arial";
@@ -285,8 +289,16 @@ nav.navbar {
 
 
 .nav-search {
-  margin-left: 10%;
+  // margin-left: 10%;
+  text-align: center;
+  margin-left: 16%;
+  .navbar-form {
+    float: right;
+      font-family: "ProximaNova-Semibold";
+  }
+
 }
+
 
 .navbar-inverse {
   background: black;
@@ -463,8 +475,7 @@ shop-items-index {
   background-color: rgba(128, 0, 0, 0.85);
   font-family: "ProximaNova-Thin";
   font-size: larger;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+
   h1 {
     color: white;
     em {
@@ -608,7 +619,7 @@ div.shop-photo {
 /* New Shop */
 
 div.col-md-offset-4.col-xs-offset-3.col-xs-6.col-md-4 {
-background-color: rgba(0, 139, 139, 0.78);
+background-color: rgba(0, 0, 0, 0.6);
 text-align: center;
   border-radius: 30px;
   color: white;
@@ -623,6 +634,23 @@ text-align: center;
     background-color: crimson;
     opacity: 1;
     margin-bottom: 6px;
+  }
+  .cancel {
+    padding: 10px;
+    color: white;
+    background-color: rgba(207, 0, 15,.5);
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .confirm {
+    border: none;
+    background-color: rgba(101, 198, 187,.5);
+    font-family: "proximanova-thin";
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 8px;
+    padding-left: 12px;
   }
 }
 
@@ -643,6 +671,7 @@ div.panel.panel-default.new-signup-form {
 }
 
 input.form-control.new-shop-input {
+  font-family: "proximanova-regular";
   border-width: 0;
   text-align: center;
   color: black;
@@ -891,19 +920,28 @@ i.fa-picture-o {
               // downwards, if pos margin; upwards, if negative.
     left: 50%;
     position: absolute;
-    background: rgba(0, 139, 139, .8);
+    background: rgba(0, 0,0, .7);
     padding: 15px;
     width: 450px;
     margin-top: -173px;
     margin-left: -250px;
     .form-group {
       label {
-        font-size: 30px;
-        font-style: italic;
+        color: white;
+        font-size: 25px;
+        letter-spacing: 3px;
+        .form-control {
+          border: none;
+          background-color: white;
+          border-radius: 2px;
+        }
         .modal-form-category {
           border-style: double;
           padding: 0px 10px 0px 5px;
         }
+      }
+      .submit-edit {
+
       }
       .upload-button {
         .fa-plus {
@@ -937,14 +975,21 @@ i.fa-picture-o {
     margin-top: -350px;
     .submit-edit {
       border-style: none;
-      background-color: aliceblue;
-      border-radius: 10px;
+      background-color: rgba(101, 198, 187, .6);
+      border-radius: 2px;
       padding: 5px;
       margin-bottom: -17%;
+      color: white;
+      letter-spacing: 2px;
+      font-size: 20px;
 
     }
-    span {
-      font-size: 30px;
+    .cancel-edit {
+      font-size: 25px;
+  color: white;
+  background-color: rgba(207, 0, 15, .6);
+  padding: 5px;
+  border-radius: 3px;
       &:hover {
         cursor: pointer;
       }
@@ -962,6 +1007,109 @@ i.fa-picture-o {
 
 //////////////////////////////////////////////////////////////////
 /* Shop Show */
+.shop-view {
+  height: 100%;
+}
+.shop-sidebar {
+  height: 100%;
+  -webkit-transition:all .5s;
+  display: inline-block;
+  width: 375px;
+  color: white;
+  // background-color: rgba(0,0,0,.65);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+  .shop-barbers {
+    .fa-caret-down {
+      float: left;
+    }
+    .barber-container1 {
+      .barber-info {
+        list-style: none;
+        &:hover {
+          span {
+            font-size: 14px;
+            -webkit-transition: all .2s;
+          }
+        }
+        span {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  .shop-info {
+    font-family: "ProximaNova-Regular";
+     text-align: right;
+     font-style: normal;
+     letter-spacing: 1px;
+     margin: 0 10%;
+  }
+  .shop-photo {
+    width: 100%;
+    img {
+      width: 50%;
+      border-radius: 5px;
+      margin-bottom: 5%;
+        float: right;
+        margin-right: 10%;
+
+    }
+  }
+  .shop-features {
+    // color: rgba(100, 19, 19, 0.87);
+    margin: 0 15%;
+    text-align: right;
+    .shop-barbers {
+      margin: 0 -4%;
+      .barber-container1{
+        -webkit-transition: all 1s;
+      }
+    }
+    hr {
+
+    }
+  }
+  .shop-buttons {
+    font-family: "ProximaNova-Semibold";
+    -webkit-transition: all .8s;
+    cursor: pointer;
+
+    padding: 10px;
+    a {
+      font-family: "ProximaNova-Semibold";
+      color: white;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    &:hover {
+      -webkit-transition: all .2s;
+      font-size: 18px;
+
+    }
+  }
+  .shop-map-container {
+    span {
+      cursor: pointer;
+    }
+    padding: 50px;
+    img {
+      height: 400px;
+    }
+  }
+  &:hover {
+    -webkit-transition:all .5s;
+    background-color: rgba(0,0,0,.8);
+  }
+}
+
+.shop-content {
+  float: right;
+}
+
+
+
+////////
 
 col-xs-9.col-md-6.col-md-offset-3 {
   float: right;
@@ -984,6 +1132,7 @@ col-xs-9.col-md-6.col-md-offset-3 {
 }
 
 
+
 div.container-fluid.level-two {
   height: 200px;
   margin-right: -2%;
@@ -997,21 +1146,35 @@ div.container-fluid.level-two {
   background-color: aliceblue;
 }
 
-.feed-header {
-  p {
-    font-family: "ProximaNova-Light";
-    color: white;
-    font-size: 19px;
-  }
-  .shop-loc {
-    position: absolute;
-margin-left: 17%;
-font-family: "ProximaNova-Light";
-font-size: 19px;
-margin-top: -1px;
-color: white;
+.feed-header-shop {
+  width: 83%;
+  background-color: rgba(128, 0, 0, 0.85);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-top: -1px;
+  .shop-banner-left{
+    padding-bottom: 10px;
+    font-family: 'ProximaNova-Semibold';
 
+    .shop-info-container {
+      p {
+        color: white;
+        font-size: 19px;
+        display: inline-block;
+      }
+      .shop-loc {
+        position: absolute;
+        display: inline-block;
+        margin-left: 5%;
+
+        font-size: 19px;
+        margin-top: -1px;
+        color: white;
+
+      }
+    }
   }
+
   .shop-feature {
     text-align: center;
     div {
@@ -1020,6 +1183,16 @@ color: white;
   }
 }
 
+.shop-mid {
+  .shop-map-container {
+    margin-top: 4.5%;
+    div {
+      margin-right: 18%;
+      border-style: 1px;
+      border-style: solid;
+    }
+  }
+}
 
 .barber-photo {
   height: 300px;
@@ -1037,22 +1210,21 @@ color: white;
 /* Review Item */
 
 .level-three {
-  width: 55%;
     float: left;
+    margin-left: -30%;
     margin-right: -100px;
     margin-top: -60px;
   .reviews-index {
     clear: both;
-    max-width: 80%;
     margin: 100px 5px 0px 30px;
     .review-items {
       max-width: 100%;
       list-style: none;
       padding: 20px;
-      background: rgba(100, 19, 19, 0.87);
+      background: rgba(0,0,0,.85);
       color: white;
       letter-spacing: .8px;
-      height: 65vh;
+      height: 79vh;
       overflow-y: scroll;
       .review-item {
         .review-with-side{
@@ -1071,16 +1243,20 @@ color: white;
                 text-transform: uppercase;
                 font-family: "ProximaNova-Bold";
                 letter-spacing: 2px;
-                font-style: italic;
                 font-weight: 100;
-                color: black;
+                color: white;
                 .barber-name {
+                  font-family: "ProximaNova-Bold";
                   font-size: 14px;
                   color: white;
                 }
               }
             }
             .author-photo {
+              .review-date {
+                font-family: "proximanova-regular";
+                letter-spacing: 1px;
+              }
               .circular {
                 margin-top: 15px;
                 float: left;
@@ -1142,11 +1318,12 @@ ul.barber-container {
 }
 div.review-content {
   display: flex;
-  font-family: "ProximaNova-Thin";
+  font-family: "proximanova-regular";
   font-size: 13.3px;
-  letter-spacing: .02em;
+  letter-spacing: 1.2px;
   line-height: 159%;
   white-space: pre-wrap;
+  font-weight: 100;
 
 }
 
@@ -1163,7 +1340,10 @@ div.review-body {
   font-family: 'ProximaNova-Regular';
   font-weight: 400;
   text-transform: uppercase;
-  font-size: 40px;
+  font-size: 12px;
+  &:hover {
+
+  }
 }
 
 

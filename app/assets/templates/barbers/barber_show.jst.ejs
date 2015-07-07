@@ -1,14 +1,15 @@
-<div class="container col-xs-12 col-md-8 col-md-offset-2">
+<div class="container col-xs-12">
   <div class="barber-information">
     <h2 class="barber-show-info">work by</h2>
     <h1 class="barber-show-name">
       <%= barber.escape('name') %>
     </h1>
-
+    <br>
     <div class="back-navi">
-      <button type="button" class="btn btn-default"><a href="/#/shops/<%= barber.escape('shop_id') %>">Back to the fitting room</a></button>
+      <span class="back-button"><a href="/#/shops/<%= barber.escape('shop_id') %>">Back to the shop</a></span>
     </div>
   </div>
+  <br>
 
 
   <div class="photo-grid">
@@ -16,7 +17,7 @@
         <img class="grid-item-image" src="<%= image.escape('photo_url') %>">
     <% }) %>
   </div>
-  <hr>
+  <!-- <hr>
   <br>
   <span class="user-reviews">REVIEWS</span>
   <br>
@@ -25,6 +26,6 @@
   <div>
     <ul class="barber-reviews">
     </ul>
-  </div>
+  </div> -->
 
 </div>

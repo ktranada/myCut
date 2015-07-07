@@ -51,6 +51,7 @@ MyCut.Views.UserAccount = Backbone.CompositeView.extend({
   },
 
   openDeleteModal: function(){
+    debugger
     this.deleteModal.$el.show();
   },
 

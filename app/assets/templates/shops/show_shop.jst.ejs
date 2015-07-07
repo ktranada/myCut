@@ -1,56 +1,78 @@
-<div class="container-fluid level-two">
-  <div class="row feed-header">
-    <div class="col-md-7 col-xs-6 col-md-offset-1">
-      <h1><em><%= shop.escape('name') %></em>
-      </h1>
-      <div class="shop-loc">
-          <span class="shop-add"><%= shop.escape('address') %></span><br>
-          <span class="shop-rest"><%= cityStateZip %> </span>
-          <!-- <span class="shop-map-button">MAP</span> -->
+<div class="overlay">
+
+</div>
+<div class="shop-sidebar">
+    <div class="shop-info">
+      <div class="shop-banner-left" >
+        <h1><%= shop.escape('name') %></h1>
+        <div class="shop-info-container">
+          <p class="lead"><%= shop.escape('phone') %></p>
+
+          <div class="shop-loc">
+              <span class="shop-add"><%= shop.escape('address') %></span><br>
+              <span class="shop-rest"><%= cityStateZip %> </span>
+              <!-- <span class="shop-map-button">MAP</span> -->
+          </div>
+            <div class="shop rating" data-path="assets/images"></div>
+        </div>
       </div>
-
-        <p class="lead"><%= shop.escape('phone') %></p>
-
-        <div class="shop rating" data-path="assets/images"></div>
-
     </div>
-    <div class="shop-feature col-md-4">
+    <br>
+    <div class="shop-photo">
+      <img src="<%= shop.escape('photo_url') %>">
+    </div>
+    <br>
+    <br>
+    <div class="shop-features">
       <br>
         <% if (mod_id == shop.escape('moderator_id')) { %>
-          <div> <a class="shop-mod-buttons" href="#/shops/<%= shop.escape('id') %>/edit">EDIT YOUR SHOP</a></div>
-          <div> <a class="shop-mod-buttons" href="#/shops/<%= shop.escape('id') %>/edit/barbers">ADD STAFF</a></div>
+
+          <span class="shop-buttons"> <a class="shop-mod-buttons" href="#/shops/<%= shop.escape('id') %>/edit">EDIT YOUR SHOP</a></span>
+          <span> <a class="shop-mod-buttons" href="#/shops/<%= shop.escape('id') %>/edit/barbers">ADD STAFF</a></span>
         <% } %>
         <br><br>
-        <div><a href="#/shops/<%= shop.escape('id') %>/review/new"><button class="btn btn-default">WRITE A REVIEW</button></a></div>
-        <div> <a href="#"><button style="color: crimson; margin-left: 10px;" class="btn btn-default">ALL SHOPS</button></a></div>
-        <br><br>
-    </div>
-  </div>
+        <div class="shop-buttons shop-barbers"><i class="fa fa-caret-down"></i>BARBERS
+          <hr>
+        <ul class="barber-container1">
+          <% barbers.each(function(barber) { %>
+            <li class="barber-info">
+              <a href="/#/shops/<%= shop.escape('id') %>/barbers/<%= barber.escape('id') %>">
+                <span class="barber-name"><%= barber.escape('name') %></span>
+                <hr>
+              </a>
+            </li>
+          <% }); %>
+        </ul>
+      </div>
+        <span class="shop-buttons shop-pictures">PICTURES</span>
+        <hr>
+        <span class="shop-buttons map-modal">SHOW ON MAP</span>
+        <hr>
+        <span class="shop-buttons"><a href="#/shops/<%= shop.escape('id') %>/review/new">WRITE A REVIEW</a></span>
+        <hr>
+        <span class="shop-buttons"> <a href="#">ALL SHOPS</a></span>
+        <hr>
 
- <div class="row">
-    <div class="level-three col-xs-6 col-md-6">
+    </div>
+    <div class="shop-map-container">
+      <div>
+        <img class="shop-map" src="">
+      </div>
+    </div>
+</div>
+
+<div class="container-fluid shop-content col-md-6">
+  <div class="row">
+    <div class="col-md-12 side-column">
+
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="level-three col-xs-12 col-md-9">
       <div class="reviews-index">
         <ul class="review-items"></ul>
       </div>
-
     </div>
-
-
-    <div class="side-container col-xs-6 col-md-5">
-      <br>
-      <div class="sidebar-header"><span class="barber-tooltip">VIEW A PORTFOLIO</span></div>
-        <div class="side-column">
-          <ul class="barber-container">
-            <% barbers.each(function(barber) { %>
-              <li class="barber-photo">
-                <a href="/#/shops/<%= shop.escape('id') %>/barbers/<%= barber.escape('id') %>">
-                  <span class="barber-name"><%= barber.escape('name') %></span>
-                  <br>
-                  <img class="barber-profile" src="<%= barber.escape('photo_url') %>">
-                </a>
-              </li>
-            <% }); %>
-          </ul>
-        </div>
-   </div>
+  </div>
 </div>

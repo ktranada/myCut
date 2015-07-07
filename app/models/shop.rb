@@ -63,7 +63,7 @@ class Shop < ActiveRecord::Base
 
   def parse_phone_number
     number = self.phone.to_s
-    return "(#{number[0..2]})-#{number[3..5]}-#{number[6..9]}"
+    return "(#{number[0..2]}) #{number[3..5]}-#{number[6..9]}"
   end
 
   def shop_photo
