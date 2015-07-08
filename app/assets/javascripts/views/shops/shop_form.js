@@ -17,6 +17,7 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
 
   shopForm: function(event){
     event.preventDefault();
+    debugger
     this._formData = $(event.currentTarget).serializeJSON()['shop'];
     if (this._new) {
       this.generateCoordinates();
@@ -72,17 +73,7 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
                       ', ' + this._formData.city +
                       ', ' + this._formData.state;
     var that = this;
-    // var geocoder = new google.maps.Geocoder();
-    // geocoder.geocode({'address': fullAddress }, function(result, status){
-    //   if (status == google.maps.GeocoderStatus.OK) {
-    //     var coord = result[0].geometry.location;
-    //     that._formData.latitude = coord.A;
-    //     that._formData.longitude = coord.F;
-    //     that.shopCreate(coord);
-    //   } else {
-    //     that.$('.errors-container').html("Invalid business location.");
-    //   }
-    // });
+    debugger
     var geocoder = L.mapbox.geocoder('mapbox.places-v1');
     geocoder.query(fullAddress, showMap);
 
@@ -93,6 +84,7 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
             that.shopCreate();
         }
     }
+    this.shopCreate();
   },
 
   render: function() {

@@ -25,7 +25,7 @@ user7 = User.create!(username: "adagio", email: 'adagio@escargo.com', password: 
 
 ######################################### Shop 1
 
-shop1 = Shop.create!(moderator_id: 1,
+shop1 = Shop.create!(moderator_id: 5,
              name: "PATRICK EVAN Hair Salon",
              address: "55 Grant Avenue 4th Fl",
              city: "San Francisco",
@@ -62,7 +62,7 @@ barber_2.pictures.create!(photo_url: "https://s3-media3.fl.yelpcdn.com/bphoto/Kr
 ######################################## Shop 2
 
 
-shop2 = Shop.create!(moderator_id: 2,
+shop2 = Shop.create!(moderator_id: 6,
              name: "Black & Gold Barber Lounge",
              address: "6755 Mission St",
              city: "Daly City",
@@ -103,7 +103,7 @@ shop_2_review_4.pictures.create!(photo_url: "https://s3-media4.fl.yelpcdn.com/bp
 
 
 
-shop3 = Shop.create!(moderator_id: 3,
+shop3 = Shop.create!(moderator_id: 1,
              name: "JosephAlex Salon",
              address: "660 Market St 2nd Fl",
              city: "San Francisco",
@@ -143,7 +143,7 @@ shop_3_review_3.pictures.create!(photo_url: "https://s3-media4.fl.yelpcdn.com/bp
 # ######################################## Shop 4
 
 
-shop4 = Shop.create!(moderator_id: 4,
+shop4 = Shop.create!(moderator_id: 3,
             name: "J.P. Kempt Barber",
             address: "351 Divisadero St",
             city: "San Francisco",
@@ -169,7 +169,7 @@ shop_4_review_2 = shop4.reviews.create!(body: "Jourdan was my Barber and what a 
 # ######################################## Shop 5
 
 
-shop5 = Shop.create!(moderator_id: 5,
+shop5 = Shop.create!(moderator_id: 6,
             name: "Follicle Hair Salon",
             address: "540 Sutter St",
             city: "San Francisco",

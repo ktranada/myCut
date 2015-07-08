@@ -20,7 +20,7 @@
 
 class Shop < ActiveRecord::Base
   acts_as_taggable_on :tags, :locations
-  validates :name, :state, :latitude, :longitude, :zip, :city, presence: true
+  validates :name, :state, :zip, :city, presence: true
   validates :address, :phone, presence: true, uniqueness: true
   validate :shop_photo
   # Will tell geocoder which method returns geocodable address
