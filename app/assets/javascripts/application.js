@@ -23,6 +23,7 @@
 //= require humane.min
 //= require jquery.fullPage.min
 //= require cloudinary
+//= require spin.min
 //= require bootbox.min
 //= require my_cut
 //= require_tree ../templates

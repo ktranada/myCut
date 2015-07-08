@@ -3,19 +3,33 @@ MyCut.Views.ShowShop = Backbone.CompositeView.extend({
   className: "shop-view",
   events: {
     "click .map-modal": "openMapModal",
+    "click .close-map": "closeMapModal",
     "mouseenter span.barber-name": "toggleList",
     "mouseenter .shop-barbers": "showBarbers",
     "mouseleave .shop-barbers": "hideBarbers",
+    'click .fa': "createReview"
 
   },
 
   initialize: function(){
     window.$('.index-banner').hide();
+    var shop = this.model;
     this.listenTo(this.model, "sync change", this.render);
     this.listenTo(this.model.reviews(), "add", this.addReviewSubview);
     this.listenTo(this.model.reviews(), "remove", this.removeReviewSubview);
     this.model.reviews().each(this.addReviewSubview.bind(this));
-    // this.addMapModal();
+
+    this.listenTo(shop, "sync", this.addMapModal)
+  },
+
+  addMapModal: function(){
+    this.shopMap = new MyCut.Views.IndexMap({
+      updatedLoc: [this.model.get('latitude'), this.model.get('longitude')],
+      model: this.model
+    })
+    this.$('.map').html(this.shopMap.$el);
+    this.shopMap.initMap(true);
+    // this.$('.shop-map-container').hide();
   },
 
   addReviewSubview: function(review) {
@@ -26,9 +40,19 @@ MyCut.Views.ShowShop = Backbone.CompositeView.extend({
     this.addSubview('.review-items', reviewSubview, false);
   },
 
+  closeMapModal: function(){
+    this.$('.shop-map-container').hide();
+  },
+
+  createReview: function(){
+    debugger
+    Backbone.history.navigate("/shops/" + this.model.get('id') + "/review/new", {trigger: true});
+  },
+
+
   openMapModal: function(){
-    $(".map-modal").hide();
-    this.$('.shop-map').show();
+    this.$('.shop-map-container').show();
+
   },
 
   removeReviewSubview: function(review) {
@@ -43,9 +67,6 @@ MyCut.Views.ShowShop = Backbone.CompositeView.extend({
     $('.barber-container1').hide();
   },
 
-
-  toggleList: function(event){
-  },
   render: function(){
     var barbers = this.model.barbers();
     var cityStateZip = this.model.get('city') + ", " +
@@ -60,8 +81,8 @@ MyCut.Views.ShowShop = Backbone.CompositeView.extend({
     });
 
     this.$el.html(renderedContent)
-
     this.attachSubviews();
+
     this.$el.find('.shop.rating').raty({
       score: this.model.attributes.average_rating,
       path: 'assets/raty'
@@ -76,7 +97,6 @@ MyCut.Views.ShowShop = Backbone.CompositeView.extend({
                     (this.model.get('latitude') + .001)  +
                     ',16/500x500.jpg90?access_token=<%= ENV["MAPBOX_PK"] %>';
       this.$('img.shop-map').attr('src', imgSrc);
-      this.$('.shop-map').hide();
       $('.barber-container1').hide();
     return this;
   }

@@ -6,5 +6,11 @@
   <div class="tag_list">
     <span class=""><%= tag_list %></span>
   </div>
+
+  <% if (window.id == shop.escape('moderator_id') && shop.get('check')) { %>
+  <div class="mod-warning">
+    <span class="warning">To have your shop be shown, please add at minimum <span class="emphasis">one</span> barber.</span>
+  </div>
+  <% } %>
   <hr>
 </a>

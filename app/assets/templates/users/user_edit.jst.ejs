@@ -1,11 +1,18 @@
 <div class="form-container user-edit-form">
   <form>
     <br>
-    <div class="errors-container" style="font-size: 20px; font-weight: bold;">
+    <div class="errors-container" style="font-size: 20px; font-weight: bold;"><br>
       <br>
     </div>
+    <div class="form-group">
+      <label>PROFILE PICTURE</label><br>
+      <span class="upload-button" name="user[photo_url]"><i class="fa fa-picture-o" style="color: white;"></i></</span>
+    </div>
+    <div class="preview-container-user">
+      <img src="<%= user.escape('photo_url') %>">
+    </div><br>
       <div class="form-group">
-        <label class="si-input">USERNAME
+        <label class="si-input">Username
           <input type="text"
                  class="form-control"
                  name="user[username]"
@@ -13,37 +20,36 @@
         </label>
       </div>
       <div class="form-group">
-        <label class="si-input" for="email-password">OLD PASSWORD
+        <label class="si-input" for="email-password">Password
         <input type="password"
                class="form-control"
                required
                name="user[password]"
                id="email-password">
          </label>
-      </div>
-      <div class="form-group">
-        <label class="si-input" for="email-password">NEW PASSWORD
-          <br>
-        <input type="password"
-               class="form-control"
-               name="new_password">
-         </label>
-      </div>
-      <div class="form-group">
-        <label class="si-input" for="email-password">CONFIRM PASSWORD
-        <input type="password"
-               class="form-control"
-               name="confirm_password">
-         </label>
+      </div><br>
+      <span class="new-password">Change password</span><br>
+      <br>
+      <br>
+      <div class="password-container">
+        <div class="form-group">
+          <label class="si-input" for="email-password">New password
+            <br>
+          <input type="password"
+                 class="form-control"
+                 name="new_password">
+           </label>
+        </div>
+        <div class="form-group">
+          <label class="si-input" for="email-password">Confirm password
+          <input type="password"
+                 class="form-control"
+                 name="confirm_password">
+           </label>
+        </div>
       </div>
 
-      <div class="form-group">
-        <label>PROFILE PICTURE</label><br>
-        <span class="upload-button" name="user[photo_url]"><i class="fa fa-picture-o" style="color: white;"></i></</span>
-      </div>
-      <div class="preview-container-user">
-        <img src="<%= user.escape('photo_url') %>">
-      </div><br>
+
       <input  type="submit" class="submit-edit" value="UPDATE ACCOUNT"id=""></input>
       <br>
       <br>

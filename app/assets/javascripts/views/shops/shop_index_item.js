@@ -17,7 +17,7 @@ MyCut.Views.ShopItem = Backbone.CompositeView.extend({
   },
 
   displayTooltip: function () {
-    
+
     this.map._markers[this.model.get('id')].openPopup();
   },
 
@@ -26,6 +26,7 @@ MyCut.Views.ShopItem = Backbone.CompositeView.extend({
   },
 
   render: function() {
+    
     var renderedContent = this.template({
       shop: this.model,
       tag_list: this.tagList

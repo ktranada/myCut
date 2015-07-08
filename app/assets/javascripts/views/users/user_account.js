@@ -4,19 +4,19 @@ MyCut.Views.UserAccount = Backbone.CompositeView.extend({
 
   events: {
     "click .edit-account": "openEditModal",
-    "click .delete-account": "openDeleteModal"
+    "click .delete-account": "openDeleteModal",
   },
 
   initialize: function(){
+
+    window.$('.modal-form').remove();
     this.listenTo(this.model, "sync change", this.render);
     this.collection.each(this.addShopSubview);
     this.listenTo(this.collection, "add", this.addShopSubview);
     this.listenTo(this.collection, "remove", this.removeModelSubview);
-    debugger
-    if (!window.$('.modal-form').length < 3){
-      this.addDeleteModal();
-      this.addEditModal();
-    }
+
+    this.addDeleteModal();
+    this.addEditModal();
   },
 
   addShopSubview: function(shop){
@@ -53,7 +53,7 @@ MyCut.Views.UserAccount = Backbone.CompositeView.extend({
   },
 
   openDeleteModal: function(){
-    debugger
+
     this.deleteModal.$el.show();
   },
 
@@ -81,6 +81,7 @@ MyCut.Views.UserAccount = Backbone.CompositeView.extend({
     })
     this.$el.html(renderedContent);
     this.attachSubviews();
+    this.$el.find('.tag_list').hide();
     return this;
   }
 })

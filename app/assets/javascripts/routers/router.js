@@ -69,7 +69,6 @@
   },
 
   shopSearch:function(params){
-
     if (params) {
       var query = {}
       params.replace(
@@ -77,7 +76,16 @@
         function($0, $1, $2, $3) { query[$1] = $3; }
       )
       var searchResults = new MyCut.Collections.SearchResult()
-      searchResults.fetch({ data: { filter_options: query } })
+      searchResults.fetch({ data: { filter_options: query },
+        success: function(model, response) {
+          if (response.length == 0) {
+            landingPage.shopsIndex.$el.find('.no-response-filler').show();
+          }
+        },
+        error: function(model, response) {
+          nothing
+        }
+      });
       var landingPage = new MyCut.Views.ShopSearchView({
         newLoc: query.loc,
         collection: searchResults
@@ -89,10 +97,11 @@
         collection: MyCut.shops
       })
     }
+
     this.preSwap(landingPage);
     landingPage.indexMap.initMap(true);
+    window.$('body').css('overflow', 'hidden');
     window.$('.index-banner').show();
-    // window.currentLoc = query.loc;
 
   },
 
@@ -105,6 +114,8 @@
   preSwap: function(newView) {
     window.$('.index-banner').hide();
     // $('.modal-form') && $('.modal-form').remove();
+    window.$('body').css('overflow', 'visible');
+
     this._swapView(newView)
   },
 

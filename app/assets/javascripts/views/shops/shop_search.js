@@ -8,7 +8,6 @@ MyCut.Views.ShopSearchView = Backbone.CompositeView.extend({
       updatedLoc: this.newLoc,
       collection: this.collection
     });
-
     this.shopsIndex = new MyCut.Views.ShopIndex({
       map: this.indexMap,
       collection: this.collection

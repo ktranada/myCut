@@ -1,6 +1,4 @@
-<div class="overlay">
 
-</div>
 <div class="shop-sidebar">
     <div class="shop-info">
       <div class="shop-banner-left" >
@@ -18,19 +16,22 @@
       </div>
     </div>
     <br>
-    <div class="shop-photo">
-      <img src="<%= shop.escape('photo_url') %>">
+    <div class="overlay">
+      <div class="shop-map-container">
+        <div class="map"></div>
+      </div>
     </div>
-    <br>
-    <br>
     <div class="shop-features">
       <br>
         <% if (mod_id == shop.escape('moderator_id')) { %>
+          <span class="admin">MODERATOR ACTIONS</span><br>
+          <a href="#/shops/<%= shop.escape('id') %>/edit"><span class="moderator shop-buttons"> EDIT YOUR SHOP</span></a><br>
 
-          <span class="shop-buttons"> <a class="shop-mod-buttons" href="#/shops/<%= shop.escape('id') %>/edit">EDIT YOUR SHOP</a></span>
-          <span> <a class="shop-mod-buttons" href="#/shops/<%= shop.escape('id') %>/edit/barbers">ADD STAFF</a></span>
-        <% } %>
+          <a href="#/shops/<%= shop.escape('id') %>/edit/barbers"><span class="moderator shop-buttons">ADD STAFF</span></a><br>
+          <hr>
+        <% } else { %>
         <br><br>
+        <% } %>
         <div class="shop-buttons shop-barbers"><i class="fa fa-caret-down"></i>BARBERS
           <hr>
         <ul class="barber-container1">
@@ -44,21 +45,17 @@
           <% }); %>
         </ul>
       </div>
-        <span class="shop-buttons shop-pictures">PICTURES</span>
+        <!-- <span class="shop-buttons shop-pictures">PICTURES</span> -->
+        <!-- <hr> -->
+        <!-- <span class="shop-buttons map-modal">SHOW ON MAP</span>
+        <hr> -->
+        <a class="new-review" href="#/shops/<%= shop.escape('id') %>/review/new"><span class="shop-buttons">WRITE A REVIEW</span></a>
         <hr>
-        <span class="shop-buttons map-modal">SHOW ON MAP</span>
+        <a href="#"><span class="shop-buttons"> ALL SHOPS</span></a>
         <hr>
-        <span class="shop-buttons"><a href="#/shops/<%= shop.escape('id') %>/review/new">WRITE A REVIEW</a></span>
-        <hr>
-        <span class="shop-buttons"> <a href="#">ALL SHOPS</a></span>
-        <hr>
+    </div>
 
-    </div>
-    <div class="shop-map-container">
-      <div>
-        <img class="shop-map" src="">
-      </div>
-    </div>
+
 </div>
 
 <div class="container-fluid shop-content col-md-6">
@@ -71,7 +68,12 @@
   <div class="row">
     <div class="level-three col-xs-12 col-md-9">
       <div class="reviews-index">
-        <ul class="review-items"></ul>
+        <ul class="review-items">
+          <div class="no-response-filler">
+            Be the first to leave a review! <br><br>
+            <i class="fa fa-pencil-square-o"></i>
+          </div>
+        </ul>
       </div>
     </div>
   </div>

@@ -189,12 +189,6 @@
    clear: both;
    height: 0;
 }
-.map-container {
-}
-
-#map-canvas {
-
-}
 
 .map-container {
   width: 100%;
@@ -329,6 +323,8 @@ nav > li > a:hover, .nav > li > a:focus {
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
   background-color: black;
 }
+//////////////////////////////////////////////////////////////////
+// loading bar
 
 //////////////////////////////////////////////////////////////////
 /* User Account */
@@ -380,6 +376,18 @@ nav > li > a:hover, .nav > li > a:focus {
     display: inline-block;
     height: 600px;
     overflow: scroll;
+    .listing-name {
+      font-family: "proximanova-semibold";
+
+      &:hover {
+        text-decoration: none;
+      }
+      .mod-warning {
+        .emphasis {
+          color: white;
+        }
+      }
+    }
     .no-response-filler {
       margin-top: 50%;
       color: black;
@@ -705,7 +713,7 @@ i.fa-picture-o {
     list-style: none;
     display: inline-block;
     img {
-      width: 300px;
+      width: 150px;
       border-radius: 25px;
       margin-left: -12%;
     }
@@ -850,8 +858,10 @@ i.fa-picture-o {
   background: rgba(0, 0, 0, .5);
 
   .user-delete {
+    height: 365px;
     color: white;
     span {
+      font-family: "proximanova-semibold";
       font-size: 14px;
       color: white;
       .warning {
@@ -862,14 +872,22 @@ i.fa-picture-o {
       }
     }
     .options {
+      margin-left: -5%;
+      margin-top: 16%;
+      text-align: center;
       .cancel-delete{
+        background-color: rgba(27, 188, 155, .8);
+
         &:hover {
-          background-color: gray;
+          background-color: rgba(27, 188, 155, .5);
         }
       }
       .confirm-delete {
+        background-color: rgba(207, 0, 15, .8);
+
         &:hover {
-          background-color: crimson;
+          background-color: rgba(207, 0, 15, .5);
+
         }
       }
       span {
@@ -900,6 +918,7 @@ i.fa-picture-o {
   }
 
   .title {
+    border-bottom-style: inset;
     text-align: center;
     font-size: 40px;
     clear: right;
@@ -973,6 +992,15 @@ i.fa-picture-o {
   }
   .user-edit-form {
     margin-top: -350px;
+    .new-password {
+      color: white;
+  font-size: 25px;
+  letter-spacing: 1px;
+  padding: 10px;
+  background-color: rgba(34, 167, 240, .5);
+  cursor: pointer;
+    }
+
     .submit-edit {
       border-style: none;
       background-color: rgba(101, 198, 187, .6);
@@ -1009,6 +1037,11 @@ i.fa-picture-o {
 /* Shop Show */
 .shop-view {
   height: 100%;
+  .shop-map-overlay {
+
+  }
+
+
 }
 .shop-sidebar {
   height: 100%;
@@ -1059,6 +1092,9 @@ i.fa-picture-o {
     // color: rgba(100, 19, 19, 0.87);
     margin: 0 15%;
     text-align: right;
+    .admin {
+      font-size: 25px;
+    }
     .shop-barbers {
       margin: 0 -4%;
       .barber-container1{
@@ -1069,10 +1105,38 @@ i.fa-picture-o {
 
     }
   }
+  .overlay {
+    .shop-map-container {
+      // position: absolute;
+      z-index: 3;
+      margin: 0;
+      // margin-left: 25%;
+      padding: 0;
+      height: 300px;
+      .map {
+        margin: 0 4%;
+        height: 100%;
+        width: 90%;
+        #map-canvas{
+          position: relative;
+          top: 0;
+          bottom: 0;
+          min-width: 50%;
+          min-width: 20%;
+          // margin-top: 50%;
+          margin-bottom: 10px;
+          margin-left: 2.5%;
+          margin-right: 2%;
+          height: 100%;
+        }
+      }
+    }
+  }
   .shop-buttons {
     font-family: "ProximaNova-Semibold";
     -webkit-transition: all .8s;
     cursor: pointer;
+    color: white;
 
     padding: 10px;
     a {
@@ -1088,14 +1152,8 @@ i.fa-picture-o {
 
     }
   }
-  .shop-map-container {
-    span {
-      cursor: pointer;
-    }
-    padding: 50px;
-    img {
-      height: 400px;
-    }
+  .moderator {
+    color: rgb(82, 179, 217);
   }
   &:hover {
     -webkit-transition:all .5s;
@@ -1226,6 +1284,17 @@ div.container-fluid.level-two {
       letter-spacing: .8px;
       height: 79vh;
       overflow-y: scroll;
+      .no-response-filler {
+        margin-top: 50%;
+        margin-left: 10px;
+        font-size: 45px;
+        .fa {
+          margin: 0 45%;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
       .review-item {
         .review-with-side{
           .review-userprofile{

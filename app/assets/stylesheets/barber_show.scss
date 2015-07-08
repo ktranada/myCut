@@ -25,23 +25,25 @@
 
     .back-navi {
       font-family: "ProximaNova-thin";
-      .back-button {
-        padding: 10px;
-        background-color: rgba(207, 0, 15,.5);
-        border-radius: 3px;
-        a {
-          text-transform: uppercase;
-          text-decoration: none;
-          font-family: "proximanova-semibold";
-        }
-        &:hover {
-          background-color: rgba(207, 0, 15,.7);
-          -webkit-transition: all .1s;
-          cursor: pointer;
+      a {
+        text-transform: uppercase;
+        text-decoration: none;
+        font-family: "proximanova-semibold";
+        .back-button {
+          padding: 10px;
+          background-color: rgba(207, 0, 15,.5);
+          border-radius: 3px;
+
+          &:hover {
+            background-color: rgba(207, 0, 15,.7);
+            -webkit-transition: all .1s;
+            cursor: pointer;
 
 
+          }
         }
       }
+
 
     }
 

@@ -48,6 +48,10 @@ class Shop < ActiveRecord::Base
     reviews.empty? ? nil : (reviews.sum(:rating) / reviews.length.to_f)
   end
 
+  def check_valid_shop
+    self.barbers.empty?
+  end
+
   def convert_tags
     [].push(self.tag_list) unless self.tag_list.is_a?(Array)
   end

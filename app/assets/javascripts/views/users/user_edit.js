@@ -5,14 +5,23 @@ MyCut.Views.UserAccountEditModal = Backbone.View.extend({
   events: {
     "click .cancel-edit": "closeEdit",
     "submit form": "submitEdit",
-    "click .upload-button": "upload"
+    "click .upload-button": "upload",
+    "click .new-password": "displayPasswordForm"
   },
 
   initialize: function(){
     this.listenTo(this.model, "sync", this.render);
   },
   closeEdit: function(){
+    $('.new-password').show();
+    $('.password-container').hide();
+
     this.$el.hide();
+  },
+
+  displayPasswordForm: function(){
+    $('.new-password').hide();
+    $('.password-container').show();
   },
 
   submitEdit: function(event){
@@ -22,7 +31,7 @@ MyCut.Views.UserAccountEditModal = Backbone.View.extend({
 
     if (this.formData['new_password'] == this.formData['confirm_password']) {
       this.formData["user"]["new_password"] = this.formData['new_password'];
-      
+
       this.formData ["user"]["photo_url"] = this.model.get("photo_url");
       ;
       this.model.save(this.formData, {
@@ -44,7 +53,7 @@ MyCut.Views.UserAccountEditModal = Backbone.View.extend({
   upload: function(event){
     var that = this;
     event.preventDefault();
-    
+
     cloudinary.openUploadWidget(USER_CLOUDINARY, function(error, result){
       if (!error) {
         var photo_url =  result[0].eager[1].url;
@@ -58,6 +67,7 @@ MyCut.Views.UserAccountEditModal = Backbone.View.extend({
 
     var renderedContent = this.template({ user: this.model })
     this.$el.html(renderedContent);
+    $('.password-container').hide();
     this.$el.hide();
     return this;
   }

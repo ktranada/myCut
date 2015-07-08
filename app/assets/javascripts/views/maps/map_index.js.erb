@@ -8,33 +8,39 @@ MyCut.Views.IndexMap = Backbone.View.extend({
     this.markerImage = "http://res.cloudinary.com/mycut/image/upload/c_scale,w_20/v1435185992/raty/scissor.png";
     this.listenTo(this.collection, 'add', this.addMarker);
     this.listenTo(this.collection, "remove", this.removeMarker);
-
+    if ($.isArray(options.updatedLoc) && options.updatedLoc.length != 0){
+      this.updatedLoc = options.updatedLoc;
+    } else {
     var geocoder = L.mapbox.geocoder('mapbox.places-v1');
     geocoder.query(options.updatedLoc, showMap);
 
     function showMap(err, data) {
-      debugger
+
         if (data.lbounds) {
             this.updatedLoc = [data.latlng[0], data.latlng[1]];
         }
       }
+    }
   },
 
   initMap: function(addMarkers){
-    debugger
+    
     var mapOptions = this.updatedLoc || [ 37.7577, -122.4376  + .1];
     this._map = L.mapbox.map(this.el, 'kevintran.3285da64')
         .setView(mapOptions, 12);
 
     if (addMarkers){
+      if (this.model) {
+        this.addMarker(this.model);
+      } else {
       this.collection.each(this.addMarker.bind(this))
+      }
     }
   },
 
    addMarker: function (listing) {
      if (this._markers[listing.id]) { return };
      var view = this;
-
      var marker = L.icon({
           iconUrl: this.markerImage
       });

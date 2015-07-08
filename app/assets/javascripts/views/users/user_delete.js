@@ -5,7 +5,8 @@ MyCut.Views.UserDelete = Backbone.CompositeView.extend({
   events: {
     "click .cancel-delete": "cancelDelete",
     "click .confirm-delete": "promptPassword",
-    "submit form": "confirmDelete"
+    "submit form": "confirmDelete",
+    "keyup": "exitModal"
   },
 
   initialize: function(options){
@@ -17,6 +18,8 @@ MyCut.Views.UserDelete = Backbone.CompositeView.extend({
     this.$el.hide();
   },
 
+
+
   promptPassword: function(){
     this.$('.options').hide();
     this.$('.password-req').show();
@@ -24,7 +27,7 @@ MyCut.Views.UserDelete = Backbone.CompositeView.extend({
 
   confirmDelete: function(event){
     event.preventDefault();
-    
+
     var password = $(event.currentTarget).serializeJSON();
 
     this.userView.deleteAccount(password);
