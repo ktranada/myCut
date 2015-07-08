@@ -6,13 +6,7 @@
      href="https://dl.dropbox.com/s/hmryjygr6a2iuvb/logo.png" />
      <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100' rel='stylesheet' type='text/css'>
      <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
-    <% if Rails.env.production? %>
-      <% api_key = "ENV['google_maps_js_key']" %>
-    <% else %>
-      <% api_key = '' %>
-    <% end %>
     <script>try{Typekit.load();}catch(e){}</script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places,key=<%= api_key %>"></script>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tag %>

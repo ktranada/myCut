@@ -1017,7 +1017,7 @@ i.fa-picture-o {
   width: 375px;
   color: white;
   // background-color: rgba(0,0,0,.65);
-  background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 250%);
   .shop-barbers {
     .fa-caret-down {
       float: left;
@@ -1318,7 +1318,7 @@ ul.barber-container {
 }
 div.review-content {
   display: flex;
-  font-family: "proximanova-regular";
+  font-family: "roboto";
   font-size: 13.3px;
   letter-spacing: 1.2px;
   line-height: 159%;

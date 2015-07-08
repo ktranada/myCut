@@ -104,7 +104,7 @@
 
   preSwap: function(newView) {
     window.$('.index-banner').hide();
-    $('.modal-form') && $('.modal-form').remove();
+    // $('.modal-form') && $('.modal-form').remove();
     this._swapView(newView)
   },
 
