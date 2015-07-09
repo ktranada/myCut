@@ -11,7 +11,6 @@ MyCut.Views.ReviewIndexItem = Backbone.CompositeView.extend({
   render: function(){
     var reviewSubview = this.template({
       review: this.model,
-      author: this.author,
       pictures: this.model.pictures()
     });
     this.$el.html(reviewSubview)

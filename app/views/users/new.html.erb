@@ -8,7 +8,7 @@
         </div>
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
           <div class="form-group">
-            <label class="si-input">USERNAME
+            <label class="si-input">USERNAME<br>
               <input type="text"
                      class="form-control"
                      placeholder=""
@@ -18,7 +18,7 @@
           </div>
 
           <div class="form-group">
-            <label class="si-input" for="email-input">EMAIL
+            <label class="si-input" for="email-input">EMAIL<br>
             <input type="email"
                    class="form-control"
                    id="email-input"
@@ -27,18 +27,17 @@
              </label>
           </div>
           <div class="form-group">
-            <label class="si-input" for="email-password">PASSWORD
+            <label class="si-input" for="email-password">PASSWORD<br>
             <input type="password"
                    class="form-control"
                    name="user[password]"
-                   id="email-password"
-                   placeholder="Password">
+                   id="email-password">
              </label>
           </div>
-          <button class="btn btn-default"id="create-user">CREATE ACCOUNT</button>
+          <button class="confirm"id="create-user">CREATE ACCOUNT</button>
           <br><br>
       </form>
-      <a href="/session/new">HAVE AN ACCOUNT? SIGN IN</a>
+      <a style="color:white;"href="/session/new">HAVE AN ACCOUNT? SIGN IN</a>
       <br><br>
     </div>
   </div>

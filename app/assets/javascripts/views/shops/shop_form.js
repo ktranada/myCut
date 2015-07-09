@@ -3,7 +3,7 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
   events: {
     "submit form": "shopForm",
     "click .upload-button": "upload",
-    "click a.confirm": "shopDelete",
+    "click .delete-shop": "shopDelete",
   },
 
   initialize: function(options){
@@ -45,6 +45,7 @@ MyCut.Views.ShopForm = Backbone.CompositeView.extend({
     var that = this;
     bootbox.confirm("Are you sure you want to delete your shop?", function(result){
       if (result == true){
+        
         that.model.destroy();
         humane.log("Your shop has been deleted.")
         Backbone.history.navigate("", {trigger: true});

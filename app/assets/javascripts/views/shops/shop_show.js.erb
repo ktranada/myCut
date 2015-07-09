@@ -68,6 +68,9 @@ MyCut.Views.ShowShop = Backbone.CompositeView.extend({
   },
 
   render: function(){
+    var that  = this;
+    debugger
+
     var barbers = this.model.barbers();
     var cityStateZip = this.model.get('city') + ", " +
                        this.model.get("state") + " " +
@@ -79,10 +82,15 @@ MyCut.Views.ShowShop = Backbone.CompositeView.extend({
       barbers: barbers,
       cityStateZip: cityStateZip
     });
-
-    this.$el.html(renderedContent)
+    this.$el.html(renderedContent);
+    debugger
+    $(document).ajaxComplete(function(){
+      if (that.model.reviews().length == 0 ){
+        that.$('#load').hide();
+        that.$('.review-items').html("<div class='no-response-filler'>Be the first to leave a review! <br><br><i class='fa fa-pencil-square-o'></i> </div>");
+      }
+    })
     this.attachSubviews();
-
     this.$el.find('.shop.rating').raty({
       score: this.model.attributes.average_rating,
       path: 'assets/raty'
@@ -98,6 +106,7 @@ MyCut.Views.ShowShop = Backbone.CompositeView.extend({
                     ',16/500x500.jpg90?access_token=<%= ENV["MAPBOX_PK"] %>';
       this.$('img.shop-map').attr('src', imgSrc);
       $('.barber-container1').hide();
+
     return this;
   }
 });

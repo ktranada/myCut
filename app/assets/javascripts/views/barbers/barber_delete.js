@@ -3,13 +3,12 @@ MyCut.Views.BarberDelete = Backbone.CompositeView.extend({
   className: "modal-form delete-modal",
 
   events: {
-    "click .cancel-delete": "cancelDelete",
-    "click .confirm-delete": "confirmDelete"
+    "click .cancel": "cancelDelete",
+    "click .confirm": "confirmDelete"
   },
 
   initialize: function(options){
     this.barberView = options.view;
-
   },
 
   cancelDelete: function(){
@@ -17,7 +16,7 @@ MyCut.Views.BarberDelete = Backbone.CompositeView.extend({
   },
 
   confirmDelete: function(){
-    
+
     this.barberView.removeSelectedBarbers();
     this.$el.hide();
   },

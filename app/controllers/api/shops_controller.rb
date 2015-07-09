@@ -15,7 +15,6 @@ module Api
       if @shop.save
         render json: @shop
       else
-        byebug
         render json: @shop.errors.full_messages, status: :unprocessable_entity
       end
     end

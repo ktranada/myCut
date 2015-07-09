@@ -4,13 +4,6 @@
     <div class="errors-container" style="font-size: 20px; font-weight: bold;"><br>
       <br>
     </div>
-    <div class="form-group">
-      <label>PROFILE PICTURE</label><br>
-      <span class="upload-button" name="user[photo_url]"><i class="fa fa-picture-o" style="color: white;"></i></</span>
-    </div>
-    <div class="preview-container-user">
-      <img src="<%= user.escape('photo_url') %>">
-    </div><br>
       <div class="form-group">
         <label class="si-input">Username
           <input type="text"
@@ -28,9 +21,7 @@
                id="email-password">
          </label>
       </div><br>
-      <span class="new-password">Change password</span><br>
-      <br>
-      <br>
+      <span class="new-password">Change password</span>
       <div class="password-container">
         <div class="form-group">
           <label class="si-input" for="email-password">New password
@@ -48,6 +39,14 @@
            </label>
         </div>
       </div>
+      <div class="form-group">
+        <br>
+        <label>PROFILE PICTURE</label><br>
+        <span class="upload-button" name="user[photo_url]"><i class="fa fa-picture-o" style="color: white;"></i></</span>
+      </div>
+      <div class="preview-container-user">
+        <img src="<%= user.escape('photo_url') %>">
+      </div><br>
 
 
       <input  type="submit" class="submit-edit" value="UPDATE ACCOUNT"id=""></input>

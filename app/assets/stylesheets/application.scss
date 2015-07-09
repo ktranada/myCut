@@ -61,6 +61,186 @@
        font-weight: normal;
        font-style: normal;
 }
+
+//////////////
+/* Loader */
+
+#load {
+  position:absolute;
+  width:600px;
+  height:36px;
+  left:50%;
+  top:40%;
+  margin-left:-300px;
+  overflow:visible;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+  cursor:default;
+}
+
+#load div {
+  position:absolute;
+  width:20px;
+  height:36px;
+  opacity:0;
+  font-family:Helvetica, Arial, sans-serif;
+  animation:move 2s linear infinite;
+  -o-animation:move 2s linear infinite;
+  -moz-animation:move 2s linear infinite;
+  -webkit-animation:move 2s linear infinite;
+  transform:rotate(180deg);
+  -o-transform:rotate(180deg);
+  -moz-transform:rotate(180deg);
+  -webkit-transform:rotate(180deg);
+  color: white;
+}
+
+#load div:nth-child(2) {
+  animation-delay:0.2s;
+  -o-animation-delay:0.2s;
+  -moz-animation-delay:0.2s;
+  -webkit-animation-delay:0.2s;
+}
+#load div:nth-child(3) {
+  animation-delay:0.4s;
+  -o-animation-delay:0.4s;
+  -webkit-animation-delay:0.4s;
+  -webkit-animation-delay:0.4s;
+}
+#load div:nth-child(4) {
+  animation-delay:0.6s;
+  -o-animation-delay:0.6s;
+  -moz-animation-delay:0.6s;
+  -webkit-animation-delay:0.6s;
+}
+#load div:nth-child(5) {
+  animation-delay:0.8s;
+  -o-animation-delay:0.8s;
+  -moz-animation-delay:0.8s;
+  -webkit-animation-delay:0.8s;
+}
+#load div:nth-child(6) {
+  animation-delay:1s;
+  -o-animation-delay:1s;
+  -moz-animation-delay:1s;
+  -webkit-animation-delay:1s;
+}
+#load div:nth-child(7) {
+  animation-delay:1.2s;
+  -o-animation-delay:1.2s;
+  -moz-animation-delay:1.2s;
+  -webkit-animation-delay:1.2s;
+}
+
+@keyframes move {
+  0% {
+    left:0;
+    opacity:0;
+  }
+	35% {
+		left: 41%;
+		-moz-transform:rotate(0deg);
+		-webkit-transform:rotate(0deg);
+		-o-transform:rotate(0deg);
+		transform:rotate(0deg);
+		opacity:1;
+	}
+	65% {
+		left:59%;
+		-moz-transform:rotate(0deg);
+		-webkit-transform:rotate(0deg);
+		-o-transform:rotate(0deg);
+		transform:rotate(0deg);
+		opacity:1;
+	}
+	100% {
+		left:100%;
+		-moz-transform:rotate(-180deg);
+		-webkit-transform:rotate(-180deg);
+		-o-transform:rotate(-180deg);
+		transform:rotate(-180deg);
+		opacity:0;
+	}
+}
+
+@-moz-keyframes move {
+	0% {
+		left:0;
+		opacity:0;
+	}
+	35% {
+		left:41%;
+		-moz-transform:rotate(0deg);
+		transform:rotate(0deg);
+		opacity:1;
+	}
+	65% {
+		left:59%;
+		-moz-transform:rotate(0deg);
+		transform:rotate(0deg);
+		opacity:1;
+	}
+	100% {
+		left:100%;
+		-moz-transform:rotate(-180deg);
+		transform:rotate(-180deg);
+		opacity:0;
+	}
+}
+
+@-webkit-keyframes move {
+	0% {
+		left:0;
+		opacity:0;
+	}
+	35% {
+		left:41%;
+		-webkit-transform:rotate(0deg);
+		transform:rotate(0deg);
+		opacity:1;
+	}
+	65% {
+		left:59%;
+		-webkit-transform:rotate(0deg);
+		transform:rotate(0deg);
+		opacity:1;
+	}
+	100% {
+		left:100%;
+		-webkit-transform:rotate(-180deg);
+		transform:rotate(-180deg);
+		opacity:0;
+	}
+}
+
+@-o-keyframes move {
+	0% {
+		left:0;
+		opacity:0;
+	}
+	35% {
+		left:41%;
+		-o-transform:rotate(0deg);
+		transform:rotate(0deg);
+		opacity:1;
+	}
+	65% {
+		left:59%;
+		-o-transform:rotate(0deg);
+		transform:rotate(0deg);
+		opacity:1;
+	}
+	100% {
+		left:100%;
+		-o-transform:rotate(-180deg);
+		transform:rotate(-180deg);
+		opacity:0;
+	}
+}
+
+
 //////////////////////////////////////////////////////////////////
 /* Welcome Page */
 
@@ -348,9 +528,7 @@ nav > li > a:hover, .nav > li > a:focus {
     .user-username {
       font-size: 40px;
       font-weight: 700;
-      font-style: italic;
       text-transform: uppercase;
-      text-decoration: underline;
     }
     .user-email {
       font-size: 20px;
@@ -414,11 +592,13 @@ div.errors-container {
   background-image: url(https://dl.dropboxusercontent.com/s/u0g6entuipw2o2l/tatted_barber.jpg);
   height: 100%;
   .session-container {
-      background-color: rgba(0, 139, 139, 0.7);
-    text-align: center;
-    margin-left: 35%;
-    color: aliceblue;
-    margin-top: 13%;
+    background-color: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      margin-left: 35%;
+      color: aliceblue;
+      margin-top: 13%;
+      border: none;
+      border-radius: 0;
     .errors-container{
         text-align: center;
         font-family: "ProximaNova-Thin";
@@ -431,26 +611,32 @@ div.errors-container {
     }
     .form-control {
       text-align: center;
+      border-radius: 0;
     }
     .session-buttons {
       text-align: center;
-      .guest-login {
-        padding: 5px;
-        border-style: solid;
-        &:hover {
-          cursor: pointer;
-        }
-      }
     }
     .session-register{
       text-align: center;
       a {
-        color: black;
+        color: rgb(54, 215, 183);
         text-decoration: none;
       }
     }
   }
 
+}
+
+.guest-login {
+  padding: 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background-color: rgba(243, 156, 18, .5);
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(243, 156, 18, .9);
+    -webkit-transition: all, 1s;
+  }
 }
 
 .signup {
@@ -462,12 +648,14 @@ div.errors-container {
     }
   }
   .si-input {
-    width: 60%;
+    width: 80%;
+    border-radius: 0;
+    border: none;
   }
 }
 
 label.si-input {
-  width: 70%;
+  width: 100%;
 }
 
 
@@ -644,11 +832,13 @@ text-align: center;
     margin-bottom: 6px;
   }
   .cancel {
-    padding: 10px;
+    padding: 13px;
     color: white;
     background-color: rgba(207, 0, 15,.5);
     &:hover {
       text-decoration: none;
+      background-color: rgba(207, 0, 15,.9);
+      -webkit-transition: all 1s;
     }
   }
   .confirm {
@@ -657,8 +847,12 @@ text-align: center;
     font-family: "proximanova-thin";
     letter-spacing: 3px;
     text-transform: uppercase;
-    padding: 8px;
+    padding: 10px;
     padding-left: 12px;
+    &:hover {
+    -webkit-transition: all 1s;
+    background-color: rgba(101, 198, 187,.9);
+    }
   }
 }
 
@@ -683,6 +877,7 @@ input.form-control.new-shop-input {
   border-width: 0;
   text-align: center;
   color: black;
+  border-radius: 0px;
 }
 
 input#new-shop-name.form-control {
@@ -745,6 +940,7 @@ i.fa-picture-o {
 
   .barber-photos {
     margin: 50px auto;
+    width: 100%;
     display: inline-block;
     .empty-shop {
       margin-left: 500px;
@@ -984,22 +1180,43 @@ i.fa-picture-o {
 
   .barber-create-form{
     margin-top: -300px;
+    color: white;
+    .title {
+      .modal-title {
+        text-decoration: none;
+      }
+    }
     span {
       &:hover {
         cursor: pointer;
+      }
+    }
+    .form-group {
+      .upload-button {
+        .modal-form-category {
+          border-style: none;
+          padding: 10px;
+        }
+      }
+      .form-control {
+        border-radius: 0;
+      }
+      .form-buttons{
+        .create-barber-button {
+       }
       }
     }
   }
   .user-edit-form {
     margin-top: -350px;
     .new-password {
-      color: white;
-  font-size: 25px;
-  letter-spacing: 1px;
-  padding: 10px;
-  background-color: rgba(34, 167, 240, .5);
-  cursor: pointer;
-    }
+    color: white;
+    font-size: 25px;
+    letter-spacing: 1px;
+    padding: 10px;
+    background-color: rgba(34, 167, 240, .5);
+    cursor: pointer;
+      }
 
     .submit-edit {
       border-style: none;
@@ -1024,12 +1241,35 @@ i.fa-picture-o {
     }
   }
 
-
-
-
-
 }
 
+
+
+.confirm {
+  border: none;
+ background-color: rgba(101, 198, 187, 0.5);
+ font-family: "proximanova-thin";
+ letter-spacing: 3px;
+ text-transform: uppercase;
+ padding: 10px;
+ padding-left: 12px;
+ font-style: normal;
+ &:hover {
+   background-color: rgba(101, 198, 187, 0.9);
+  -webkit-transition: all 1s;
+ }
+}
+
+.cancel {
+  padding: 10px;
+  color: white;
+  letter-spacing: 3px;
+  background-color: rgba(207, 0, 15, 0.5);
+  &:hover {
+    background-color: rgba(207, 0, 15, 0.9);
+    -webkit-transition: all 1s;
+  }
+}
 
 
 
@@ -1235,9 +1475,30 @@ div.container-fluid.level-two {
 
   .shop-feature {
     text-align: center;
+    text-align: -webkit-left;
     div {
       display: inline-block;
     }
+  }
+}
+
+.shop-create {
+  /* font-style: normal; */
+  text-transform: uppercase;
+  font-size: initial;
+  font-family: "proximanova-thin";
+  letter-spacing: 2px;
+  background-color: rgba(189, 195, 199, .5);
+  border: none;
+  padding: 10px;
+  color: white;
+  /* margin-top: -8px; */
+  margin-top: -10%;
+  border-radius: 3px;
+  &:hover {
+    background-color: rgba(189, 195, 199, .9);
+    -webkit-transition: all 1s;
+
   }
 }
 
@@ -1328,6 +1589,7 @@ div.container-fluid.level-two {
               }
               .circular {
                 margin-top: 15px;
+                margin-bottom: 20px;
                 float: left;
                 margin-right: 20px;
                 margin-right: 40px;
@@ -1340,6 +1602,11 @@ div.container-fluid.level-two {
                 .user-avatar {
                   width: 100px;
                 }
+              }
+              .review-username {
+                margin: 0 24%;
+                color: white;
+                text-transform: uppercase;
               }
             }
           }

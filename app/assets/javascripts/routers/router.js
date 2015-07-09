@@ -113,7 +113,7 @@
 
   preSwap: function(newView) {
     window.$('.index-banner').hide();
-    // $('.modal-form') && $('.modal-form').remove();
+    $('.modal-form') && $('.modal-form').hide();
     window.$('body').css('overflow', 'visible');
 
     this._swapView(newView)
@@ -124,6 +124,9 @@
     this._currentView = newView;
     this.$main.html(newView.$el);
     newView.render();
+    $('body').ajaxStop(function(){
+      window.$('#load').hide();
+    })
   }
 
 

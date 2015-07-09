@@ -47,7 +47,11 @@
             <li class="preview"><img src="<%= shop.escape('photo_url') %>"></li>
            </ul>
           <br><br>
+          <% if (!shop.isNew()) { %>
+          <a class="cancel" href="#/shops/<%= shop.escape('id') %>"><span>CANCEL</span></a>
+          <% } else { %>
           <a class="cancel" href="#"><span>CANCEL</span></a>
+          <% } %>
           <button type="submit" class="confirm">SUBMIT</button>
 
         </div>

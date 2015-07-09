@@ -1,17 +1,18 @@
 <div class="review-with-side">
   <div class="review-userprofile">
     <div class="review-username-container">
-
       <br><br>
       <span class="barber-review-rating">RATING FOR <span class="barber-name">{ <%= review.escape('barber_name') %> }</span></span><div class="review rating" data-path="assets/images"></div>
-
     </div>
 
     <div class="author-photo">
       <span class="review-date" style="display:block;"><%= review.escape('date') %></span>
+
       <div class="avatar-container circular">
         <img class="user-avatar" src="<%= review.escape('avatar_url') %>">
       </div>
+      <span class="review-username"><%= review.escape('username') %></span>
+
     </div>
   </div>
 

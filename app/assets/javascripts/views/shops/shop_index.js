@@ -25,9 +25,17 @@ MyCut.Views.ShopIndex = Backbone.CompositeView.extend({
   },
 
   render: function(){
+    var that = this;
+    debugger
     var renderedContent = this.template()
     this.$el.html(renderedContent)
     this.attachSubviews();
+    $(document).ajaxComplete(function(){
+      if (that.collection.length == 0 ){
+        that.$('#load').hide();
+        that.$('.no-response-filler').show();
+      }
+    })
     return this;
   }
 
