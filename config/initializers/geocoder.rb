@@ -11,7 +11,7 @@
 #  # :cache_prefix => "geocoder:", # prefix (string) to use for all cache keys
 #  )
 
-Geocoder.configure {
-  lookup: :bing,
-  api_key: ENV['BING_API_KEY']
-}
+# Geocoder.configure {
+#   lookup: :bing,
+#   api_key: ENV['BING_API_KEY']
+# }
