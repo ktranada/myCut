@@ -65,44 +65,6 @@ Users can:
 [views]: ./docs/views.md
 [schema]: ./docs/schema.md
 
-## Implementation Timeline
-
-### Phase 1: User Authentication and Validations (~.5 day)
-User + session authentication through standard Rails 
-practices and a primary static page to host my Backbone application. In addition,
-I will hammer out the initial migrations, models, both DB and model level validations,
-as well as the necessary associations. Pushin' it to heroku.
-
-[Details][phase-one]
-
-### Phase 2a: Creating Shops and Reviews, displaying Shops Index (~3 days)
-I will add API endpoints to serve shop, review, and barber data as JSON,
-then add Backbone models and collections that fetch data from those routes. 
-I will set up the Backbone views so that users will be able to create
-shops, reviews, and be able to see an index of shops side by side with a
-google map view.
-
-[Details][phase-two-a]
-
-### Phase 2b: Showing a shop, its barbers, and reviews. (~1.5 days)
-Create a `Shop` Composite view comprised of: `Review` and `Barber` subviews.
-I will create Backbone routes for writing reviews and for viewing barbers.
-The goal is to had modularity beween the components in order to maximize
-responsiveness.
-
-[Details][phase-two-b]
-
-### Phase 3: Create barber portfolio view  (~.5 day)
-Create a backbone composite view to display a barber's portfolio. 
-
-[Details][phase-three]
-
-### Phase 4: Search for shops (~2 days)
-I'll need to add `search` routes to the Shops controller. On the
-Backbone side, there will be a `SearchResults` composite view has `ShopIndex`
-and `PostsIndex` subviews. These views will use plain old `shop`
-collections, but they will fetch from the new `search` routes.
-[Details][phase-five]
 
 ### Bonus Features (TBD)
 - [x] Enable user creation of tags
