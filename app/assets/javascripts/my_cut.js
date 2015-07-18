@@ -21,11 +21,11 @@ window.MyCut = {
     Backbone.history.start();
 
     $.backstretch([
-       "https://dl.dropboxusercontent.com/s/u0g6entuipw2o2l/tatted_barber.jpg",
-       "https://res.cloudinary.com/mycut/image/upload/v1436295721/undercut-hairstyle-bleach-white-purple-hair-680x478_zdi8hc.jpg",
-       "https://dl.dropboxusercontent.com/s/dlrufec4t0q2kfg/background1.jpg",
-       "https://dl.dropboxusercontent.com/s/kymuc918k7indue/salon1.jpg",
-       "https://dl.dropboxusercontent.com/s/ivri3dnusq3y2f5/short_hair.jpg",
+       "/assets/tatted_barber.jpg",
+       "/assets/purple.jpg",
+       "/assets/background1.jpg",
+       "/assets/salon1.jpg",
+       "/assets/short_hair.jpg",
       //  "https://res.cloudinary.com/mycut/image/upload/v1436217958/backdrop/tumblr_nqkggbFYpR1uyuikbo1_500.jpg"
      ], {duration: 12000, fade: 1000});
 
