@@ -45,7 +45,7 @@ MyCut.Views.ShowShop = Backbone.CompositeView.extend({
   },
 
   createReview: function(){
-    debugger
+    
     Backbone.history.navigate("/shops/" + this.model.get('id') + "/review/new", {trigger: true});
   },
 
@@ -69,7 +69,7 @@ MyCut.Views.ShowShop = Backbone.CompositeView.extend({
 
   render: function(){
     var that  = this;
-    debugger
+    
 
     var barbers = this.model.barbers();
     var cityStateZip = this.model.get('city') + ", " +
@@ -83,7 +83,7 @@ MyCut.Views.ShowShop = Backbone.CompositeView.extend({
       cityStateZip: cityStateZip
     });
     this.$el.html(renderedContent);
-    debugger
+    
     $(document).ajaxComplete(function(){
       if (that.model.reviews().length == 0 ){
         that.$('#load').hide();
