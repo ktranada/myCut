@@ -2,7 +2,7 @@
 
 </div>
 <nav class="navbar navbar-static-top group">
-  <div class="container-fluid" style="  margin-right: -24px;">
+  <div class="container-fluid">
     <div class="row navbar-banner">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -17,23 +17,20 @@
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <div class="col-sm-9 nav-search col-md-9 col-offset-sm-4 pull-left">
           <!-- <div class="nav-search-glass" style="margin-top:16px; float:right;">
             <i class="glyphicon glyphicon-search"></i>
           </div> -->
-          <form class="navbar-form">
-            <div class="input-group">
+          <form class="navbar-form navbar-left search-navi" role="search">
+            <div class="input-group search-group">
               <span class="input-group-addon">Find</span>
               <input type="text" class="form-control" name="des" placeholder="fade, keratin treatment, shaves" id="find-by">
             </div>
-            <div class="input-group">
+            <div class="input-group search-group">
               <span class="input-group-addon">NEAR</span>
               <input type="text" class="form-control" class="search-near" name="loc" value="<%= window.currentLoc %>" id="srch-term">
             </div>
             <button class="btn btn-default query-submit"><i class="glyphicon glyphicon-search"></i></button>
           </form>
-        </div>
-        <div class="navbar-right">
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= window.currentUser %><span class="caret"></span></a>
@@ -44,9 +41,6 @@
                 <li><a class="log-out" href="/session" data-method="delete">Logout</a></li>
               </ul>
             </li>
-          </ul>
-        </div>
-          <ul class="nav navbar-nav navbar-right">
           </ul>
       </div><!-- /.navbar-collapse -->
     </div>
